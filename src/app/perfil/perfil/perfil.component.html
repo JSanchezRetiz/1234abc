@@ -1,0 +1,226 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list>
+        <a *ngFor="let item of usermenu" mat-list-item>
+          <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav logo="assets:covalent" [toolbarTitle]="name" navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span flex></span>
+      <a mat-icon-button matTooltip="Docs" matTooltipPosition="before" href="https://teradata.github.io/covalent/" target="_blank">
+        <mat-icon>chrome_reader_mode</mat-icon>
+      </a>
+    </div>
+    <!-- router outlet goes here -->
+    <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+      <div flex-gt-sm="100">
+        <mat-card style='background:#a7a7a7'>
+          <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+            <img src="./assets/icons/avatar.svg" width="200px">
+            <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+              <mat-card-title style="color: white">Juan David Lopez Garcia</mat-card-title>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-content class="fuente">Consultor de innovacion</mat-card-content>
+                <mat-card-content class="fuente">Bogota</mat-card-content>
+              </div>
+              <div style="margin-bottom: 30px" layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-content class="fuente">Fecha de registro: 21-06-2018</mat-card-content>
+                <mat-card-content class="fuente">Ultima entrada: 26-06-2018</mat-card-content>
+              </div>
+            </div>
+
+          </div>
+          <mat-card>
+            <div class="w3-progress-container">
+              <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
+                <div id="demo" class="w3-center w3-text-white">0%</div>
+              </div>
+            </div>
+            <br>
+
+            <button class="w3-btn w3-dark-grey" onclick="move()">Click Me</button>
+          </mat-card>
+
+
+        </mat-card>
+
+        <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+          <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+            <mat-card-title style="color:orangered">Medallas</mat-card-title>
+            <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">account_circle</i>
+                  <mat-card-content>Medalla 1</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">android</i>
+                  <mat-card-content>Medalla 2</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">bug_report</i>
+                  <mat-card-content>Medalla 3</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">explore</i>
+                  <mat-card-content>Medalla 4</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">delete_forever</i>
+                  <mat-card-content>Medalla 5</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">extension</i>
+                  <mat-card-content>Medalla 6</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">group_work</i>
+                  <mat-card-content>Medalla 7</mat-card-content>
+                </div>
+              </mat-card>
+
+            </div>
+            <!-- <mat-card-subtitle>Recent activity from select members</mat-card-subtitle> -->
+            <!-- <mat-divider></mat-divider> -->
+            <mat-card-title style="color:orangered">Logros profesionales</mat-card-title>
+            <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">favorite</i>
+                  <mat-card-content>Logro 1</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">https</i>
+                  <mat-card-content>Logro 2</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">language</i>
+                  <mat-card-content>Logro 3</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">lock</i>
+                  <mat-card-content>Logro 4</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">perm_contact_calendar</i>
+                  <mat-card-content>Logro 5</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">pets</i>
+                  <mat-card-content>Logro 6</mat-card-content>
+                </div>
+              </mat-card>
+
+
+            </div>
+
+            <!-- <mat-divider></mat-divider> -->
+            <mat-card-actions>
+              <a mat-button color="accent" class="text-upper">
+                <span>View More</span>
+              </a>
+            </mat-card-actions>
+          </mat-card>
+
+          <mat-card flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+
+            <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
+            <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
+
+            <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">shop</i>
+                  <mat-card-content>Medalla 1</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">shopping_basket</i>
+                  <mat-card-content>Medalla 2</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">stars</i>
+                  <mat-card-content>Medalla 3</mat-card-content>
+                </div>
+              </mat-card>
+            </div>
+            <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">theaters</i>
+                  <mat-card-content>Medalla 1</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">verified_user</i>
+                  <mat-card-content>Medalla 2</mat-card-content>
+                </div>
+              </mat-card>
+              <mat-card style='background:#f8f8f8'>
+                <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <i class="material-icons big-size">watch_later</i>
+                  <mat-card-content>Medalla 3</mat-card-content>
+                </div>
+              </mat-card>
+            </div>
+
+            <mat-card-actions style="text-align: center">
+              <a mat-button color="accent" class="text-upper">
+                <span>View More</span>
+              </a>
+            </mat-card-actions>
+          </mat-card>
+
+
+        </div>
+
+      </div>
+    </div>
+    <td-layout-footer>
+      <div layout="row" layout-align="start center">
+        <span class="mat-caption">Copyright &copy; 2017 Teradata. All rights reserved</span>
+      </div>
+    </td-layout-footer>
+  </td-layout-nav>
+</td-layout>

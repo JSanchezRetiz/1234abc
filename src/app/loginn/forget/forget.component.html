@@ -1,0 +1,57 @@
+<div layout="column" style="background-color:#502895" layout-fill>
+  <mat-toolbar color="primary" class="mat-whiteframe-z1">
+    <mat-toolbar-row>
+      <span>Login</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div layout="column" layout-fill>
+    <div class="mat-content" layout-padding flex>
+      <div layout-gt-xs="row" layout-align-gt-xs="center start">
+        <div flex-gt-xs="70">
+          <div class="text-center">
+            <img src="./assets/icons/logo.svg" width="150px">
+          </div>
+          <div class="text-center">
+            <mat-card-title style="color:#ffff;">GAMIFICACION</mat-card-title>
+          </div>
+          <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+            <mat-card-content flex="100" style="color:white;text-align:center;font-size:20px">Introduce tu correo electronico y te enviaremos un link para restablecer la contraseña
+            </mat-card-content>
+            <div flex="100" layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+              <form #loginForm="ngForm">
+                <div layout="row">
+                  <mat-card flex="100" style="width: 100%; background-color:#432874" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                      <mat-form-field style="width: 100%;" flex>
+                        <input matInput #userElement #userControl="ngModel" placeholder="Correo" type="text" maxlength="30" name="email" [(ngModel)]="email"
+                          required>
+                        <span matPrefix>
+                          <mat-icon>person</mat-icon>
+                        </span>
+                        <mat-hint align="start">
+                          <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                        </mat-hint>
+                        <mat-hint align="end">{{userElement.value.length}} / 30</mat-hint>
+                      </mat-form-field>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+                <div layout="row">
+                </div>
+              </form>
+             
+              <mat-card-actions class="text-center" layout="row">
+                  <div layout-gt-sm="row" flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+             
+                  <button style="background-color:#1976D2;color:#ffff; width:200px" flex mat-raised-button [disabled]="!loginForm.form.valid" (click)="forgetPassword()">Verificar</button>
+                    <button style="background-color:#1976D2;color:#ffff;  width:200px" flex mat-raised-button  (click)="Cancelar()">Cancelar</button>
+                  </div>
+                 
+              </mat-card-actions>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
