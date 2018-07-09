@@ -5,4 +5,7 @@ export class userDto {
     score: number;
     idUser: string;
     role: string;
+    creationDate: string;
+    city: string;
+    job: string;
 }
