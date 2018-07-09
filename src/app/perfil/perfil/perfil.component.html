@@ -30,13 +30,13 @@
             <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
               <mat-card-title style="color: white">{{userDto.name}} {{userDto.lastname}}</mat-card-title>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card-content class="fuente">Consultor de innovacion</mat-card-content>
-                <mat-card-content class="fuente">Bogota</mat-card-content>
+                <mat-card-content class="fuente">{{userDto.job}}</mat-card-content>
+                <mat-card-content class="fuente">{{userDto.city}}</mat-card-content>
                 <mat-card-content class="fuente">Nivel de Experiencia: {{userDto.experience}}</mat-card-content>
               </div>
               <div style="margin-bottom: 30px" layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card-content class="fuente">Fecha de registro: 21-06-2018</mat-card-content>
-                <mat-card-content class="fuente">Ultima entrada: 26-06-2018</mat-card-content>
+                <mat-card-content class="fuente">Fecha de registro: {{userDto.creationDate}}</mat-card-content>
+
               </div>
             </div>
 
