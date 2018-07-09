@@ -19,7 +19,7 @@ export class ForgetComponent implements OnInit {
 
 
   Cancelar() {
-    this._router.navigate(["log-in"]);
+    this._router.navigate(["login"]);
   }
 forgetPassword(){
   var email = this.email

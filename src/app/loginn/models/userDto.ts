@@ -5,4 +5,6 @@ export class userDto {
     score: number;
     idUser: string;
     role: string;
+    job: string;
+    email: string;
 }

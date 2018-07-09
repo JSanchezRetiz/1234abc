@@ -17,6 +17,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+    <script>
+        var contador = 0;
+         var desplazamiento = 1; // en porcentaje
+         var myVar;
+          function move() {
+            var elem = document.getElementById("myBar");   
+            var width = 0;
+            var initial = true;
+            var id = setInterval(frame,1000);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+              } else {
+                if(initial == true && width==0){
+                  elem.style.width = width + '%'; 
+                document.getElementById("demo").innerHTML = width * 1  + '%';
+                this.initial=!this.initial;
+                }
+                width=width+10; 
+                elem.style.width = width + '%'; 
+                document.getElementById("demo").innerHTML = width * 1  + '%';
+              }
+            }
+          }
+          </script>
   <qs-app>
     <div style="padding: 20%;text-align:center;">
       <img src="assets/icons/covalent.svg" width="200">

@@ -10,17 +10,20 @@ import {LoginService} from '../../loginn/service/login.service'
 export class PerfilComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
+
   constructor(private loginSVC: LoginService) { }
 
   ngOnInit() {
     this.uidDto= new uidDto();
     this.userDto= new userDto();
+  
     this.getUserData();
   }
 getUserData(){
 this.uidDto.id= localStorage.getItem('uid');
 this.loginSVC.getUserData(this.uidDto).then(res=>{
   this.userDto= res;
+ 
   console.log(this.userDto.name,this.userDto.lastname,this.userDto.experience);
 })
 }

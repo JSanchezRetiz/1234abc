@@ -46,7 +46,7 @@
                         <span [hidden]="!passControl.errors?.required || passControl.pristine" class="tc-red-600">Required</span>
                       </mat-hint>
                       <mat-hint style="font-size:15px;  " align="end">
-                        <a  style="text-decoration: none;color:rgb(80, 78, 78);" (click)="pasar()" routerLink="olvidar-contrasena">¿Has olvidado la contraseña? </a>
+                        <a  style="text-decoration: none;color:rgb(80, 78, 78);" (click)="olvido()">¿Has olvidado la contraseña? </a>
                       </mat-hint>
                     </mat-form-field>
                   </mat-card-content>
@@ -56,7 +56,7 @@
           </mat-card-content>
           <mat-card-actions layout="row">
             <div class="text-center">
-              <button style="background-color:#ff3d00;color:#ffff;" flex mat-raised-button [disabled]="!loginForm.form.valid" (click)="ingresoSimple()">Ingresar</button>
+              <button style="background-color:#ff3d00;color:#ffff; width:200px;" flex mat-raised-button [disabled]="!loginForm.form.valid" (click)="ingresoSimple()">Ingresar</button>
             </div>
           </mat-card-actions>
         </div>

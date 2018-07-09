@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     });
   }
   olvido(){
-    this._router.navigate(['/olvidarContrasena']);
+    this._router.navigate(['olvidarContrasena']);
   }
   ngOnInit() {
   }
