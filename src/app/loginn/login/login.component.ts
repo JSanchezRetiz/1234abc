@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
        this._router.navigate(['/']);
        this._loadingService.resolve();
       } else {
-        this._router.navigate(['/']);
+        this._router.navigate(['/perfil']);
         this._loadingService.resolve();
       }
     }).catch((error) => {

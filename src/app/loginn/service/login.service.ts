@@ -20,7 +20,7 @@ export class LoginService {
             var token = "";
             var userId = userData.user.uid;
             userId = userId.replace(/"/g, "");
-            localStorage.setItem('uid', JSON.stringify(userId));
+            localStorage.setItem('uid',userId);
             name = userData.user.displayName;
             token = userData.user.qa;
             name = name.replace(/"/g, "");
@@ -29,7 +29,7 @@ export class LoginService {
           else {
             console.log("Entrada cuando no ha actualizado datos")
             userId = userId.replace(/"/g, "");
-            localStorage.setItem('uid', JSON.stringify(userId));
+            localStorage.setItem('uid',userId);
             localStorage.setItem('userName', "usuario");
           }
           localStorage.setItem('token', '' + token);
