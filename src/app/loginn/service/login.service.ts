@@ -7,17 +7,12 @@ import { userDto } from '../models/userDto'
 @Injectable()
 export class LoginService {
   serverURL = 'http://localhost:3000/prueba/';
-
-
-
   constructor(private http: Http, private afAuth: AngularFireAuth) {
   }
   simpleLogin(email, password) {
-
     return new Promise((resolve, reject) => {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then((userData) => {
-
           localStorage.setItem('currentUser', JSON.stringify(userData));
           console.log(userData);
           if (userData.user != undefined) {
@@ -38,7 +33,6 @@ export class LoginService {
             localStorage.setItem('userName', "usuario");
           }
           localStorage.setItem('token', '' + token);
-
           resolve(userData);
         })
         .catch((error) => {
@@ -71,5 +65,4 @@ export class LoginService {
     return this.http.post(this.serverURL + 'getUserData', id).toPromise()
       .then(res => <userDto>res.json());
   }
-
 }

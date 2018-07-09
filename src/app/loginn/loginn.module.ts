@@ -24,7 +24,8 @@ import { AngularFireModule } from "angularfire2";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LoginService } from './service/login.service';
 import { ForgetComponent } from './forget/forget.component';
-import { MedalsComponent } from './medals/medals.component'
+import { MedalsComponent } from './medals/medals.component';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   imports: [
@@ -48,7 +49,7 @@ import { MedalsComponent } from './medals/medals.component'
     // external modules
     NgxChartsModule,
   ],
-  declarations: [LoginComponent, ForgetComponent, MedalsComponent],
+  declarations: [LoginComponent, ForgetComponent, MedalsComponent, RegisterComponent],
   providers: [LoginService],
 })
 export class LoginnModule { }
