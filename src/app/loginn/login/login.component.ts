@@ -16,16 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(private _router: Router,
     private _loadingService: TdLoadingService, private loginSVC: LoginService) { }
 
-  login(): void {
-    this._loadingService.register();
-    alert('Mock log in as ' + this.email);
-    setTimeout(() => {
-      this._router.navigate(['/']);
-      this._loadingService.resolve();
-    }, 2000);
-  }
+
   ingresoSimple() {
-    alert(this.email + ":" + this.password)
     this._loadingService.register();
     this.loginSVC.simpleLogin(this.email, this.password).then((userRecord: any) => {
       alert(userRecord.user.displayName+" Bienvenido")

@@ -2,8 +2,13 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AngularFireAuth } from "angularfire2/auth";
+import { uidDto } from '../models/uidDto';
+import { userDto } from '../models/userDto'
 @Injectable()
 export class LoginService {
+  serverURL = 'http://localhost:3000/prueba/';
+
+
 
   constructor(private http: Http, private afAuth: AngularFireAuth) {
   }
@@ -20,7 +25,7 @@ export class LoginService {
             var token = "";
             var userId = userData.user.uid;
             userId = userId.replace(/"/g, "");
-            localStorage.setItem('role', JSON.stringify(userId));
+            localStorage.setItem('uid', JSON.stringify(userId));
             name = userData.user.displayName;
             token = userData.user.qa;
             name = name.replace(/"/g, "");
@@ -36,17 +41,18 @@ export class LoginService {
 
           resolve(userData);
         })
-        .catch((error) => {          alert("Error de inicio de sesion:");
+        .catch((error) => {
+          alert("Error de inicio de sesion:");
 
           console.log(error)
           reject(error)
         })
     });
   }
-  forgetPassword(email){
+  forgetPassword(email) {
     return new Promise((resolve, reject) => {
-      this.afAuth.auth.sendPasswordResetEmail(email).
-        then(() => {
+      this.afAuth.auth.sendPasswordResetEmail(email)
+        .then(() => {
           resolve("Mensaje Enviado Correctamente")
         })
         .catch((error) => {
@@ -54,11 +60,16 @@ export class LoginService {
         })
     })
   }
-  logout(){
+  logout() {
     this.afAuth.auth.signOut();
     localStorage.removeItem('currentUser');
-    localStorage.removeItem('role');
+    localStorage.removeItem('uid');
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
   }
+  getUserData(id: uidDto) {
+    return this.http.post(this.serverURL + 'getUserData', id).toPromise()
+      .then(res => <userDto>res.json());
+  }
+
 }
