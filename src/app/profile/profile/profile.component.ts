@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
 import {LoginService} from '../../login/service/login.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,12 @@ export class ProfileComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
 
-  constructor(private loginSVC: LoginService) { }
+  constructor(private _router: Router, private loginSVC: LoginService) { }
+
+  
+  Ver_mas() {
+    this._router.navigate(["medallas"]);
+  }
 
   ngOnInit() {
     this.uidDto= new uidDto();
