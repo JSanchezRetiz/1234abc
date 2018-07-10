@@ -20,6 +20,7 @@ import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
 import { CovalentLoadingModule } from '@covalent/core/loading';
+import { ChallengesModule } from './challenges/challenges.module';
 
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
@@ -53,7 +54,7 @@ export function getAPI(): string {
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     // MODULES
-   
+    ChallengesModule,
 
     // angular modules
     CommonModule,
