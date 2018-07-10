@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService} from './loginn/service/login.service'
+import { LoginService} from './login/service/login.service'
 @Component({
   selector: 'qs-main',
   templateUrl: './main.component.html',
