@@ -1,3 +1,141 @@
-<p>
-  activities works!
-</p>
+<mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
+  <mat-toolbar-row>
+    <span>Retos</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="fondo" layout-fill>
+  <mat-card fxlayout="row" fxFlex="100" fxShow.gt-sm flex>
+    <div layout="row" layout-xs="column">
+      <div flex="30" class="text-center">
+        <img src="./assets/icons/avatar.svg" width="200px">
+      </div>
+      <div layout="column">
+        <mat-card-title class="titulo">Bryan Delgado</mat-card-title>
+        <mat-card-subtitle class="subtitulo">Cargo: Semillero consultor </mat-card-subtitle>
+
+        <div flex class="barra">
+          <mat-card-content>
+            <div class="w3-progress-container">
+              <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
+                <div id="demo" class="w3-center w3-text-white">0%</div>
+              </div>
+            </div>
+          </mat-card-content>
+          <button class="w3-btn w3-dark-grey" onclick="move()">Click Me</button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <div style="overflow:auto;">
+        <table td-data-table style="width: 100%">
+          <thead>
+            <tr td-data-table-column-row>
+              <th style="background-color:#A8C6D9;color:#003556" td-data-table-column>
+                Actividad
+              </th>
+              <th style="background-color:#A8C6D9;color:#003556" td-data-table-column>
+                Descripcion
+              </th>
+              <th style="background-color:#A8C6D9;color:#003556" td-data-table-column>
+                Estado
+              </th>
+              <th style="background-color:#A8C6D9;color:#003556" td-data-table-column>
+                Detalles
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr td-data-table-row>
+              <td td-data-table-cell>
+                Registrar Horas
+              </td>
+              <td td-data-table-cell>
+                Registrar las horas en la plataforma ctempus
+              </td>
+              <td td-data-table-cell>
+                Vigente
+              </td>
+              <td td-data-table-cell>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+<!-- <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
+  <mat-toolbar-row>
+    <span>Retos</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="fondo">
+  <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+    <div flex-gt-sm="100" layout="row" layout-xs="column">
+      <div flex="20">
+        <img src="./assets/icons/avatar.svg" width="200px">
+      </div>
+      <div flex class="centrado">
+        <div class="w3-progress-container">
+          <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
+            <div id="demo" class="w3-center w3-text-white">0%</div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <button class="w3-btn w3-dark-grey" onclick="move()">Click Me</button>
+  <mat-card flex="100">
+    <div style="overflow:auto;">
+      <mat-card-content>
+        <table td-data-table>
+          <thead>
+            <tr td-data-table-column-row>
+              <th style="background-color:#A8C6D9;color:#003556;font-size:15px;" td-data-table-column>
+                Reto
+              </th>
+              <th style="background-color:#A8C6D9;color:#003556;font-size:15px;" td-data-table-column>
+                Descripción
+              </th>
+              <th style="background-color:#A8C6D9;color:#003556;font-size:15px;" td-data-table-column>
+                Estado
+              </th>
+              <th style="background-color:#A8C6D9;color:#003556;font-size:15px;" td-data-table-column>
+                Detalles
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr td-data-table-row>
+              <td td-data-table-cell>
+
+              </td>
+              <td td-data-table-cell>
+
+              </td>
+              <td td-data-table-cell>
+
+              </td>
+              <td td-data-table-cell>
+
+              </td>
+              <td td-data-table-cell>
+                <button mat-button class="primary" style="background-color: #0277bd; color:white;" (click)="editarProyecto(dato)">
+                  <mat-icon>add_circle</mat-icon>Detalles
+                </button>
+                <button mat-button class="primary" style="background-color: #0277bd; color:white;" (click)="delete(dato)">Eliminar
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div> -->
