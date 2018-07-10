@@ -25,28 +25,46 @@
     <!-- router outlet goes here -->
     <div class="fondo">
       <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-        <div flex-gt-sm="100">
-            <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-              <img src="./assets/icons/avatar.svg" width="200px">
-              <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card-title style="color: white">{{userDto.name}} {{userDto.lastname}}</mat-card-title>
-                <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                  <mat-card-content class="fuente">Consultor semillero </mat-card-content>
-                  <mat-card-content class="fuente">Bogota </mat-card-content>
-                  <mat-card-content class="fuente">Nivel de Experiencia: {{userDto.experience}} </mat-card-content>
-                </div>
-                <div style="margin-bottom: 30px" layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                  <mat-card-content class="fuente">Fecha de registro: 21-06-2018</mat-card-content>
+        <div flex="100">
+          <mat-card flex="100">
+            <div layout-gt-sm="row" layout-xs="column">
+              <div flex="30">
+                <img class="avatar" src="./assets/icons/avatar.svg">
+              </div>
+              <div flex="70">
+                <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+                  <mat-card-title style="color: white">{{userDto.name}} {{userDto.lastname}}</mat-card-title>
+                  <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+
+                    <div flex="30">
+                      <mat-card-content class="fuente">Consultor semillero</mat-card-content>
+                    </div>
+                    <div flex="30">
+                      <mat-card-content class="fuente">Bogota</mat-card-content>
+                    </div>
+                    <div flex="30">
+                      <mat-card-content class="fuente">Nivel de Experiencia: {{userDto.experience}} </mat-card-content>
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 30px" layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                    <mat-card-content class="fuente">Fecha de registro: 21-06-2018</mat-card-content>
+
+                  </div>
                 </div>
               </div>
+
             </div>
-              <div class="w3-progress-container">
-                <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
-                  <div id="demo" class="w3-center w3-text-white">0%</div>
-                </div>
-              </div>
-              <br>
-              <button class="w3-btn w3-dark-grey" onclick="move()">Click Me</button>
+          </mat-card>
+
+          <div class="w3-progress-container">
+            <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
+              <div id="demo" class="w3-center w3-text-white">0%</div>
+            </div>
+          </div>
+          <button class="w3-btn w3-dark-grey" onclick="move()">Click Me</button>
+
+          
           <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
 
             <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
@@ -55,44 +73,44 @@
 
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">account_circle</i>
-                    <mat-card-content>Medalla 1</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/3d-modeling.svg">
+                    <mat-card-content>3d modelo</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">android</i>
-                    <mat-card-content>Medalla 2</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/espada.svg">
+                    <mat-card-content>espada</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">bug_report</i>
-                    <mat-card-content>Medalla 3</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/telefono-inteligente.svg">
+                    <mat-card-content>telefono</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">explore</i>
-                    <mat-card-content>Medalla 4</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/escudo.svg">
+                    <mat-card-content>escudo</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">delete_forever</i>
-                    <mat-card-content>Medalla 5</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/lapiz.svg">
+                    <mat-card-content>lapiz</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">extension</i>
-                    <mat-card-content>Medalla 6</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/musica.svg">
+                    <mat-card-content>musica</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">group_work</i>
-                    <mat-card-content>Medalla 7</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/reproductor-de-peliculas.svg">
+                    <mat-card-content>reproductor</mat-card-content>
                   </div>
                 </mat-card>
 
@@ -104,50 +122,45 @@
 
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">favorite</i>
-                    <mat-card-content>Logro 1</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/divisa.svg">
+                    <mat-card-content>medalla</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">https</i>
-                    <mat-card-content>Logro 2</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/candado.svg">
+                    <mat-card-content>seguridad</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">language</i>
-                    <mat-card-content>Logro 3</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/calendario.svg">
+                    <mat-card-content>calendario</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">lock</i>
-                    <mat-card-content>Logro 4</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/email.svg">
+                    <mat-card-content>email</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">perm_contact_calendar</i>
-                    <mat-card-content>Logro 5</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/gafas.svg">
+                    <mat-card-content>gafas</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">pets</i>
-                    <mat-card-content>Logro 6</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/trofeo.svg">
+                    <mat-card-content>trofeo</mat-card-content>
                   </div>
                 </mat-card>
 
 
               </div>
 
-              <!-- <mat-divider></mat-divider> -->
-              <mat-card-actions>
-                <a mat-button color="accent" class="text-upper">
-                  <span>View More</span>
-                </a>
-              </mat-card-actions>
+
             </mat-card>
 
             <mat-card flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
@@ -159,20 +172,20 @@
 
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">shop</i>
-                    <mat-card-content>Medalla 1</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/wifi.svg">
+                    <mat-card-content>wifi</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">shopping_basket</i>
-                    <mat-card-content>Medalla 2</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/huella-dactilar.svg">
+                    <mat-card-content>huella</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">stars</i>
-                    <mat-card-content>Medalla 3</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/alguacil.svg">
+                    <mat-card-content>estrella</mat-card-content>
                   </div>
                 </mat-card>
               </div>
@@ -180,28 +193,28 @@
 
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">theaters</i>
-                    <mat-card-content>Medalla 1</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/diamante.svg">
+                    <mat-card-content>diamante</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">verified_user</i>
-                    <mat-card-content>Medalla 2</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/energia.svg">
+                    <mat-card-content>rayo</mat-card-content>
                   </div>
                 </mat-card>
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <i class="material-icons big-size">watch_later</i>
-                    <mat-card-content>Medalla 3</mat-card-content>
+                    <img src="../../../assets/icons/Insignia/escudo (1).svg">
+                    <mat-card-content>armas</mat-card-content>
                   </div>
                 </mat-card>
               </div>
 
-              <mat-card-actions style="text-align: center">
-                <a mat-button color="accent" class="text-upper">
-                  <span>View More</span>
-                </a>
+              <mat-card-actions layout="row">
+                <div class="text-center">
+                  <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Ver_mas()">Ver mas</button>
+                </div>
               </mat-card-actions>
             </mat-card>
           </div>
