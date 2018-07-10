@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginnRoutingModule } from './loginn/loginn-routing.module';
-import { LoginnModule } from './loginn/loginn.module';
+import { LoginnRoutingModule } from './login/loginn-routing.module';
+import { LoginnModule } from './login/loginn.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +20,7 @@ import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
 import { CovalentLoadingModule } from '@covalent/core/loading';
+import { ChallengesModule } from './challenges/challenges.module';
 
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
@@ -35,8 +36,7 @@ import { USER_PROVIDER, USERS_API } from './users';
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDialog } from '@angular/material/dialog';
-import { PerfilRoutingModule } from './perfil/perfil-routing.module';
-import { PerfilModule } from './perfil/perfil.module'
+
 const httpInterceptorProviders: Type<any>[] = [
   RequestInterceptor,
 ];
@@ -54,7 +54,7 @@ export function getAPI(): string {
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     // MODULES
-    PerfilModule,
+    ChallengesModule,
 
     // angular modules
     CommonModule,
@@ -93,7 +93,6 @@ export function getAPI(): string {
   providers: [
     LoginnRoutingModule,
     ProfileRoutingModule,
-    PerfilRoutingModule,
     httpInterceptorProviders,
     Title, {
       provide: USERS_API, useFactory: getAPI,
