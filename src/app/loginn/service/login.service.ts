@@ -65,6 +65,4 @@ export class LoginService {
     return this.http.post(this.serverURL + 'getUserData', id).toPromise()
       .then(res => <userDto>res.json());
   }
-
-
 }
