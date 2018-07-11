@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
-import {LoginService} from '../../login/service/login.service'
+import { LoginService } from '../../login/service/login.service'
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,23 +15,23 @@ export class ProfileComponent implements OnInit {
 
   constructor(private _router: Router, private loginSVC: LoginService) { }
 
-  
+
   Ver_mas() {
     this._router.navigate(["medallas"]);
   }
 
   ngOnInit() {
-    this.uidDto= new uidDto();
-    this.userDto= new userDto();
-  
+    this.uidDto = new uidDto();
+    this.userDto = new userDto();
+
     this.getUserData();
   }
-getUserData(){
-this.uidDto.id= localStorage.getItem('uid');
-this.loginSVC.getUserData(this.uidDto).then(res=>{
-  this.userDto= res;
- 
-  console.log(this.userDto.name,this.userDto.lastname,this.userDto.experience);
-})
-}
+  getUserData() {
+    this.uidDto.id = localStorage.getItem('uid');
+    this.loginSVC.getUserData(this.uidDto).then(res => {
+      this.userDto = res;
+
+      console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
+    })
+  }
 }
