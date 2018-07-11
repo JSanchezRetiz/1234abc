@@ -29,6 +29,7 @@ import { environment } from '../../environments/environment';
 import { AngularFireModule } from "angularfire2";
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { StoreComponent } from './store/store.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -70,6 +71,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     // external modules
     NgxChartsModule,
   ],
-  declarations: [RankingComponent, ActivitiesComponent]
+  declarations: [RankingComponent, ActivitiesComponent, StoreComponent]
 })
 export class ChallengesModule { }
