@@ -8,4 +8,5 @@ export class activityDto{
     startTime: string;
     title: string;
     typeScore: string;
+    status: boolean;
 }
