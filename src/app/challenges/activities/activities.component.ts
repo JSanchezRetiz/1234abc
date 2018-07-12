@@ -25,6 +25,7 @@ export class ActivitiesComponent implements OnInit {
   uidDto: uidDto;
   disableClose: boolean;
   allActivity: activityDto[];
+  activity:activityDto;
   
   constructor(private _router: Router, private loginSVC: LoginService, 
      _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, 
@@ -32,11 +33,13 @@ export class ActivitiesComponent implements OnInit {
     this.userDto = new userDto();
     this.uidDto = new uidDto();
     this.allActivity= new Array<activityDto>();
+    
   }
-  openConfirm(): void {
+  openConfirm(dato:activityDto): void {
+  
     const dialogRef = this._dialogRef.open(DetailActivitiesComponent, {
       width: '500px',
-      data: {email: 'elcorreodejohansanchez@gmail.com'}
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
