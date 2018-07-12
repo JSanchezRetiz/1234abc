@@ -3,7 +3,7 @@ import 'rxjs/add/operator/toPromise';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AngularFireAuth } from "angularfire2/auth";
 import { uidDto } from '../models/uidDto';
-import { userDto } from '../models/userDto'
+import { userDto } from '../models/userDto';
 @Injectable()
 export class LoginService {
   serverURL = 'http://localhost:3000/prueba/';
