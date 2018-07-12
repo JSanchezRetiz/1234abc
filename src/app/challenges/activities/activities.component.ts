@@ -22,13 +22,21 @@ export class ActivitiesComponent implements OnInit {
     this.userDto = new userDto();
     this.uidDto = new uidDto();
   }
-  openAlert(): void {
-    this._dialogService.openAlert({message: 'This is how simple it is to create an alert with this wrapper service.',
-      disableClose: true,
+  openConfirm(): void {
+    this._dialogService.openConfirm({
+      message: 'This is how simple it is to create a confirm with this wrapper service. Do you agree?',
+      disableClose: true , // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
-      title: 'Alert', //OPTIONAL, hides if not provided
-      closeButton: 'Close', //OPTIONAL, defaults to 'CLOSE'
-      width: '100%', //OPTIONAL, defaults to 400px
+      title: 'Confirm', //OPTIONAL, hides if not provided
+      cancelButton: 'Disagree', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Agree', //OPTIONAL, defaults to 'ACCEPT'
+      width: '500px', //OPTIONAL, defaults to 400px
+    }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+        // DO SOMETHING
+      } else {
+        // DO SOMETHING ELSE
+      }
     });
   }
   getUserData(){

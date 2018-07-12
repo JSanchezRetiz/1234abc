@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import { ChallengesRoutingModule } from './challenges-routing.module';
 import { RankingComponent } from './ranking/ranking.component';
 import { ActivitiesComponent } from './activities/activities.component';
@@ -33,6 +33,7 @@ import { StoreComponent } from './store/store.component';
 @NgModule({
   imports: [
     CommonModule,
+    CovalentDialogsModule ,
     ChallengesRoutingModule,
     MatButtonModule,
     MatCardModule,
