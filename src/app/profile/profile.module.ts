@@ -20,6 +20,8 @@ import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     CovalentLayoutModule,
     CovalentMediaModule,
     CovalentLoadingModule,
+    MatProgressBarModule,
     
   ],
   declarations: [ProfileComponent]

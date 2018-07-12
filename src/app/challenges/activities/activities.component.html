@@ -35,16 +35,15 @@
                   <div flex="100" class="text-center">
                     <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
                   </div>
-                  <div flex="100" class="text-center">
-                    <div layout="column" layout-xs="column">
-                      <mat-card-subtitle class="fuente">Experiencia</mat-card-subtitle>
-                      <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
-                        <div id="demo" class="w3-center w3-text-white">0%</div>
-                      </div>
-                    </div>
-                    <div>
-                      <button class="w3-btn w3-dark-grey" mat-button onclick="move()">Click Me</button>
-                    </div>
+                 <!-- Barra de progreso -->
+                 <div flex="100">
+                    <mat-card-subtitle class="fuente">Progreso: 80%</mat-card-subtitle>
+                    <section>
+                      <mat-card-content>
+                        <mat-progress-bar color='primary' mode='determinate' value=80>
+                        </mat-progress-bar>
+                      </mat-card-content>
+                    </section>
                   </div>
                 </div>
               </div>
@@ -53,55 +52,41 @@
         </div>
       </div>
       <mat-card flex="100">
-        <mat-card >
+
+        <mat-card>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
               <mat-card-title>Reto</mat-card-title>
             </div>
             <div flex class="text-center">
-              <mat-card-title >Descripción </mat-card-title>
+              <mat-card-title>Descripción </mat-card-title>
             </div>
             <div flex class="text-center">
-              <mat-card-title >Estado </mat-card-title>
+              <mat-card-title>Estado </mat-card-title>
             </div>
             <div flex class="text-center">
-             <mat-card-title>Opciones</mat-card-title>
+              <mat-card-title>Opciones</mat-card-title>
             </div>
           </div>
         </mat-card>
 
-        <mat-card >
+        <mat-card *ngFor="let dato of allActivity">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
-              <mat-card-title class="descripcion">Registrar las horas en Ctempus</mat-card-title>
+              <mat-card-title class="descripcion">{{dato.name}}</mat-card-title>
             </div>
             <div flex class="text-center">
-              <mat-card-title class="descripcion" >Las horas se registraran en la plataforma Ctempus con su respectivas actividades e hitos </mat-card-title>
+              <mat-card-title class="descripcion">{{dato.description}} </mat-card-title>
             </div>
             <div flex class="text-center">
-              <mat-card-title class="descripcion" >Vigente </mat-card-title>
+              <mat-card-title class="descripcion">{{dato.status}} </mat-card-title>
             </div>
             <div flex class="text-center">
-            <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm()">Ver mas</button>
+              <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm()">Ver mas</button>
             </div>
           </div>
         </mat-card>
-        <mat-card >
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title class="descripcion">Capacitación google cloud</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title class="descripcion" > Capacitacion sobre los servicios de google en la nube </mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title class="descripcion" >Vigente </mat-card-title>
-            </div>
-            <div flex class="text-center">
-            <button mat-button class="w3-btn w3-dark-grey" >Ver mas</button>
-            </div>
-          </div>
-        </mat-card>
+
       </mat-card>
     </div>
     <td-layout-footer>

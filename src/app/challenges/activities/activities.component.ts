@@ -12,6 +12,8 @@ import {LoginComponent} from '../../login/login/login.component'
 import { ChallengesService } from '../services/challenges.service'
 import { activityDto } from '../models/activityDto';
 import { all } from '../../../../node_modules/@types/q';
+import { DetailActivitiesComponent } from '../detail-activities/detail-activities.component';
+
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -32,7 +34,7 @@ export class ActivitiesComponent implements OnInit {
     this.allActivity= new Array<activityDto>();
   }
   openConfirm(): void {
-    const dialogRef = this._dialogRef.open(LoginComponent, {
+    const dialogRef = this._dialogRef.open(DetailActivitiesComponent, {
       width: '500px',
       data: {email: 'elcorreodejohansanchez@gmail.com'}
     });
