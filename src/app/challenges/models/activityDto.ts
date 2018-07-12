@@ -9,4 +9,5 @@ export class activityDto{
     title: string;
     typeScore: string;
     status: boolean;
+    id: string;
 }
