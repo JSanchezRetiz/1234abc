@@ -1,114 +1,114 @@
 <td-layout>
-    <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
       <mat-nav-list>
-        <a *ngFor="let item of routes" mat-list-item>
+        <a *ngFor="let item of usermenu" mat-list-item>
           <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
       </mat-nav-list>
-      <div td-navigation-drawer-menu>
-        <mat-nav-list>
-          <a *ngFor="let item of usermenu" mat-list-item>
-            <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
-        </mat-nav-list>
-      </div>
-    </td-navigation-drawer>
-    <td-layout-nav logo="assets:covalent" [toolbarTitle]="name" navigationRoute="/">
-      <button mat-icon-button td-menu-button tdLayoutToggle>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div td-toolbar-content layout="row" layout-align="start center" flex>
-        <span flex></span>
-        <a mat-icon-button matTooltip="Docs" matTooltipPosition="before" href="https://teradata.github.io/covalent/" target="_blank">
-          <mat-icon>chrome_reader_mode</mat-icon>
-        </a>
-      </div>
-      <!-- router outlet goes here -->
-      <div class="fondo">
-        <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-          <div flex="100">
-            <div layout-gt-sm="row" layout-xs="column" class="text-center">
-              <div flex="30" layout-aling="center center">
-                <img class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
-              </div>
-              <mat-card flex="100">
-                <div flex="100">
-                  <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                    <div flex="100" class="text-center">
-                      <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav logo="assets:covalent" [toolbarTitle]="name" navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span flex></span>
+      <a mat-icon-button matTooltip="Docs" matTooltipPosition="before" href="https://teradata.github.io/covalent/" target="_blank">
+        <mat-icon>chrome_reader_mode</mat-icon>
+      </a>
+    </div>
+    <!-- router outlet goes here -->
+    <div class="fondo">
+      <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+        <div flex="100">
+          <div layout-gt-sm="row" layout-xs="column" class="text-center">
+            <div flex="30" layout-aling="center center">
+              <img class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
+            </div>
+            <mat-card flex="100">
+              <div flex="100">
+                <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                  <div flex="100" class="text-center">
+                    <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
+                  </div>
+                  <div flex="100" class="text-center">
+                    <div layout="column" layout-xs="column">
+                      <mat-card-subtitle class="fuente">Experiencia</mat-card-subtitle>
+                      <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
+                        <div id="demo" class="w3-center w3-text-white">0%</div>
+                      </div>
                     </div>
-                    <div flex="100" class="text-center">
-                      <div layout="column" layout-xs="column">
-                        <mat-card-subtitle class="fuente">Experiencia</mat-card-subtitle>
-                        <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
-                          <div id="demo" class="w3-center w3-text-white">0%</div>
-                        </div>
-                      </div>
-                      <div>
-                        <button class="w3-btn w3-dark-grey" mat-button onclick="move()">Click Me</button>
-                      </div>
+                    <div>
+                      <button class="w3-btn w3-dark-grey" mat-button onclick="move()">Click Me</button>
                     </div>
                   </div>
                 </div>
-              </mat-card>
-            </div>
+              </div>
+            </mat-card>
           </div>
         </div>
-        <mat-card flex="100">
-          <mat-card >
-            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-              <div flex class="text-center">
-                <mat-card-title>Reto</mat-card-title>
-              </div>
-              <div flex class="text-center">
-                <mat-card-title >Descripción </mat-card-title>
-              </div>
-              <div flex class="text-center">
-                <mat-card-title >Estado </mat-card-title>
-              </div>
-              <div flex class="text-center">
-               <mat-card-title>Opciones</mat-card-title>
-              </div>
-            </div>
-          </mat-card>
-  
-          <mat-card >
-            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-              <div flex class="text-center">
-                <mat-card-title class="descripcion">Registrar las horas en Ctempus</mat-card-title>
-              </div>
-              <div flex class="text-center">
-                <mat-card-title class="descripcion" >Las horas se registraran en la plataforma Ctempus con su respectivas actividades e hitos </mat-card-title>
-              </div>
-              <div flex class="text-center">
-                <mat-card-title class="descripcion" >Vigente </mat-card-title>
-              </div>
-              <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="openAlert()">Ver mas</button>
-              </div>
-            </div>
-          </mat-card>
-          <mat-card >
-            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-              <div flex class="text-center">
-                <mat-card-title class="descripcion">Capacitación google cloud</mat-card-title>
-              </div>
-              <div flex class="text-center">
-                <mat-card-title class="descripcion" > Capacitacion sobre los servicios de google en la nube </mat-card-title>
-              </div>
-              <div flex class="text-center">
-                <mat-card-title class="descripcion" >Vigente </mat-card-title>
-              </div>
-              <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" >Ver mas</button>
-              </div>
-            </div>
-          </mat-card>
-        </mat-card>
       </div>
-      <td-layout-footer>
-        <div layout="row" layout-align="start center">
-          <span class="mat-caption">Copyright &copy; 2017 Teradata. All rights reserved</span>
-        </div>
-      </td-layout-footer>
-    </td-layout-nav>
-  
-  </td-layout>
+      <mat-card flex="100">
+        <mat-card >
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>Reto</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title >Descripción </mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title >Estado </mat-card-title>
+            </div>
+            <div flex class="text-center">
+             <mat-card-title>Opciones</mat-card-title>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card >
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title class="descripcion">Registrar las horas en Ctempus</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title class="descripcion" >Las horas se registraran en la plataforma Ctempus con su respectivas actividades e hitos </mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title class="descripcion" >Vigente </mat-card-title>
+            </div>
+            <div flex class="text-center">
+            <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm()">Ver mas</button>
+            </div>
+          </div>
+        </mat-card>
+        <mat-card >
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title class="descripcion">Capacitación google cloud</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title class="descripcion" > Capacitacion sobre los servicios de google en la nube </mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title class="descripcion" >Vigente </mat-card-title>
+            </div>
+            <div flex class="text-center">
+            <button mat-button class="w3-btn w3-dark-grey" >Ver mas</button>
+            </div>
+          </div>
+        </mat-card>
+      </mat-card>
+    </div>
+    <td-layout-footer>
+      <div layout="row" layout-align="start center">
+        <span class="mat-caption">Copyright &copy; 2017 Teradata. All rights reserved</span>
+      </div>
+    </td-layout-footer>
+  </td-layout-nav>
+
+</td-layout>
