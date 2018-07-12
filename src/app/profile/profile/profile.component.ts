@@ -13,7 +13,10 @@ export class ProfileComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
 
-  constructor(private _router: Router, private loginSVC: LoginService) { }
+  constructor(private _router: Router, private loginSVC: LoginService) {
+    this.uidDto = new uidDto();
+    this.userDto = new userDto();
+   }
 
 
   Ver_mas() {
@@ -21,8 +24,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.uidDto = new uidDto();
-    this.userDto = new userDto();
+   
 
     this.getUserData();
   }
