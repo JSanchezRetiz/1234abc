@@ -7,53 +7,85 @@ import { LoginService } from '../../login/service/login.service';
 import { Router } from '@angular/router';
 import { uidDto } from '../../login/models/uidDto';
 import { ViewContainerRef } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {LoginComponent} from '../../login/login/login.component'
+import { ChallengesService } from '../services/challenges.service'
+import { activityDto } from '../models/activityDto';
+import { all } from '../../../../node_modules/@types/q';
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.scss'],
-  providers: [LoginService,TdDialogService],
+  providers: [LoginService, TdDialogService, ChallengesService],
 })
 export class ActivitiesComponent implements OnInit {
   userDto: userDto;
-  uidDto:uidDto;
-  disableClose:boolean
-  constructor(private _router: Router, private loginSVC: LoginService,private _dialogService: TdDialogService,private _viewContainerRef: ViewContainerRef) {
+  uidDto: uidDto;
+  disableClose: boolean;
+  allActivity: activityDto[];
+  
+  constructor(private _router: Router, private loginSVC: LoginService, 
+     _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, 
+     private challengesSVC: ChallengesService,private _dialogRef: MatDialog) {
     this.userDto = new userDto();
     this.uidDto = new uidDto();
+    this.allActivity= new Array<activityDto>();
   }
   openConfirm(): void {
+    const dialogRef = this._dialogRef.open(LoginComponent, {
+      width: '500px',
+      data: {email: 'elcorreodejohansanchez@gmail.com'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      
+    });
+  }
+
+  
+  
+    /**
     this._dialogService.openConfirm({
-      message: 'This is how simple it is to create a confirm with this wrapper service. Do you agree?',
+      message: 'ingresar a la actividad',
       disableClose: true , // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
-      title: 'Confirm', //OPTIONAL, hides if not provided
-      cancelButton: 'Disagree', //OPTIONAL, defaults to 'CANCEL'
-      acceptButton: 'Agree', //OPTIONAL, defaults to 'ACCEPT'
+      title: 'Actividad:', //OPTIONAL, hides if not provided
+      //cancelButton: '', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Ingresar a la actividad', //OPTIONAL, defaults to 'ACCEPT'
       width: '500px', //OPTIONAL, defaults to 400px
     }).afterClosed().subscribe((accept: boolean) => {
       if (accept) {
         // DO SOMETHING
+        this._router.navigate(['login']);
       } else {
         // DO SOMETHING ELSE
       }
     });
-  } 
+     */
+  
 
-  getUserData(){
-    this.uidDto.id= localStorage.getItem('uid');
-    this.loginSVC.getUserData(this.uidDto).then(res=>{
-      this.userDto= res;
-     
-      console.log(this.userDto.name,this.userDto.lastname,this.userDto.experience);
+  getUserData() {
+    this.uidDto.id = localStorage.getItem('uid');
+    this.loginSVC.getUserData(this.uidDto).then(res => {
+      this.userDto = res;
+
+      console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
-    }
-    
-    
+  }
+
+
   ngOnInit() {
-        this.getUserData();
-        
+    this.getUserData();
+    this.getAllActivity()
+
+  }
+  public getAllActivity() {
+    alert("consultando todas las actividades")
+    this.challengesSVC.getAllActivy().then(res => {
+     this.allActivity= res;
+     console.log(this.allActivity)
+    })
   }
 
 }
