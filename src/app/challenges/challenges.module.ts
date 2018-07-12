@@ -30,6 +30,7 @@ import { AngularFireModule } from "angularfire2";
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { StoreComponent } from './store/store.component';
+import { DetailActivitiesComponent } from './detail-activities/detail-activities.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -72,6 +73,6 @@ import { StoreComponent } from './store/store.component';
     // external modules
     NgxChartsModule,
   ],
-  declarations: [RankingComponent, ActivitiesComponent, StoreComponent]
+  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent]
 })
 export class ChallengesModule { }
