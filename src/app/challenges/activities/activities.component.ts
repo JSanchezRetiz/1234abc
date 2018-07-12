@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { uidDto } from '../../login/models/uidDto';
 import { ViewContainerRef } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -38,7 +39,8 @@ export class ActivitiesComponent implements OnInit {
         // DO SOMETHING ELSE
       }
     });
-  }
+  } 
+
   getUserData(){
     this.uidDto.id= localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res=>{
