@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { uidDto } from '../../login/models/uidDto';
 import { ViewContainerRef } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -23,14 +24,16 @@ export class ActivitiesComponent implements OnInit {
     this.uidDto = new uidDto();
   }
   openAlert(): void {
-    this._dialogService.openAlert({message: 'This is how simple it is to create an alert with this wrapper service.',
-      disableClose: true,
+    this._dialogService.openAlert({
+      message: 'This is how simple it is to create an alert with this wrapper service.',
+      disableClose: true, // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
       title: 'Alert', //OPTIONAL, hides if not provided
       closeButton: 'Close', //OPTIONAL, defaults to 'CLOSE'
-      width: '100%', //OPTIONAL, defaults to 400px
+      width: '400px', //OPTIONAL, defaults to 400px
     });
-  }
+  } 
+
   getUserData(){
     this.uidDto.id= localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res=>{
