@@ -36,13 +36,15 @@ export class ActivitiesComponent implements OnInit {
     
   }
   openConfirm(dato:activityDto): void {
-  
+  console.log(dato.id);
+  localStorage.setItem('idActivity', ""+dato.id)
     const dialogRef = this._dialogRef.open(DetailActivitiesComponent, {
       width: '500px',
-      data: {}
+      data: {data: dato}
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      localStorage.removeItem('idActivity');
       console.log('The dialog was closed', result);
       
     });
