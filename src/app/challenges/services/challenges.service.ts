@@ -5,6 +5,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
 import { activityDto } from '../models/activityDto';
+import { activitiesScoreDto } from '../models/activitiesScoreDto';
 @Injectable()
 export class ChallengesService {
 
@@ -20,5 +21,9 @@ export class ChallengesService {
     return this.http.post(this.serverURL + 'getActivity', id).toPromise()
       .then(res => <any>res.json())
 
+  }
+  public getAllScoreByActivity(activityId: activitiesScoreDto) {
+    return this.http.post(this.serverURL + 'getAllScoreByActivity', activityId).toPromise()
+      .then(res => <any>res.json())
   }
 }
