@@ -4,7 +4,7 @@ import { ITdDataTableColumn } from '@covalent/core/data-table';
 import { TdDialogService } from '@covalent/core/dialogs';
 import { userDto } from '../../login/models/userDto';
 import { LoginService } from '../../login/service/login.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 import { uidDto } from '../../login/models/uidDto';
 import { ViewContainerRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -26,6 +26,7 @@ export class ActivitiesComponent implements OnInit {
   disableClose: boolean;
   allActivity: activityDto[];
   activity:activityDto;
+
   
   constructor(private _router: Router, private loginSVC: LoginService, 
      _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, 
@@ -49,9 +50,14 @@ export class ActivitiesComponent implements OnInit {
       
     });
   }
-
-  
-  
+  pasarDatos(activity:activityDto){
+    let NavigationExtras: NavigationExtras = {
+      queryParams: {
+        "activities": JSON.stringify(activity),
+      }
+    };
+    this._router.navigate(["ranking"], NavigationExtras);
+  }
     /**
     this._dialogService.openConfirm({
       message: 'ingresar a la actividad',

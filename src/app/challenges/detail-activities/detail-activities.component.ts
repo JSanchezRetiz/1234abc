@@ -5,6 +5,7 @@ import { ViewContainerRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { activityDto } from '../models/activityDto';
 import {ChallengesService} from '../services/challenges.service';
+import { ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-detail-activities',
@@ -16,7 +17,7 @@ export class DetailActivitiesComponent implements OnInit {
 activitySend:activityDto;
 activity:activityDto;
 
-  constructor(private dialog:TdDialogService, public dialogRef:MatDialogRef<DetailActivitiesComponent>, private challengesSVC:ChallengesService) {
+  constructor(private dialog:TdDialogService, public dialogRef:MatDialogRef<DetailActivitiesComponent>, private challengesSVC:ChallengesService,private _router: Router,private route: ActivatedRoute) {
     this.activitySend= new activityDto();
     this.activity= new activityDto();
    }
@@ -35,6 +36,7 @@ this.challengesSVC.getActivity(this.activitySend).then(res=>{
 })
 }
   ngOnInit() {
+   
 var id= localStorage.getItem('idActivity');
    this.getActivity(id);
   }

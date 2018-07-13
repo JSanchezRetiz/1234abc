@@ -5,203 +5,198 @@
         <span style=color:white>Ranking</span>
       </mat-toolbar-row>
     </mat-toolbar>
-
     <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
       <mat-card-title style="color:orangered; text-align: center; font-size:40px">RANKING</mat-card-title>
-
-
-
-      <mat-card style="background:#ff6800">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar1.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Natalia Lopez </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">50 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/oro.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ff9100">
+      <mat-card *ngFor="let lista of activitiesScore" style="background:#ff6800">
         <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
           <div flex class="text-center">
             <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="90px">
           </div>
           <div flex class="text-center">
-            <mat-card-content class="fuente">Bryan Delgado </mat-card-content>
+            <mat-card-content class="fuente">{{lista.userName}} </mat-card-content>
           </div>
           <div flex class="text-center">
-            <mat-card-content class="fuente">45 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/plata.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffab40">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar2.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Carolina Sanchez </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">40 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/bronce.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar3.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Maria Diaz </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">35 Pts </mat-card-content>
+            <mat-card-content class="fuente">{{lista.score}} Puntos</mat-card-content>
           </div>
           <div flex class="text-center">
             <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
           </div>
         </div>
       </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar4.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Felipe Zamudio </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">30 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar5.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Michael Gallego </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">25 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar6.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Arturo Ardila </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">20 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar7.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Mateo Ojeda </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">15 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar8.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Xosed Peñaloza </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">10 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card style="background:#ffd180">
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <div flex class="text-center">
-            <img src="../../../assets/icons/UserAvatar/UserAvatar9.svg" width="90px">
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">Johan Sanchez </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <mat-card-content class="fuente">5 Pts </mat-card-content>
-          </div>
-          <div flex class="text-center">
-            <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
-          </div>
-        </div>
-      </mat-card>
-
       <mat-card-actions layout="row">
         <div class="text-center">
           <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
         </div>
       </mat-card-actions>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- 
+      <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">RANKING</mat-card-title>
+          <mat-card style="background:#ff6800">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar1.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Natalia Lopez </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">50 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/oro.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ff9100">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Bryan Delgado </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">45 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/plata.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffab40">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar2.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Carolina Sanchez </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">40 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/bronce.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar3.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Maria Diaz </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">35 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar4.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Felipe Zamudio </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">30 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar5.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Michael Gallego </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">25 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar6.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Arturo Ardila </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">20 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar7.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Mateo Ojeda </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">15 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar8.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Xosed Peñaloza </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">10 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card style="background:#ffd180">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar9.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Johan Sanchez </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">5 Pts </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <img src="../../../assets/icons/Medals/medalla.svg" width="90px">
+              </div>
+            </div>
+          </mat-card>
+          <mat-card-actions layout="row">
+            <div class="text-center">
+              <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+            </div>
+          </mat-card-actions> -->
     </mat-card>
-
     <br>
     <br>
     <br>
