@@ -26,8 +26,8 @@
       <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
         <div flex="100">
           <div layout-gt-sm="row" layout-xs="column" class="text-center">
-            <div flex="30" layout-aling="center center">
-              <img class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
+            <div flex="30" layout-align-xs="center center">
+              <img  class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
             </div>
             <mat-card flex="100">
               <div flex="100">
@@ -52,7 +52,6 @@
         </div>
       </div>
       <mat-card flex="100">
-
         <mat-card>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
@@ -69,7 +68,6 @@
             </div>
           </div>
         </mat-card>
-
         <mat-card *ngFor="let dato of allActivity">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
@@ -86,7 +84,6 @@
             </div>
           </div>
         </mat-card>
-
       </mat-card>
     </div>
     <td-layout-footer>
@@ -95,5 +92,4 @@
       </div>
     </td-layout-footer>
   </td-layout-nav>
-
 </td-layout>
