@@ -26,9 +26,9 @@ activity:activityDto;
     this.dialogRef.close('cerrar');
   }
 getActivity(id:string){
-  alert("mensaje"+id);
+  
 this.activitySend.id= id
-alert("mensaje"+id);
+
 this.challengesSVC.getActivity(this.activitySend).then(res=>{
   this.activity= res;
   console.log("mensaje",res.name);
