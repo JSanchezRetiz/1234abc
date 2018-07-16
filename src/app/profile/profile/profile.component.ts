@@ -5,7 +5,6 @@ import { LoginService } from '../../login/service/login.service';
 import { Router } from '@angular/router';
 import { TdLoadingService } from '@covalent/core/loading';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -15,6 +14,22 @@ export class ProfileComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
   creationDate:Date;
+
+  routes: Object[] = [{
+    title: 'Dashboard',
+    route: '/',
+    icon: 'dashboard',
+  }, {
+    title: 'Manage Users',
+    route: '/users',
+    icon: 'people',
+  },
+  {
+    title: 'Mi Perfil',
+    route: '/perfil',
+    icon: 'people',
+  },
+  ];
 
  
 
