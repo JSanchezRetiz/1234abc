@@ -13,6 +13,7 @@ import { ChallengesService } from '../services/challenges.service'
 import { activityDto } from '../models/activityDto';
 import { all } from '../../../../node_modules/@types/q';
 import { DetailActivitiesComponent } from '../detail-activities/detail-activities.component';
+import { TdLoadingService } from '@covalent/core/loading';
 
 @Component({
   selector: 'app-activities',
@@ -30,7 +31,7 @@ export class ActivitiesComponent implements OnInit {
   
   constructor(private _router: Router, private loginSVC: LoginService, 
      _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, 
-     private challengesSVC: ChallengesService,private _dialogRef: MatDialog) {
+     private challengesSVC: ChallengesService,private _dialogRef: MatDialog, private _loadingService: TdLoadingService) {
     this.userDto = new userDto();
     this.uidDto = new uidDto();
     this.allActivity= new Array<activityDto>();
@@ -79,9 +80,11 @@ export class ActivitiesComponent implements OnInit {
   
 
   getUserData() {
+    this._loadingService.register();
     this.uidDto.id = localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
+      this._loadingService.resolve();
 
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
@@ -89,14 +92,16 @@ export class ActivitiesComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.getUserData();
     this.getAllActivity()
 
   }
   public getAllActivity() {
-    alert("consultando todas las actividades")
+    this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
      this.allActivity= res;
+     this._loadingService.resolve();
      console.log(this.allActivity)
     })
   }
