@@ -4,8 +4,6 @@
       <span style=color:white>Registro</span>
     </mat-toolbar-row>
   </mat-toolbar>
-
-
   <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
     <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
       <div flex="50" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
@@ -16,9 +14,7 @@
       <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
         <form #loginForm="ngForm">
           <div flex>
-
             <mat-card-content flex="100" style="color:#ff3d00;text-align:center;font-size:25px">REGISTRATE</mat-card-content>
-
 <!-- Campo nombre -->
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
@@ -35,7 +31,6 @@
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
-
 <!-- campo apellido -->
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
@@ -52,7 +47,6 @@
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
-
 <!-- campo cargo -->
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
@@ -69,7 +63,22 @@
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
-
+            <!-- campo ciudad-->
+            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <mat-form-field style="width: 100%;" flex>
+                  <input matInput #userCity #userControl="ngModel" placeholder="Ciudad" type="text" maxlength="40" name="ciudad" [(ngModel)]="userDto.city"
+                    required>
+                  <span matPrefix>
+                    <mat-icon>person</mat-icon>
+                  </span>
+                  <mat-hint align="start">
+                    <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                  </mat-hint>
+                  <mat-hint align="end">{{userCity.value.length}} / 40</mat-hint>
+                </mat-form-field>
+              </mat-card-content>
+            </mat-card>
 <!-- campo experiencia -->
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
@@ -86,7 +95,6 @@
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
-
  <!-- campo correo -->
             <mat-card flex="100" style=" background-color:#ffd0b0;" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
@@ -103,7 +111,6 @@
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
-
 <!-- campo contraseña -->
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
@@ -116,11 +123,9 @@
                   <mat-hint align="start">
                     <span [hidden]="!passControl.errors?.required || passControl.pristine" class="tc-red-600">Required</span>
                   </mat-hint>
-
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
-
           </div>
           <mat-card-actions class="text-center" layout="row">
             <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
@@ -131,17 +136,9 @@
                 <button style="background-color:#ff3d00;color:#ffff; width:50px;" flex mat-raised-button
                 (click)="volver()">Cancelar</button>
             </div>
-
           </mat-card-actions>
-
-
-
         </form>
-
       </mat-card-content>
-
-
-
     </div>
   </mat-card>
 

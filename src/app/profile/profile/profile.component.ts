@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
-import { LoginService } from '../../login/service/login.service'
+import { LoginService } from '../../login/service/login.service';
 import { Router } from '@angular/router';
 import { TdLoadingService } from '@covalent/core/loading';
 
@@ -13,12 +13,14 @@ import { TdLoadingService } from '@covalent/core/loading';
 export class ProfileComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
+  creationDate:Date;
 
  
 
   constructor(private _router: Router, private loginSVC: LoginService, private _loadingService:TdLoadingService) {
     this.uidDto = new uidDto();
     this.userDto = new userDto();
+   
    }
 
 
@@ -36,6 +38,7 @@ export class ProfileComponent implements OnInit {
     this.uidDto.id = localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
+      this._loadingService.resolve();
 
       this._loadingService.resolve();
 
