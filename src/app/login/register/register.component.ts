@@ -6,6 +6,14 @@ import { uidDto } from '../models/uidDto';
 import {AdminServiceService} from '../../admin/services/admin-service.service';
 
 
+
+
+export interface Rol {
+  value: string;
+  viewValue: string;
+}
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,6 +24,13 @@ export class RegisterComponent implements OnInit {
 
   userDto: userDto;
   uidDto:  uidDto;
+
+  rols: Rol[] = [
+    {value: 'Usuario-0', viewValue: 'Usuario'},
+    {value: 'Coordinador-1', viewValue: 'Coordinador'},
+    {value: 'Administrador-2', viewValue: 'Administrador'}
+  ];
+
 
   constructor( private loginSVC:LoginService, private _router: Router, private adminSVC:AdminServiceService) {
 

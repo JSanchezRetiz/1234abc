@@ -18,7 +18,7 @@ export class MainComponent {
     icon: 'people',
   },
   {
-    title: 'Mi Perfil',
+    title: 'Perfil',
     route: '/perfil',
     icon: 'people',
   },

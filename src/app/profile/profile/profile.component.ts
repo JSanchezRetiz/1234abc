@@ -18,25 +18,21 @@ export class ProfileComponent implements OnInit {
   routes: Object[] = [{
     title: 'Dashboard',
     route: '/',
-    icon: 'dashboard',
+    icon: 'medallas',
   }, {
     title: 'Manage Users',
     route: '/users',
     icon: 'people',
   },
   {
-    title: 'Mi Perfil',
+    title: 'perfil',
     route: '/perfil',
     icon: 'people',
   },
   ];
-
- 
-
   constructor(private _router: Router, private loginSVC: LoginService, private _loadingService:TdLoadingService) {
     this.uidDto = new uidDto();
     this.userDto = new userDto();
-   
    }
    logout(): void {
     var rta = false;
@@ -49,14 +45,10 @@ export class ProfileComponent implements OnInit {
     this._router.navigate(['/perfil']);
     }
   }
-
   Ver_mas() {
     this._router.navigate(["medallas"]);
   }
-
   ngOnInit() {
-   
-
     this.getUserData();
   }
   getUserData() {
@@ -65,9 +57,7 @@ export class ProfileComponent implements OnInit {
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
       this._loadingService.resolve();
-
       this._loadingService.resolve();
-
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
   }
