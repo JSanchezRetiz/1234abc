@@ -5,6 +5,7 @@ import { LoginService } from '../../login/service/login.service';
 import { Router } from '@angular/router';
 import { TdLoadingService } from '@covalent/core/loading';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -22,7 +23,17 @@ export class ProfileComponent implements OnInit {
     this.userDto = new userDto();
    
    }
-
+   logout(): void {
+    var rta = false;
+    rta = confirm("Desea Cerrar Sesion")
+    if (rta == true) {
+      this.loginSVC.logout();
+      this._router.navigate(['/login'])
+    }
+    else{
+    this._router.navigate(['/perfil']);
+    }
+  }
 
   Ver_mas() {
     this._router.navigate(["medallas"]);

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {MainComponent}from '../profile/Main/main.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -41,6 +41,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressBarModule,
     
   ],
-  declarations: [ProfileComponent]
+  declarations: [ProfileComponent,MainComponent]
 })
 export class ProfileModule { }
