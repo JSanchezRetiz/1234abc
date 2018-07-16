@@ -38,12 +38,12 @@
                       <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
                     </div>
                     <div flex="100">
-                      <mat-card-subtitle class="fuente">Consultor semillero</mat-card-subtitle>
+                      <mat-card-subtitle class="fuente">{{userDto.job}}</mat-card-subtitle>
                     </div>
                   </div>
                   <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
                     <div flex="100">
-                      <mat-card-subtitle class="fuente">Fecha de registro: 21-06-2018</mat-card-subtitle>
+                      <mat-card-subtitle class="fuente">Fecha de registro: {{userDto.creationDate | date:'MMM / dd / y'}}</mat-card-subtitle>
                     </div>
                     <div flex="100">
                       <mat-card-subtitle class="fuente">Nivel de Experiencia: {{userDto.experience}} </mat-card-subtitle>
@@ -51,7 +51,7 @@
                   </div>
                   <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
                     <div flex="100">
-                      <mat-card-subtitle class="fuente">Bogota</mat-card-subtitle>
+                      <mat-card-subtitle class="fuente">{{userDto.city}}</mat-card-subtitle>
                     </div>
 
                     <!-- Barra de progreso -->

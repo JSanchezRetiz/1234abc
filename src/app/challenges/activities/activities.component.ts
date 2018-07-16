@@ -94,7 +94,7 @@ export class ActivitiesComponent implements OnInit {
 
   }
   public getAllActivity() {
-    alert("consultando todas las actividades")
+ 
     this.challengesSVC.getAllActivy().then(res => {
      this.allActivity= res;
      console.log(this.allActivity)
