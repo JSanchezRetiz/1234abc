@@ -1,33 +1,33 @@
 <td-layout>
   <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
     <mat-nav-list>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
       <a *ngFor="let item of routes" mat-list-item>
         <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
     </mat-nav-list>
     <div td-navigation-drawer-menu>
-      <mat-nav-list>
-        <a *ngFor="let item of usermenu" mat-list-item>
-          <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      <mat-nav-list td-navigation-drawer-menu>
+        <a mat-list-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Sign out</a>
       </mat-nav-list>
     </div>
   </td-navigation-drawer>
-  <td-layout-nav logo="assets:covalent" [toolbarTitle]="name" navigationRoute="/">
+  <td-layout-nav navigationRoute="/">
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
-    <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <div td-toolbar-content layout="row" layout-align="center center" flex>
+      <span>Actividades</span>
       <span flex></span>
-      <a mat-icon-button matTooltip="Docs" matTooltipPosition="before" href="https://teradata.github.io/covalent/" target="_blank">
-        <mat-icon>chrome_reader_mode</mat-icon>
-      </a>
     </div>
     <!-- router outlet goes here -->
-    <div class="fondo">
+    <div style="background-color:#ff7539" layout-fill>
       <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
         <div flex="100">
           <div layout-gt-sm="row" layout-xs="column" class="text-center">
             <div flex="30" layout-align-xs="center center">
-              <img  class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
+              <img class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
             </div>
             <mat-card flex="100">
               <div flex="100">
@@ -35,8 +35,8 @@
                   <div flex="100" class="text-center">
                     <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
                   </div>
-                 <!-- Barra de progreso -->
-                 <div flex="100">
+                  <!-- Barra de progreso -->
+                  <div flex="100">
                     <mat-card-subtitle class="fuente">Progreso: 80%</mat-card-subtitle>
                     <section>
                       <mat-card-content>

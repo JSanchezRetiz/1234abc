@@ -13,50 +13,49 @@ import { TdLoadingService } from '@covalent/core/loading';
 export class ProfileComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
-  creationDate:Date;
+  creationDate: Date;
 
-  routes: Object[] = [{
-    title: 'Dashboard',
-    route: '/',
-    icon: 'dashboard',
-  }, {
-    title: 'Manage Users',
-    route: '/users',
-    icon: 'people',
-  },
-  {
-    title: 'Mi Perfil',
-    route: '/perfil',
+  ruta: Object[] = [{
+    //   title: 'Dashboard',
+    //   route: '/dashboard',
+    //   icon: 'medallas',
+    // }, {
+    //   title: 'Manage Users',
+    //   route: '/users',
+    //   icon: 'people',
+    // },
+    // {
+    title: 'medallas',
+    route: '/medallas',
     icon: 'people',
   },
   ];
-
- 
-
-  constructor(private _router: Router, private loginSVC: LoginService, private _loadingService:TdLoadingService) {
+  constructor(private _router: Router, private loginSVC: LoginService, private _loadingService: TdLoadingService) {
     this.uidDto = new uidDto();
     this.userDto = new userDto();
-   
-   }
-   logout(): void {
+  }
+  logout(): void {
     var rta = false;
     rta = confirm("Desea Cerrar Sesion")
     if (rta == true) {
       this.loginSVC.logout();
       this._router.navigate(['/login'])
     }
-    else{
-    this._router.navigate(['/perfil']);
+    else {
+      this._router.navigate(['/perfil']);
     }
   }
+
+  perfil() {
+    this._router.navigate(['actividades']);
+  }
+
+
 
   Ver_mas() {
     this._router.navigate(["medallas"]);
   }
-
   ngOnInit() {
-   
-
     this.getUserData();
   }
   getUserData() {
@@ -65,9 +64,7 @@ export class ProfileComponent implements OnInit {
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
       this._loadingService.resolve();
-
       this._loadingService.resolve();
-
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
   }

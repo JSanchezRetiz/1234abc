@@ -25,7 +25,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LoginService } from './service/login.service';
 import { ForgetComponent } from './forget/forget.component';
 import { MedalsComponent } from './medals/medals.component';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -38,6 +40,7 @@ import { RegisterComponent } from './register/register.component'
     MatDividerModule,
     MatInputModule,
     MatToolbarModule,
+    MatSelectModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,
