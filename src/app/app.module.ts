@@ -21,6 +21,8 @@ import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
 import { CovalentLoadingModule } from '@covalent/core/loading';
 import { ChallengesModule } from './challenges/challenges.module';
+import { CoordinatorModule } from './coordinator/coordinator.module';
+import { CoordinatorRoutingModule } from './coordinator/coordinator-routing.module';
 
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
@@ -67,6 +69,8 @@ export function getAPI(): string {
     HttpClientModule,
     HttpModule,
     LoginnRoutingModule,
+    CoordinatorModule,
+    CoordinatorRoutingModule,
     // material modules
     MatButtonModule,
     MatCardModule,
