@@ -6,6 +6,7 @@ import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
 import { activityDto } from '../models/activityDto';
 import { activitiesScoreDto } from '../models/activitiesScoreDto';
+import {scoreActivity} from '../models/scoreActivity';
 @Injectable()
 export class ChallengesService {
 
@@ -20,10 +21,13 @@ export class ChallengesService {
   public getActivity(id: activityDto) {
     return this.http.post(this.serverURL + 'getActivity', id).toPromise()
       .then(res => <any>res.json())
-
   }
   public getAllScoreByActivity(activityId: activitiesScoreDto) {
     return this.http.post(this.serverURL + 'getAllScoreByActivity', activityId).toPromise()
       .then(res => <any>res.json())
+  }
+  public registerScore(score:scoreActivity ){
+    return this.http.post(this.serverURL + 'registerScore', score).toPromise().
+    then(res=> <any>res.json())
   }
 }
