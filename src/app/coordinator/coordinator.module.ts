@@ -16,6 +16,7 @@ import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { CoordinatingActivityComponent } from './coordinating-activity/coordinating-activity.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,6 @@ import { CoordinatingActivityComponent } from './coordinating-activity/coordinat
     CovalentMediaModule,
     CovalentLoadingModule,
   ],
-  declarations: [CoordinatingActivityComponent]
+  declarations: [CoordinatingActivityComponent, EditComponent]
 })
 export class CoordinatorModule { }
