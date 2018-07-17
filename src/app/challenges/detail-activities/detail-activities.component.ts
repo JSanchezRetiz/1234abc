@@ -24,6 +24,7 @@ score:scoreActivity;
     this.activitySend= new activityDto();
     this.activity= new activityDto();
     this.score = new scoreActivity();
+
    }
 
    Participar(): void {
@@ -36,8 +37,6 @@ score:scoreActivity;
       width: '400px', //OPTIONAL, defaults to 400px
     });
   }
-
-
   cerrar(){
     this.dialogRef.close('cerrar');
   }
@@ -59,6 +58,5 @@ score:scoreActivity;
       score=res;
       console.log("mensaje", res);
     })
-
   }
 }
