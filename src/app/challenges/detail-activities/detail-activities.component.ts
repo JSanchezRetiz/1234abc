@@ -17,10 +17,21 @@ export class DetailActivitiesComponent implements OnInit {
 activitySend:activityDto;
 activity:activityDto;
 
-  constructor(private dialog:TdDialogService, public dialogRef:MatDialogRef<DetailActivitiesComponent>, private challengesSVC:ChallengesService,private _router: Router,private route: ActivatedRoute) {
+  constructor(private dialog:TdDialogService, public dialogRef:MatDialogRef<DetailActivitiesComponent>, private challengesSVC:ChallengesService,private _router: Router,private route: ActivatedRoute, private _viewContainerRef: ViewContainerRef) {
     this.activitySend= new activityDto();
     this.activity= new activityDto();
    }
+
+   Participar(): void {
+    this.dialog.openAlert({
+      message: 'Ahora estas participando en esta actividad. ¡buena suerte!',
+      disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+      title: 'Atencion:', //OPTIONAL, hides if not provided
+      closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
+      width: '400px', //OPTIONAL, defaults to 400px
+    });
+  }
 
 
   cerrar(){

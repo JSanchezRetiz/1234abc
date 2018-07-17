@@ -13,38 +13,45 @@ import { TdLoadingService } from '@covalent/core/loading';
 export class ProfileComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
-  creationDate:Date;
+  creationDate: Date;
 
-  routes: Object[] = [{
-    title: 'Dashboard',
-    route: '/',
-    icon: 'medallas',
-  }, {
-    title: 'Manage Users',
-    route: '/users',
-    icon: 'people',
-  },
-  {
-    title: 'perfil',
-    route: '/perfil',
+  ruta: Object[] = [{
+    //   title: 'Dashboard',
+    //   route: '/dashboard',
+    //   icon: 'medallas',
+    // }, {
+    //   title: 'Manage Users',
+    //   route: '/users',
+    //   icon: 'people',
+    // },
+    // {
+    title: 'medallas',
+    route: '/medallas',
     icon: 'people',
   },
   ];
-  constructor(private _router: Router, private loginSVC: LoginService, private _loadingService:TdLoadingService) {
+  constructor(private _router: Router, private loginSVC: LoginService, private _loadingService: TdLoadingService) {
     this.uidDto = new uidDto();
     this.userDto = new userDto();
-   }
-   logout(): void {
+  }
+  logout(): void {
     var rta = false;
     rta = confirm("Desea Cerrar Sesion")
     if (rta == true) {
       this.loginSVC.logout();
       this._router.navigate(['/login'])
     }
-    else{
-    this._router.navigate(['/perfil']);
+    else {
+      this._router.navigate(['/perfil']);
     }
   }
+
+  perfil() {
+    this._router.navigate(['actividades']);
+  }
+
+
+
   Ver_mas() {
     this._router.navigate(["medallas"]);
   }
