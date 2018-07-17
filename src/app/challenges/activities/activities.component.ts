@@ -40,6 +40,7 @@ export class ActivitiesComponent implements OnInit {
     localStorage.setItem('idActivity', "" + dato.id)
     const dialogRef = this._dialogRef.open(DetailActivitiesComponent, {
       width: '500px',
+      height:'600px',
       data: { data: dato }
     });
 

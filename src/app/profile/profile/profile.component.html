@@ -1,5 +1,4 @@
 <td-layout>
-
   <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
     <!-- <mat-nav-list>
       <a *ngFor="let item of routes" mat-list-item>
@@ -10,19 +9,16 @@
         <mat-icon>exit_to_app</mat-icon>Sign out</a>
         <a mat-list-item (click)="perfil()">
           <mat-icon>exit_to_app</mat-icon>Actividades</a>
-        
         <a *ngFor="let item of routes" mat-list-item>
             <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
-            
     </mat-nav-list>
-  
   </td-navigation-drawer>
-  <td-layout-nav logo="assets:covalent" navigationRoute="/">
+  <td-layout-nav  navigationRoute="/">
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
     <div td-toolbar-content layout="row" layout-align="center center" flex>
-      <span>Gamificacion</span>
+      <span>Perfil</span>
       <span flex></span>
     </div>
     <!-- router outlet goes here -->
@@ -56,7 +52,6 @@
                     <div flex="100">
                       <mat-card-subtitle class="fuente">{{userDto.city}}</mat-card-subtitle>
                     </div>
-
                     <!-- Barra de progreso -->
                     <div flex="100">
                       <mat-card-subtitle class="fuente">Progreso: 80%</mat-card-subtitle>
@@ -67,18 +62,15 @@
                         </mat-card-content>
                       </section>
                     </div>
-
                   </div>
                 </div>
               </div>
             </mat-card>
           </div>
-
           <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
             <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
               <mat-card-title style="color:orangered">Medallas</mat-card-title>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/3d-modeling.svg">
@@ -121,13 +113,11 @@
                     <mat-card-content>reproductor</mat-card-content>
                   </div>
                 </mat-card>
-
               </div>
               <!-- <mat-card-subtitle>Recent activity from select members</mat-card-subtitle> -->
               <!-- <mat-divider></mat-divider> -->
               <mat-card-title style="color:orangered">Logros profesionales</mat-card-title>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/divisa.svg">
@@ -164,20 +154,12 @@
                     <mat-card-content>trofeo</mat-card-content>
                   </div>
                 </mat-card>
-
-
               </div>
-
-
             </mat-card>
-
             <mat-card flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
-
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
-
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/wifi.svg">
@@ -198,7 +180,6 @@
                 </mat-card>
               </div>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/diamante.svg">
@@ -218,7 +199,6 @@
                   </div>
                 </mat-card>
               </div>
-
               <mat-card-actions layout="row">
                 <div class="text-center">
                   <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Ver_mas()">Ver mas</button>
@@ -230,5 +210,4 @@
       </div>
     </div>
   </td-layout-nav>
-
 </td-layout>
