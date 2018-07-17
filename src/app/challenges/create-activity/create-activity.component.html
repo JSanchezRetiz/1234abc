@@ -1,0 +1,125 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list td-navigation-drawer-menu>
+        <a mat-list-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="center center" flex>
+      <span>Actividades</span>
+      <span flex></span>
+    </div>
+
+    <div style="background-color:#ffd0b0" layout-fill>
+
+      <mat-card>
+        <mat-card>
+          <div flex class="text-center">
+            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de actividades</mat-card-title>
+          </div>
+
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>TITULO</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title>DESCRIPCION</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title>ESTADO</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title>DETALLES</mat-card-title>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>Nueva actividad</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <img src="../../../assets/icons/boton-anadir.svg" width="70px">
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-content class="contenido">Registrar horas a tiempo</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">Registra 9 horas diarias</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">Vigente</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Editar</button>
+              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="pasarDatos(dato)">Eliminar</button>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-content class="contenido">La mejor idea</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">Proponer ideas para mejorar...</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">Vigente</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Editar</button>
+              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="pasarDatos(dato)">Eliminar</button>
+            </div>
+          </div>
+        </mat-card>
+
+
+
+        <mat-card-actions layout="row">
+            <div class="text-center">
+                
+                <br>
+              <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+            </div>
+          </mat-card-actions>
+     
+      </mat-card>
+
+
+
+
+
+
+
+      <br>
+      <br>
+      <br>
+    </div>
+  </td-layout-nav>
+</td-layout>
