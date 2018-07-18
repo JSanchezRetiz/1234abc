@@ -34,8 +34,7 @@ score:scoreActivity;
       viewContainerRef: this._viewContainerRef, //OPTIONAL
       title: 'Atencion:', //OPTIONAL, hides if not provided
       closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
-      width: '400px',
-      height: '300px', //OPTIONAL, defaults to 400px
+      width: '400px', //OPTIONAL, defaults to 400px
     });
   }
   cerrar(){

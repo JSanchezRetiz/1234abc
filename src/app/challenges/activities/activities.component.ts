@@ -40,7 +40,6 @@ export class ActivitiesComponent implements OnInit {
     localStorage.setItem('idActivity', "" + dato.id)
     const dialogRef = this._dialogRef.open(DetailActivitiesComponent, {
       width: '500px',
-      height:'600px',
       data: { data: dato }
     });
 
@@ -57,24 +56,7 @@ export class ActivitiesComponent implements OnInit {
     };
     this._router.navigate(["ranking"], NavigationExtras);
   }
-  /**
-  this._dialogService.openConfirm({
-    message: 'ingresar a la actividad',
-    disableClose: true , // defaults to false
-    viewContainerRef: this._viewContainerRef, //OPTIONAL
-    title: 'Actividad:', //OPTIONAL, hides if not provided
-    //cancelButton: '', //OPTIONAL, defaults to 'CANCEL'
-    acceptButton: 'Ingresar a la actividad', //OPTIONAL, defaults to 'ACCEPT'
-    width: '500px', //OPTIONAL, defaults to 400px
-  }).afterClosed().subscribe((accept: boolean) => {
-    if (accept) {
-      // DO SOMETHING
-      this._router.navigate(['login']);
-    } else {
-      // DO SOMETHING ELSE
-    }
-  });
-   */
+
   getUserData() {
     this._loadingService.register();
     this.uidDto.id = localStorage.getItem('uid');
