@@ -38,10 +38,7 @@ import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-p
     MatToolbarModule,
     MatDatepickerModule,
     MatProgressBarModule,
-<<<<<<< HEAD
     MatDialogModule,
-=======
->>>>>>> ae4fdc87a3820a516e2763c463ac50a723cef756
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,
