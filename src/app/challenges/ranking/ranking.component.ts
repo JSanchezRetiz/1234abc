@@ -4,17 +4,18 @@ import { activitiesScoreDto } from '../models/activitiesScoreDto';
 import { ChallengesService } from '../services/challenges.service';
 import { ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 import { activityDto } from '../models/activityDto';
+import { TdLoadingService } from '@covalent/core/loading';
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
   styleUrls: ['./ranking.component.scss'],
-  providers: [ChallengesService],
+  providers: [ChallengesService, TdLoadingService],
 })
 export class RankingComponent implements OnInit {
   activitiesScore: activitiesScoreDto[];
   activity: activityDto;
   activityScoreSend: activitiesScoreDto;
-  constructor(private _router: Router, private challengesSvc: ChallengesService, private route: ActivatedRoute) {
+  constructor(private _router: Router, private challengesSvc: ChallengesService, private route: ActivatedRoute, private loadingService: TdLoadingService) {
     this.activitiesScore = new Array<activitiesScoreDto>();
     this.activityScoreSend = new activitiesScoreDto();
     this.activity = new activityDto();
@@ -24,9 +25,11 @@ export class RankingComponent implements OnInit {
     this._router.navigate(["perfil"]);
   }
   getAllScoreByActivity(activity: activityDto) {
+    this.loadingService.register();
     this.activityScoreSend.activityId = activity.id;
     this.challengesSvc.getAllScoreByActivity(this.activityScoreSend).then(res => {
       this.activitiesScore = res;
+      this.loadingService.resolve();
       console.log(res);
     });
   }
