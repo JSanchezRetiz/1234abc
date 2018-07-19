@@ -1,0 +1,111 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a mat-list-item (click)="perfil()">
+        <mat-icon>exit_to_app</mat-icon>Actividades</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+  </td-navigation-drawer>
+  <td-layout-nav navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="center center" flex>
+      <span>Perfil</span>
+      <span flex></span>
+    </div>
+    <!-- router outlet goes here -->
+    <div class="fondo" layout-fill>
+      <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+        <div flex="100">
+          <div layout-gt-sm="row" layout-xs="column">
+            <div flex="30" layout-aling="center center">
+              <img class="avatar" src="./assets/icons/UserAvatar/UserAvatar1.svg" width="90%" height="90%">
+            </div>
+            <mat-card flex="100">
+              <div flex="100">
+                <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                  <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                    <div flex="100">
+                      <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">Carolina ledesma</mat-card-subtitle>
+                    </div>
+                    <div flex="100">
+                      <mat-card-subtitle class="fuente">Gerente</mat-card-subtitle>
+                    </div>
+                  </div>
+                  <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                    <div flex="100">
+                      <mat-card-subtitle class="fuente">Fecha de registro: jun/10/2018</mat-card-subtitle>
+                    </div>
+                    <div flex="100">
+                      <mat-card-subtitle class="fuente">Nivel de Experiencia: 120 </mat-card-subtitle>
+                    </div>
+                  </div>
+                  <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                    <div flex="100">
+                      <mat-card-subtitle class="fuente">ciudad</mat-card-subtitle>
+                    </div>
+                    <!-- Barra de progreso -->
+                    <div flex="100">
+                      <mat-card-subtitle class="fuente">Progreso: 80%</mat-card-subtitle>
+                      <section>
+                        <mat-card-content>
+                          <mat-progress-bar color='primary' mode='determinate' value=80>
+                          </mat-progress-bar>
+                        </mat-card-content>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Recompensas</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/recompensa.svg" width="40%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_recompensa()">Agregar recompensa</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Actividades</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/actividad.svg" width="40%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_actividad()">Agregar actividad</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Usuarios</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/usuario.svg" width="100%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_usuario()">Agregar usuario</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </td-layout-nav>
+</td-layout>

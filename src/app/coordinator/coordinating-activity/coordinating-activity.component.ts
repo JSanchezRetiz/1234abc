@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TdLoadingService } from '@covalent/core/loading';
 import { TdDialogService } from '@covalent/core/dialogs';
 import {EditComponent} from '../edit/edit.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coordinating-activity',
@@ -13,7 +14,7 @@ import {EditComponent} from '../edit/edit.component';
 })
 export class CoordinatingActivityComponent implements OnInit {
 
-  constructor(_dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { }
+  constructor(private _router: Router,_dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { }
 
   editar() {
     const dialogRef = this._dialogRef.open(EditComponent, {
@@ -28,6 +29,9 @@ export class CoordinatingActivityComponent implements OnInit {
   }
 
  
+  Volver() {
+    this._router.navigate(["perfil-coordinador"]);
+  }
 
   ngOnInit() {
   }

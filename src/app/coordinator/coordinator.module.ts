@@ -11,12 +11,15 @@ import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
 import { CovalentLoadingModule } from '@covalent/core/loading';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { CoordinatingActivityComponent } from './coordinating-activity/coordinating-activity.component';
 import { EditComponent } from './edit/edit.component';
+import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
 
 @NgModule({
   imports: [
@@ -30,12 +33,14 @@ import { EditComponent } from './edit/edit.component';
     MatDividerModule,
     MatInputModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatProgressBarModule
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,
     CovalentMediaModule,
     CovalentLoadingModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent]
+  declarations: [CoordinatingActivityComponent, EditComponent, CoordinatorProfileComponent]
 })
 export class CoordinatorModule { }
