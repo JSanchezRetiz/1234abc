@@ -17,6 +17,8 @@ import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { CoordinatingActivityComponent } from './coordinating-activity/coordinating-activity.component';
 import { EditComponent } from './edit/edit.component';
+import { CreateRewardComponent } from './create-reward/create-reward.component';
+import { EditRewardComponent } from './edit-reward/edit-reward.component';
 
 @NgModule({
   imports: [
@@ -36,6 +38,6 @@ import { EditComponent } from './edit/edit.component';
     CovalentMediaModule,
     CovalentLoadingModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent]
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent]
 })
 export class CoordinatorModule { }

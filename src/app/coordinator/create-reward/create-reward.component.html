@@ -1,0 +1,36 @@
+<td-layout>
+  <div class="fondo" layout="row" layout-fill>
+    <mat-card flex="100">
+      <mat-card>
+        <form #rewardForm="ngForm">
+          <mat-card>
+            <mat-card-content flex="100" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-form-field class=campos>
+                <input matInput #rewardName #nameControl="ngModel" placeholder="recompensa" type="text" maxlength="40" name="recompensa"
+                  [(ngModel)]="recompensa" required>
+                <mat-hint align="start">
+                  <span [hidden]="!nameControl.errors?.required || nameControl.pristine" class="tc-red-600">Requerido</span>
+                </mat-hint>
+                <mat-hint align="end">{{rewardName.value.length}} / 40</mat-hint>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-content flex="100" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-form-field class=campos>
+                <input matInput #description #descriptionControl="ngModel" placeholder="descripción" type="text" maxlength="50" name="descripcion"
+                  [(ngModel)]="descripcion" required>
+                <mat-hint align="start">
+                  <span [hidden]="!description.errors?.required || descriptionControl.pristine" class="tc-red-600">
+                    requerido
+                  </span>
+                </mat-hint>
+                <mat-hint align="end">
+                  {{description.value.length}}/ 50
+                </mat-hint>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+        </form>
+      </mat-card>
+    </mat-card>
+  </div>
+</td-layout>

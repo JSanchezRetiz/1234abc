@@ -16,18 +16,19 @@ import { scoreActivity } from '../models/scoreActivity';
   providers: [TdDialogService, ChallengesService],
 })
 export class DetailActivitiesComponent implements OnInit {
-activitySend:activityDto;
-activity:activityDto;
-score:scoreActivity;
+  activitySend: activityDto;
+  activity: activityDto;
+  score: scoreActivity;
 
-  constructor(private dialog:TdDialogService, public dialogRef:MatDialogRef<DetailActivitiesComponent>, private challengesSVC:ChallengesService,private _router: Router,private route: ActivatedRoute, private _viewContainerRef: ViewContainerRef) {
-    this.activitySend= new activityDto();
-    this.activity= new activityDto();
+  constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<DetailActivitiesComponent>, private challengesSVC: ChallengesService, private _router: Router, private route: ActivatedRoute, private _viewContainerRef: ViewContainerRef) {
+    this.activitySend = new activityDto();
+    this.activity = new activityDto();
     this.score = new scoreActivity();
 
-   }
+  }
 
-   Participar(): void {
+  Participar(): void {
+    this.registerScore();
     this.dialog.openAlert({
       message: 'Ahora estas participando en esta actividad. ¡buena suerte!',
       disableClose: true, // defaults to false
@@ -36,26 +37,40 @@ score:scoreActivity;
       closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
       width: '400px', //OPTIONAL, defaults to 400px
     });
+    this._router.navigate[('ranking')];
   }
-  cerrar(){
+  cerrar() {
     this.dialogRef.close('cerrar');
   }
   getActivity(id: string) {
     this.activitySend.id = id
     this.challengesSVC.getActivity(this.activitySend).then(res => {
       this.activity = res;
-      console.log("mensaje", res.name);
+     console.log("RESPUESTA SVC GET ACTIVITY"+this.activity.title);
+     this.score.activityName = this.activity.title;
     })
   }
   ngOnInit() {
     var id = localStorage.getItem('idActivity');
-    var uid= localStorage.getItem('uid')
+    var uid = localStorage.getItem('uid');
+    var name = localStorage.getItem('userName');
+    var score = 8;
+    var experience = 10;
+
     this.getActivity(id);
-    this.registerScore(this.score)
+    this.score.activityId = id;
+    this.score.uid = uid;
+    this.score.userName = name;
+    this.score.score = score;
+    this.score.experience = experience;
+    
+    console.log("actividad: "+this.score.activityName)
+    //console.log(this.score.activityName);
   }
-  registerScore(score:scoreActivity) {
-    this.challengesSVC.registerScore(score).then(res =>{
-      score=res;
+  registerScore() {
+
+    this.challengesSVC.registerScore(this.score).then(res => {
+      //res;
       console.log("mensaje", res);
     })
   }

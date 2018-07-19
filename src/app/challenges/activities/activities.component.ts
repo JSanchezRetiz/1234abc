@@ -42,7 +42,6 @@ export class ActivitiesComponent implements OnInit {
       width: '500px',
       data: { data: dato }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       localStorage.removeItem('idActivity');
       console.log('The dialog was closed', result);
