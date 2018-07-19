@@ -20,6 +20,8 @@ import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { CoordinatingActivityComponent } from './coordinating-activity/coordinating-activity.component';
 import { EditComponent } from './edit/edit.component';
+import { CreateRewardComponent } from './create-reward/create-reward.component';
+import { EditRewardComponent } from './edit-reward/edit-reward.component';
 import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
 
 @NgModule({
@@ -36,13 +38,16 @@ import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-p
     MatToolbarModule,
     MatDatepickerModule,
     MatProgressBarModule,
+<<<<<<< HEAD
     MatDialogModule,
+=======
+>>>>>>> ae4fdc87a3820a516e2763c463ac50a723cef756
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,
     CovalentMediaModule,
     CovalentLoadingModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CoordinatorProfileComponent]
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent]
 })
 export class CoordinatorModule { }
