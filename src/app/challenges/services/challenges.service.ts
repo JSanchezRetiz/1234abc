@@ -7,6 +7,10 @@ import { userDto } from '../../login/models/userDto';
 import { activityDto } from '../models/activityDto';
 import { activitiesScoreDto } from '../models/activitiesScoreDto';
 import {scoreActivity} from '../models/scoreActivity';
+import { storeDto } from '../models/storeDto';
+
+
+
 @Injectable()
 export class ChallengesService {
 
@@ -30,4 +34,10 @@ export class ChallengesService {
     return this.http.post(this.serverURL + 'registerScore', score).toPromise().
     then(res=> <any>res.json())
   }
+
+  public getAllItemsStore() {
+    return this.http.get(this.serverURL + 'getAllItemsStore').toPromise()
+      .then(res => <any>res.json())
+  }
+
 }

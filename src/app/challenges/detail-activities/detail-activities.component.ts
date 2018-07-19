@@ -27,6 +27,8 @@ score:scoreActivity;
 
    }
 
+   
+
    Participar(): void {
     this.dialog.openAlert({
       message: 'Ahora estas participando en esta actividad. ¡buena suerte!',

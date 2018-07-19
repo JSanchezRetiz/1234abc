@@ -6,16 +6,4 @@ score:number;
 experience:number;
 uid:string;
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
