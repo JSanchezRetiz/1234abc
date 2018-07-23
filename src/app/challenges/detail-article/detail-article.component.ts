@@ -5,6 +5,7 @@ import { ViewContainerRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ChallengesService } from '../services/challenges.service';
 import { storeDto } from '../models/storeDto';
+import { purchaseDto } from '../models/purchaseDto';
 
 @Component({
   selector: 'app-detail-article',
@@ -13,11 +14,11 @@ import { storeDto } from '../models/storeDto';
   providers: [TdDialogService, ChallengesService],
 })
 export class DetailArticleComponent implements OnInit {
-
+  purchase: purchaseDto;
   tiendaSend: storeDto;
   tienda: storeDto;
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<DetailArticleComponent>, private challengesSVC: ChallengesService) {
-
+    this.purchase = new purchaseDto();
     this.tiendaSend = new storeDto();
     this.tienda = new storeDto();
   }
@@ -33,9 +34,17 @@ export class DetailArticleComponent implements OnInit {
 
     })
   }
-
+  comprar() {
+    this.purchase.uid = localStorage.getItem('uid');
+    this.purchase.itemId =this.tienda.itemId;
+    console.log(this.purchase.uid);
+    console.log(this.purchase.itemId);
+    this.challengesSVC.getStoreItem(this.purchase).then(res => {
+      alert('Has comprado este articulo');
+    })
+  }
   ngOnInit() {
-    this.tiendaSend.itemId=localStorage.getItem('itemId');
+    this.tiendaSend.itemId = localStorage.getItem('itemId');
     localStorage.removeItem('itemId');
     this.getItemById(this.tiendaSend);
   }

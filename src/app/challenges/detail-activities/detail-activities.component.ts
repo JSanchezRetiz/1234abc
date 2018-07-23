@@ -9,6 +9,7 @@ import { ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 import { uidDto } from '../../login/models/uidDto';
 import { scoreActivity } from '../models/scoreActivity';
 
+
 @Component({
   selector: 'app-detail-activities',
   templateUrl: './detail-activities.component.html',
@@ -20,10 +21,13 @@ export class DetailActivitiesComponent implements OnInit {
   activity: activityDto;
   score: scoreActivity;
 
+
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<DetailActivitiesComponent>, private challengesSVC: ChallengesService, private _router: Router, private route: ActivatedRoute, private _viewContainerRef: ViewContainerRef) {
     this.activitySend = new activityDto();
     this.activity = new activityDto();
     this.score = new scoreActivity();
+  
+
 
   }
 
