@@ -73,8 +73,8 @@
                       <span matPrefix>
                         <mat-icon>person</mat-icon>
                       </span>
-                      <mat-select placeholder="Rol *">
-                        <mat-option *ngFor="let rol of rols" [value]="rol.value">
+                      <mat-select  #userRole #roleControl="ngModel" placeholder="Rol *" name="role" [(ngModel)]="userDto.role">
+                        <mat-option  *ngFor="let rol of rols" [value]="rol.value" >
                           {{rol.viewValue}}
                         </mat-option>
                       </mat-select>
@@ -133,15 +133,15 @@
                 <mat-card flex="100" style=" background-color:#ffd0b0;" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
                   <mat-card-content>
                     <mat-form-field style="width: 100%;" flex>
-                      <input matInput #userElement #userControl="ngModel" placeholder="Correo Electronico" type="text" maxlength="40" name="email"
+                      <input matInput #emailElement #emailForm="ngModel" placeholder="Correo Electronico" type="email" maxlength="40" name="email"
                         [(ngModel)]="userDto.email" required>
                       <span matPrefix>
                         <mat-icon>person</mat-icon>
                       </span>
                       <mat-hint align="start">
-                        <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                        <span [hidden]="!emailForm.errors?.required || emailForm.pristine" class="tc-red-600">Requerido</span>
                       </mat-hint>
-                      <mat-hint align="end">{{userElement.value.length}} / 40</mat-hint>
+                      <mat-hint align="end">{{emailElement.value.length}} / 40</mat-hint>
                     </mat-form-field>
                   </mat-card-content>
                 </mat-card>

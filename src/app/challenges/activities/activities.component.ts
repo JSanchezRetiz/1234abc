@@ -36,7 +36,7 @@ export class ActivitiesComponent implements OnInit {
     this.allActivity = new Array<activityDto>();
   }
   openConfirm(dato: activityDto): void {
-    console.log(dato.id);
+    console.log(dato);
     localStorage.setItem('idActivity', "" + dato.id)
     const dialogRef = this._dialogRef.open(DetailActivitiesComponent, {
       width: '500px',

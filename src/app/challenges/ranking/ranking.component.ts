@@ -22,13 +22,14 @@ export class RankingComponent implements OnInit {
   }
 
   Volver() {
-    this._router.navigate(["perfil"]);
+    this._router.navigate(["actividades"]);
   }
   getAllScoreByActivity(activity: activityDto) {
     this.loadingService.register();
     this.activityScoreSend.activityId = activity.id;
     this.challengesSvc.getAllScoreByActivity(this.activityScoreSend).then(res => {
       this.activitiesScore = res;
+      this.activitiesScore.sort();
       this.loadingService.resolve();
       console.log(res);
     });

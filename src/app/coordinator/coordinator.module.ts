@@ -13,6 +13,7 @@ import { CovalentMediaModule } from '@covalent/core/media';
 import { CovalentLoadingModule } from '@covalent/core/loading';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 
@@ -37,6 +38,7 @@ import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-p
     MatToolbarModule,
     MatDatepickerModule,
     MatProgressBarModule,
+    MatDialogModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,

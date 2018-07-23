@@ -14,8 +14,20 @@ import { Router } from '@angular/router';
 })
 export class CoordinatingActivityComponent implements OnInit {
 
-  constructor(private _router: Router,_dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { }
+  constructor(private _router: Router,private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { }
 
+
+  eliminar(): void {
+    this._dialogService.openAlert({
+      message: '¿Desea eliminar esta actividad?.',
+      disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+      title: 'Atencion:', //OPTIONAL, hides if not provided
+      closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
+      width: '400px', //OPTIONAL, defaults to 400px
+    });
+  }
+  
   editar() {
     const dialogRef = this._dialogRef.open(EditComponent, {
       width: '1000px',

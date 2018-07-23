@@ -29,22 +29,22 @@
         <mat-card-title style="color:orangered; text-align: center; font-size:40px">RECOMPENSAS</mat-card-title>
         <mat-card-subtitle style="text-align: center">Recompensas disponibles</mat-card-subtitle>
         <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <mat-card flex="100" style='background:#f8f8f8'>
+          <mat-card *ngFor="let tienda of store " flex="100" style='background:#f8f8f8'>
             <div style="padding:5px 5px 5px 5px" class="text-center">
               <img src="../../../assets/icons/rewards/audifonos.svg" width="100px">
-              <mat-card-content>audifonos</mat-card-content>
+              <mat-card-content>{{tienda.name}}</mat-card-content>
               <div fxlayout="row" fxflex="100" fxShow.gt-sm flex>
                 <img src="../../../assets/icons/moneda.svg" width="15px">
-                <span style=color:#ff3d00>1000</span>
+                <span style=color:#ff3d00>{{tienda.scorePrice}}</span>
               </div>
             </div>
             <mat-card-actions layout="row">
               <div class="text-center">
-                <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="openConfirm()">Ver</button>
+                <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="openConfirm(tienda)">Ver</button>
               </div>
             </mat-card-actions>
           </mat-card>
-          <mat-card flex="100" style='background:#f8f8f8'>
+          <!-- <mat-card flex="100" style='background:#f8f8f8'>
             <div style="padding:5px 5px 5px 5px" class="text-center">
               <img src="../../../assets/icons/rewards/cerveza.svg" width="100px">
               <mat-card-content>cerveza</mat-card-content>
@@ -210,7 +210,7 @@
                 <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Ver()">Ver</button>
               </div>
             </mat-card-actions>
-          </mat-card>
+          </mat-card> -->
         </div>
         <mat-card-actions layout="row">
           <div class="text-center">

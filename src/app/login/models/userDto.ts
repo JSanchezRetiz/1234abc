@@ -8,5 +8,5 @@ export class userDto {
     creationDate: string;
     city: string;
     job: string;
-    email:string;
+    email: string;
 }
