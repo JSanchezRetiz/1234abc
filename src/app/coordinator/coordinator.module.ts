@@ -16,6 +16,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
+import { CovalentFileModule } from '@covalent/core/file';
 
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { CoordinatingActivityComponent } from './coordinating-activity/coordinating-activity.component';
@@ -23,6 +24,8 @@ import { EditComponent } from './edit/edit.component';
 import { CreateRewardComponent } from './create-reward/create-reward.component';
 import { EditRewardComponent } from './edit-reward/edit-reward.component';
 import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
+import { CoordinatorRewardComponent } from './coordinator-reward/coordinator-reward.component';
+
 
 @NgModule({
   imports: [
@@ -44,7 +47,8 @@ import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-p
     CovalentLayoutModule,
     CovalentMediaModule,
     CovalentLoadingModule,
+    CovalentFileModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent]
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent],
 })
 export class CoordinatorModule { }
