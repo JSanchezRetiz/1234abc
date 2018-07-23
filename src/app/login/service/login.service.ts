@@ -22,7 +22,7 @@ export class LoginService {
             userId = userId.replace(/"/g, "");
             localStorage.setItem('uid', userId);
             name = userData.user.displayName;
-            token = userData.user.ga;
+            token = userData.user.displayName;
             name = name.replace(/"/g, "");
             localStorage.setItem('userName', name);
           }
