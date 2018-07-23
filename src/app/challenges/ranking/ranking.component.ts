@@ -29,6 +29,7 @@ export class RankingComponent implements OnInit {
     this.activityScoreSend.activityId = activity.id;
     this.challengesSvc.getAllScoreByActivity(this.activityScoreSend).then(res => {
       this.activitiesScore = res;
+      this.activitiesScore.sort();
       this.loadingService.resolve();
       console.log(res);
     });
