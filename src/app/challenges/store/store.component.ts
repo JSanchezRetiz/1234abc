@@ -16,40 +16,41 @@ import { storeDto } from '../models/storeDto';
 })
 export class StoreComponent implements OnInit {
 
-store:storeDto[];
+  store: storeDto[];
 
 
 
   constructor(private _router: Router, _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService) {
-  
-  this.store= new Array <storeDto>();
-  
+
+    this.store = new Array<storeDto>();
+
   }
 
-  openConfirm(store:storeDto): void {
-
+  openConfirm(dato: storeDto): void {
+   
+    console.log("id",dato.itemId)
     const dialogRef = this._dialogRef.open(DetailArticleComponent, {
       width: '500px',
-      data: { data: store }
+      data: { data: dato}
     });
-    console.log("dato",this.store)
+    console.log("dato", dato.itemId)
     dialogRef.afterClosed().subscribe(result => {
-      
+
       console.log('The dialog was closed', result);
-      
+
     });
   }
 
- 
+
   Volver() {
     this._router.navigate(["perfil"]);
   }
 
-  getAllItemsStore(){
+  getAllItemsStore() {
 
     this.challengesSVC.getAllItemsStore().then(res => {
       this.store = res;
- 
+
       console.log(this.store)
     })
   }

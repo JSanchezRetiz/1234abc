@@ -3,5 +3,6 @@ export class storeDto {
     description: string;
     name: string;
     scorePrice: number;
+    itemId:string;
 
 }
