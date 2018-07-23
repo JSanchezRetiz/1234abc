@@ -26,9 +26,9 @@ export class RegisterComponent implements OnInit {
   uidDto:  uidDto;
 
   rols: Rol[] = [
-    {value: 'Usuario-0', viewValue: 'Usuario'},
-    {value: 'Coordinador-1', viewValue: 'Coordinador'},
-    {value: 'Administrador-2', viewValue: 'Administrador'}
+    {value: 'Usuario', viewValue: 'Usuario'},
+    {value: 'Coordinador', viewValue: 'Coordinador'},
+    {value: 'Administrador', viewValue: 'Administrador'}
   ];
 
 

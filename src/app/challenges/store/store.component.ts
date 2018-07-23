@@ -27,13 +27,14 @@ export class StoreComponent implements OnInit {
   }
 
   openConfirm(dato: storeDto): void {
-   
-    console.log("id",dato.itemId)
+
+    console.log("id", dato.itemId)
+    localStorage.setItem('itemId', dato.itemId);
     const dialogRef = this._dialogRef.open(DetailArticleComponent, {
       width: '500px',
-      data: { data: dato}
+      data: { data: dato }
     });
-    console.log("dato", dato.itemId)
+    //console.log("dato", dato.itemId)
     dialogRef.afterClosed().subscribe(result => {
 
       console.log('The dialog was closed', result);

@@ -44,7 +44,7 @@ export class ChallengesService {
   
   public getItemById(itemId: storeDto) {
     return this.http.post(this.serverURL + 'getItemById', itemId).toPromise()
-      .then(res => <any>console.log(res))
+      .then(res => <any>res.json());
   }
 
 }
