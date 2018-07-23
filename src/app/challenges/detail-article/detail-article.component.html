@@ -11,7 +11,7 @@
   
     <mat-card>
     <mat-card-content>
-      <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">Audifonos</mat-card-title>
+      <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">{{tienda.name}}</mat-card-title>
     </mat-card-content>
   
     
@@ -21,9 +21,9 @@
    
   
     <mat-card-content>
-      <mat-card-title class="justificar">Audifonos marca SONY.</mat-card-title>
+      <mat-card-title class="justificar">{{dato.description}}</mat-card-title>
     </mat-card-content>
-    <mat-card-title class="text-center"> <img src="../../../assets/icons/moneda.svg" width="20px"> 1000  </mat-card-title>
+    <mat-card-title class="text-center"> <img src="../../../assets/icons/moneda.svg" width="20px"> {{dato.scorePrice}}  </mat-card-title>
   
     <mat-card-actions layout="row">
       <div class="text-center">
