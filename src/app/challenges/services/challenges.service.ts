@@ -8,6 +8,7 @@ import { activityDto } from '../models/activityDto';
 import { activitiesScoreDto } from '../models/activitiesScoreDto';
 import {scoreActivity} from '../models/scoreActivity';
 import { storeDto } from '../models/storeDto';
+import { purchaseDto } from '../models/purchaseDto';
 
 
 
@@ -47,4 +48,8 @@ export class ChallengesService {
       .then(res => <any>res.json());
   }
 
+  public getStoreItem(purchase:purchaseDto){
+    return this.http.post(this.serverURL + 'getStoreItem', purchase).toPromise()
+    .then(res => <any>res);
+  }
 }

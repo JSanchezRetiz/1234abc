@@ -46,6 +46,8 @@ export class RegisterComponent implements OnInit {
     alert(this.userDto.email);
  this.adminSVC.createAuthUser(this.userDto).then(res =>{
 console.log(res);
+var email = this.userDto.email;
+this.loginSVC.forgetPassword(email);
  })
  this._router.navigate(["login"]);
     }
