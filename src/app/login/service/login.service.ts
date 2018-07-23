@@ -22,12 +22,8 @@ export class LoginService {
             userId = userId.replace(/"/g, "");
             localStorage.setItem('uid', userId);
             name = userData.user.displayName;
-<<<<<<< HEAD
-            token = userData.user.displayName;
-=======
             //TOKEN debe usar: userData.user.qa;
             token = userData.user.qa;
->>>>>>> 8bf66aaccd251508a09e6c9c3a5f4e6a340980b1
             name = name.replace(/"/g, "");
             localStorage.setItem('userName', name);
           }
