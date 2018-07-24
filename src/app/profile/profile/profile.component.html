@@ -7,10 +7,10 @@
     <mat-nav-list>
       <a mat-list-item (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>Sign out</a>
-        <a mat-list-item (click)="perfil()">
-          <mat-icon>exit_to_app</mat-icon>Actividades</a>
-        <a *ngFor="let item of routes" mat-list-item>
-            <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      <a mat-list-item (click)="perfil()">
+        <mat-icon>exit_to_app</mat-icon>Actividades</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
     </mat-nav-list>
   </td-navigation-drawer>
   <td-layout-nav navigationRoute="/">
@@ -20,6 +20,8 @@
     <div td-toolbar-content layout="row" layout-align="center center" flex>
       <span>Perfil</span>
       <span flex></span>
+      <img class="moneda" src="../../../assets/icons/moneda.svg" width="30px">
+      <span style=color:white>{{userDto.score}}</span>
     </div>
     <!-- router outlet goes here -->
     <div class="fondo">
