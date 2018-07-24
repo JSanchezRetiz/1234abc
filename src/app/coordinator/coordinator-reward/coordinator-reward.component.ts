@@ -5,23 +5,23 @@ import { TdLoadingService } from '@covalent/core/loading';
 import { TdDialogService } from '@covalent/core/dialogs';
 import { Router } from '@angular/router';
 import { CreateRewardComponent } from '../create-reward/create-reward.component';
-import{ storeDto } from '../../challenges/models/storeDto';
-import {ChallengesService} from '../../challenges/services/challenges.service';
+import { storeDto } from '../../challenges/models/storeDto';
+import { ChallengesService } from '../../challenges/services/challenges.service';
 
 @Component({
   selector: 'app-coordinator-reward',
   templateUrl: './coordinator-reward.component.html',
   styleUrls: ['./coordinator-reward.component.scss'],
-  providers:[ChallengesService]
+  providers: [ChallengesService,TdDialogService]
 })
 export class CoordinatorRewardComponent implements OnInit {
-reward:storeDto;
-store: storeDto[];
-  constructor(private _router: Router,private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog,private challengesSVC: ChallengesService) {
-    this.reward= new storeDto();
+ 
+  reward: storeDto;
+  store: storeDto[];
+  constructor(private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService) {
+    this.reward = new storeDto();
     this.store = new Array<storeDto>();
-   }
-
+  }
   eliminar(): void {
     this._dialogService.openAlert({
       message: '¿Desea eliminar esta actividad?.',
@@ -33,29 +33,25 @@ store: storeDto[];
     });
   }
   getAllItemsStore() {
-
     this.challengesSVC.getAllItemsStore().then(res => {
       this.store = res;
-
       console.log(this.store)
     })
   }
 
   crear() {
-   
     const dialogRef = this._dialogRef.open(CreateRewardComponent, {
       width: '1000px',
       height: '600px',
       data: { data: 'dato' }
     });
     dialogRef.afterClosed().subscribe(result => {
-   this.getAllItemsStore();
-
+      this.getAllItemsStore();
+ 
     });
   }
 
   ngOnInit() {
     this.getAllItemsStore()
   }
-
 }

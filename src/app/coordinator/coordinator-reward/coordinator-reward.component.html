@@ -24,6 +24,18 @@
     <div style="background-color:#ff7539" layout-fill>
       <mat-card>
         <mat-card>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>Nueva recompensa</mat-card-title>
+            </div>
+            <div flex class="text-right">
+              <button mat-button (click)="crear()">
+                <img src="../../../assets/icons/boton-anadir.svg" width="70px">
+              </button>
+            </div>
+          </div>
+        </mat-card>
+        <mat-card>
           <div flex class="text-center">
             <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de recompensas</mat-card-title>
           </div>
@@ -48,30 +60,7 @@
             </div>
           </div>
         </mat-card>
-        <mat-card>
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title>Nueva recompensa</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title></mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title></mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title></mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title></mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <button mat-button (click)="crear()">
-                <img src="../../../assets/icons/boton-anadir.svg" width="70px">
-              </button>
-            </div>
-          </div>
-        </mat-card>
+
         <mat-card *ngFor="let recompensa of store ">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
