@@ -16,10 +16,10 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #rewardName #userControl="ngModel" placeholder="Nombre de la recompensa" type="text" maxlength="40" name="nombre"
-                  [(ngModel)]="storeDto.name" required>
+                <input matInput #rewardName #name="ngModel" placeholder="Nombre de la recompensa" type="text" maxlength="40" name="name"
+                  [(ngModel)]="reward.name" required>
                 <mat-hint align="start">
-                  <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                  <span [hidden]="!name.errors?.required || name.pristine" class="tc-red-600">Requerido</span>
                 </mat-hint>
                 <mat-hint align="end">{{rewardName.value.length}} / 40</mat-hint>
               </mat-form-field>
@@ -30,7 +30,7 @@
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
                 <textarea matInput #rewardDerscription #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                  [(ngModel)]="store.description" required rows="6" cols="100"></textarea>
+                  [(ngModel)]="reward.description" required rows="6" cols="100"></textarea>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -38,7 +38,7 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #quantityControl="ngModel" placeholder="Cantidad" type="number" maxlength="120" name="Cantidad" [(ngModel)]="storeDto.amount">
+                <input matInput #quantityControl="ngModel" placeholder="Cantidad" type="number" maxlength="120" name="Cantidad" [(ngModel)]="reward.amount">
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -79,7 +79,7 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #scoreControl="ngModel" placeholder="Puntos" type="number" maxlength="120" name="Puntos" [(ngModel)]="storeDto.scorePrice">
+                <input matInput #scoreControl="ngModel" placeholder="Puntos" type="number" maxlength="120" name="Puntos" [(ngModel)]="reward.scorePrice">
               </mat-form-field>
             </mat-card-content>
           </mat-card>

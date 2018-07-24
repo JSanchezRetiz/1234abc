@@ -41,15 +41,15 @@ store: storeDto[];
     })
   }
 
-  crear(reward:storeDto) {
-    console.log(reward)
+  crear() {
+   
     const dialogRef = this._dialogRef.open(CreateRewardComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: reward }
+      data: { data: 'dato' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
+   this.getAllItemsStore();
 
     });
   }

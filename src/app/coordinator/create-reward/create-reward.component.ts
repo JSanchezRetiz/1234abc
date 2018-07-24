@@ -15,12 +15,12 @@ import { CoordinatorService } from '../services/coordinator.service';
 export class CreateRewardComponent implements OnInit {
   files: any;
   disabled: boolean = false;
-  reward: storeDto;
+  public reward: any
 
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateRewardComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC: CoordinatorService) { }
   toggleDisabled(): void {
     this.disabled = !this.disabled;
-    this.reward = new storeDto();
+  
   }
 
   cerrar() {
@@ -28,15 +28,15 @@ export class CreateRewardComponent implements OnInit {
   }
 
   createReward() {
-
-    this.coordinatorSVC.newItemStore(this.reward).then(res => {
-      this.reward = res;
-      console.log(res);
+    console.log(this.reward);
+     this.coordinatorSVC.newItemStore(this.reward).then(res => {
+       this.reward = res;
+     console.log(res);
     })
 
   }
   ngOnInit() {
-
+    this.reward = new storeDto();
   }
 
 }
