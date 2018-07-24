@@ -10,18 +10,18 @@
   </mat-toolbar>
   <mat-card>
     <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center" layout-fill>
-      <form #loginForm="ngForm">
+      <form #rewardForm="ngForm">
         <div flex>
           <!-- Campo titulo -->
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #userName #userControl="ngModel" placeholder="Nombre de la recompensa" type="text" maxlength="40" name="Nombre"
-                  [(ngModel)]="name" required>
+                <input matInput #rewardName #userControl="ngModel" placeholder="Nombre de la recompensa" type="text" maxlength="40" name="nombre"
+                  [(ngModel)]="storeDto.name" required>
                 <mat-hint align="start">
                   <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
                 </mat-hint>
-                <mat-hint align="end">{{userName.value.length}} / 40</mat-hint>
+                <mat-hint align="end">{{rewardName.value.length}} / 40</mat-hint>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -29,8 +29,8 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                  [(ngModel)]="description" required rows="7" cols="120"></textarea>
+                <textarea matInput #rewardDerscription #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
+                  [(ngModel)]="store.description" required rows="6" cols="100"></textarea>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -38,12 +38,12 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #quantityControl="ngModel" placeholder="Cantidad" type="number" maxlength="120" name="Cantidad" [(ngModel)]="quantity">
+                <input matInput #quantityControl="ngModel" placeholder="Cantidad" type="number" maxlength="120" name="Cantidad" [(ngModel)]="storeDto.amount">
               </mat-form-field>
             </mat-card-content>
           </mat-card>
           <!-- campo icono -->
-          <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+          <!-- <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
 
                 <div layout="row">
@@ -74,12 +74,12 @@
                   </div>
 
             </mat-card-content>
-          </mat-card>
+          </mat-card> -->
           <!-- campo puntos -->
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #scoreControl="ngModel" placeholder="Puntos" type="number" maxlength="120" name="Puntos" [(ngModel)]="score">
+                <input matInput #scoreControl="ngModel" placeholder="Puntos" type="number" maxlength="120" name="Puntos" [(ngModel)]="storeDto.scorePrice">
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -87,7 +87,7 @@
       </form>
       <mat-card-actions layout="row">
         <div class="text-center">
-          <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="guardar()">Guardar</button>
+          <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)=" createReward()">Guardar</button>
           <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrar()">Cancelar</button>
         </div>
       </mat-card-actions>

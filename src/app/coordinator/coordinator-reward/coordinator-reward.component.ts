@@ -5,15 +5,22 @@ import { TdLoadingService } from '@covalent/core/loading';
 import { TdDialogService } from '@covalent/core/dialogs';
 import { Router } from '@angular/router';
 import { CreateRewardComponent } from '../create-reward/create-reward.component';
+import{ storeDto } from '../../challenges/models/storeDto';
+import {ChallengesService} from '../../challenges/services/challenges.service';
 
 @Component({
   selector: 'app-coordinator-reward',
   templateUrl: './coordinator-reward.component.html',
-  styleUrls: ['./coordinator-reward.component.scss']
+  styleUrls: ['./coordinator-reward.component.scss'],
+  providers:[ChallengesService]
 })
 export class CoordinatorRewardComponent implements OnInit {
-
-  constructor(private _router: Router,private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { }
+reward:storeDto;
+store: storeDto[];
+  constructor(private _router: Router,private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog,private challengesSVC: ChallengesService) {
+    this.reward= new storeDto();
+    this.store = new Array<storeDto>();
+   }
 
   eliminar(): void {
     this._dialogService.openAlert({
@@ -25,12 +32,21 @@ export class CoordinatorRewardComponent implements OnInit {
       width: '400px', //OPTIONAL, defaults to 400px
     });
   }
-  
-  crear() {
+  getAllItemsStore() {
+
+    this.challengesSVC.getAllItemsStore().then(res => {
+      this.store = res;
+
+      console.log(this.store)
+    })
+  }
+
+  crear(reward:storeDto) {
+    console.log(reward)
     const dialogRef = this._dialogRef.open(CreateRewardComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: 'dato' }
+      data: { data: reward }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
@@ -39,6 +55,7 @@ export class CoordinatorRewardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllItemsStore()
   }
 
 }

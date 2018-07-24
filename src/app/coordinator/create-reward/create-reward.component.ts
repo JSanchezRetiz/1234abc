@@ -36,7 +36,7 @@ export class CreateRewardComponent implements OnInit {
 
   }
   ngOnInit() {
-   
+
   }
 
 }
