@@ -21,7 +21,7 @@
       <span>Recompensas</span>
       <span flex></span>
     </div>
-    <div style="background-color:#ff7539" layout-fill>
+    <div style="background-color:#ff7539" >
       <mat-card>
         <mat-card>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
@@ -79,7 +79,7 @@
               <mat-card-content class="contenido">{{recompensa.scorePrice}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
+              <button mat-button class="w3-btn w3-dark-grey" (click)="editar(recompensa)">Editar</button>
               <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="eliminar()">Eliminar</button>
             </div>
           </div>

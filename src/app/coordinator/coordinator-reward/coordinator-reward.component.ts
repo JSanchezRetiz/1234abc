@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { CreateRewardComponent } from '../create-reward/create-reward.component';
 import { storeDto } from '../../challenges/models/storeDto';
 import { ChallengesService } from '../../challenges/services/challenges.service';
+import { EditRewardComponent } from '../edit-reward/edit-reward.component';
 
 @Component({
   selector: 'app-coordinator-reward',
@@ -48,6 +49,20 @@ export class CoordinatorRewardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getAllItemsStore();
  
+    });
+  }
+
+  editar(store:storeDto) {
+  //  console.log(store.itemId)
+  //  localStorage.setItem('itemId',store.itemId);
+    const dialogRef = this._dialogRef.open(EditRewardComponent, {
+      width: '1000px',
+      height: '600px',  
+      data: { data: store }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+ 
+
     });
   }
 
