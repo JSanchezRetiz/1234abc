@@ -45,6 +45,7 @@ export class DetailArticleComponent implements OnInit {
   }
   ngOnInit() {
     this.tiendaSend.itemId = localStorage.getItem('itemId');
+    console.log("ID",this.tiendaSend.itemId)
     localStorage.removeItem('itemId');
     this.getItemById(this.tiendaSend);
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { TdDialogService } from '@covalent/core/dialogs';
 import { ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,14 +17,21 @@ export class EditRewardComponent implements OnInit {
   files: any;
   disabled: boolean = false;
   public reward: any
-  store: storeDto;
+  tiendaSend: storeDto;
+  tienda: storeDto;
+  idItem:any;
+  
 
-  constructor(private challengeSVC: ChallengesService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditRewardComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC: CoordinatorService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private challengeSVC: ChallengesService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditRewardComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC: CoordinatorService) {
+    this.idItem= data.data;
+    this.tiendaSend = new storeDto();
+    this.tienda = new storeDto();
+    console.log(data)
+    console.log(this.idItem);
+   }
 
   toggleDisabled(): void {
     this.disabled = !this.disabled;
-    this.store= new storeDto();
-  
   }
 
   cerrar() {
@@ -40,9 +47,10 @@ export class EditRewardComponent implements OnInit {
 
   }
 
-  getItemById(store:storeDto){
-    this.challengeSVC.getItemById(store).then(res => {
-      this.store =res;
+  getItemById(tiendaSend:storeDto){
+    this.challengeSVC.getItemById(tiendaSend).then(res => {
+      this.tienda =res;
+      console.log(this.tienda)
     })
   }
 
@@ -50,8 +58,9 @@ export class EditRewardComponent implements OnInit {
 
   ngOnInit() {
     this.reward = new storeDto();
-  
-    this.getItemById(this.store);
+    this.tiendaSend.itemId = localStorage.getItem('itemId');
+ 
+    this.getItemById(this.tiendaSend);
   }
 
 }

@@ -52,13 +52,13 @@ export class CoordinatorRewardComponent implements OnInit {
     });
   }
 
-  editar(store:storeDto) {
-  //  console.log(store.itemId)
-  //  localStorage.setItem('itemId',store.itemId);
+  editar(dato:storeDto) {
+   console.log("id",dato.itemId)
+    localStorage.setItem('itemId',dato.itemId);
     const dialogRef = this._dialogRef.open(EditRewardComponent, {
       width: '1000px',
       height: '600px',  
-      data: { data: store }
+      data: { data: dato.itemId }
     });
     dialogRef.afterClosed().subscribe(result => {
  
