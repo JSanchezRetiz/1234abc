@@ -1,3 +1,96 @@
-<p>
-  edit-reward works!
-</p>
+<div layout="column" style="background-color:#ff7539">
+    <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
+      <mat-toolbar-row>
+        <span>Editar recompensas</span>
+        <span flex></span>
+        <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
+          <mat-icon>clear</mat-icon>
+        </a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-card>
+      <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center" layout-fill>
+        <form #rewardForm="ngForm">
+          <div flex>
+            <!-- Campo titulo -->
+            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <mat-form-field style="width: 100%;" flex>
+                  <input matInput #rewardName #name="ngModel" placeholder="Nombre de la recompensa" type="text" maxlength="40" name="name"
+                    [(ngModel)]="reward.name" required>
+                  <mat-hint align="start">
+                    <span [hidden]="!name.errors?.required || name.pristine" class="tc-red-600">Requerido</span>
+                  </mat-hint>
+                  <mat-hint align="end">{{rewardName.value.length}} / 40</mat-hint>
+                </mat-form-field>
+              </mat-card-content>
+            </mat-card>
+            <!-- Campo descripcion -->
+            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <mat-form-field style="width: 100%;" flex>
+                  <textarea matInput #rewardDerscription #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
+                    [(ngModel)]="reward.description" required rows="6" cols="100"></textarea>
+                </mat-form-field>
+              </mat-card-content>
+            </mat-card>
+            <!-- campo cantidad -->
+            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <mat-form-field style="width: 100%;" flex>
+                  <input matInput #quantityControl="ngModel" placeholder="Cantidad" type="number" maxlength="120" name="Cantidad" [(ngModel)]="reward.amount">
+                </mat-form-field>
+              </mat-card-content>
+            </mat-card>
+            <!-- campo icono -->
+            <!-- <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+  
+                  <div layout="row">
+                      <mat-form-field tdFileDrop
+                                          [disabled]="disabled"
+                                          (fileDrop)="files = $event"
+                                          (click)="fileInput.inputElement.click()"
+                                          (keyup.enter)="fileInput.inputElement.click()"
+                                          (keyup.delete)="fileInput.clear()"
+                                          (keyup.backspace)="fileInput.clear()"
+                                          flex>
+                        <input matInput
+                              placeholder="Selecciona el icono"
+                              [value]="files?.length ? (files?.length + ' files') : files?.name"
+                              [disabled]="disabled"
+                              readonly/>
+                      </mat-form-field>
+                      <button mat-icon-button *ngIf="files" (click)="fileInput.clear()" (keyup.enter)="fileInput.clear()">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                      <td-file-input color="accent" class="push-left-sm push-right-sm" #fileInput [(ngModel)]="files" multiple [disabled]="disabled">
+                        <mat-icon >folder</mat-icon>
+                        <span class="text-upper" >Explorar...</span>
+                      </td-file-input>
+                      <span>
+                        <button mat-raised-button color="accent" [disabled]="!files" class="text-upper">Cargar</button>
+                      </span>
+                    </div>
+  
+              </mat-card-content>
+            </mat-card> -->
+            <!-- campo puntos -->
+            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <mat-form-field style="width: 100%;" flex>
+                  <input matInput #scoreControl="ngModel" placeholder="Puntos" type="number" maxlength="120" name="Puntos" [(ngModel)]="reward.scorePrice">
+                </mat-form-field>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </form>
+        <mat-card-actions layout="row">
+          <div class="text-center">
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)=" createReward()">Guardar</button>
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrar()">Cancelar</button>
+          </div>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </div>

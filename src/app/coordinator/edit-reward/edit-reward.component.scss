@@ -1,0 +1,14 @@
+.fondo{
+    background-color:#ff7539;
+}
+
+.campos{
+    width: 100%;
+}
+
+.drop-zone {
+    font-weight: 600;
+    ::ng-deep * {
+      pointer-events: none; //added to fix bug that re-throws dragleave/dragenter by child elements
+    }
+  }

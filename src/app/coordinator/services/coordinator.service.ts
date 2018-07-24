@@ -17,4 +17,9 @@ export class CoordinatorService {
       .then(res => <any>res.json())
   }
 
+public updateItemStore(itemId:storeDto){
+  return this.http.post(this.serverURL + 'updateItemStore', itemId ).toPromise().then
+  (res => <any>res.json())
+}
+
 }
