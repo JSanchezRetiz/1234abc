@@ -36,7 +36,7 @@ export class LoginService {
           localStorage.setItem('token', '' + token);
           resolve(userData);
         })
-        .catch((error) => {
+        .catch((error) => { 
           alert("Error de inicio de sesion:");
 
           console.log(error)

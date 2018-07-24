@@ -72,45 +72,22 @@
             </div>
           </div>
         </mat-card>
-        <mat-card>
+        <mat-card *ngFor="let recompensa of store ">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
               <img src="../../../assets/icons/rewards/viaje.svg" width="70px">
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">Viaje</mat-card-content>
+              <mat-card-content class="contenido">{{recompensa.name}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">Viaje a cali</mat-card-content>
+              <mat-card-content class="contenido">{{recompensa.description}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">10</mat-card-content>
+              <mat-card-content class="contenido">{{recompensa.amount}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">1000</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="eliminar()">Eliminar</button>
-            </div>
-          </div>
-        </mat-card>
-        <mat-card>
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <img src="../../../assets/icons/rewards/helado.svg" width="70px">
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">Helado</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">Cualquier helado</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">100</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">20</mat-card-content>
+              <mat-card-content class="contenido">{{recompensa.scorePrice}}</mat-card-content>
             </div>
             <div flex class="text-center">
               <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
@@ -118,6 +95,7 @@
             </div>
           </div>
         </mat-card>
+
         <mat-card-actions layout="row">
           <div class="text-center">
             <br>
