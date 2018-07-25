@@ -19,7 +19,12 @@ export class CoordinatorService {
 
 public updateItemStore(store:storeDto){
   return this.http.post(this.serverURL + 'updateItemStore', store ).toPromise().then
-  (res => <any>res.json())
+  (res => <any>res)
+}
+
+public deleteItemStore(store:storeDto){
+  return this.http.post(this.serverURL + 'deleteItemStore', store ).toPromise().then
+  (res => <any>res)
 }
 
 }

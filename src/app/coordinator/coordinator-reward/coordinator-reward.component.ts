@@ -8,30 +8,32 @@ import { CreateRewardComponent } from '../create-reward/create-reward.component'
 import { storeDto } from '../../challenges/models/storeDto';
 import { ChallengesService } from '../../challenges/services/challenges.service';
 import { EditRewardComponent } from '../edit-reward/edit-reward.component';
+import { CoordinatorService } from '../services/coordinator.service';
 
 @Component({
   selector: 'app-coordinator-reward',
   templateUrl: './coordinator-reward.component.html',
   styleUrls: ['./coordinator-reward.component.scss'],
-  providers: [ChallengesService,TdDialogService]
+  providers: [ChallengesService, TdDialogService, CoordinatorService, TdLoadingService]
 })
 export class CoordinatorRewardComponent implements OnInit {
- 
+
   reward: storeDto;
   store: storeDto[];
-  constructor(private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService) {
+  storeSend: storeDto;
+  constructor(private _loadingService: TdLoadingService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService, private coordinatorSVC: CoordinatorService) {
     this.reward = new storeDto();
     this.store = new Array<storeDto>();
+    this.storeSend = new storeDto();
   }
-  eliminar(): void {
-    this._dialogService.openAlert({
-      message: '¿Desea eliminar esta actividad?.',
-      disableClose: true, // defaults to false
-      viewContainerRef: this._viewContainerRef, //OPTIONAL
-      title: 'Atencion:', //OPTIONAL, hides if not provided
-      closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
-      width: '400px', //OPTIONAL, defaults to 400px
-    });
+  eliminar(dato: storeDto) {
+    this._loadingService.register();
+    console.log("id", dato.itemId)
+    localStorage.setItem('itemId', dato.itemId);
+    this.coordinatorSVC.deleteItemStore(dato).then(res => {
+      this.getAllItemsStore();
+      this._loadingService.resolve();
+    })
   }
   getAllItemsStore() {
     this.challengesSVC.getAllItemsStore().then(res => {
@@ -48,20 +50,20 @@ export class CoordinatorRewardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getAllItemsStore();
- 
+
     });
   }
 
-  editar(dato:storeDto) {
-   console.log("id",dato.itemId)
-    localStorage.setItem('itemId',dato.itemId);
+  editar(dato: storeDto) {
+    console.log("id", dato.itemId)
+    localStorage.setItem('itemId', dato.itemId);
     const dialogRef = this._dialogRef.open(EditRewardComponent, {
       width: '1000px',
-      height: '600px',  
+      height: '600px',
       data: { data: dato.itemId }
     });
     dialogRef.afterClosed().subscribe(result => {
- 
+      this.getAllItemsStore();
 
     });
   }

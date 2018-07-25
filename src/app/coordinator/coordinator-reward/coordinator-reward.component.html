@@ -21,11 +21,11 @@
       <span>Recompensas</span>
       <span flex></span>
     </div>
-    <div style="background-color:#ff7539" >
+    <div style="background-color:#ff7539">
       <mat-card>
         <mat-card>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
+            <div flex class="text-left" style="color:orangered">
               <mat-card-title>Nueva recompensa</mat-card-title>
             </div>
             <div flex class="text-right">
@@ -37,7 +37,7 @@
         </mat-card>
         <mat-card>
           <div flex class="text-center">
-            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de recompensas</mat-card-title>
+            <mat-card-title style="color:orangered; text-align: center; font-size:40px"> Recompensas</mat-card-title>
           </div>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
@@ -60,7 +60,6 @@
             </div>
           </div>
         </mat-card>
-
         <mat-card *ngFor="let recompensa of store ">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
@@ -80,11 +79,10 @@
             </div>
             <div flex class="text-center">
               <button mat-button class="w3-btn w3-dark-grey" (click)="editar(recompensa)">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="eliminar()">Eliminar</button>
+              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="eliminar(recompensa)">Eliminar</button>
             </div>
           </div>
         </mat-card>
-
         <mat-card-actions layout="row">
           <div class="text-center">
             <br>
