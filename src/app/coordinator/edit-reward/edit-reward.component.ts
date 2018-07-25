@@ -47,6 +47,15 @@ export class EditRewardComponent implements OnInit {
 
   }
 
+  updateItemStore(){
+    this.tienda.itemId
+    console.log("id del producto",this.tienda.itemId)
+    this.coordinatorSVC.updateItemStore(this.tienda).then( res =>{
+      this.tienda = res;
+      console.log(this.tienda)
+    })
+  }
+
   getItemById(tiendaSend:storeDto){
     this.challengeSVC.getItemById(tiendaSend).then(res => {
       this.tienda =res;
