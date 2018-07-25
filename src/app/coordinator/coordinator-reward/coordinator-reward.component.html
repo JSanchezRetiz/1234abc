@@ -36,7 +36,35 @@
           </div>
         </mat-card>
         <mat-card>
-          <div flex class="text-center">
+          <div style="overflow:auto">
+            <mat-card-content>
+              <table td-data-table width="100%">
+                <thead>
+                  <tr td-data-table-colum-row>
+                    <th td-data-table-column>
+
+                    </th>
+                    <th td-data-table-column>
+                      Nombre de la recompensa
+                    </th>
+                    <th td-data-table-column>
+                      Descripcion
+                    </th>
+                    <th td-data-table-column>
+                      Cantidad
+                    </th>
+                    <th td-data-table-column>
+                      Puntos
+                    </th>
+                    <th td-data-table-column>
+                      Detalle
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </mat-card-content>
+          </div>
+          <!-- <div flex class="text-center">
             <mat-card-title style="color:orangered; text-align: center; font-size:40px"> Recompensas</mat-card-title>
           </div>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
@@ -58,7 +86,7 @@
             <div flex class="text-center">
               <mat-card-title>DETALLES</mat-card-title>
             </div>
-          </div>
+          </div> -->
         </mat-card>
         <mat-card *ngFor="let recompensa of store ">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
