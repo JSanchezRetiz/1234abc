@@ -5,6 +5,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { storeDto } from '../../challenges/models/storeDto';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
+import { activityDto } from '../../challenges/models/activityDto';
 @Injectable()
 export class CoordinatorService {
 
@@ -25,6 +26,12 @@ public updateItemStore(store:storeDto){
 public deleteItemStore(store:storeDto){
   return this.http.post(this.serverURL + 'deleteItemStore', store ).toPromise().then
   (res => <any>res)
+}
+
+public createActivity(activity: activityDto) {
+  
+  return this.http.post(this.serverURL + 'createActivity', activity).toPromise()
+    .then(res => <any>res.json())
 }
 
 }
