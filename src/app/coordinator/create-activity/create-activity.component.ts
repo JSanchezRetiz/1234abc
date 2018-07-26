@@ -38,13 +38,15 @@ this.activity= new activityDto();
     this.coordinatorSVC.createActivity(this.activity).then(res => {
       this.activity = res;
       this._loadingService.resolve();
-      this.cerrar();
+      this.guardar();
     });
    
   }
 
-
-    cerrar() {
+cerrar(){
+  this.dialogRef.close('cerrar');
+}
+    guardar() {
 
     this.dialog.openAlert({
       message: 'Se ha creado la recompensa adecuadamente',

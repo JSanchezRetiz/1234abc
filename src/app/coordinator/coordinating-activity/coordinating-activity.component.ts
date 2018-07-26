@@ -40,6 +40,7 @@ export class CoordinatingActivityComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       localStorage.removeItem('idActivity');
       console.log('The dialog was closed', result);
+      this.getAllActivity();
       // this.getAllItemsStore();
 
     });
