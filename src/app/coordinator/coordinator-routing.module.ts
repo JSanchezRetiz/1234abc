@@ -6,6 +6,8 @@ import { CreateRewardComponent } from '../coordinator/create-reward/create-rewar
 import { EditRewardComponent } from '../coordinator/edit-reward/edit-reward.component';
 import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
 import { CoordinatorRewardComponent } from './coordinator-reward/coordinator-reward.component';
+import { CreateActivityComponent } from './create-activity/create-activity.component';
+
 const routes: Routes = [
   { path: 'actividad-coordinador', component: CoordinatingActivityComponent },
   { path: 'editar-actividad', component: EditComponent },
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path: 'editar-recompensa', component: EditRewardComponent },
   { path: 'perfil-coordinador', component: CoordinatorProfileComponent},
   { path: 'recompensa-coordinador', component:CoordinatorRewardComponent },
+  { path: 'crear-actividad', component:CreateActivityComponent },
 ];
 
 @NgModule({

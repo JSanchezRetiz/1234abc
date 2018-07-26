@@ -10,4 +10,5 @@ export class activityDto{
     typeScore: string;
     status: boolean;
     id: string;
+    rules:string;
 }
