@@ -8,27 +8,12 @@ import { MedalsComponent } from './medals/medals.component';
 import { RegisterComponent } from './register/register.component';
 
  const routes: Routes =
-//   { path: 'conectarse', component: LoginComponent },
-//   { path: 'olvidarContrasena', component: ForgetComponent },
-//   { path:'medallas', component:MedalsComponent },
-//   { path: 'registro', component:RegisterComponent }
-// ];
-[{
-  path: 'login',
-  component: LoginComponent,
-}, {
-  path: '',
-  component: MainComponent,
-  children: [{
-      component: MedalsComponent,
-      path: 'medallas',
-    }, {
-      component: RegisterComponent,
-      path: 'registro',
-    },
-  ],
-},
-];
+  { path: 'conectarse', component: LoginComponent },
+ { path: 'olvidarContrasena', component: ForgetComponent },
+   { path:'medallas', component:MedalsComponent },
+   { path: 'registro', component:RegisterComponent }
+ ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

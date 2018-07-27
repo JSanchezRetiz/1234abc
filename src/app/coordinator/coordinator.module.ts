@@ -26,12 +26,12 @@ import { EditRewardComponent } from './edit-reward/edit-reward.component';
 import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
 import { CoordinatorRewardComponent } from './coordinator-reward/coordinator-reward.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
-
-
+import { MenuModule}from '../menu/menu.module';
 @NgModule({
   imports: [
     CommonModule,
     CoordinatorRoutingModule,
+    MenuModule,
     // material modules
     MatButtonModule,
     MatCardModule,

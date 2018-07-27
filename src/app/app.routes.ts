@@ -18,6 +18,10 @@ const routes: Routes = [{
         path: '',
         loadChildren: './users/users.module#UsersModule',
       },
+      {
+        path: 'menu',
+        loadChildren: 'app/menu/menu.module#MenuModule',
+      },
     ],
   },
 ];

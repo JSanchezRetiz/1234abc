@@ -24,10 +24,10 @@ import { CovalentMediaModule } from '@covalent/core/media';
 import { CovalentLoadingModule } from '@covalent/core/loading';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
-
+import { MenuComponent } from '../menu/menu/menu.component';
 import { environment } from '../../environments/environment';
 import { AngularFireModule } from "angularfire2";
-
+import { MenuModule}from '../menu/menu.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { StoreComponent } from './store/store.component';
 import { DetailActivitiesComponent } from './detail-activities/detail-activities.component';
@@ -36,6 +36,7 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 @NgModule({
   imports: [
     CommonModule,
+    MenuModule,
     CovalentDialogsModule ,
     ChallengesRoutingModule,
     MatButtonModule,
@@ -75,6 +76,6 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
     // external modules
     NgxChartsModule,
   ],
-  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent, DetailArticleComponent]
+  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent, DetailArticleComponent,]
 })
 export class ChallengesModule { }
