@@ -26,6 +26,7 @@ import { EditRewardComponent } from './edit-reward/edit-reward.component';
 import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
 import { CoordinatorRewardComponent } from './coordinator-reward/coordinator-reward.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
+import { MedalsCoordinatorComponent } from './medals-coordinator/medals-coordinator.component';
 
 
 @NgModule({
@@ -50,6 +51,6 @@ import { CreateActivityComponent } from './create-activity/create-activity.compo
     CovalentLoadingModule,
     CovalentFileModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent],
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent],
 })
 export class CoordinatorModule { }
