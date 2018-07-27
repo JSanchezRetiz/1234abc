@@ -65,24 +65,24 @@
             </div>
           </div>
         </mat-card>
-        <mat-card>
+        <mat-card *ngFor="let medal of medals">
           <!-- <mat-card *ngFor="let activity of allActivity"> -->
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
               <mat-card-content class="contenido"><img src="../../../assets/icons/Insignia/calendario.svg" width="100px"></mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">calendario</mat-card-content>
+              <mat-card-content class="contenido">{{medal.name}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">Entregar los proyectos a tiempo</mat-card-content>
+              <mat-card-content class="contenido">{{medal.description}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">100</mat-card-content>
+              <mat-card-content class="contenido">{{medal.requirementScore}}</mat-card-content>
             </div>
             <div flex class="text-center">
               <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="eliminar()">Eliminar</button>
+              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(medal)">Eliminar</button>
             </div>
           </div>
         </mat-card>

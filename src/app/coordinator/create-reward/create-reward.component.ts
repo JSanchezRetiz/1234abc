@@ -22,7 +22,9 @@ export class CreateRewardComponent implements OnInit {
   toggleDisabled(): void {
     this.disabled = !this.disabled;
   }
-
+  cerrarModal(){
+    this.dialogRef.close('cerrar');
+  }
   cerrar() {
 
     this.dialog.openAlert({
