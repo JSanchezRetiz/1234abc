@@ -35,6 +35,9 @@ export class EditRewardComponent implements OnInit {
     this.disabled = !this.disabled;
   }
 
+  cerrarModal(){
+    this.dialogRef.close('cerrar');
+  }
   cerrar() {
     this.dialog.openAlert({
       message: 'Se ha editado la recompensa adecuadamente',

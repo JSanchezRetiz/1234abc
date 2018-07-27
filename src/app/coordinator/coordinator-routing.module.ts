@@ -8,6 +8,9 @@ import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-p
 import { CoordinatorRewardComponent } from './coordinator-reward/coordinator-reward.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
 import {MenuComponent} from '../menu/menu/menu.component';
+import { MedalsCoordinatorComponent } from './medals-coordinator/medals-coordinator.component';
+import { CreateMedalsComponent } from '../coordinator/create-medals/create-medals.component';
+import { EditMedalsComponent } from '../coordinator/edit-medals/edit-medals.component';
 
 const routes: Routes = [
   {
@@ -18,8 +21,12 @@ const routes: Routes = [
    { path: 'crear-recompensa', component: CreateRewardComponent },
    { path: 'editar-recompensa', component: EditRewardComponent },
   { path: 'perfil-coordinador', component: CoordinatorProfileComponent},
-   { path: 'recompensa-coordinador', component:CoordinatorRewardComponent },
-   { path: 'crear-actividad', component:CreateActivityComponent },
+  { path: 'recompensa-coordinador', component:CoordinatorRewardComponent },
+  { path: 'crear-actividad', component:CreateActivityComponent },
+  { path: 'medallas-coordinador', component:MedalsCoordinatorComponent},
+  { path: 'crear-medallas', component:CreateMedalsComponent},
+  { path: 'editar-medallas', component:EditMedalsComponent},
+
 ];
 
 @NgModule({

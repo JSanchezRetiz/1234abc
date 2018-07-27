@@ -1,9 +1,9 @@
 <div layout="column" style="background-color:#ff7539">
   <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
     <mat-toolbar-row>
-      <span>Editar recompensas</span>
+      <span>Crear recompensas</span>
       <span flex></span>
-      <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
+      <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrarModal()">
         <mat-icon>clear</mat-icon>
       </a>
     </mat-toolbar-row>
@@ -88,7 +88,7 @@
       <mat-card-actions layout="row">
         <div class="text-center">
           <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)=" createReward()">Guardar</button>
-          <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrar()">Cancelar</button>
+          <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrarModal()">Cancelar</button>
         </div>
       </mat-card-actions>
     </mat-card-content>

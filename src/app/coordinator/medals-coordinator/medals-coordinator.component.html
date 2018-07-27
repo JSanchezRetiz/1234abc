@@ -1,0 +1,102 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list td-navigation-drawer-menu>
+        <a mat-list-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="center center" flex>
+      <span>Medallas</span>
+      <span flex></span>
+    </div>
+    <div style="background-color:#ff7539">
+      <mat-card>
+        <mat-card>
+          <div flex class="text-center">
+            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Medallas</mat-card-title>
+          </div>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>ICONO</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title>MEDALLA</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title>DESCRIPCION</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title>PUNTOS</mat-card-title>
+            </div>
+            <div flex class="text-center">
+                <mat-card-title>DETALLES</mat-card-title>
+              </div>
+          </div>
+        </mat-card>
+        <mat-card>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>Nueva medalla</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div><div flex class="text-center">
+                <mat-card-title></mat-card-title>
+              </div>
+            <div flex class="text-center">
+              <button mat-button (click)="crear(activity)">
+                <img src="../../../assets/icons/boton-anadir.svg" width="70px">
+              </button>
+            </div>
+          </div>
+        </mat-card>
+        <mat-card *ngFor="let medal of medals">
+          <!-- <mat-card *ngFor="let activity of allActivity"> -->
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-content class="contenido"><img src="../../../assets/icons/Insignia/calendario.svg" width="100px"></mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">{{medal.name}}</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">{{medal.description}}</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="contenido">{{medal.requirementScore}}</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
+              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(medal)">Eliminar</button>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card-actions layout="row">
+          <div class="text-center">
+            <br>
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+      <br>
+      <br>
+      <br>
+    </div>
+  </td-layout-nav>
+</td-layout>

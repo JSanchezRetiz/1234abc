@@ -6,6 +6,8 @@ import { storeDto } from '../../challenges/models/storeDto';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
 import { activityDto } from '../../challenges/models/activityDto';
+import { medalDto } from '../models/medalDto';
+
 @Injectable()
 export class CoordinatorService {
 
@@ -33,5 +35,28 @@ public createActivity(activity: activityDto) {
   return this.http.post(this.serverURL + 'createActivity', activity).toPromise()
     .then(res => <any>res.json())
 }
+
+public getAllMedals() {
+  return this.http.get(this.serverURL + 'getAllMedals').toPromise()
+    .then(res => <any>res.json())
+}
+
+public updateMedal(medal:medalDto){
+  return this.http.post(this.serverURL + 'updateMedal', medal ).toPromise().then
+  (res => <any>res)
+}
+
+public deleteMedal(medal:medalDto){
+  return this.http.post(this.serverURL + 'deleteMedal', medal ).toPromise().then
+  (res => <any>res)
+}
+
+public createMedal(medal: medalDto) {
+  
+  return this.http.post(this.serverURL + 'createMedal', medal).toPromise()
+    .then(res => <any>res.json())
+}
+
+
 
 }
