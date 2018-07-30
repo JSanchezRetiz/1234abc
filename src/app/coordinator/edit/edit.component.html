@@ -47,12 +47,12 @@
           <mat-card layout="row" flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field class="calendar">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha inicio">
+                <input matInput [min]="fecha" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha inicio">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-form-field class="calendar">
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha final">
+                <input matInput [min]="fecha" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha final">
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>

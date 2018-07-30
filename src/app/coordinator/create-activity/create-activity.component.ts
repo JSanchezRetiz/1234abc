@@ -19,7 +19,8 @@ import { TdLoadingService } from '@covalent/core/loading';
 })
 export class CreateActivityComponent implements OnInit {
 activity: activityDto;
-
+fecha1:Date;
+endTime:Date;
 
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateActivityComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef,private _loadingService:TdLoadingService, private challengesSVC:ChallengesService, private coordinatorSVC:CoordinatorService) {
 this.activity= new activityDto();
@@ -65,5 +66,7 @@ cerrar(){
 
 }
 ngOnInit() {
+  this.fecha1= new Date();
+  this.endTime= new Date();
 }
 }

@@ -35,6 +35,27 @@ export class CoordinatorRewardComponent implements OnInit {
       this._loadingService.resolve();
     })
   }
+  Confirmar(dato:storeDto): void {
+    this._dialogService.openConfirm({
+      message: 'Esta seguro de eliminar esta medalla?',
+     disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+       title: 'Atencion:', //OPTIONAL, hides if not provided
+      cancelButton: 'Cancelar', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Confirmar', //OPTIONAL, defaults to 'ACCEPT'
+      width: '500px', //OPTIONAL, defaults to 400px
+     }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+         this.eliminar(dato)
+      } else {
+        this.cerrar();
+      }
+    });
+   }
+   cerrar() {
+    this._dialogRef.closeAll();
+  }
+  
   getAllItemsStore() {
     this.challengesSVC.getAllItemsStore().then(res => {
       this.store = res;

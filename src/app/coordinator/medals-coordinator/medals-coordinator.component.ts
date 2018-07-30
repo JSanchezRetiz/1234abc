@@ -52,7 +52,7 @@ export class MedalsCoordinatorComponent implements OnInit {
     const dialogRef = this._dialogRef.open(EditMedalsComponent, {
     width: '1000px',
       height: '600px',
-      data: { data: dato.id}
+      data: { data: dato}
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getAllMedals();

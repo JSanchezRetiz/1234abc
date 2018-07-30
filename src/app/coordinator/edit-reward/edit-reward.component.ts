@@ -21,6 +21,7 @@ export class EditRewardComponent implements OnInit {
   tiendaSend: storeDto;
   tienda: storeDto;
   idItem: any;
+  fecha:Date;
 
 
   constructor( @Inject(MAT_DIALOG_DATA) public data: any, private _loadingService: TdLoadingService, private challengeSVC: ChallengesService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditRewardComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC: CoordinatorService) {
@@ -87,6 +88,7 @@ export class EditRewardComponent implements OnInit {
     this.reward = new storeDto();
     this.tienda.itemId = localStorage.getItem('itemId');
     this.getItemById(this.tienda);
+    this.fecha= new Date();
 
     
   }

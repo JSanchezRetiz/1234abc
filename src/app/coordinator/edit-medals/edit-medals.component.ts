@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { TdDialogService } from '@covalent/core/dialogs';
 import { ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -20,37 +20,39 @@ export class EditMedalsComponent implements OnInit {
   id: any;
 
 
-  constructor(private challengesSVC:ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC:CoordinatorService, private dialog:TdDialogService, public dialogRef:MatDialogRef<EditMedalsComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) { 
-    this.id = data.data;
-    this.medalSend= new medalDto();
-    this.medal = new medalDto();
-    console.log(data)
+  constructor(private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditMedalsComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) {
+    this.medal = data.data;
+    this.medalSend = new medalDto();
+    /* this.medal = new medalDto(); */
+    console.log(this.medal)
+    // this.getMedalById(this.medalSend);
+    this.medal.id = localStorage.getItem('id');
+    console.log(this.medal)
   }
 
-  updateMedal(){
+  updateMedal() {
     this.medal.id
-    this.coordinatorSVC.updateMedal(this.medal).then(res =>{
-      this.medal=res;
+    this.coordinatorSVC.updateMedal(this.medal).then(res => {
+      this.medal = res;
       console.log(this.medal);
     })
   }
 
-  getMedalById(medalSend: medalDto) {
-    this.medalSend.id
-    this.coordinatorSVC.getMedalById(medalSend).then(res => {
-      this.medal = res;
-      console.log("dto de la modal",this.medal)
-    })
-  }
+  // getMedalById(medalSend: medalDto) {
 
-  cerrar(){
+  //   this.coordinatorSVC.getMedalById(medalSend).then(res => {
+  //     this.medal = res;
+  //     console.log("dto de la modal", this.medal)
+  //   })
+  // }
+
+  cerrar() {
     this.dialogRef.close('cerrar');
   }
 
   ngOnInit() {
-    this.getMedalById(this.medal);
-    this.medal.id = localStorage.getItem('id');
-    console.log(this.medal)
+    
+
   }
 
 }
