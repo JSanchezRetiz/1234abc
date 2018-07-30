@@ -57,6 +57,12 @@ public createMedal(medal: medalDto) {
     .then(res => <any>res.json())
 }
 
+public getMedalById(id: medalDto) {
+  return this.http.post(this.serverURL + 'getMedalById', id).toPromise()
+    .then(res => <any>res);
+}
+
+
 
 
 }

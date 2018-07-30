@@ -46,14 +46,16 @@ export class MedalsCoordinatorComponent implements OnInit {
     })
   }
 
-   editar() {
+   editar(dato: medalDto) {
+    console.log("id", dato.id)
+    localStorage.setItem('id', dato.id);
     const dialogRef = this._dialogRef.open(EditMedalsComponent, {
     width: '1000px',
       height: '600px',
-      data: { data: 'dato' }
+      data: { data: dato.id}
     });
     dialogRef.afterClosed().subscribe(result => {
-     console.log('The dialog was closed', result);
+      this.getAllMedals();
 
      });
    }
@@ -95,15 +97,6 @@ export class MedalsCoordinatorComponent implements OnInit {
       this._loadingService.resolve();
     })
   }
-
-
-
-
-
-
-
-
-
   ngOnInit() {
     this.getAllMedals();
 
