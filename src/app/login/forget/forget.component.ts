@@ -23,9 +23,8 @@ export class ForgetComponent implements OnInit {
   }
 forgetPassword(){
   var email = this.email
-  alert('email'+ email);
   this.loginSVC.forgetPassword(email).then((res)=>{
-    alert(res);
+    this._router.navigate[('login')]
   });
 }
   ngOnInit() {

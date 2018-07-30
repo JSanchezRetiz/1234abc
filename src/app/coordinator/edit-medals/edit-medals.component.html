@@ -1,7 +1,7 @@
 <div layout="column" style="background-color:#ff7539">
     <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
       <mat-toolbar-row>
-        <span>Editar medallas</span>
+        <span>Editar medallas </span>
         <span flex></span>
         <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
           <mat-icon>clear</mat-icon>
@@ -17,7 +17,7 @@
               <mat-card-content>
                 <mat-form-field style="width: 100%;" flex>
                   <input matInput #medalName #medalControl="ngModel" placeholder="Nombre de la medalla" type="text" maxlength="40" name="Nombre"
-                    [(ngModel)]="medalSend.name" required>
+                    [(ngModel)]="medal.name" required>
                   <mat-hint align="start">
                     <span [hidden]="!medalControl.errors?.required || medalControl.pristine" class="tc-red-600">Requerido</span>
                   </mat-hint>
@@ -30,7 +30,7 @@
               <mat-card-content>
                 <mat-form-field style="width: 100%;" flex>
                   <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                    [(ngModel)]="medalSend.description" required rows="7" cols="120"></textarea>
+                    [(ngModel)]="medal.description" required rows="7" cols="120"></textarea>
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
@@ -38,7 +38,7 @@
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
                 <mat-form-field style="width: 100%;" flex>
-                  <input matInput #requirementControl="ngModel" placeholder="Puntaje" type="number" name="Puntaje" [(ngModel)]="medalSend.requirementScore" required>
+                  <input matInput #requirementControl="ngModel" placeholder="Puntaje" type="number" name="Puntaje" [(ngModel)]="medal.requirementScore" required>
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
