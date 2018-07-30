@@ -158,17 +158,17 @@
                 </mat-card>
               </div>
             </mat-card>
-            <mat-card flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+            <mat-card  flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card style='background:#f8f8f8'>
+                <mat-card *ngFor="let medal of medals" style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/wifi.svg">
-                    <mat-card-content>wifi</mat-card-content>
+                    <mat-card-content>{{medal.name}}</mat-card-content>
                   </div>
                 </mat-card>
-                <mat-card style='background:#f8f8f8'>
+                <!-- <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/huella-dactilar.svg">
                     <mat-card-content>huella</mat-card-content>
@@ -179,9 +179,9 @@
                     <img src="../../../assets/icons/Insignia/alguacil.svg">
                     <mat-card-content>estrella</mat-card-content>
                   </div>
-                </mat-card>
+                </mat-card> -->
               </div>
-              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+              <!-- <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
                 <mat-card style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/diamante.svg">
@@ -200,7 +200,7 @@
                     <mat-card-content>armas</mat-card-content>
                   </div>
                 </mat-card>
-              </div>
+              </div>  -->
               <mat-card-actions layout="row">
                 <div class="text-center">
                   <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Ver_mas()">Ver mas</button>

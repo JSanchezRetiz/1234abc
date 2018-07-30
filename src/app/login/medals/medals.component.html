@@ -21,20 +21,21 @@
       <span>Medalleria</span>
       <span flex></span>
     </div>
-
-
     <div style="background-color:#ffd0b0">
-      <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+      <mat-card  fxlayout="row" fxflex="100" fxShow.gt-sm flex>
         <mat-card-title style="color:orangered; text-align: center; font-size:40px">TROFEOS</mat-card-title>
         <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
-        <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <mat-card flex="100" style='background:#f8f8f8'>
+        <div flex  layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+          <mat-card *ngFor="let medal of medals" flex="100" style='background:#f8f8f8'>
             <div style="padding:5px 5px 5px 5px" class="text-center">
               <img src="../../../assets/icons/Insignia/3d-modeling.svg" width="100px">
-              <mat-card-content>3d modelo</mat-card-content>
+              <mat-card-content>{{medal.name}}</mat-card-content>
+            </div>
+            <div class="text-center">
+              <mat-card-content>{{medal.description}}</mat-card-content>
             </div>
           </mat-card>
-          <mat-card flex="100" style='background:#f8f8f8'>
+          <!-- <mat-card flex="100" style='background:#f8f8f8'>
             <div style="padding:5px 5px 5px 5px" class="text-center">
               <img src="../../../assets/icons/Insignia/alguacil.svg" width="100px">
               <mat-card-content>estrella</mat-card-content>
@@ -63,10 +64,9 @@
               <img src="../../../assets/icons/Insignia/cohete.svg" width="100px">
               <mat-card-content>cohete</mat-card-content>
             </div>
-          </mat-card>
+          </mat-card> -->
         </div>
-
-        <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+        <!-- <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
           <mat-card flex="100" style='background:#f8f8f8'>
             <div style="padding:5px 5px 5px 5px" class="text-center">
               <img src="../../../assets/icons/Insignia/cronografo.svg" width="100px">
@@ -143,7 +143,6 @@
             </div>
           </mat-card>
         </div>
-
         <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
           <mat-card flex="100" style='background:#f8f8f8'>
             <div style="padding:5px 5px 5px 5px" class="text-center">
@@ -259,8 +258,7 @@
               <mat-card-content>3d modelo</mat-card-content>
             </div>
           </mat-card>
-        </div>
-
+        </div> -->
         <mat-card-actions layout="row">
           <div class="text-center">
             <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
