@@ -38,8 +38,8 @@
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
                 <mat-form-field style="width: 100%;" flex>
-                  <textarea matInput #rulesControl="ngModel" placeholder="Reglas" type="text" maxlength="120" name="Reglas" [(ngModel)]="activity.rules"
-                    required rows="7" cols="600"></textarea>
+                  <textarea style="resize: none" matInput #rulesControl="ngModel" placeholder="Reglas" type="text" maxlength="500" name="Reglas" [(ngModel)]="activity.rules"
+                    required rows="15" cols="25"></textarea>
                 </mat-form-field>
               </mat-card-content>
             </mat-card>
