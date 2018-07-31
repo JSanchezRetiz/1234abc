@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
@@ -41,6 +42,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatToolbarModule,
     MatSelectModule,
+    MatDialogModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,

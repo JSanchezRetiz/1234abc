@@ -50,7 +50,7 @@ cerrar(){
     guardar() {
 
     this.dialog.openAlert({
-      message: 'Se ha creado la recompensa adecuadamente',
+      message: 'Se ha creado la actividad adecuadamente',
       disableClose: false, // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
       title: 'Atencion:', //OPTIONAL, hides if not provided

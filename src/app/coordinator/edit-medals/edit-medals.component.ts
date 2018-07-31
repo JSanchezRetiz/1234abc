@@ -36,22 +36,14 @@ export class EditMedalsComponent implements OnInit {
     this.coordinatorSVC.updateMedal(this.medal).then(res => {
       this.medal = res;
       console.log(this.medal);
+      this.salir();
       this._loadingService.resolve();
     })
   }
 
-  // getMedalById(medalSend: medalDto) {
-
-  //   this.coordinatorSVC.getMedalById(medalSend).then(res => {
-  //     this.medal = res;
-  //     console.log("dto de la modal", this.medal)
-  //   })
-  // }
-
-
-  cerrar() {
+  salir() {
     this.dialog.openAlert({
-      message: 'Se ha editado la recompensa adecuadamente',
+      message: 'Se ha editado la medalla adecuadamente',
       disableClose: false, // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
       title: 'Atencion:', //OPTIONAL, hides if not provided
@@ -63,6 +55,10 @@ export class EditMedalsComponent implements OnInit {
       }
       );
     // this.dialogRef.close('cerrar');
+  }
+
+  cerrar(){
+    this.dialogRef.close();
   }
 
 
