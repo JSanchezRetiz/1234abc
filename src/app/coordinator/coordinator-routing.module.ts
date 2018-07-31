@@ -14,8 +14,9 @@ import { EditMedalsComponent } from '../coordinator/edit-medals/edit-medals.comp
 
 const routes: Routes = [
   {
-    path: 'actividad-coordinador', component: MenuComponent,
-    children: [{ path: '', component: CoordinatingActivityComponent },]
+    children: [{ path: '', component: MenuComponent }],
+    path: 'actividad-coordinador', component: CoordinatingActivityComponent,
+   
   },
    { path: 'editar-actividad', component: EditComponent },
    { path: 'crear-recompensa', component: CreateRewardComponent },
