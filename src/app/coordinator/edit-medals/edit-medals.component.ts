@@ -20,7 +20,7 @@ export class EditMedalsComponent implements OnInit {
   id: any;
 
 
-  constructor(private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditMedalsComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) {
+  constructor(private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditMedalsComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) {
     this.medal = data.data;
     this.medalSend = new medalDto();
     /* this.medal = new medalDto(); */
@@ -31,10 +31,12 @@ export class EditMedalsComponent implements OnInit {
   }
 
   updateMedal() {
+    this._loadingService.register();
     this.medal.id
     this.coordinatorSVC.updateMedal(this.medal).then(res => {
       this.medal = res;
       console.log(this.medal);
+      this._loadingService.resolve();
     })
   }
 
@@ -46,9 +48,23 @@ export class EditMedalsComponent implements OnInit {
   //   })
   // }
 
+
   cerrar() {
-    this.dialogRef.close('cerrar');
+    this.dialog.openAlert({
+      message: 'Se ha editado la recompensa adecuadamente',
+      disableClose: false, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+      title: 'Atencion:', //OPTIONAL, hides if not provided
+      closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
+      width: '400px', //OPTIONAL, defaults to 400px
+    }).afterClosed().subscribe(
+      result => {
+        this.dialogRef.close();
+      }
+      );
+    // this.dialogRef.close('cerrar');
   }
+
 
   ngOnInit() {
     

@@ -11,24 +11,30 @@ import { activityDto } from '../../challenges/models/activityDto';
 import { LoginService } from '../../login/service/login.service';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
+import { CoordinatorService } from '../services/coordinator.service';
+
+
+
  
 
 @Component({
   selector: 'app-coordinating-activity',
   templateUrl: './coordinating-activity.component.html',
   styleUrls: ['./coordinating-activity.component.scss'],
-  providers: [TdLoadingService, ChallengesService,LoginService],
+  providers: [TdLoadingService, ChallengesService, LoginService, CoordinatorService,TdDialogService],
 
 })
 export class CoordinatingActivityComponent implements OnInit {
   allActivity: activityDto[];
   uidDto: uidDto;
   userDto: userDto;
+  activity:activityDto
 
-  constructor(private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
+  constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
     this.uidDto= new uidDto();
     this.userDto= new userDto();
+    this.activity = new activityDto();
 
   }
   crear(dato: activityDto): void {
@@ -56,28 +62,21 @@ export class CoordinatingActivityComponent implements OnInit {
     })
   }
 
-  eliminar(): void {
-    this._dialogService.openAlert({
-      message: '¿Desea eliminar esta actividad?.',
-      disableClose: true, // defaults to false
-      viewContainerRef: this._viewContainerRef, //OPTIONAL
-      title: 'Atencion:', //OPTIONAL, hides if not provided
-      closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
-      width: '400px', //OPTIONAL, defaults to 400px
-    });
-  }
 
-  editar() {
+
+  editar(dato: activityDto) {
+    console.log("id", dato.id)
+    localStorage.setItem('id', dato.id);
     const dialogRef = this._dialogRef.open(EditComponent, {
-      width: '1000px',
+    width: '1000px',
       height: '600px',
-      data: { data: 'dato' }
+      data: { data: dato}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
+      this.getAllActivity();
 
-    });
-  }
+     });
+   }
 
   public getAllActivity() {
     this._loadingService.register();
@@ -94,6 +93,43 @@ export class CoordinatingActivityComponent implements OnInit {
   Volver() {
     this._router.navigate(["perfil-coordinador"]);
   }
+
+  Confirmar(dato: activityDto): void {
+    this._dialogService.openConfirm({
+      message: 'Esta seguro de eliminar esta actividad?',
+     disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+       title: 'Atencion:', //OPTIONAL, hides if not provided
+      cancelButton: 'Cancelar', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Confirmar', //OPTIONAL, defaults to 'ACCEPT'
+      width: '500px', //OPTIONAL, defaults to 400px
+     }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+         this.eliminar(dato)
+      } else {
+        this.cerrar();
+      }
+    });
+   }
+
+  cerrar() {
+    this._dialogRef.closeAll();
+  }
+
+  eliminar(dato: activityDto) {
+    this._loadingService.register();
+    console.log("id", dato)
+    localStorage.setItem('id', dato.id);
+    this.coordinatorSVC.deleteActivity(dato).then(res =>{
+      this.activity= res;
+      console.log(res);
+      this.getAllActivity();
+      this._loadingService.resolve();
+    })
+  }
+
+
+
 
   ngOnInit() {
     this.getUserData();

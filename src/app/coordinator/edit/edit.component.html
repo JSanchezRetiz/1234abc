@@ -10,18 +10,18 @@
   </mat-toolbar>
   <mat-card>
     <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center" layout-fill>
-      <form #loginForm="ngForm">
+      <form #activitySendForm="ngForm">
         <div flex>
           <!-- Campo titulo -->
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #userName #userControl="ngModel" placeholder="Nombre de la actividad" type="text" maxlength="40" name="Nombre"
-                  [(ngModel)]="name" required>
+                <input matInput #activityName #activityControl="ngModel" placeholder="Nombre de la actividad" type="text" maxlength="40" name="Nombre"
+                  [(ngModel)]="activity.title" required>
                 <mat-hint align="start">
-                  <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                  <span [hidden]="!activityControl.errors?.required || activityControl.pristine" class="tc-red-600">Requerido</span>
                 </mat-hint>
-                <mat-hint align="end">{{userName.value.length}} / 40</mat-hint>
+                <mat-hint align="end">{{activityName.value.length}} / 40</mat-hint>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -30,7 +30,7 @@
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
                 <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                  [(ngModel)]="description" required rows="7" cols="120"></textarea>
+                  [(ngModel)]="activity.description" required rows="7" cols="120"></textarea>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -38,8 +38,8 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <textarea matInput #rulesControl="ngModel" placeholder="Reglas" type="text" maxlength="120" name="Reglas" [(ngModel)]="rules"
-                  required rows="7" cols="600"></textarea>
+                <textarea matInput #rulesControl="ngModel" placeholder="Reglas" type="text" maxlength="120" name="Reglas" [(ngModel)]="activity.rules"
+                  required rows="25" cols="25"></textarea>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -47,12 +47,12 @@
           <mat-card layout="row" flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field class="calendar">
-                <input matInput [min]="fecha" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha inicio">
+                <input matInput #startTime="ngModel" [min]="fecha" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha inicio" name="inicio" [(ngModel)]="activity.startTime">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-form-field class="calendar">
-                <input matInput [min]="fecha" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha final">
+                <input matInput #endTime="ngModel" [min]="fecha" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha final"  name="fin" [(ngModel)]="activity.endTime">
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>
@@ -62,7 +62,7 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <input matInput #rewardControl="ngModel" placeholder="Recompensa" type="number" name="Recompensa" [(ngModel)]="reward" required>
+                <input matInput #rewardControl="ngModel" placeholder="Recompensa" type="number" name="Recompensa" [(ngModel)]="activity.reward" required>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -70,7 +70,7 @@
       </form>
       <mat-card-actions layout="row">
         <div class="text-center">
-          <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="guardar()">Guardar</button>
+          <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button [disabled]="!activitySendForm.valid" (click)="updateActivity()">Guardar</button>
           <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrar()">Cancelar</button>
         </div>
       </mat-card-actions>

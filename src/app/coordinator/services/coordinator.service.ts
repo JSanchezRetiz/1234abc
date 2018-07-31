@@ -62,6 +62,16 @@ public getMedalById(id: medalDto) {
     .then(res => <any>res);
 }
 
+public deleteActivity(activity:activityDto){
+  return this.http.post(this.serverURL + 'deleteActivity', activity ).toPromise().then
+  (res => <any>res)
+}
+
+public updateActivity(activity:activityDto){
+  return this.http.post(this.serverURL + 'updateActivity', activity ).toPromise().then
+  (res => <any>res)
+}
+
 
 
 

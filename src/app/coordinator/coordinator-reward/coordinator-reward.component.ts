@@ -84,7 +84,9 @@ export class CoordinatorRewardComponent implements OnInit {
       data: { data: dato.itemId }
     });
     dialogRef.afterClosed().subscribe(result => {
+      this._loadingService.register();
       this.getAllItemsStore();
+      this._loadingService.resolve();
 
     });
   }

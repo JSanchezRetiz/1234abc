@@ -60,8 +60,9 @@ export class EditRewardComponent implements OnInit {
     console.log(this.reward);
     this.coordinatorSVC.newItemStore(this.reward).then(res => {
       this.reward = res;
-      this._loadingService.resolve();
+      
       this.cerrar();
+      this._loadingService.resolve();
     })
   }
 
