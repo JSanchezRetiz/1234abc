@@ -15,7 +15,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CovalentDialogsModule } from '@covalent/core/dialogs';
-
+import {MatSelectModule} from '@angular/material';
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 import { CovalentFileModule } from '@covalent/core/file';
 
@@ -49,6 +49,7 @@ import { EditMedalsComponent } from './edit-medals/edit-medals.component';
     MatDatepickerModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatSelectModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,

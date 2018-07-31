@@ -11,4 +11,6 @@ export class activityDto{
     status: boolean;
     id: string;
     rules:string;
+    prize:string;
+    medal:string;
 }

@@ -8,6 +8,7 @@ import { CoordinatorService } from '../services/coordinator.service';
 import { ChallengesService } from '../../challenges/services/challenges.service';
 import { TdLoadingService } from '@covalent/core/loading';
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -19,6 +20,7 @@ activitySend: activityDto;
 activity: activityDto;
 id: any;
 startTime:Date;
+
 
 fecha :Date
   minDate = new Date(2000, 0, 1);
@@ -36,6 +38,7 @@ fecha :Date
     this.startTime = new Date();
     console.log(this.startTime);
     this.fecha= new Date();
+
   }
 
   updateActivity() {
@@ -64,15 +67,12 @@ fecha :Date
       );
     // this.dialogRef.close('cerrar');
   }
-
   cerrar(){
     this.dialogRef.close();
   }
-  
-
-
 
   ngOnInit() {
+  
   }
 
 }

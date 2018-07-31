@@ -7,6 +7,9 @@ import { activityDto } from '../../challenges/models/activityDto';
 import { CoordinatorService } from '../services/coordinator.service';
 import { ChallengesService } from '../../challenges/services/challenges.service';
 import { TdLoadingService } from '@covalent/core/loading';
+import {storeDto} from '../../challenges/models/storeDto';
+import {medalDto} from '../../coordinator/models/medalDto';
+
 
 
 
@@ -21,10 +24,19 @@ export class CreateActivityComponent implements OnInit {
 activity: activityDto;
 fecha1:Date;
 endTime:Date;
+store:storeDto[];
+value: string;
+viewValue: string;
+storeSend:storeDto;
+medals:medalDto[];
+medalSend:medalDto;
 
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateActivityComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef,private _loadingService:TdLoadingService, private challengesSVC:ChallengesService, private coordinatorSVC:CoordinatorService) {
 this.activity= new activityDto();
-
+this.store= new Array <storeDto>();
+this.storeSend = new storeDto();
+this.medals= new Array <medalDto>();
+this.medalSend =new medalDto();
    }
 
  
@@ -43,7 +55,19 @@ this.activity= new activityDto();
     });
    
   }
-
+  getAllItemsStore() {
+    this.challengesSVC.getAllItemsStore().then(res => {
+      this.store = res;
+      console.log(this.store)
+    })
+  }
+  
+  getAllMedals() {
+    this.coordinatorSVC.getAllMedals().then(res => {
+      this.medals = res;
+      console.log(res);
+    })
+  }
 cerrar(){
   this.dialogRef.close('cerrar');
 }
@@ -66,6 +90,10 @@ cerrar(){
 
 }
 ngOnInit() {
+  console.log("dto medals",this.getAllMedals())
+  console.log("dto store",this.getAllItemsStore())
+  console.log(this.store);
+  console.log(this.medals);
   this.fecha1= new Date();
   this.endTime= new Date();
 }
