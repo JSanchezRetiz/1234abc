@@ -14,15 +14,13 @@ import { medalDto } from '../models/medalDto';
   styleUrls: ['./create-medals.component.scss'],
   providers: [ChallengesService, CoordinatorService, TdLoadingService,TdDialogService],
 })
+
 export class CreateMedalsComponent implements OnInit {
   medals: medalDto;
 
-
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateMedalsComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private coordinatorSVC: CoordinatorService) {
     this.medals = new medalDto();
-
   }
-
 
   createMedal() {
     this._loadingService.register();
@@ -34,13 +32,11 @@ export class CreateMedalsComponent implements OnInit {
     })
   }
 
-
-
   cerrar() {
     this.dialogRef.close('cerrar');
   }
-  guardar() {
 
+  guardar() {
     this.dialog.openAlert({
       message: 'Se ha creado la medalla adecuadamente',
       disableClose: false, // defaults to false
@@ -53,10 +49,9 @@ export class CreateMedalsComponent implements OnInit {
         this.dialogRef.close();
       }
     );
-
-
-
   }
+
   ngOnInit() {
   }
+  
 }

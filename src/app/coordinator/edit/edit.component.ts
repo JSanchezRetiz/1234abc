@@ -44,14 +44,14 @@ fecha :Date
     this.coordinatorSVC.updateActivity(this.activity).then(res => {
       this.activity = res;
       console.log(this.activity);
-      this.cerrar();
+      this.salir();
       this._loadingService.resolve();
     })
   }
 
-  cerrar() {
+  salir() {
     this.dialog.openAlert({
-      message: 'Se ha editado la recompensa adecuadamente',
+      message: 'Se ha editado la actividad adecuadamente',
       disableClose: false, // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
       title: 'Atencion:', //OPTIONAL, hides if not provided
@@ -64,6 +64,11 @@ fecha :Date
       );
     // this.dialogRef.close('cerrar');
   }
+
+  cerrar(){
+    this.dialogRef.close();
+  }
+  
 
 
 
