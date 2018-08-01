@@ -12,10 +12,8 @@ import { LoginService } from '../../login/service/login.service';
 import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
 import { CoordinatorService } from '../services/coordinator.service';
-
-
-
- 
+import {storeDto} from '../../challenges/models/storeDto';
+import {medalDto} from '../models/medalDto';
 
 @Component({
   selector: 'app-coordinating-activity',
@@ -29,13 +27,20 @@ export class CoordinatingActivityComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
   activity:activityDto
+  medals: medalDto[];
+  medalSend: medalDto;
+  store: storeDto[];
+  storeSend: storeDto;
 
   constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
     this.uidDto= new uidDto();
     this.userDto= new userDto();
     this.activity = new activityDto();
-
+    this.medals = new Array<medalDto>();
+    this.medalSend = new medalDto();
+    this.store = new Array<storeDto>();
+    this.storeSend = new storeDto();
   }
   crear(dato: activityDto): void {
     const dialogRef = this._dialogRef.open(CreateActivityComponent, {
@@ -45,55 +50,44 @@ export class CoordinatingActivityComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       localStorage.removeItem('idActivity');
-      console.log('The dialog was closed', result);
+
       this.getAllActivity();
       // this.getAllItemsStore();
 
     });
   }
-
   getUserData() {
     this._loadingService.register();
     this.uidDto.id = localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
       this._loadingService.resolve();
-      console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
+
     })
   }
-
-
-
-  editar(dato: activityDto) {
-    console.log("id", dato.id)
-    localStorage.setItem('id', dato.id);
+  editar(activity:activityDto, medalSend:medalDto, storeSend:storeDto) {
     const dialogRef = this._dialogRef.open(EditComponent, {
     width: '1000px',
       height: '600px',
-      data: { data: dato}
+      data: { data: this.allActivity,activity:activity, medalSend:medalSend, storeSend:storeSend, data1:this.medals, data2:this.store}
+      
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getAllActivity();
 
      });
    }
-
   public getAllActivity() {
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
       this._loadingService.resolve();
-      console.log(this.allActivity)
+   
     })
   }
-
-
-
-
   Volver() {
     this._router.navigate(["perfil-coordinador"]);
   }
-
   Confirmar(dato: activityDto): void {
     this._dialogService.openConfirm({
       message: 'Esta seguro de eliminar esta actividad?',
@@ -111,11 +105,9 @@ export class CoordinatingActivityComponent implements OnInit {
       }
     });
    }
-
   cerrar() {
     this._dialogRef.closeAll();
   }
-
   eliminar(dato: activityDto) {
     this._loadingService.register();
     console.log("id", dato)
@@ -128,12 +120,10 @@ export class CoordinatingActivityComponent implements OnInit {
     })
   }
 
-
-
-
   ngOnInit() {
     this.getUserData();
     this.getAllActivity();
+   
   }
 
 }

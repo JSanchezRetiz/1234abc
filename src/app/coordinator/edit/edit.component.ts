@@ -1,4 +1,4 @@
-import { Component, OnInit , Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { TdDialogService } from '@covalent/core/dialogs';
 import { ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -7,6 +7,8 @@ import { activityDto } from '../../challenges/models/activityDto';
 import { CoordinatorService } from '../services/coordinator.service';
 import { ChallengesService } from '../../challenges/services/challenges.service';
 import { TdLoadingService } from '@covalent/core/loading';
+import { storeDto } from '../../challenges/models/storeDto';
+import { medalDto } from '../../coordinator/models/medalDto';
 
 
 @Component({
@@ -16,32 +18,38 @@ import { TdLoadingService } from '@covalent/core/loading';
   providers: [CoordinatorService, ChallengesService, TdLoadingService],
 })
 export class EditComponent implements OnInit {
-activitySend: activityDto;
-activity: activityDto;
-id: any;
-startTime:Date;
-
-
-fecha :Date
+  activitySend: activityDto;
+  activity: any;
+  id: any;
+  startTime: Date;
+  activityAll: any;
+  storeSend: storeDto;
+  store: any;
+  medals: any;
+  medalSend: medalDto;
+  value: string;
+  viewValue: string;
+  fecha: Date
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
   minDate2 = new Date(2000, 0, 1);
   maxDate2 = new Date(2020, 0, 1);
 
 
-  constructor(private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog:TdDialogService, public dialogRef:MatDialogRef<EditComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) { 
-    this.activity = data.data;
+  constructor(private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) {
+    this.activityAll = data.data;
+    this.activity = data.activity;
+    this.store = new Array<storeDto>();
+    this.medals = new Array<medalDto>();
+    console.log("actividad", this.activityAll)
+    console.log("actividad", this.activity)
     this.activitySend = new activityDto();
-    console.log(this.activity)
-    this.activity.id = localStorage.getItem('id');
-    console.log(this.activity)
     this.startTime = new Date();
-    console.log(this.startTime);
-    this.fecha= new Date();
-
+    this.fecha = new Date();
   }
 
   updateActivity() {
+    console.log("update",this.activity);
     this._loadingService.register();
     this.activity.id
     this.coordinatorSVC.updateActivity(this.activity).then(res => {
@@ -51,7 +59,18 @@ fecha :Date
       this._loadingService.resolve();
     })
   }
-
+  getAllItemsStore() {
+    this.challengesSVC.getAllItemsStore().then(res => {
+      this.store = res;
+      console.log(this.store)
+    })
+  }
+  getAllMedals() {
+    this.coordinatorSVC.getAllMedals().then(res => {
+      this.medals = res;
+      console.log(res);
+    })
+  }
   salir() {
     this.dialog.openAlert({
       message: 'Se ha editado la actividad adecuadamente',
@@ -64,15 +83,17 @@ fecha :Date
       result => {
         this.dialogRef.close();
       }
-      );
+    );
     // this.dialogRef.close('cerrar');
   }
-  cerrar(){
+  cerrar() {
     this.dialogRef.close();
   }
-
   ngOnInit() {
-  
+    this.getAllMedals();
+    this.getAllItemsStore();
+
+
   }
 
 }
