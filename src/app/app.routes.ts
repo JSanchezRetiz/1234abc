@@ -4,13 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login/login.component';
+import { HomeComponent } from './login/home/home.component';
 
-const routes: Routes = [{
+
+const routes: Routes = [
+  { path: '', redirectTo:'home', pathMatch:'full'},
+  
+  {
     path: 'login',
     component: LoginComponent,
   }, {
     path: '',
-    component: MainComponent,
+    component: HomeComponent,
     children: [{
         component: DashboardComponent,
         path: 'dashboard',
@@ -22,6 +27,7 @@ const routes: Routes = [{
         path: 'menu',
         loadChildren: 'app/menu/menu.module#MenuModule',
       },
+      
     ],
   },
 ];

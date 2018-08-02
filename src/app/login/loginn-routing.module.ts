@@ -6,13 +6,15 @@ import { MainComponent } from '../main.component';
 
 import { MedalsComponent } from './medals/medals.component';
 import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
 
- const routes: Routes =[
+const routes: Routes = [
   { path: 'conectarse', component: LoginComponent },
- { path: 'olvidarContrasena', component: ForgetComponent },
-   { path:'medallas', component:MedalsComponent },
-   { path: 'registro', component:RegisterComponent }
- ];
+  { path: 'olvidarContrasena', component: ForgetComponent },
+  { path: 'medallas', component: MedalsComponent },
+  { path: 'registro', component: RegisterComponent },
+  { path: 'home', component:HomeComponent},
+];
 
 
 @NgModule({

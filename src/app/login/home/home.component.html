@@ -1,29 +1,31 @@
-<!-- <td-layout>
+<td-layout>
   <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
     <mat-nav-list>
       <a mat-list-item (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a mat-list-item (click)="perfil()">
+        <mat-icon>exit_to_app</mat-icon>Actividades</a>
       <a *ngFor="let item of routes" mat-list-item>
         <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
     </mat-nav-list>
-    <div td-navigation-drawer-menu>
-      <mat-nav-list td-navigation-drawer-menu>
-        <a mat-list-item (click)="logout()">
-          <mat-icon>exit_to_app</mat-icon>Sign out</a>
-      </mat-nav-list>
-    </div>
-
   </td-navigation-drawer>
-  <router-outlet></router-outlet>
   <td-layout-nav navigationRoute="/">
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
     <div td-toolbar-content layout="row" layout-align="center center" flex>
- 
+      <span>Gamificacion</span>
       <span flex></span>
-    </div>
+  </div>
+    <div class="fondo">
+     <mat-card class="text-center" style="background: #ff3d00">
+        <img class="text-center" src="./assets/icons/pacman.gif" width="59%" >
+        <mat-card-actions >
+          <div class="text-center">
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Entrar()">Entrar</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+   </div>
   </td-layout-nav>
-
-
-</td-layout> -->
+</td-layout>

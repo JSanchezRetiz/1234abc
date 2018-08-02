@@ -21,6 +21,7 @@ import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
 
 
 
@@ -40,6 +41,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     CovalentLayoutModule,
     CovalentMediaModule,
     CovalentLoadingModule,
+    CovalentExpansionPanelModule,
     MatProgressBarModule,
     
   ],

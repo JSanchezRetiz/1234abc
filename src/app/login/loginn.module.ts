@@ -29,6 +29,7 @@ import { MedalsComponent } from './medals/medals.component';
 import { RegisterComponent } from './register/register.component';
 
 import {MatSelectModule} from '@angular/material/select';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,7 @@ import {MatSelectModule} from '@angular/material/select';
     // external modules
     NgxChartsModule,
   ],
-  declarations: [LoginComponent, ForgetComponent, MedalsComponent, RegisterComponent],
+  declarations: [LoginComponent, ForgetComponent, MedalsComponent, RegisterComponent, HomeComponent],
   providers: [LoginService],
 })
 export class LoginnModule { }

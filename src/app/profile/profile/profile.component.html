@@ -159,6 +159,66 @@
               </div>
             </mat-card>
             <mat-card  flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+                <mat-card-title style="color:orangered; text-align: center">NOTIFICACIONES</mat-card-title>
+
+                <td-expansion-panel [expand]="false">
+                    <ng-template td-expansion-panel-label>
+                      <mat-icon>star</mat-icon>
+                      <span>Google</span>
+                    </ng-template>
+                    <ng-template td-expansion-panel-sublabel>
+                    </ng-template>
+                    <td-expansion-summary>
+                      <mat-list>
+                        <mat-list-item>
+                          <p matLine>Usa Google Chrome...
+                          </p>
+                        </mat-list-item>
+                      </mat-list>
+                    </td-expansion-summary>
+                    <form class="md-padding">
+                      <div layout="row">
+                        
+                          <p matLine>Usa Google Chrome por que es muy rapido.
+                            </p>
+                       
+                      </div>
+                      
+                    </form>
+                    <mat-divider></mat-divider>
+                  </td-expansion-panel>
+
+                  <td-expansion-panel [expand]="false">
+                      <ng-template td-expansion-panel-label>
+                        <mat-icon>star</mat-icon>
+                        <span>Ctempus</span>
+                      </ng-template>
+                      <ng-template td-expansion-panel-sublabel>
+                      </ng-template>
+                      <td-expansion-summary>
+                        <mat-list>
+                          <mat-list-item>
+                            <p matLine>Usa Google Chrome...
+                            </p>
+                          </mat-list-item>
+                        </mat-list>
+                      </td-expansion-summary>
+                      <form class="md-padding">
+                        <div layout="row">
+                          <mat-form-field flex>
+                            <input matInput placeholder="Company (disabled)" disabled value="Google"/>
+                          </mat-form-field>
+                        </div>
+                        <div layout="row">
+                          <mat-form-field flex>
+                            <textarea matInput placeholder="Description" rows="4"></textarea>
+                          </mat-form-field>
+                        </div>
+                      </form>
+                      <mat-divider></mat-divider>
+                    </td-expansion-panel>
+
+
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
