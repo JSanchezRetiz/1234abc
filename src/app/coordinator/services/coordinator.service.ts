@@ -7,6 +7,7 @@ import { uidDto } from '../../login/models/uidDto';
 import { userDto } from '../../login/models/userDto';
 import { activityDto } from '../../challenges/models/activityDto';
 import { medalDto } from '../models/medalDto';
+import { scoreDto } from '../models/scoreDto';
 
 @Injectable()
 export class CoordinatorService {
@@ -20,59 +21,62 @@ export class CoordinatorService {
       .then(res => <any>res.json())
   }
 
-public updateItemStore(store:storeDto){
-  return this.http.post(this.serverURL + 'updateItemStore', store ).toPromise().then
-  (res => <any>res)
-}
+  public updateItemStore(store: storeDto) {
+    return this.http.post(this.serverURL + 'updateItemStore', store).toPromise().then
+      (res => <any>res)
+  }
 
-public deleteItemStore(store:storeDto){
-  return this.http.post(this.serverURL + 'deleteItemStore', store ).toPromise().then
-  (res => <any>res)
-}
+  public deleteItemStore(store: storeDto) {
+    return this.http.post(this.serverURL + 'deleteItemStore', store).toPromise().then
+      (res => <any>res)
+  }
 
-public createActivity(activity: activityDto) {
-  
-  return this.http.post(this.serverURL + 'createActivity', activity).toPromise()
-    .then(res => <any>res.json())
-}
+  public createActivity(activity: activityDto) {
 
-public getAllMedals() {
-  return this.http.get(this.serverURL + 'getAllMedals').toPromise()
-    .then(res => <any>res.json())
-}
+    return this.http.post(this.serverURL + 'createActivity', activity).toPromise()
+      .then(res => <any>res.json())
+  }
 
-public updateMedal(medal:medalDto){
-  return this.http.post(this.serverURL + 'updateMedal', medal ).toPromise().then
-  (res => <any>res)
-}
+  public getAllMedals() {
+    return this.http.get(this.serverURL + 'getAllMedals').toPromise()
+      .then(res => <any>res.json())
+  }
 
-public deleteMedal(medal:medalDto){
-  return this.http.post(this.serverURL + 'deleteMedal', medal ).toPromise().then
-  (res => <any>res)
-}
+  public updateMedal(medal: medalDto) {
+    return this.http.post(this.serverURL + 'updateMedal', medal).toPromise().then
+      (res => <any>res)
+  }
 
-public createMedal(medal: medalDto) {
-  
-  return this.http.post(this.serverURL + 'createMedal', medal).toPromise()
-    .then(res => <any>res.json())
-}
+  public deleteMedal(medal: medalDto) {
+    return this.http.post(this.serverURL + 'deleteMedal', medal).toPromise().then
+      (res => <any>res)
+  }
 
-public getMedalById(id: medalDto) {
-  return this.http.post(this.serverURL + 'getMedalById', id).toPromise()
-    .then(res => <any>res);
-}
+  public createMedal(medal: medalDto) {
 
-public deleteActivity(activity:activityDto){
-  return this.http.post(this.serverURL + 'deleteActivity', activity ).toPromise().then
-  (res => <any>res)
-}
+    return this.http.post(this.serverURL + 'createMedal', medal).toPromise()
+      .then(res => <any>res.json())
+  }
 
-public updateActivity(activity:activityDto){
-  return this.http.post(this.serverURL + 'updateActivity', activity ).toPromise().then
-  (res => <any>res)
-}
+  public getMedalById(id: medalDto) {
+    return this.http.post(this.serverURL + 'getMedalById', id).toPromise()
+      .then(res => <any>res);
+  }
 
+  public deleteActivity(activity: activityDto) {
+    return this.http.post(this.serverURL + 'deleteActivity', activity).toPromise().then
+      (res => <any>res)
+  }
 
+  public updateActivity(activity: activityDto) {
+    return this.http.post(this.serverURL + 'updateActivity', activity).toPromise().then
+      (res => <any>res)
+  }
+
+  public getTypeOfScore() {
+    return this.http.get(this.serverURL + 'getTypeOfScore').toPromise()
+      .then(res => <any>res.json())
+  }
 
 
 }

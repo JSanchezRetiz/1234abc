@@ -9,6 +9,7 @@ import { ChallengesService } from '../../challenges/services/challenges.service'
 import { TdLoadingService } from '@covalent/core/loading';
 import { storeDto } from '../../challenges/models/storeDto';
 import { medalDto } from '../../coordinator/models/medalDto';
+import { scoreDto } from '../models/scoreDto';
 
 
 
@@ -30,6 +31,7 @@ export class CreateActivityComponent implements OnInit {
   storeSend: storeDto;
   medals: medalDto[];
   medalSend: medalDto;
+  score: scoreDto;
 
   constructor(private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateActivityComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private coordinatorSVC: CoordinatorService) {
     this.activity = new activityDto();
@@ -37,6 +39,7 @@ export class CreateActivityComponent implements OnInit {
     this.storeSend = new storeDto();
     this.medals = new Array<medalDto>();
     this.medalSend = new medalDto();
+    this.score = new scoreDto();
   }
 
 
@@ -83,11 +86,20 @@ export class CreateActivityComponent implements OnInit {
       }
       );
   }
+
+  getTypeScore() {
+    this.coordinatorSVC.getTypeOfScore().then(res => {
+      this.score = res[0];
+      console.log(res)
+    })
+
+
+  }
   ngOnInit() {
     console.log("dto medals", this.getAllMedals())
     console.log("dto store", this.getAllItemsStore())
-    console.log(this.store);
-    console.log(this.medals);
+    console.log("dto score", this.getTypeScore())
+
     this.fecha1 = new Date();
     this.endTime = new Date();
   }
