@@ -7,26 +7,32 @@ import { EditRewardComponent } from '../coordinator/edit-reward/edit-reward.comp
 import { CoordinatorProfileComponent } from './coordinator-profile/coordinator-profile.component';
 import { CoordinatorRewardComponent } from './coordinator-reward/coordinator-reward.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
-import {MenuComponent} from '../menu/menu/menu.component';
+import { MenuComponent } from '../menu/menu/menu.component';
 import { MedalsCoordinatorComponent } from './medals-coordinator/medals-coordinator.component';
 import { CreateMedalsComponent } from '../coordinator/create-medals/create-medals.component';
 import { EditMedalsComponent } from '../coordinator/edit-medals/edit-medals.component';
+import { CoordinatorNotificationComponent } from './coordinator-notification/coordinator-notification.component';
+import { CreateNotificationComponent } from './create-notification/create-notification.component';
+import { EditNotificationComponent } from './edit-notification/edit-notification.component';
 
 const routes: Routes = [
   {
     children: [{ path: '', component: MenuComponent }],
     path: 'actividad-coordinador', component: CoordinatingActivityComponent,
-   
+
   },
-   { path: 'editar-actividad', component: EditComponent },
-   { path: 'crear-recompensa', component: CreateRewardComponent },
-   { path: 'editar-recompensa', component: EditRewardComponent },
-  { path: 'perfil-coordinador', component: CoordinatorProfileComponent},
-  { path: 'recompensa-coordinador', component:CoordinatorRewardComponent },
-  { path: 'crear-actividad', component:CreateActivityComponent },
-  { path: 'medallas-coordinador', component:MedalsCoordinatorComponent},
-  { path: 'crear-medallas', component:CreateMedalsComponent},
-  { path: 'editar-medallas', component:EditMedalsComponent},
+  { path: 'editar-actividad', component: EditComponent },
+  { path: 'crear-recompensa', component: CreateRewardComponent },
+  { path: 'editar-recompensa', component: EditRewardComponent },
+  { path: 'perfil-coordinador', component: CoordinatorProfileComponent },
+  { path: 'recompensa-coordinador', component: CoordinatorRewardComponent },
+  { path: 'crear-actividad', component: CreateActivityComponent },
+  { path: 'medallas-coordinador', component: MedalsCoordinatorComponent },
+  { path: 'crear-medallas', component: CreateMedalsComponent },
+  { path: 'editar-medallas', component: EditMedalsComponent },
+  { path: 'notificaciones-coordinador', component:CoordinatorNotificationComponent},
+  { path: 'crear-notificacion', component:CreateNotificationComponent},
+  { path: 'editar-notificacion', component:EditNotificationComponent},
 
 ];
 

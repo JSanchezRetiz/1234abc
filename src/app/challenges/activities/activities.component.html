@@ -56,35 +56,35 @@
           <table style="width: 100%" td-data-table>
             <thead>
               <tr td-data-table-column-row>
-                <th style="background-color:#A8C6D9;color:#003556;font-size:20px;" td-data-table-column>
+                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
                   Nombre del reto
                 </th>
-                <th style="background-color:#A8C6D9;color:#003556;font-size:20px;" td-data-table-column>
+                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
                   Descripción
                 </th>
-                <th style="background-color:#A8C6D9;color:#003556;font-size:20px;" td-data-table-column>
+                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
                   Estado
                 </th>
-                <th style="background-color:#A8C6D9;color:#003556;font-size:20px;" td-data-table-column>
+                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
                   Opciones
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let dato of allActivity" td-data-table-row>
-                <td style="background-color:#A8C6D9; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
+                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
                   td-data-table-cell>
                   {{dato.title}}
                 </td>
-                <td style="background-color:#A8C6D9; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
+                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
                   td-data-table-cell>
                   {{dato.description}}
                 </td>
-                <td style="background-color:#A8C6D9; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
+                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
                   td-data-table-cell>
                   {{dato.status}}
                 </td>
-                <td style="background-color:#A8C6D9; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
+                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
                   td-data-table-cell>
                   <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Ver mas</button>
                   <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="pasarDatos(dato)">Ranking</button>

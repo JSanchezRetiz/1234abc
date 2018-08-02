@@ -18,14 +18,14 @@
       <mat-icon>menu</mat-icon>
     </button>
     <div td-toolbar-content layout="row" layout-align="center center" flex>
-      <span>Actividades</span>
+      <span>Notificaciones</span>
       <span flex></span>
     </div>
     <div style="background-color:#ff7539">
       <mat-card>
         <mat-card>
           <div flex class="text-center">
-            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de actividades</mat-card-title>
+            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de notificaciones</mat-card-title>
           </div>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
@@ -45,7 +45,7 @@
         <mat-card>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
-              <mat-card-title>Nueva actividad</mat-card-title>
+              <mat-card-title>Nueva notificacion</mat-card-title>
             </div>
             <div flex class="text-center">
               <mat-card-title></mat-card-title>
@@ -54,26 +54,26 @@
               <mat-card-title></mat-card-title>
             </div>
             <div flex class="text-center">
-              <button mat-button (click)="crear()">
+              <button mat-button (click)="crear(activity)">
                 <img src="../../../assets/icons/boton-anadir.svg" width="70px">
               </button>
             </div>
           </div>
         </mat-card>
-        <mat-card *ngFor="let activity of allActivity">
+        <mat-card >
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
-              <mat-card-content class="contenido">{{activity.title}}</mat-card-content>
+              <mat-card-content class="contenido">Nuevas actividades</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">{{activity.description}}</mat-card-content>
+              <mat-card-content class="contenido">Apartir de hoy habran nuevas actividades cada dia.</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">{{activity.status}}</mat-card-content>
+              <mat-card-content class="contenido">vigente</mat-card-content>
             </div>
             <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar(activity)">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(activity)">Eliminar</button>
+              <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
+              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar()">Eliminar</button>
             </div>
           </div>
         </mat-card>
