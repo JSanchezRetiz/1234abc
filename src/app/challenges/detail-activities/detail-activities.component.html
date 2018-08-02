@@ -1,4 +1,4 @@
-<div layout="column" style="background-color:#ff7539" layout-fill>
+<div layout="column" style="background-color:#ff7539" >
   <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
     <mat-toolbar-row>
       <span>Detalles de actividades</span>
@@ -9,21 +9,25 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-card>
-  <mat-card-content>
-    <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">{{activity.title}}</mat-card-title>
-  </mat-card-content>
-  <mat-card-content>
-    <mat-card-title class="justificar">
-      {{activity.description}}</mat-card-title>
-  </mat-card-content>
-  <mat-card-content>
-    <mat-card-title class="justificar">{{activity.rules}}</mat-card-title>
-  </mat-card-content>
-  <mat-card-title class="text-center">Recompensa: <img src="../../../assets/icons/moneda.svg" width="20px"> {{activity.reward}} </mat-card-title>
-  <mat-card-actions layout="row">
-    <div class="text-center">
-      <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Participar()">Participar</button>
-    </div>
-  </mat-card-actions>
-</mat-card>
+    <mat-card-content>
+      <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">{{activity.title}}</mat-card-title>
+    </mat-card-content>
+    
+      <mat-card-title class="justificar">
+        {{activity.description}}</mat-card-title>
+ 
+      <mat-card-title class="justificar">{{activity.rules}}</mat-card-title>
+  
+      <mat-card-title class="text-center">Recompensas:</mat-card-title>
+      <mat-card-title class="text-center">
+        <img src="../../../assets/icons/moneda.svg" width="20px"> {{activity.reward}} </mat-card-title>
+      <mat-card-title class="text-center">{{activity.prize}}</mat-card-title>
+      <mat-card-title class="text-center">{{activity.medal}}</mat-card-title> 
+
+    <mat-card-actions layout="row">
+      <div class="text-center">
+        <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Participar()">Participar</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
 </div>
