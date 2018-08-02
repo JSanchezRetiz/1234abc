@@ -40,9 +40,15 @@ export class DetailActivitiesComponent implements OnInit {
       title: 'Atencion:', //OPTIONAL, hides if not provided
       closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
       width: '400px', //OPTIONAL, defaults to 400px
-    });
-    this._router.navigate[('ranking')];
-  }
+    }).afterClosed().subscribe(
+      result => {
+        this.dialogRef.close();
+  
+  })
+};
+
+
+
   cerrar() {
     this.dialogRef.close('cerrar');
   }
