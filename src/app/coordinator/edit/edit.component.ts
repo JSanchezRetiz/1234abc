@@ -7,8 +7,6 @@ import { activityDto } from '../../challenges/models/activityDto';
 import { CoordinatorService } from '../services/coordinator.service';
 import { ChallengesService } from '../../challenges/services/challenges.service';
 import { TdLoadingService } from '@covalent/core/loading';
-
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -20,15 +18,11 @@ activitySend: activityDto;
 activity: activityDto;
 id: any;
 startTime:Date;
-
-
 fecha :Date
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
   minDate2 = new Date(2000, 0, 1);
   maxDate2 = new Date(2020, 0, 1);
-
-
   constructor(private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog:TdDialogService, public dialogRef:MatDialogRef<EditComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) { 
     this.activity = data.data;
     this.activitySend = new activityDto();
@@ -72,7 +66,7 @@ fecha :Date
   }
 
   ngOnInit() {
-  
+   
   }
 
 }
