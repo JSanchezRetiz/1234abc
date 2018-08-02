@@ -63,18 +63,18 @@
           <div layout="row" layout-xs="column">
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-form-field>
-                <mat-select #prize #prizeControl="ngModel" name="prize" [(ngModel)]="activity.prize" placeholder="Seleccione Recompensa">
+                <mat-select #prize  name="prize" [(value)]="activity.prize" placeholder="Seleccione Recompensa">
                   <mat-option value="None"> None</mat-option>
-                  <mat-option *ngFor="let tienda of store" [value]="tienda">{{tienda.name}}</mat-option>
+                  <mat-option *ngFor="let tienda of store" [value]="tienda.name">{{tienda.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-card>
 
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-form-field>
-                <mat-select #medal #medalControl="ngModel" name="medal" [(ngModel)]="activity.medal" placeholder="Seleccione Medalla">
+                <mat-select #medal  name="medal" [(value)]="activity.medal" placeholder="Seleccione Medalla">
                   <mat-option value="None"> None</mat-option>
-                  <mat-option *ngFor="let medalla of medals" [value]="medalla">{{medalla.name}}</mat-option>
+                  <mat-option *ngFor="let medalla of medals" [value]="medalla.name">{{medalla.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-card>
