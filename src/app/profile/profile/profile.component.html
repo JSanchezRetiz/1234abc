@@ -222,10 +222,10 @@
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card *ngFor="let medal of medals" style='background:#f8f8f8'>
+                <mat-card *ngFor="let medalla of medal" style='background:#f8f8f8'>
                   <div style="padding:5px 5px 5px 5px" class="text-center">
                     <img src="../../../assets/icons/Insignia/wifi.svg">
-                    <mat-card-content>{{medal.name}}</mat-card-content>
+                    <mat-card-content>{{medalla.name}}</mat-card-content>
                   </div>
                 </mat-card>
                 <!-- <mat-card style='background:#f8f8f8'>

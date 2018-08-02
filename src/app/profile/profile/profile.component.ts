@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
   getAllMedals() {
     this.coordinatorSVC.getAllMedals().then(res => {
-      this.medals = res;
+      this.medal = res;
     })
   }
 
