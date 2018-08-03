@@ -7,6 +7,7 @@ import { MainComponent } from '../main.component';
 import { MedalsComponent } from './medals/medals.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const routes: Routes = [
   { path: 'conectarse', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'medallas', component: MedalsComponent },
   { path: 'registro', component: RegisterComponent },
   { path: 'home', component:HomeComponent},
+  { path: 'notificacion', component:NotificationsComponent},
 ];
 
 

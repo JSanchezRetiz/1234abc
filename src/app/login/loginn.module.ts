@@ -30,6 +30,7 @@ import { RegisterComponent } from './register/register.component';
 
 import {MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './home/home.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,7 @@ import { HomeComponent } from './home/home.component';
     // external modules
     NgxChartsModule,
   ],
-  declarations: [LoginComponent, ForgetComponent, MedalsComponent, RegisterComponent, HomeComponent],
+  declarations: [LoginComponent, ForgetComponent, MedalsComponent, RegisterComponent, HomeComponent, NotificationsComponent],
   providers: [LoginService],
 })
 export class LoginnModule { }

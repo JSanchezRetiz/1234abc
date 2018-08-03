@@ -35,7 +35,7 @@
               <mat-card-title>DESCRIPCION</mat-card-title>
             </div>
             <div flex class="text-center">
-              <mat-card-title>ESTADO</mat-card-title>
+              <mat-card-title>FECHA FINAL</mat-card-title>
             </div>
             <div flex class="text-center">
               <mat-card-title>DETALLES</mat-card-title>
@@ -60,19 +60,19 @@
             </div>
           </div>
         </mat-card>
-        <mat-card >
+        <mat-card *ngFor="let notification of notifications">
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
-              <mat-card-content class="contenido">Nuevas actividades</mat-card-content>
+              <mat-card-content class="contenido">{{notification.title}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">Apartir de hoy habran nuevas actividades cada dia.</mat-card-content>
+              <mat-card-content class="contenido">{{notification.message}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">vigente</mat-card-content>
+              <mat-card-content class="contenido">{{notification.endTime}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar()">Editar</button>
+              <button mat-button class="w3-btn w3-dark-grey" (click)="editar(notificacion)">Editar</button>
               <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar()">Eliminar</button>
             </div>
           </div>

@@ -22,6 +22,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -36,6 +37,7 @@ import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
     MatDividerModule,
     MatInputModule,
     MatToolbarModule,
+    MatExpansionModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,

@@ -8,6 +8,7 @@ import { userDto } from '../../login/models/userDto';
 import { activityDto } from '../../challenges/models/activityDto';
 import { medalDto } from '../models/medalDto';
 import { scoreDto } from '../models/scoreDto';
+import { notificationDto } from '../models/notificationDto';
 
 @Injectable()
 export class CoordinatorService {
@@ -75,6 +76,28 @@ export class CoordinatorService {
 
   public getTypeOfScore() {
     return this.http.get(this.serverURL + 'getTypeOfScore').toPromise()
+      .then(res => <any>res.json())
+  }
+
+  
+  public createNotification(notification: notificationDto) {
+
+    return this.http.post(this.serverURL + 'createNotification', notification).toPromise()
+      .then(res => <any>res.json())
+  }
+
+  public updateNotification(notification: notificationDto) {
+    return this.http.post(this.serverURL + 'updateNotification', notification).toPromise().then
+      (res => <any>res)
+  }
+
+  public deleteNotification(notification: notificationDto) {
+    return this.http.post(this.serverURL + 'deleteNotification', notification).toPromise().then
+      (res => <any>res)
+  }
+
+  public getAllNotification() {
+    return this.http.get(this.serverURL + 'getAllNotification').toPromise()
       .then(res => <any>res.json())
   }
 

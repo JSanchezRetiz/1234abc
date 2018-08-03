@@ -6,16 +6,23 @@ import { TdLoadingService } from '@covalent/core/loading';
 import { Router } from '@angular/router';
 import { CreateNotificationComponent } from '../create-notification/create-notification.component';
 import { EditNotificationComponent } from '../edit-notification/edit-notification.component';
+import { notificationDto } from '../models/notificationDto';
+import { CoordinatorService } from '../services/coordinator.service';
 
 @Component({
   selector: 'app-coordinator-notification',
   templateUrl: './coordinator-notification.component.html',
   styleUrls: ['./coordinator-notification.component.scss'],
-  providers: [TdDialogService],
+  providers: [TdDialogService, CoordinatorService],
 })
 export class CoordinatorNotificationComponent implements OnInit {
+  notifications: notificationDto[];
+  notificationSend: notificationDto;
 
-  constructor( private _loadingService: TdLoadingService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { }
+  constructor(private coordinatorSVC:CoordinatorService, private _loadingService: TdLoadingService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { 
+    this.notifications= new Array<notificationDto>();
+    this.notificationSend = new notificationDto();
+  }
 
 
   crear() {
@@ -25,31 +32,34 @@ export class CoordinatorNotificationComponent implements OnInit {
       data: { data: 'dato' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      // localStorage.removeItem('idActivity');
-
-      // this.getAllActivity();
-      
-
     });
   }
 
-  editar() {
+  editar(notification:notificationDto) {
     const dialogRef = this._dialogRef.open(EditNotificationComponent, {
     width: '1000px',
       height: '600px',
-      data: { data: 'dato'}
+      data: { data: this.notifications, notification:notification}
       
     });
     dialogRef.afterClosed().subscribe(result => {
-      // this.getAllActivity();
+      this.getAllNotification();
 
      });
+   }
+
+   getAllNotification(){
+     this.coordinatorSVC.getAllNotification().then(res =>{
+       this.notifications= res;
+       console.log(res);
+     })
    }
 
 
 
 
   ngOnInit() {
+    this.getAllNotification();
   }
 
 }

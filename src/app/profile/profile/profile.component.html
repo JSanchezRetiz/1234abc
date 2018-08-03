@@ -1,9 +1,9 @@
 <td-layout>
   <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
     <!-- <mat-nav-list>
-      <a *ngFor="let item of routes" mat-list-item>
-        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
-    </mat-nav-list> -->
+        <a *ngFor="let item of routes" mat-list-item>
+          <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      </mat-nav-list> -->
     <mat-nav-list>
       <a mat-list-item (click)="logout()">
         <mat-icon>exit_to_app</mat-icon>Sign out</a>
@@ -158,114 +158,111 @@
                 </mat-card>
               </div>
             </mat-card>
-            <mat-card  flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
-                <mat-card-title style="color:orangered; text-align: center">NOTIFICACIONES</mat-card-title>
+            <mat-card flex="100" flex-gt-sm="40" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered; text-align: center">NOTIFICACIONES</mat-card-title>
+
+              <mat-card>
+                <td-expansion-panel [expand]="false">
+                  <ng-template td-expansion-panel-label>
+                    <mat-icon style="color:orangered">star</mat-icon>
+                    <span style="color:orangered">Google</span>
+                  </ng-template>
+                  <ng-template td-expansion-panel-sublabel>
+                  </ng-template>
+                  <td-expansion-summary>
+                    <mat-list style="background:#ffd0b0">
+                      <mat-list-item>
+                        <p matLine>Usa Google Chrome...
+                        </p>
+                      </mat-list-item>
+                    </mat-list>
+                  </td-expansion-summary>
+                  <form class="md-padding" style="background:#ffd0b0">
+                    <div layout="row">
+                      <p matLine>Usa Google Chrome por que es muy rapido.</p>
+                    </div>
+                  </form>
+                </td-expansion-panel>
+
 
                 <td-expansion-panel [expand]="false">
-                    <ng-template td-expansion-panel-label>
-                      <mat-icon>star</mat-icon>
-                      <span>Google</span>
-                    </ng-template>
-                    <ng-template td-expansion-panel-sublabel>
-                    </ng-template>
-                    <td-expansion-summary>
-                      <mat-list>
-                        <mat-list-item>
-                          <p matLine>Usa Google Chrome...
-                          </p>
-                        </mat-list-item>
-                      </mat-list>
-                    </td-expansion-summary>
-                    <form class="md-padding">
-                      <div layout="row">
-                        
-                          <p matLine>Usa Google Chrome por que es muy rapido.
-                            </p>
-                       
-                      </div>
-                      
-                    </form>
-                    <mat-divider></mat-divider>
-                  </td-expansion-panel>
+                  <ng-template td-expansion-panel-label>
+                    <mat-icon style="color:orangered">star</mat-icon>
+                    <span style="color:orangered">Ctempus</span>
+                  </ng-template>
+                  <ng-template td-expansion-panel-sublabel>
+                  </ng-template>
+                  <td-expansion-summary>
+                    <mat-list style="background:#ffd0b0">
+                      <mat-list-item>
+                        <p matLine>No olvides registrar...
+                        </p>
+                      </mat-list-item>
+                    </mat-list>
+                  </td-expansion-summary>
+                  <form class="md-padding" style="background:#ffd0b0">
+                    <div layout="row">
+                      <p matLine>No olvides registrar tus horas a tiempo.</p>
+                    </div>
+                  </form>
+                </td-expansion-panel>
+              </mat-card>
+              <mat-card-actions layout="row">
+                <div class="text-center">
+                  <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="XXX()">Ver mas</button>
+                </div>
+              </mat-card-actions>
 
-                  <td-expansion-panel [expand]="false">
-                      <ng-template td-expansion-panel-label>
-                        <mat-icon>star</mat-icon>
-                        <span>Ctempus</span>
-                      </ng-template>
-                      <ng-template td-expansion-panel-sublabel>
-                      </ng-template>
-                      <td-expansion-summary>
-                        <mat-list>
-                          <mat-list-item>
-                            <p matLine>Usa Google Chrome...
-                            </p>
-                          </mat-list-item>
-                        </mat-list>
-                      </td-expansion-summary>
-                      <form class="md-padding">
-                        <div layout="row">
-                          <mat-form-field flex>
-                            <input matInput placeholder="Company (disabled)" disabled value="Google"/>
-                          </mat-form-field>
-                        </div>
-                        <div layout="row">
-                          <mat-form-field flex>
-                            <textarea matInput placeholder="Description" rows="4"></textarea>
-                          </mat-form-field>
-                        </div>
-                      </form>
-                      <mat-divider></mat-divider>
-                    </td-expansion-panel>
 
 
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
                 <mat-card *ngFor="let medalla of medal" style='background:#f8f8f8'>
-                  <div style="padding:5px 5px 5px 5px" class="text-center">
+                  <div class="text-center">
                     <img src="../../../assets/icons/Insignia/wifi.svg">
                     <mat-card-content>{{medalla.name}}</mat-card-content>
                   </div>
                 </mat-card>
                 <!-- <mat-card style='background:#f8f8f8'>
-                  <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <img src="../../../assets/icons/Insignia/huella-dactilar.svg">
-                    <mat-card-content>huella</mat-card-content>
-                  </div>
-                </mat-card>
-                <mat-card style='background:#f8f8f8'>
-                  <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <img src="../../../assets/icons/Insignia/alguacil.svg">
-                    <mat-card-content>estrella</mat-card-content>
-                  </div>
-                </mat-card> -->
+                    <div style="padding:5px 5px 5px 5px" class="text-center">
+                      <img src="../../../assets/icons/Insignia/huella-dactilar.svg">
+                      <mat-card-content>huella</mat-card-content>
+                    </div>
+                  </mat-card>
+                  <mat-card style='background:#f8f8f8'>
+                    <div style="padding:5px 5px 5px 5px" class="text-center">
+                      <img src="../../../assets/icons/Insignia/alguacil.svg">
+                      <mat-card-content>estrella</mat-card-content>
+                    </div>
+                  </mat-card> -->
               </div>
               <!-- <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card style='background:#f8f8f8'>
-                  <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <img src="../../../assets/icons/Insignia/diamante.svg">
-                    <mat-card-content>diamante</mat-card-content>
-                  </div>
-                </mat-card>
-                <mat-card style='background:#f8f8f8'>
-                  <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <img src="../../../assets/icons/Insignia/energia.svg">
-                    <mat-card-content>rayo</mat-card-content>
-                  </div>
-                </mat-card>
-                <mat-card style='background:#f8f8f8'>
-                  <div style="padding:5px 5px 5px 5px" class="text-center">
-                    <img src="../../../assets/icons/Insignia/escudo (1).svg">
-                    <mat-card-content>armas</mat-card-content>
-                  </div>
-                </mat-card>
-              </div>  -->
+                  <mat-card style='background:#f8f8f8'>
+                    <div style="padding:5px 5px 5px 5px" class="text-center">
+                      <img src="../../../assets/icons/Insignia/diamante.svg">
+                      <mat-card-content>diamante</mat-card-content>
+                    </div>
+                  </mat-card>
+                  <mat-card style='background:#f8f8f8'>
+                    <div style="padding:5px 5px 5px 5px" class="text-center">
+                      <img src="../../../assets/icons/Insignia/energia.svg">
+                      <mat-card-content>rayo</mat-card-content>
+                    </div>
+                  </mat-card>
+                  <mat-card style='background:#f8f8f8'>
+                    <div style="padding:5px 5px 5px 5px" class="text-center">
+                      <img src="../../../assets/icons/Insignia/escudo (1).svg">
+                      <mat-card-content>armas</mat-card-content>
+                    </div>
+                  </mat-card>
+                </div>  -->
               <mat-card-actions layout="row">
                 <div class="text-center">
                   <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Ver_mas()">Ver mas</button>
                 </div>
               </mat-card-actions>
+
             </mat-card>
           </div>
         </div>
