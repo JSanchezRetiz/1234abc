@@ -17,7 +17,7 @@
           <mat-card-content>
             <mat-form-field style="width: 100%;" flex>
               <input matInput #notificationName #notificationControl="ngModel" placeholder="Nombre de la notificacion" type="text" maxlength="40" name="Nombre"
-                [(ngModel)]="name" required>
+                [(ngModel)]="notificationSend.title" required>
               <mat-hint align="start">
                 <span [hidden]="!notificationControl.errors?.required || notificationControl.pristine" class="tc-red-600">Requerido</span>
               </mat-hint>
@@ -30,7 +30,7 @@
           <mat-card-content>
             <mat-form-field style="width: 100%;" flex>
               <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                [(ngModel)]="description" required rows="7" cols="120"></textarea>
+                [(ngModel)]="notificationSend.message" required rows="7" cols="120"></textarea>
             </mat-form-field>
           </mat-card-content>
         </mat-card>
@@ -39,13 +39,13 @@
         <mat-card layout="row" flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field class="calendar">
-                <input matInput #date1Control="ngModel" name="Fecha1" [(ngModel)]="startTime" [min]="fecha1" [max]="maxDate" [matDatepicker]="picker"
+                <input matInput #date1Control="ngModel" name="Fecha1" [(ngModel)]="notificationSend.startTime" [min]="fecha1" [max]="maxDate" [matDatepicker]="picker"
                   placeholder="Fecha inicio">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-form-field class="calendar">
-                <input matInput #date2Control="ngModel" name="endTime" [(ngModel)]="endTime" [min]="fecha1" [max]="maxDate" [matDatepicker]="picker2"
+                <input matInput #date2Control="ngModel" name="endTime" [(ngModel)]="notificationSend.endTime" [min]="fecha1" [max]="maxDate" [matDatepicker]="picker2"
                   placeholder="Fecha final">
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
@@ -53,7 +53,7 @@
             </mat-card-content>
           </mat-card>
 
-        <div layout="row" layout-xs="column">
+        <!-- <div layout="row" layout-xs="column">
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
                 <mat-form-field style="width: 100%;">
                     <mat-select #prize name="prize"  placeholder="Seleccione Recompensa">
@@ -62,14 +62,14 @@
                     </mat-select>
                   </mat-form-field>
             </mat-card>
-            </div>
+            </div> -->
          
         
         </div>
         <mat-card-actions layout="row">
           <div class="text-center">
             <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button [disabled]="!notificationForm.valid"
-              (click)="createActivity()">Guardar</button>
+              (click)="createNotification()">Guardar</button>
             <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrar()">Cancelar</button>
           </div>
         </mat-card-actions>

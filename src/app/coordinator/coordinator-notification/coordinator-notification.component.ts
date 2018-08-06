@@ -18,6 +18,8 @@ import { CoordinatorService } from '../services/coordinator.service';
 export class CoordinatorNotificationComponent implements OnInit {
   notifications: notificationDto[];
   notificationSend: notificationDto;
+  fecha1: Date;
+  endTime: Date;
 
   constructor(private coordinatorSVC:CoordinatorService, private _loadingService: TdLoadingService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) { 
     this.notifications= new Array<notificationDto>();
@@ -25,13 +27,14 @@ export class CoordinatorNotificationComponent implements OnInit {
   }
 
 
-  crear() {
+  crear(notificationSend:notificationDto) {
     const dialogRef = this._dialogRef.open(CreateNotificationComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: 'dato' }
+      data: { data:notificationSend }
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.getAllNotification();
     });
   }
 
@@ -49,11 +52,48 @@ export class CoordinatorNotificationComponent implements OnInit {
    }
 
    getAllNotification(){
+    this._loadingService.register();
      this.coordinatorSVC.getAllNotification().then(res =>{
        this.notifications= res;
        console.log(res);
+       this._loadingService.resolve();
      })
    }
+
+   eliminar(dato: notificationDto) {
+    this._loadingService.register();
+    console.log("id", dato.id)
+    localStorage.setItem('id', dato.id);
+    console.log(dato)
+    this.coordinatorSVC.deleteNotification(dato).then(res => {
+      this.notificationSend = res;
+      console.log(res);
+      this.getAllNotification();
+      this._loadingService.resolve();
+    })
+  }
+
+  Confirmar(dato: notificationDto): void {
+    this._dialogService.openConfirm({
+      message: 'Esta seguro de eliminar esta ntificacion?',
+      disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+      title: 'Atencion:', //OPTIONAL, hides if not provided
+      cancelButton: 'Cancelar', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Confirmar', //OPTIONAL, defaults to 'ACCEPT'
+      width: '500px', //OPTIONAL, defaults to 400px
+    }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+        this.eliminar(dato)
+      } else {
+        this.cerrar();
+      }
+    });
+  }
+
+  cerrar() {
+    this._dialogRef.closeAll();
+  }
 
 
 

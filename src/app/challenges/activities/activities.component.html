@@ -22,8 +22,8 @@
       <span flex></span>
     </div>
     <!-- router outlet goes here -->
-    <div style="background-color:#ff7539">
-      <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+    <div style="background-color:#ff7539" layout-fill>
+      <!-- <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
         <div flex="100">
           <div layout-gt-sm="row" layout-xs="column" class="text-center">
             <div flex="30" layout-align-xs="center center">
@@ -34,9 +34,9 @@
                 <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
                   <div flex="100" class="text-center">
                     <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
-                  </div>
+                  </div> -->
                   <!-- Barra de progreso -->
-                  <div flex="100" height="10%">
+                  <!-- <div flex="100" height="10%">
                     <mat-card-subtitle class="fuente">Progreso: 80%</mat-card-subtitle>
                     <section>
                       <mat-card-content>
@@ -50,7 +50,10 @@
             </mat-card>
           </div>
         </div>
-      </div>
+      </div> -->
+      <mat-card>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">ACTIVIDADES</mat-card-title>
+          <mat-card-subtitle style="text-align: center">Actividades disponibles</mat-card-subtitle>
       <div style="overflow:auto;">
         <mat-card-content>
           <table style="width: 100%" td-data-table>
@@ -94,6 +97,9 @@
           </table>
         </mat-card-content>
       </div>
+    
+    
+    </mat-card>
       <!-- <mat-card>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">

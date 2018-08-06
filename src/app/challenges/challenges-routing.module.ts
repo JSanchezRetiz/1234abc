@@ -6,6 +6,7 @@ import { StoreComponent } from './store/store.component';
 import { DetailActivitiesComponent } from './detail-activities/detail-activities.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { MenuComponent } from '../menu/menu/menu.component';
+import { MyActivitiesComponent } from '../challenges/my-activities/my-activities.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'detalles-actividades', component: DetailActivitiesComponent },
   { path: 'detalles-articulo', component: DetailArticleComponent },
   { path: '', component: MenuComponent },
+  { path: 'mis-actividades', component:MyActivitiesComponent},
 
 ];
 

@@ -32,6 +32,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { StoreComponent } from './store/store.component';
 import { DetailActivitiesComponent } from './detail-activities/detail-activities.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { MyActivitiesComponent } from './my-activities/my-activities.component';
 
 @NgModule({
   imports: [
@@ -76,6 +77,6 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
     // external modules
     NgxChartsModule,
   ],
-  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent, DetailArticleComponent,]
+  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent, DetailArticleComponent, MyActivitiesComponent,]
 })
 export class ChallengesModule { }

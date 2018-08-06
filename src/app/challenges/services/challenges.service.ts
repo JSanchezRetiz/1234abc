@@ -52,4 +52,13 @@ export class ChallengesService {
     return this.http.post(this.serverURL + 'getStoreItem', purchase).toPromise()
     .then(res => <any>res);
   }
+
+  public getMyActivities(idUsers:userDto){
+    return this.http.post(this.serverURL + 'getMyActivities', idUsers).toPromise()
+    .then( doc => <any>doc.json());
+    
+  }
+
+
+
 }
