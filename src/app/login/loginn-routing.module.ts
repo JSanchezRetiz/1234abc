@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'medallas', component: MedalsComponent },
   { path: 'registro', component: RegisterComponent },
   { path: 'home', component:HomeComponent},
-  { path: 'notificacion', component:NotificationsComponent},
+  { path: 'notificaciones', component:NotificationsComponent},
 ];
 
 

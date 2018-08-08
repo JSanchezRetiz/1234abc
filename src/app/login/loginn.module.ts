@@ -31,6 +31,8 @@ import { RegisterComponent } from './register/register.component';
 import {MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './home/home.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
 
 @NgModule({
   imports: [
@@ -45,11 +47,13 @@ import { NotificationsComponent } from './notifications/notifications.component'
     MatToolbarModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,
     CovalentMediaModule,
     CovalentLoadingModule,
+    CovalentExpansionPanelModule,
     //firebase
     AngularFireModule.initializeApp(environment.config),
     AngularFireAuthModule,
