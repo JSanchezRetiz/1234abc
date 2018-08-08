@@ -9,6 +9,7 @@ import { activitiesScoreDto } from '../models/activitiesScoreDto';
 import {scoreActivity} from '../models/scoreActivity';
 import { storeDto } from '../models/storeDto';
 import { purchaseDto } from '../models/purchaseDto';
+import { myActivitiesDto } from '../models/myActivitiesDto';
 
 
 
@@ -53,12 +54,16 @@ export class ChallengesService {
     .then(res => <any>res);
   }
 
-  public getMyActivities(idUsers:userDto){
-    return this.http.post(this.serverURL + 'getMyActivities', idUsers).toPromise()
+  public getMyActivities(uid:any){
+    return this.http.post(this.serverURL + 'getMyActivitys',uid).toPromise()
     .then( doc => <any>doc.json());
     
   }
 
+  public saveActivity(activity:myActivitiesDto){
+    return this.http.post(this.serverURL + 'saveActivity', activity).toPromise()
+    .then( res => <any>res.json());
+  }
 
 
 }

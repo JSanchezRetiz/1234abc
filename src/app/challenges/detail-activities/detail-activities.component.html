@@ -1,4 +1,4 @@
-<div layout="column" style="background-color:#ff7539" >
+<div layout="column" style="background-color:#ff7539">
   <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
     <mat-toolbar-row>
       <span>Detalles de actividades</span>
@@ -9,25 +9,65 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-card>
-    <mat-card-content>
-      <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">{{activity.title}}</mat-card-title>
-    </mat-card-content>
-    
-      <mat-card-title class="justificar">
-        {{activity.description}}</mat-card-title>
- 
-      <mat-card-title class="justificar">{{activity.rules}}</mat-card-title>
-  
-      <mat-card-title class="text-center">Recompensas:</mat-card-title>
-      <mat-card-title class="text-center">
-        <img src="../../../assets/icons/moneda.svg" width="20px"> {{activity.reward}} </mat-card-title>
-      <mat-card-title class="text-center">{{activity.prize}}</mat-card-title>
-      <mat-card-title class="text-center">{{activity.medal}}</mat-card-title> 
+    <form #activitySendForm="ngForm">
+        <mat-form-field style="width: 100%;" flex>
+            <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="Nombre de la actividad" type="text" maxlength="40" name="Nombre"
+              [(ngModel)]="activity.title" required>
+              
+          </mat-form-field>
+      <!-- <mat-card-content>
+        <mat-card-title name="title" [(ngModel)]="myActivity.title" class="text-center" style="padding: 10px 10px 10px 10px">{{activity.title}}</mat-card-title>
+      </mat-card-content> -->
 
-    <mat-card-actions layout="row">
-      <div class="text-center">
-        <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Participar()">Participar</button>
-      </div>
-    </mat-card-actions>
+      <mat-form-field style="width: 100%;" flex>
+          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="descripcion de la actividad" type="text" maxlength="40" name="Descripcion"
+            [(ngModel)]="activity.description" required>
+            
+        </mat-form-field>
+
+        
+      <mat-form-field style="width: 100%;" flex>
+          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="Reglas" type="text" maxlength="40" name="Reglas"
+            [(ngModel)]="activity.rules" required>
+            
+        </mat-form-field>
+
+      <!-- <mat-card-title name="description" [(ngModel)]="myActivity.description" class="justificar">
+        {{activity.description}}</mat-card-title>
+
+      <mat-card-title name="rules" [(ngModel)]="myActivity.rules" class="justificar">{{activity.rules}}</mat-card-title> -->
+
+      <mat-card-title class="text-center">Recompensas:</mat-card-title>
+
+      <mat-form-field style="width: 100%;" flex>
+          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="recompensa" type="text" maxlength="40" name="recompensa"
+            [(ngModel)]="activity.reward" required>
+            
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;" flex>
+            <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="premio" type="text" maxlength="40" name="premio"
+              [(ngModel)]="activity.prize" required>
+              
+          </mat-form-field>
+
+          <mat-form-field style="width: 100%;" flex>
+              <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="medalla" type="text" maxlength="40" name="medalla"
+                [(ngModel)]="activity.medal" required>
+                
+            </mat-form-field>
+
+        
+      <!-- <mat-card-title name="reward" [(ngModel)]="myActivity.reward" class="text-center">
+        <img src="../../../assets/icons/moneda.svg" width="20px"> {{activity.reward}} </mat-card-title>
+      <mat-card-title name="prize" [(ngModel)]="myActivity.prize" class="text-center">{{activity.prize}}</mat-card-title>
+      <mat-card-title name="medal" [(ngModel)]="myActivity.medal" class="text-center">{{activity.medal}}</mat-card-title> -->
+
+      <mat-card-actions layout="row">
+        <div class="text-center">
+          <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Registrar()">Registrar</button>
+        </div>
+      </mat-card-actions>
+    </form>
   </mat-card>
 </div>
