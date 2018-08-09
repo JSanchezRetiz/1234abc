@@ -7,6 +7,7 @@ import { DetailActivitiesComponent } from './detail-activities/detail-activities
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { MenuComponent } from '../menu/menu/menu.component';
 import { MyActivitiesComponent } from '../challenges/my-activities/my-activities.component';
+import { ParticipateComponent } from '../challenges/participate/participate.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'detalles-articulo', component: DetailArticleComponent },
   { path: '', component: MenuComponent },
   { path: 'mis-actividades', component:MyActivitiesComponent},
+  { path: 'participar', component:ParticipateComponent},
 
 ];
 

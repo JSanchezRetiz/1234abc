@@ -40,7 +40,7 @@ export class DetailArticleComponent implements OnInit {
     console.log(this.purchase.uid);
     console.log(this.purchase.itemId);
     this.challengesSVC.getStoreItem(this.purchase).then(res => {
-      alert('Has comprado este articulo');
+      alert('insuficiente');
     })
   }
   ngOnInit() {

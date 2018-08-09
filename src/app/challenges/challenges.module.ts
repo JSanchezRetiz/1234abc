@@ -33,6 +33,7 @@ import { StoreComponent } from './store/store.component';
 import { DetailActivitiesComponent } from './detail-activities/detail-activities.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { MyActivitiesComponent } from './my-activities/my-activities.component';
+import { ParticipateComponent } from './participate/participate.component';
 
 @NgModule({
   imports: [
@@ -77,6 +78,6 @@ import { MyActivitiesComponent } from './my-activities/my-activities.component';
     // external modules
     NgxChartsModule,
   ],
-  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent, DetailArticleComponent, MyActivitiesComponent,]
+  declarations: [RankingComponent, ActivitiesComponent, StoreComponent, DetailActivitiesComponent, DetailArticleComponent, MyActivitiesComponent, ParticipateComponent,]
 })
 export class ChallengesModule { }

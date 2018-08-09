@@ -22,50 +22,27 @@
       <span flex></span>
     </div>
     <div style="background-color:#ffd0b0" layout-fill>
-      <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+      <mat-card  fxlayout="row" fxflex="100" fxShow.gt-sm flex>
         <mat-card-title style="color:orangered; text-align: center; font-size:40px">Notificaciones</mat-card-title>
-        <mat-card>
+        <mat-card *ngFor="let notification of notifications">
           <td-expansion-panel [expand]="false">
             <ng-template td-expansion-panel-label>
               <mat-icon style="color:orangered">star</mat-icon>
-              <span style="color:orangered">Google</span>
+              <span style="color:orangered">{{notification.title}}</span>
             </ng-template>
             <ng-template td-expansion-panel-sublabel>
             </ng-template>
             <td-expansion-summary>
               <mat-list style="background:#ffd0b0">
                 <mat-list-item>
-                  <p matLine>Usa Google Chrome...
+                  <p matLine>{{notification.message}}.
                   </p>
                 </mat-list-item>
               </mat-list>
             </td-expansion-summary>
             <form class="md-padding" style="background:#ffd0b0">
               <div layout="row">
-                <p matLine>Usa Google Chrome por que es muy rapido.</p>
-              </div>
-            </form>
-          </td-expansion-panel>
-        </mat-card>
-        <mat-card>
-          <td-expansion-panel [expand]="false">
-            <ng-template td-expansion-panel-label>
-              <mat-icon style="color:orangered">star</mat-icon>
-              <span style="color:orangered">Ctempus</span>
-            </ng-template>
-            <ng-template td-expansion-panel-sublabel>
-            </ng-template>
-            <td-expansion-summary>
-              <mat-list style="background:#ffd0b0">
-                <mat-list-item>
-                  <p matLine>No olvides registrar...
-                  </p>
-                </mat-list-item>
-              </mat-list>
-            </td-expansion-summary>
-            <form class="md-padding" style="background:#ffd0b0">
-              <div layout="row">
-                <p matLine>No olvides registrar tus horas a tiempo.</p>
+                <p matLine>{{notification.message}}</p>
               </div>
             </form>
           </td-expansion-panel>

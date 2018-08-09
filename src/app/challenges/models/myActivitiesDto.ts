@@ -1,6 +1,7 @@
 export class myActivitiesDto{
 uid:string;
-id:string;
+idActivity:string;
+id:string
 creationTime : string;
 description: string;
 endTime: string;
