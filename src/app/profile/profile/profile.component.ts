@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { TdLoadingService } from '@covalent/core/loading';
 import { CoordinatorService } from '../../coordinator/services/coordinator.service';
 import { medalDto } from '../../coordinator/models/medalDto';
+import { notificationDto } from '../../coordinator/models/notificationDto';
+
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +16,8 @@ import { medalDto } from '../../coordinator/models/medalDto';
   providers: [CoordinatorService, TdLoadingService]
 })
 export class ProfileComponent implements OnInit {
+  notifications: notificationDto[];
+  notificationSend: notificationDto;
   uidDto: uidDto;
   userDto: userDto;
   creationDate: Date;
@@ -36,10 +40,21 @@ export class ProfileComponent implements OnInit {
   },
   ];
   constructor(private _router: Router, private loginSVC: LoginService, private _loadingService: TdLoadingService, private coordinatorSVC: CoordinatorService) {
+    this.notifications = Array <notificationDto>();
+    this.notificationSend = new notificationDto();
     this.uidDto = new uidDto();
     this.userDto = new userDto();
     this.medal = new Array<medalDto>();
     this.medals = new medalDto();
+  }
+
+  getAllNotification(){
+
+    this.coordinatorSVC.getAllNotification().then(res =>{
+      this.notifications= res;
+      console.log(res);
+ 
+    })
   }
 
   getAllMedals() {
@@ -70,6 +85,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getUserData();
     this.getAllMedals();
+    this.getAllNotification();
   }
   getUserData() {
     this._loadingService.register();

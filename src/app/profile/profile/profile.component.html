@@ -160,49 +160,23 @@
             </mat-card>
             <mat-card flex="100" flex-gt-sm="40" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
               <mat-card-title style="color:orangered; text-align: center">NOTIFICACIONES</mat-card-title>
-
-              <mat-card>
-                <td-expansion-panel [expand]="false">
-                  <ng-template td-expansion-panel-label>
-                    <mat-icon style="color:orangered">star</mat-icon>
-                    <span style="color:orangered">Google</span>
+              <mat-card *ngFor="let notification of notifications">
+                <td-expansion-panel style="background:#ff3d00" [expand]="false">
+                  <ng-template td-expansion-panel-sublabel>
+                    <p matLine style="color:white; font-size:20px">{{notification.title}}</p>
                   </ng-template>
                   <ng-template td-expansion-panel-sublabel>
                   </ng-template>
                   <td-expansion-summary>
-                    <mat-list style="background:#ffd0b0">
+                    <mat-list style="background:white">
                       <mat-list-item>
-                        <p matLine>Usa Google Chrome...
-                        </p>
+                        <p matLine>{{notification.message}}.</p>
                       </mat-list-item>
                     </mat-list>
                   </td-expansion-summary>
-                  <form class="md-padding" style="background:#ffd0b0">
+                  <form class="md-padding" style="background:white">
                     <div layout="row">
-                      <p matLine>Usa Google Chrome por que es muy rapido.</p>
-                    </div>
-                  </form>
-                </td-expansion-panel>
-
-
-                <td-expansion-panel [expand]="false">
-                  <ng-template td-expansion-panel-label>
-                    <mat-icon style="color:orangered">star</mat-icon>
-                    <span style="color:orangered">Ctempus</span>
-                  </ng-template>
-                  <ng-template td-expansion-panel-sublabel>
-                  </ng-template>
-                  <td-expansion-summary>
-                    <mat-list style="background:#ffd0b0">
-                      <mat-list-item>
-                        <p matLine>No olvides registrar...
-                        </p>
-                      </mat-list-item>
-                    </mat-list>
-                  </td-expansion-summary>
-                  <form class="md-padding" style="background:#ffd0b0">
-                    <div layout="row">
-                      <p matLine>No olvides registrar tus horas a tiempo.</p>
+                      <p matLine>{{notification.message}}</p>
                     </div>
                   </form>
                 </td-expansion-panel>
@@ -212,9 +186,6 @@
                   <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="XXX()">Ver mas</button>
                 </div>
               </mat-card-actions>
-
-
-
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { ITdDataTableColumn } from '@covalent/core/data-table';
 import { TdDialogService } from '@covalent/core/dialogs';
@@ -28,6 +28,13 @@ export class ActivitiesComponent implements OnInit {
   allActivity: activityDto[];
   activity: activityDto;
 
+  
+
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = new MatTableDataSource<activityDto>(tabla);
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(private _router: Router, private loginSVC: LoginService,
     _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef,
     private challengesSVC: ChallengesService, private _dialogRef: MatDialog, private _loadingService: TdLoadingService) {
@@ -35,6 +42,7 @@ export class ActivitiesComponent implements OnInit {
     this.uidDto = new uidDto();
     this.allActivity = new Array<activityDto>();
   }
+  
   openConfirm(dato: activityDto): void {
     console.log(dato);
     localStorage.setItem('idActivity', "" + dato.id)
@@ -76,6 +84,20 @@ export class ActivitiesComponent implements OnInit {
       this.allActivity = res;
       this._loadingService.resolve();
       console.log(this.allActivity)
+
+      this.dataSource.paginator = this.paginator;
     })
   }
 }
+
+export interface activityDto {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const tabla: activityDto[] =[
+
+]
+

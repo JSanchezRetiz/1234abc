@@ -18,6 +18,7 @@ import {
   MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule, MatCheckboxModule, MatProgressBarModule, MatAccordion, MatExpansionModule,
 } from '@angular/material';
 
+import {MatTableModule} from '@angular/material/table';
 import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
@@ -67,6 +68,8 @@ import { ParticipateComponent } from './participate/participate.component';
     MatAutocompleteModule,
     MatCheckboxModule,
     MatProgressBarModule,
+  
+    MatTableModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,

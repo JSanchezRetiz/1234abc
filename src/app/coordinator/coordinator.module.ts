@@ -14,6 +14,7 @@ import { CovalentLoadingModule } from '@covalent/core/loading';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
 import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import {MatSelectModule} from '@angular/material';
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
@@ -53,6 +54,7 @@ import { EditNotificationComponent } from './edit-notification/edit-notification
     MatProgressBarModule,
     MatDialogModule,
     MatSelectModule,
+    MatTableModule,
     // covalent modules
     CovalentCommonModule,
     CovalentLayoutModule,
