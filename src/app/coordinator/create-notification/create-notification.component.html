@@ -52,12 +52,11 @@
               </mat-form-field>
             </mat-card-content>
           </mat-card>
-
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-form-field style="width: 100%;">
-                <mat-select #medal name="activity" [(value)]="notificationSend.activity" placeholder="Seleccione actividad">
-                  <mat-option value="None"> None</mat-option>
-                  <mat-option *ngFor="let notificationSend of medals" [value]="notificationSend.activity">{{notificationSend.activity}}</mat-option>
+                <mat-select #activity name="activity" [(value)]="notificationSend.allUser" placeholder="Seleccione actividad">
+                  <mat-option value="Todos"> Todos</mat-option>
+                  <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-card>

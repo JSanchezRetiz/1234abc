@@ -6,24 +6,30 @@ import { ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TdLoadingService } from '@covalent/core/loading';
+import { activityDto } from '../../challenges/models/activityDto';
+import { ChallengesService } from '../../challenges/services/challenges.service';
 
 @Component({
   selector: 'app-create-notification',
   templateUrl: './create-notification.component.html',
   styleUrls: ['./create-notification.component.scss'],
-  providers: [CoordinatorService,TdLoadingService],
+  providers: [CoordinatorService,TdLoadingService, ChallengesService],
 })
 export class CreateNotificationComponent implements OnInit {
   notificationSend: notificationDto;
   fecha1: Date;
   endTime: Date;
+  allActivity: activityDto[];
 
-
-
-  constructor(private _loadingService: TdLoadingService, private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateNotificationComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC:CoordinatorService) {
+  constructor(private challengesSVC: ChallengesService, private _loadingService: TdLoadingService, private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateNotificationComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC:CoordinatorService) {
     this.notificationSend = new notificationDto();
    }
 
+   public getAllActivity() {
+    this.challengesSVC.getAllActivy().then(res => {
+      this.allActivity = res;
+    })
+  }
 
    createNotification(){
     this._loadingService.register();
@@ -51,6 +57,7 @@ export class CreateNotificationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllActivity();
   }
 
 }

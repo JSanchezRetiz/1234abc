@@ -5,4 +5,6 @@ export class notificationDto {
    endTime: string;
    creationTime: string;
    id: string;
+   allUser: string;
+   activity: string;
 }
