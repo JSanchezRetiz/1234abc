@@ -19,7 +19,7 @@ import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import {MatSelectModule} from '@angular/material';
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 import { CovalentFileModule } from '@covalent/core/file';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CoordinatorRoutingModule } from './coordinator-routing.module';
 import { CoordinatingActivityComponent } from './coordinating-activity/coordinating-activity.component';
 import { EditComponent } from './edit/edit.component';
@@ -40,6 +40,7 @@ import { EditNotificationComponent } from './edit-notification/edit-notification
 @NgModule({
   imports: [
     CommonModule,
+    MatCheckboxModule,
     CoordinatorRoutingModule,
     MenuModule,
     // material modules
