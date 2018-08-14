@@ -23,38 +23,11 @@
     </div>
     <!-- router outlet goes here -->
     <div style="background-color:#ff7539" layout-fill>
-      <!-- <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-        <div flex="100">
-          <div layout-gt-sm="row" layout-xs="column" class="text-center">
-            <div flex="30" layout-align-xs="center center">
-              <img class="avatar" src="./assets/icons/UserAvatar/UserAvatar10.svg" width="90%" height="90%">
-            </div>
-            <mat-card flex="100">
-              <div flex="100">
-                <div layout-gt-sm="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                  <div flex="100" class="text-center">
-                    <mat-card-subtitle class="fuente" style=" font-family:Verdana, Geneva, Tahoma, sans-serif;">{{userDto.name}} {{userDto.lastname}}</mat-card-subtitle>
-                  </div> -->
-                  <!-- Barra de progreso -->
-                  <!-- <div flex="100" height="10%">
-                    <mat-card-subtitle class="fuente">Progreso: 80%</mat-card-subtitle>
-                    <section>
-                      <mat-card-content>
-                        <mat-progress-bar color='primary' mode='determinate' value=80>
-                        </mat-progress-bar>
-                      </mat-card-content>
-                    </section>
-                  </div>
-                </div>
-              </div>
-            </mat-card>
-          </div>
-        </div>
-      </div> -->
+  
       <mat-card>
           <mat-card-title style="color:orangered; text-align: center; font-size:40px">ACTIVIDADES</mat-card-title>
           <mat-card-subtitle style="text-align: center">Actividades disponibles</mat-card-subtitle>
-      <!-- <div style="overflow:auto;">
+      <div style="overflow:auto;">
         <mat-card-content>
           <table style="width: 100%" td-data-table>
             <thead>
@@ -90,84 +63,13 @@
                 <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
                   td-data-table-cell>
                   <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Ver mas</button>
-                  <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="pasarDatos(dato)">Ranking</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </mat-card-content>
-      </div> -->
-    
-      <div class="mat-elevation-z8">
-          <table  mat-table [dataSource]="dataSource">
-        
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-              <th style="color:orange" mat-header-cell *matHeaderCellDef> No. </th>
-              <td mat-cell *ngFor="let dato of allActivity"> {{dato.title}} </td>
-            </ng-container>
-        
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th style="color:orange" mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let dato"> {{dato.description}} </td>
-            </ng-container>
-        
-            <!-- Weight Column -->
-            <ng-container  matColumnDef="weight">
-              <th style="color:orange"  mat-header-cell *matHeaderCellDef> Weight </th>
-              <td mat-cell *matCellDef="let dato"> {{dato.status}} </td>
-            </ng-container>
-        
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-              <th style="color:orange" mat-header-cell *matHeaderCellDef> Symbol </th>
-              <td mat-cell *matCellDef="let dato"> xxxx </td>
-            </ng-container>
-        
-            <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        
-          <!-- <mat-paginator style="color:orange" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-        </div>
-
-
-    </mat-card>
-      <!-- <mat-card>
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title>Reto</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>Descripción </mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>Estado </mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>Opciones</mat-card-title>
-            </div>
-          </div>
-        </mat-card>
-        <mat-card *ngFor="let dato of allActivity">
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title class="descripcion">{{dato.title}}</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title class="descripcion">{{dato.description}} </mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title class="descripcion">{{dato.status}} </mat-card-title>
-            </div>
-            <div flex class="text-center" >
-                <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Ver mas</button>
-                <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="pasarDatos(dato)">Ranking</button>
-              </div>
-          </div>
-        </mat-card>-->
-
+      </div>
+      </mat-card>
     </div>
     <td-layout-footer>
       <div layout="row" layout-align="start center">

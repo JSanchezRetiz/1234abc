@@ -22,8 +22,10 @@ export class ParticipateComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialog: TdDialogService, public dialogRef: MatDialogRef<ParticipateComponent>, private challengesSVC: ChallengesService, private _router: Router, private _viewContainerRef: ViewContainerRef) {
     this.myactivitySend = new myActivitiesDto();
-    this.myActivity = data.myActivity;
+    console.log("dto de mis actiidades",this.myactivitySend)
+    this.myActivity = data.data;
     console.log("data",data)
+    console.log("titulo de la actividad",this.myActivity.title)
     this.score = new scoreActivity();
    }
 
@@ -39,23 +41,18 @@ export class ParticipateComponent implements OnInit {
     }).afterClosed().subscribe(
       result => {
         this.dialogRef.close();
-
-
       })
   };
-
   cerrar() {
     this.dialogRef.close('cerrar');
   }
-
   registerScore() {
 
     this.challengesSVC.registerScore(this.score).then(res => {
-      //res;
-      console.log("mensaje", res);
+  
+     
     })
   }
-
   ngOnInit() {
   }
 

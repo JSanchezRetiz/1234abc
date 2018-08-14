@@ -69,7 +69,7 @@
               <mat-card-content class="contenido">{{notification.message}}</mat-card-content>
             </div>
             <div flex class="text-center">
-              <mat-card-content class="contenido">{{notification.endTime}}</mat-card-content>
+              <mat-card-content class="contenido">{{notification.endTime | date:'dd/MM/yyyy'}}</mat-card-content>
             </div>
             <div flex class="text-center">
               <button mat-button class="w3-btn w3-dark-grey" (click)="editar(notification)">Editar</button>

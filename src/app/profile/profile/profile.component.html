@@ -160,7 +160,8 @@
             </mat-card>
             <mat-card flex="100" flex-gt-sm="40" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
               <mat-card-title style="color:orangered; text-align: center">NOTIFICACIONES</mat-card-title>
-              <mat-card *ngFor="let notification of notifications">
+              <mat-card *ngFor="let notification of notifications;let i=index">
+                  <div *ngIf="i<2">
                 <td-expansion-panel style="background:#ff3d00" [expand]="false">
                   <ng-template td-expansion-panel-sublabel>
                     <p matLine style="color:white; font-size:20px">{{notification.title}}</p>
@@ -180,6 +181,7 @@
                     </div>
                   </form>
                 </td-expansion-panel>
+                </div>
               </mat-card>
               <mat-card-actions layout="row">
                 <div class="text-center">
@@ -189,8 +191,8 @@
               <mat-card-title style="color:orangered; text-align: center">TROFEOS</mat-card-title>
               <mat-card-subtitle style="text-align: center">Medallas disponibes</mat-card-subtitle>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <mat-card *ngFor="let medalla of medal" style='background:#f8f8f8'>
-                  <div class="text-center">
+                <mat-card *ngFor="let medalla of medal;let i=index" style='background:#f8f8f8'>
+                  <div class="text-center" *ngIf="i<3">
                     <img src="../../../assets/icons/Insignia/wifi.svg">
                     <mat-card-content>{{medalla.name}}</mat-card-content>
                   </div>

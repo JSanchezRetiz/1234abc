@@ -8,26 +8,30 @@
       </a>
     </mat-toolbar-row>
   </mat-toolbar>
-  <mat-card>
+  <mat-card >
     <form #activitySendForm="ngForm">
-        <mat-form-field style="width: 100%;" flex>
-            <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="Nombre de la actividad" type="text" maxlength="40" name="Nombre"
+        <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+            <mat-card-content>
+          <mat-form-field style="width: 100%;" flex>
+            <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px"  type="text" maxlength="40" name="Nombre"
               [(ngModel)]="activity.title" required>
               
           </mat-form-field>
+          </mat-card-content>
+          </mat-card>
       <!-- <mat-card-content>
         <mat-card-title name="title" [(ngModel)]="myActivity.title" class="text-center" style="padding: 10px 10px 10px 10px">{{activity.title}}</mat-card-title>
       </mat-card-content> -->
 
       <mat-form-field style="width: 100%;" flex>
-          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="descripcion de la actividad" type="text" maxlength="40" name="Descripcion"
+          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px"  type="text" maxlength="40" name="Descripcion"
             [(ngModel)]="activity.description" required>
             
         </mat-form-field>
 
         
       <mat-form-field style="width: 100%;" flex>
-          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="Reglas" type="text" maxlength="40" name="Reglas"
+          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px"  type="text" maxlength="40" name="Reglas"
             [(ngModel)]="activity.rules" required>
             
         </mat-form-field>
@@ -40,19 +44,19 @@
       <mat-card-title class="text-center">Recompensas:</mat-card-title>
 
       <mat-form-field style="width: 100%;" flex>
-          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="recompensa" type="text" maxlength="40" name="recompensa"
+          <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px"  type="text" maxlength="40" name="recompensa"
             [(ngModel)]="activity.reward" required>
             
         </mat-form-field>
 
         <mat-form-field style="width: 100%;" flex>
-            <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="premio" type="text" maxlength="40" name="premio"
+            <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px"  type="text" maxlength="40" name="premio"
               [(ngModel)]="activity.prize" required>
               
           </mat-form-field>
 
           <mat-form-field style="width: 100%;" flex>
-              <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px" placeholder="medalla" type="text" maxlength="40" name="medalla"
+              <input matInput #activityName #activityControl="ngModel" class="text-center" style="padding: 10px 10px 10px 10px"  type="text" maxlength="40" name="medalla"
                 [(ngModel)]="activity.medal" required>
                 
             </mat-form-field>

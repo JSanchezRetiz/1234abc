@@ -12,6 +12,7 @@ import { ParticipateComponent } from '../participate/participate.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
+
 @Component({
   selector: 'app-my-activities',
   templateUrl: './my-activities.component.html',
@@ -25,12 +26,20 @@ export class MyActivitiesComponent implements OnInit {
   myActivity: myActivitiesDto[];
   myActivitySend: myActivitiesDto;
   uid: userDto;
-  constructor(private _dialogRef: MatDialog, private loginSVC: LoginService, private _loadingService: TdLoadingService, private route: ActivatedRoute, private challengesSVC: ChallengesService, private coordinatorSVC: CoordinatorService) {
+  constructor(private _router: Router, private _dialogRef: MatDialog, private loginSVC: LoginService, private _loadingService: TdLoadingService, private route: ActivatedRoute, private challengesSVC: ChallengesService, private coordinatorSVC: CoordinatorService) {
     this.activity = new Array<activityDto>();
     this.myActivitySend = new myActivitiesDto();
     this.uid = new userDto();
     this.userDto = new userDto();
     this.uidDto = new uidDto();
+  }
+  pasarDatos(activity: activityDto) {
+    let NavigationExtras: NavigationExtras = {
+      queryParams: {
+        "activities": JSON.stringify(activity),
+      }
+    };
+    this._router.navigate(["ranking"], NavigationExtras);
   }
 
   getMyActivities() {
@@ -60,15 +69,17 @@ export class MyActivitiesComponent implements OnInit {
   }
 
   openConfirm(): void {
-    console.log("datos", this.myActivity);
+    console.log("datos", this.myActivitySend);
 
     const dialogRef = this._dialogRef.open(ParticipateComponent, {
       width: '500px',
       height: '600px',
-      data: { data: this.myActivity }
+      data: { data: this.myActivitySend }
     });
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+
+  
 
 }
