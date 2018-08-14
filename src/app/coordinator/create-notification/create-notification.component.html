@@ -12,54 +12,58 @@
     <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center" layout-fill>
       <form #notificationForm="ngForm">
         <div flex>
-      <!-- Campo titulo -->
-      <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-          <mat-card-content>
-            <mat-form-field style="width: 100%;" flex>
-              <input matInput #notificationName #notificationControl="ngModel" placeholder="Nombre de la notificacion" type="text" maxlength="40" name="Nombre"
-                [(ngModel)]="notificationSend.title" required>
-              <mat-hint align="start">
-                <span [hidden]="!notificationControl.errors?.required || notificationControl.pristine" class="tc-red-600">Requerido</span>
-              </mat-hint>
-              <mat-hint align="end">{{notificationName.value.length}} / 40</mat-hint>
-            </mat-form-field>
-          </mat-card-content>
-        </mat-card>
-        <!-- Campo descripcion -->
-        <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-          <mat-card-content>
-            <mat-form-field style="width: 100%;" flex>
-              <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                [(ngModel)]="notificationSend.message" required rows="7" cols="120"></textarea>
-            </mat-form-field>
-          </mat-card-content>
-        </mat-card>
-  
-        <!-- Campo fecha -->
-        <mat-card layout="row" flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+          <!-- Campo titulo -->
+          <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+            <mat-card-content>
+              <mat-form-field style="width: 100%;" flex>
+                <input matInput #notificationName #notificationControl="ngModel" placeholder="Nombre de la notificacion" type="text" maxlength="40"
+                  name="Nombre" [(ngModel)]="notificationSend.title" required>
+                <mat-hint align="start">
+                  <span [hidden]="!notificationControl.errors?.required || notificationControl.pristine" class="tc-red-600">Requerido</span>
+                </mat-hint>
+                <mat-hint align="end">{{notificationName.value.length}} / 40</mat-hint>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+          <!-- Campo descripcion -->
+          <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+            <mat-card-content>
+              <mat-form-field style="width: 100%;" flex>
+                <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
+                  [(ngModel)]="notificationSend.message" required rows="7" cols="120"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Campo fecha -->
+          <mat-card layout="row" flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field class="calendar">
-                <input matInput #date1Control="ngModel" name="Fecha1" [(ngModel)]="notificationSend.startTime" [min]="fecha1" [max]="maxDate" [matDatepicker]="picker"
-                  placeholder="Fecha inicio">
+                <input matInput #date1Control="ngModel" name="Fecha1" [(ngModel)]="notificationSend.startTime" [min]="fecha1" [max]="maxDate"
+                  [matDatepicker]="picker" placeholder="Fecha inicio">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-form-field class="calendar">
-                <input matInput #date2Control="ngModel" name="endTime" [(ngModel)]="notificationSend.endTime" [min]="fecha1" [max]="maxDate" [matDatepicker]="picker2"
-                  placeholder="Fecha final">
+                <input matInput #date2Control="ngModel" name="endTime" [(ngModel)]="notificationSend.endTime" [min]="fecha1" [max]="maxDate"
+                  [matDatepicker]="picker2" placeholder="Fecha final">
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-              <mat-form-field style="width: 100%;">
-                <mat-select #activity name="activity" [(value)]="notificationSend.allUser" placeholder="Seleccione actividad">
-                  <mat-option value="notificationSend.allUser"> Todos</mat-option>
-                  <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-card>
+            <section>
+              <mat-checkbox #allUser="ngModel" name="allUser"  [(ngModel)]="notificationSend.allUser">Todos</mat-checkbox>
+            </section>
+          </mat-card>
+          <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+            <mat-form-field style="width: 100%;">
+              <mat-select  #activity name="activity" [(value)]="notificationSend.activity" placeholder="Seleccione actividad">
+                <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card>
         </div>
         <mat-card-actions layout="row">
           <div class="text-center">
