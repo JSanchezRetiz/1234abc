@@ -11,7 +11,6 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from '../../login/login/login.component'
 import { ChallengesService } from '../services/challenges.service'
 import { activityDto } from '../models/activityDto';
-import { all } from '../../../../node_modules/@types/q';
 import { DetailActivitiesComponent } from '../detail-activities/detail-activities.component';
 import { TdLoadingService } from '@covalent/core/loading';
 
@@ -27,13 +26,6 @@ export class ActivitiesComponent implements OnInit {
   disableClose: boolean;
   allActivity: activityDto[];
   activity: activityDto;
-
-  
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<activityDto>(tabla);
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private _router: Router, private loginSVC: LoginService,
     _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef,
@@ -56,14 +48,14 @@ export class ActivitiesComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  pasarDatos(activity: activityDto) {
-    let NavigationExtras: NavigationExtras = {
-      queryParams: {
-        "activities": JSON.stringify(activity),
-      }
-    };
-    this._router.navigate(["ranking"], NavigationExtras);
-  }
+  //  pasarDatos(activity: activityDto) {
+  //    let NavigationExtras: NavigationExtras = {
+  //   queryParams: {
+  //      "activities": JSON.stringify(activity),
+  //    }
+  //   };
+  //   this._router.navigate(["ranking"], NavigationExtras);
+  // }
 
   getUserData() {
     this._loadingService.register();
@@ -85,19 +77,6 @@ export class ActivitiesComponent implements OnInit {
       this._loadingService.resolve();
       console.log(this.allActivity)
 
-      this.dataSource.paginator = this.paginator;
     })
   }
 }
-
-export interface activityDto {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const tabla: activityDto[] =[
-
-]
-

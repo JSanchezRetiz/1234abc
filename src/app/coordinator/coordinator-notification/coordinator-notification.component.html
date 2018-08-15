@@ -23,26 +23,8 @@
     </div>
     <div style="background-color:#ff7539">
       <mat-card>
-        <mat-card>
-          <div flex class="text-center">
-            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de notificaciones</mat-card-title>
-          </div>
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title>TITULO</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>DESCRIPCION</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>FECHA FINAL</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>DETALLES</mat-card-title>
-            </div>
-          </div>
-        </mat-card>
-        <mat-card>
+        <div>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de notificaciones</mat-card-title>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
               <mat-card-title>Nueva notificacion</mat-card-title>
@@ -59,25 +41,46 @@
               </button>
             </div>
           </div>
-        </mat-card>
-        <mat-card *ngFor="let notification of notifications">
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{notification.title}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{notification.message}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{notification.endTime | date:'dd/MM/yyyy'}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar(notification)">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(notification)">Eliminar</button>
-            </div>
+          <div style="overflow:auto;">
+            <mat-card-content>
+              <table style="width: 100%; background: white" td-data-table>
+                <thead>
+                  <tr td-data-table-column-row>
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Nombre de la notificacion
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Descripción
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Fecha de vencimiento
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Opciones
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let notification of notifications" td-data-table-row>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{notification.title}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{notification.message}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{notification.endTime | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      <button mat-button class="w3-btn w3-dark-grey" (click)="editar(notification)">Editar</button>
+                      <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(notification)">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-card-content>
           </div>
-        </mat-card>
-
+        </div>
         <mat-card-actions layout="row">
           <div class="text-center">
             <br>

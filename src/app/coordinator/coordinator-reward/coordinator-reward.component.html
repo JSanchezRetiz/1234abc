@@ -23,94 +23,76 @@
     </div>
     <div style="background-color:#ff7539">
       <mat-card>
-        <mat-card>
+        <div>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de recompensas</mat-card-title>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-left" style="color:orangered">
+            <div flex class="text-center">
               <mat-card-title>Nueva recompensa</mat-card-title>
             </div>
-            <div flex class="text-right">
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
               <button mat-button (click)="crear()">
                 <img src="../../../assets/icons/boton-anadir.svg" width="70px">
               </button>
             </div>
           </div>
-        </mat-card>
-        <mat-card>
-          <div style="overflow:auto">
+          <div style="overflow:auto;">
             <mat-card-content>
-              <table td-data-table width="100%">
+              <table style="width: 100%; background: white" td-data-table>
                 <thead>
-                  <tr td-data-table-colum-row>
-                    <th td-data-table-column>
-
+                  <tr td-data-table-column-row>
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Icono
                     </th>
-                    <th td-data-table-column>
-                      Nombre de la recompensa
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Nombre de la recompnesa
                     </th>
-                    <th td-data-table-column>
-                      Descripcion
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Descripción
                     </th>
-                    <th td-data-table-column>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
                       Cantidad
                     </th>
-                    <th td-data-table-column>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
                       Puntos
                     </th>
-                    <th td-data-table-column>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
                       Detalle
                     </th>
                   </tr>
                 </thead>
+                <tbody>
+                  <tr *ngFor="let recompensa of store" td-data-table-row>
+                    <div flex class="text-center">
+                      <img src="../../../assets/icons/rewards/viaje.svg" width="70px">
+                    </div>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{recompensa.name}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{recompensa.description}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{recompensa.amount}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{recompensa.scorePrice}}
+                    </td>
+                    <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      <button mat-button class="w3-btn w3-dark-grey" (click)="editar(recompensa)">Editar</button>
+                      <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(recompensa)">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </mat-card-content>
           </div>
-          <!-- <div flex class="text-center">
-            <mat-card-title style="color:orangered; text-align: center; font-size:40px"> Recompensas</mat-card-title>
-          </div>
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title>ICONO</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>RECOMPENSA</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>DESCRIPCION</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>CANTIDAD</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>PUNTOS</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>DETALLES</mat-card-title>
-            </div>
-          </div> -->
-        </mat-card>
-        <mat-card *ngFor="let recompensa of store ">
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <img src="../../../assets/icons/rewards/viaje.svg" width="70px">
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{recompensa.name}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{recompensa.description}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{recompensa.amount}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{recompensa.scorePrice}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar(recompensa)">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(recompensa)">Eliminar</button>
-            </div>
-          </div>
-        </mat-card>
+        </div>
         <mat-card-actions layout="row">
           <div class="text-center">
             <br>

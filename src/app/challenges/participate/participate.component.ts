@@ -19,14 +19,18 @@ export class ParticipateComponent implements OnInit {
   myactivitySend: activityDto;
   myActivity: myActivitiesDto;
   score: scoreActivity;
+  activitySend: activityDto;
+  activity: activityDto;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialog: TdDialogService, public dialogRef: MatDialogRef<ParticipateComponent>, private challengesSVC: ChallengesService, private _router: Router, private _viewContainerRef: ViewContainerRef) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,  private dialog: TdDialogService, public dialogRef: MatDialogRef<ParticipateComponent>, private challengesSVC: ChallengesService, private _router: Router, private _viewContainerRef: ViewContainerRef) {
     this.myactivitySend = new myActivitiesDto();
     console.log("dto de mis actiidades",this.myactivitySend)
     this.myActivity = data.data;
     console.log("data",data)
     console.log("titulo de la actividad",this.myActivity.title)
     this.score = new scoreActivity();
+    this.activitySend = new activityDto();
+  
    }
 
    Participar(): void {
@@ -53,7 +57,20 @@ export class ParticipateComponent implements OnInit {
      
     })
   }
+ 
   ngOnInit() {
+    var id = localStorage.getItem('idActivity');
+    var uid = localStorage.getItem('uid');
+    var name = localStorage.getItem('userName');
+    var score = 8;
+    var experience = 10;
+
+  
+    this.score.activityId = id;
+    this.score.uid = uid;
+    this.score.userName = name;
+    this.score.score = score;
+    this.score.experience = experience;
   }
 
 }

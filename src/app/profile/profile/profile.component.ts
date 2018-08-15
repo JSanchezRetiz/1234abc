@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
   },
   ];
   constructor(private _router: Router, private loginSVC: LoginService, private _loadingService: TdLoadingService, private coordinatorSVC: CoordinatorService) {
-    this.notifications = Array <notificationDto>();
+    this.notifications = Array<notificationDto>();
     this.notificationSend = new notificationDto();
     this.uidDto = new uidDto();
     this.userDto = new userDto();
@@ -48,12 +48,21 @@ export class ProfileComponent implements OnInit {
     this.medals = new medalDto();
   }
 
-  getAllNotification(){
-
-    this.coordinatorSVC.getAllNotification().then(res =>{
-      this.notifications= res;
+  getNotificationsGlobal() {
+    this.notificationSend.allUser
+    console.log(this.notificationSend.allUser)
+    this.coordinatorSVC.getNotificationsGlobal(this.notificationSend).then(res => {
+      this.notifications = res;
       console.log(res);
- 
+    })
+  }
+
+  getAllNotification() {
+
+    this.coordinatorSVC.getAllNotification().then(res => {
+      this.notifications = res;
+      console.log(res);
+
     })
   }
 
@@ -86,6 +95,7 @@ export class ProfileComponent implements OnInit {
     this.getUserData();
     this.getAllMedals();
     this.getAllNotification();
+
   }
   getUserData() {
     this._loadingService.register();

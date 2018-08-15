@@ -33,10 +33,10 @@ export class MyActivitiesComponent implements OnInit {
     this.userDto = new userDto();
     this.uidDto = new uidDto();
   }
-  pasarDatos(activity: activityDto) {
+  pasarDatos(activity: myActivitiesDto) {
     let NavigationExtras: NavigationExtras = {
       queryParams: {
-        "activities": JSON.stringify(activity),
+        "myActivities": JSON.stringify(activity),
       }
     };
     this._router.navigate(["ranking"], NavigationExtras);
@@ -68,13 +68,13 @@ export class MyActivitiesComponent implements OnInit {
     })
   }
 
-  openConfirm(): void {
+  openConfirm(dato: activityDto): void {
     console.log("datos", this.myActivitySend);
 
     const dialogRef = this._dialogRef.open(ParticipateComponent, {
       width: '500px',
       height: '600px',
-      data: { data: this.myActivitySend }
+      data: { data: this.myActivitySend, }
     });
     dialogRef.afterClosed().subscribe(result => {
     });

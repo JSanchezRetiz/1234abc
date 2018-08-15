@@ -11,8 +11,8 @@ import { ParticipateComponent } from '../challenges/participate/participate.comp
 
 const routes: Routes = [
   {
-    path: 'ranking', component: MenuComponent,
-    children: [{ path: '', component: RankingComponent }]
+    path: 'ranking', component: RankingComponent,
+    // children: [{ path: '', component: RankingComponent }]
   },
   { path: 'actividades', component: ActivitiesComponent },
   { path: 'tienda', component: StoreComponent },
