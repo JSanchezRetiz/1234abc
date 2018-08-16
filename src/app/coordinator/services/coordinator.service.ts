@@ -101,9 +101,11 @@ export class CoordinatorService {
       .then(res => <any>res.json())
   }
 
-  public getNotificationsGlobal(allUser:notificationDto){
-    return this.http.post(this.serverURL + 'getAllNotification', allUser).toPromise()
-      .then(res => <any>res.json())
+  public getNotificationsGlobal(notification: notificationDto){
+    return this.http.post(this.serverURL + 'getNotificationsGlobal', notification).toPromise()
+    .then(res => <any>res.json())
+    
   }
+
 
 }

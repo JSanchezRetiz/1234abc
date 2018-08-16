@@ -23,29 +23,8 @@
     </div>
     <div style="background-color:#ff7539">
       <mat-card>
-        <mat-card>
-          <div flex class="text-center">
-            <mat-card-title style="color:orangered; text-align: center; font-size:40px">Medallas</mat-card-title>
-          </div>
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-title>ICONO</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>MEDALLA</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>DESCRIPCION</mat-card-title>
-            </div>
-            <div flex class="text-center">
-              <mat-card-title>PUNTOS</mat-card-title>
-            </div>
-            <div flex class="text-center">
-                <mat-card-title>DETALLES</mat-card-title>
-              </div>
-          </div>
-        </mat-card>
-        <mat-card>
+        <div>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">Edicion de Medallas</mat-card-title>
           <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
             <div flex class="text-center">
               <mat-card-title>Nueva medalla</mat-card-title>
@@ -55,38 +34,61 @@
             </div>
             <div flex class="text-center">
               <mat-card-title></mat-card-title>
-            </div><div flex class="text-center">
-                <mat-card-title></mat-card-title>
-              </div>
+            </div>
             <div flex class="text-center">
               <button mat-button (click)="crear()">
                 <img src="../../../assets/icons/boton-anadir.svg" width="70px">
               </button>
             </div>
           </div>
-        </mat-card>
-        <mat-card *ngFor="let medal of medals">
-          <!-- <mat-card *ngFor="let activity of allActivity"> -->
-          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-            <div flex class="text-center">
-              <mat-card-content class="contenido"><img src="../../../assets/icons/Insignia/calendario.svg" width="100px"></mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{medal.name}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{medal.description}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <mat-card-content class="contenido">{{medal.requirementScore}}</mat-card-content>
-            </div>
-            <div flex class="text-center">
-              <button mat-button class="w3-btn w3-dark-grey" (click)="editar(medal)">Editar</button>
-              <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(medal)">Eliminar</button>
-            </div>
+          <div style="overflow:auto;">
+            <mat-card-content>
+              <table style="width: 100%; background: white" td-data-table>
+                <thead>
+                  <tr td-data-table-column-row>
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      ICONO
+                    </th>
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      MEDALLA
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      DESCRIPCION
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      PUNTOS
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      DETALLES
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let medal of medals" td-data-table-row>
+                    <div flex class="text-center">
+                      <mat-card-content class="contenido">
+                        <img src="../../../assets/icons/Insignia/calendario.svg" width="100px">
+                      </mat-card-content>
+                    </div>
+                    <td style="background-color:white; font-size:20px; font-family: Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{medal.name}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{medal.description}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{medal.requirementScore}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      <button mat-button class="w3-btn w3-dark-grey" (click)="editar(medal)">Editar</button>
+                      <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(medal)">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-card-content>
           </div>
-        </mat-card>
-
+        </div>
         <mat-card-actions layout="row">
           <div class="text-center">
             <br>

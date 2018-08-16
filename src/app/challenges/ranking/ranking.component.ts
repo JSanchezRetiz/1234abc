@@ -36,8 +36,8 @@ export class RankingComponent implements OnInit {
   }
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.activity = JSON.parse(params["activities"]);
-      console.log(this.activity);
+      this.activity = JSON.parse(params["myActivities"]);
+      console.log("dto actividad",this.activity);
       this.getAllScoreByActivity(this.activity);
     });
   }

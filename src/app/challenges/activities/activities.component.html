@@ -23,52 +23,55 @@
     </div>
     <!-- router outlet goes here -->
     <div style="background-color:#ff7539" layout-fill>
-  
       <mat-card>
-          <mat-card-title style="color:orangered; text-align: center; font-size:40px">ACTIVIDADES</mat-card-title>
-          <mat-card-subtitle style="text-align: center">Actividades disponibles</mat-card-subtitle>
-      <div style="overflow:auto;">
-        <mat-card-content>
-          <table style="width: 100%" td-data-table>
-            <thead>
-              <tr td-data-table-column-row>
-                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
-                  Nombre del reto
-                </th>
-                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
-                  Descripción
-                </th>
-                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
-                  Estado
-                </th>
-                <th style="background-color:white;color:#003556;font-size:20px;" td-data-table-column>
-                  Opciones
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let dato of allActivity" td-data-table-row>
-                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
-                  td-data-table-cell>
-                  {{dato.title}}
-                </td>
-                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
-                  td-data-table-cell>
-                  {{dato.description}}
-                </td>
-                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
-                  td-data-table-cell>
-                  {{dato.status}}
-                </td>
-                <td style="background-color:white; font-size:15px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center"
-                  td-data-table-cell>
-                  <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Ver mas</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </mat-card-content>
-      </div>
+        <mat-card-title style="color:orangered; text-align: center; font-size:40px">ACTIVIDADES</mat-card-title>
+        <mat-card-subtitle style="text-align: center">Actividades disponibles</mat-card-subtitle>
+        <div style="overflow:auto;">
+          <mat-card-content>
+            <table style="width: 100%; background: white" td-data-table>
+              <thead>
+                <tr td-data-table-column-row>
+                  <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                    Nombre del reto
+                  </th>
+                  <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                    Descripción
+                  </th>
+                  <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                    Estado
+                  </th>
+                  <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                    Opciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dato of allActivity" td-data-table-row>
+                  <mat-card-content>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{dato.title}}
+                    </td>
+                  </mat-card-content>
+                  <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                    {{dato.description}}
+                  </td>
+                  <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                    {{dato.status}}
+                  </td>
+                  <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                    <button mat-button class="w3-btn w3-dark-grey" (click)="openConfirm(dato)">Ver mas</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-card-content>
+        </div>
+        <mat-card-actions layout="row">
+          <div class="text-center">
+            <br>
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+          </div>
+        </mat-card-actions>
       </mat-card>
     </div>
     <td-layout-footer>
