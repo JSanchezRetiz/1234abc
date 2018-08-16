@@ -13,35 +13,43 @@ import { ChallengesService } from '../../challenges/services/challenges.service'
   selector: 'app-create-notification',
   templateUrl: './create-notification.component.html',
   styleUrls: ['./create-notification.component.scss'],
-  providers: [CoordinatorService,TdLoadingService, ChallengesService],
+  providers: [CoordinatorService, TdLoadingService, ChallengesService],
 })
 export class CreateNotificationComponent implements OnInit {
   notificationSend: notificationDto;
   fecha1: Date;
   endTime: Date;
   allActivity: activityDto[];
+  notificationAllUser: boolean;
 
-  constructor(private challengesSVC: ChallengesService, private _loadingService: TdLoadingService, private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateNotificationComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC:CoordinatorService) {
+  constructor(private challengesSVC: ChallengesService, private _loadingService: TdLoadingService, private dialog: TdDialogService, public dialogRef: MatDialogRef<CreateNotificationComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef, private coordinatorSVC: CoordinatorService) {
     this.notificationSend = new notificationDto();
-   }
+  }
 
-   public getAllActivity() {
+  public getAllActivity() {
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
     })
   }
 
-   createNotification(){
+  createNotification() {
+    console.log("booleano", this.notificationAllUser)
+    if (this.notificationAllUser == true) {
+      this.notificationSend.allUser = "Todos"
+    } else {
+      this.notificationSend.allUser = "None";
+    }
     this._loadingService.register();
-     this.coordinatorSVC.createNotification(this.notificationSend).then(res =>{
-       this.notificationSend= res;
-       console.log(res);
-       this._loadingService.resolve();
-       this.guardar();
-     })
-   }
+    console.log("aaaa", this.notificationSend);
+    this.coordinatorSVC.createNotification(this.notificationSend).then(res => {
+      this.notificationSend = res;
+      console.log(res);
+      this._loadingService.resolve();
+      this.guardar();
+    })
+  }
 
-   guardar() {
+  guardar() {
     this.dialog.openAlert({
       message: 'Se ha creado la notificacion adecuadamente',
       disableClose: false, // defaults to false

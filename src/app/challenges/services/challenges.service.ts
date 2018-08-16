@@ -11,8 +11,6 @@ import { storeDto } from '../models/storeDto';
 import { purchaseDto } from '../models/purchaseDto';
 import { myActivitiesDto } from '../models/myActivitiesDto';
 
-
-
 @Injectable()
 export class ChallengesService {
 
