@@ -91,8 +91,8 @@
               <mat-select flex="100" #medal name="medal" [(value)]="activity.reward" placeholder="Seleccione puntaje">
                 <mat-option value="None"> None</mat-option>
                 <mat-option [value]="score.easy">{{score.easy}}</mat-option>
-                <mat-option [value]="score.medium">{{score.medium}}</mat-option>
-                <mat-option [value]="score.hard">{{score.hard}}</mat-option>
+                <mat-option [value]="score.medium"> {{score.medium}}</mat-option>
+                <mat-option [value]="score.hard"> {{score.hard}}</mat-option>
               </mat-select>
             </mat-form-field>
           </mat-card>

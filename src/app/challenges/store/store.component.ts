@@ -11,7 +11,6 @@ import { userDto } from '../../login/models/userDto';
 import { LoginService } from '../../login/service/login.service';
 import { uidDto } from '../../login/models/uidDto';
 
-
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
@@ -21,11 +20,9 @@ import { uidDto } from '../../login/models/uidDto';
 export class StoreComponent implements OnInit {
   userDto: userDto;
   uidDto: uidDto;
-
-
+  rows: number
+  cols: number
   store: storeDto[];
-
-
 
   constructor(private loginSVC: LoginService, private _loadingService: TdLoadingService, private _router: Router, _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService) {
 
@@ -64,8 +61,9 @@ export class StoreComponent implements OnInit {
       console.log(this.store)
     })
   }
-
   ngOnInit() {
+    this.cols = 1;
+    this.rows = 1;
     this.getAllItemsStore();
     this.getUserData();
   }
