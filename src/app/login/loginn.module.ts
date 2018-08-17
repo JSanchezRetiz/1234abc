@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { LoginnRoutingModule } from './loginn-routing.module';
 import { LoginComponent } from '../login/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -38,6 +38,7 @@ import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
   imports: [
     CommonModule,
     LoginnRoutingModule,
+    MatGridListModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,

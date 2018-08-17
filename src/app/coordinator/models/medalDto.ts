@@ -3,4 +3,5 @@ export class medalDto {
     name: string;
     description: string;
     requirementScore:string;
+ 
 }

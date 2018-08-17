@@ -11,11 +11,15 @@ import { CoordinatorService } from '../../coordinator/services/coordinator.servi
 })
 export class MedalsComponent implements OnInit {
   medals: medalDto[];
+  rows: number
+  cols: number
   constructor(private _router: Router, private coordinatorSVC: CoordinatorService) {
-    this.medals= new Array <medalDto>();
-   }
+    this.medals = new Array<medalDto>();
+
+  }
 
   getAllMedals() {
+
     this.coordinatorSVC.getAllMedals().then(res => {
       this.medals = res;
     })
@@ -26,6 +30,9 @@ export class MedalsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cols = 1;
+    this.rows= 1;
+
     this.getAllMedals()
   }
 

@@ -10,21 +10,29 @@ import { CoordinatorService } from '../../coordinator/services/coordinator.servi
 export class NotificationsComponent implements OnInit {
   notifications: notificationDto[];
   notificationSend: notificationDto;
-  constructor(private coordinatorSVC:CoordinatorService,) {
-    this.notifications = Array <notificationDto>();
+  constructor(private coordinatorSVC: CoordinatorService, ) {
+    this.notifications = Array<notificationDto>();
     this.notificationSend = new notificationDto();
-   }
-   getAllNotification(){
+  }
+  getAllNotification() {
+    this.coordinatorSVC.getAllNotification().then(res => {
+      this.notifications = res;
+      this.getNotificationsGlobal();
+      console.log(res);
+    })
+  }
+  getNotificationsGlobal() {
+    this.notificationSend.allUser = "Todos";
+    console.log("allUser", this.notificationSend.allUser);
+    this.coordinatorSVC.getNotificationsGlobal(this.notificationSend).then(res => {
+      this.notifications = res;
+      console.log("respuesta", this.notifications);
+    })
 
-     this.coordinatorSVC.getAllNotification().then(res =>{
-       this.notifications= res;
-       console.log(res);
-  
-     })
-   }
-
+  }
   ngOnInit() {
-    this.getAllNotification();
+
+ this.getAllNotification();
   }
 
 }
