@@ -22,12 +22,12 @@
       <span flex></span>
     </div>
     <mat-card fxlayout="column" fxflex="100" fxShow.gt-sm flex>
-      <mat-card-title style="color:orangered; text-align: center; font-size:40px">TROFEOS</mat-card-title>
+      <mat-card-title style="color:orangered; text-align: center; font-size:40px">Medallas</mat-card-title>
       <mat-card-subtitle style="text-align: center">Medallas disponibles</mat-card-subtitle>
       <mat-grid-list cols="4" rowHeight="1:1">
         <mat-grid-tile *ngFor="let medal of medals" [colspan]="cols" [rowspan]="rows">
           <mat-card flex="100" style='background:#f8f8f8'>
-            <div style="padding:5px 5px 5px 5px" class="text-center">
+            <div style="padding:2px 2px 2px 2px" class="text-center">
               <img src="../../../assets/icons/Insignia/3d-modeling.svg" width="100px">
               <mat-card-content class="label">{{medal.name}}</mat-card-content>
               <mat-card-content class="label">{{medal.description}}</mat-card-content>
@@ -41,7 +41,5 @@
         </div>
       </mat-card-actions>
     </mat-card>
-
-
   </td-layout-nav>
 </td-layout>

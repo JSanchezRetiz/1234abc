@@ -29,19 +29,22 @@ export class CoordinatingActivityComponent implements OnInit {
   userDto: userDto;
   activity: activityDto
   score: scoreDto;
+  hard: string;
+  medium: string;
+  easy: string
 
   constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
     this.uidDto = new uidDto();
     this.userDto = new userDto();
     this.activity = new activityDto();
- 
+
   }
   crear(dato: activityDto): void {
     const dialogRef = this._dialogRef.open(CreateActivityComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: dato,  }
+      data: { data: dato, }
     });
     dialogRef.afterClosed().subscribe(result => {
       localStorage.removeItem('idActivity');
@@ -116,6 +119,9 @@ export class CoordinatingActivityComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.easy = "facil";
+    this.medium = "medio";
+    this.hard = "dificil";
     this.getUserData();
     this.getAllActivity();
 

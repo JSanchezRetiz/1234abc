@@ -11,16 +11,13 @@ import { storeDto } from '../../challenges/models/storeDto';
 import { medalDto } from '../../coordinator/models/medalDto';
 import { scoreDto } from '../models/scoreDto';
 
-
-
-
 @Component({
   selector: 'app-create-activity',
   templateUrl: './create-activity.component.html',
   styleUrls: ['./create-activity.component.scss'],
   providers: [ChallengesService, CoordinatorService, TdLoadingService],
-
 })
+
 export class CreateActivityComponent implements OnInit {
   activity: activityDto;
   fecha1: Date;
@@ -42,7 +39,6 @@ export class CreateActivityComponent implements OnInit {
     this.score = new scoreDto();
   }
 
-
   createActivity() {
     this._loadingService.register();
     console.log(this.activity);
@@ -56,6 +52,7 @@ export class CreateActivityComponent implements OnInit {
       this.guardar();
     });
   }
+
   getAllItemsStore() {
     this.challengesSVC.getAllItemsStore().then(res => {
       this.store = res;
@@ -69,9 +66,11 @@ export class CreateActivityComponent implements OnInit {
       console.log(res);
     })
   }
+
   cerrar() {
     this.dialogRef.close('cerrar');
   }
+
   guardar() {
     this.dialog.openAlert({
       message: 'Se ha creado la actividad adecuadamente',
@@ -92,14 +91,12 @@ export class CreateActivityComponent implements OnInit {
       this.score = res[0];
       console.log(res)
     })
-
-
   }
+
   ngOnInit() {
     console.log("dto medals", this.getAllMedals())
     console.log("dto store", this.getAllItemsStore())
     console.log("dto score", this.getTypeScore())
-
     this.fecha1 = new Date();
     this.endTime = new Date();
   }
