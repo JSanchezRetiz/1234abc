@@ -52,25 +52,21 @@ export class CreateActivityComponent implements OnInit {
       this.guardar();
     });
   }
-
   getAllItemsStore() {
     this.challengesSVC.getAllItemsStore().then(res => {
       this.store = res;
       console.log(this.store)
     })
   }
-
   getAllMedals() {
     this.coordinatorSVC.getAllMedals().then(res => {
       this.medals = res;
       console.log(res);
     })
   }
-
   cerrar() {
     this.dialogRef.close('cerrar');
   }
-
   guardar() {
     this.dialog.openAlert({
       message: 'Se ha creado la actividad adecuadamente',
@@ -85,14 +81,12 @@ export class CreateActivityComponent implements OnInit {
       }
       );
   }
-
   getTypeScore() {
     this.coordinatorSVC.getTypeOfScore().then(res => {
       this.score = res[0];
       console.log(res)
     })
   }
-
   ngOnInit() {
     console.log("dto medals", this.getAllMedals())
     console.log("dto store", this.getAllItemsStore())

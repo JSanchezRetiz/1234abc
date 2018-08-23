@@ -35,6 +35,7 @@ import { EditMedalsComponent } from './edit-medals/edit-medals.component';
 import { CoordinatorNotificationComponent } from './coordinator-notification/coordinator-notification.component';
 import { CreateNotificationComponent } from './create-notification/create-notification.component';
 import { EditNotificationComponent } from './edit-notification/edit-notification.component';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -64,6 +65,6 @@ import { EditNotificationComponent } from './edit-notification/edit-notification
     CovalentFileModule,
     CovalentDialogsModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent],
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, UsersComponent],
 })
 export class CoordinatorModule { }

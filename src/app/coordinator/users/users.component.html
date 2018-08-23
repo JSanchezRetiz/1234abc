@@ -1,0 +1,91 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list td-navigation-drawer-menu>
+        <a mat-list-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="center center" flex>
+      <span>Usuarios</span>
+      <span flex></span>
+    </div>
+    <div style="background-color:#ff7539">
+      <mat-card>
+        <div>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">Usuarios Registrados</mat-card-title>
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <mat-card-title>Nuevo Usuario</mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <mat-card-title></mat-card-title>
+            </div>
+            <div flex class="text-center">
+              <button mat-button (click)="createUser()">
+                <img src="../../../assets/icons/boton-anadir.svg" width="70px">
+              </button>
+            </div>
+          </div>
+          <div style="overflow:auto;">
+            <mat-card-content>
+              <table style="width: 100%; background: white" td-data-table>
+                <thead>
+                  <tr td-data-table-column-row>
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Usuario
+                    </th>
+                    <th style="background:orangered;color:white;font-size:20px;" td-data-table-column>
+                      Cargo
+                    </th>
+                    <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
+                      DETALLES
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users" td-data-table-row>
+                    <td style="background-color:white; font-size:20px; font-family: Verdana, Geneva, Tahoma, sans-serif" class="text-center"
+                      td-data-table-cell>
+                      {{user.name}} {{user.lastname}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      {{user.job}}
+                    </td>
+                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
+                      <!-- <button mat-button class="w3-btn w3-dark-grey" (click)="editar(medal)">Editar</button> -->
+                      <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(medal)">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-card-content>
+          </div>
+        </div>
+        <mat-card-actions layout="row">
+          <div class="text-center">
+            <br>
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+      <br>
+      <br>
+      <br>
+    </div>
+  </td-layout-nav>
+</td-layout>

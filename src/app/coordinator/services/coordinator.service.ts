@@ -9,6 +9,7 @@ import { activityDto } from '../../challenges/models/activityDto';
 import { medalDto } from '../models/medalDto';
 import { scoreDto } from '../models/scoreDto';
 import { notificationDto } from '../models/notificationDto';
+import {usersDto} from '../models/usersDto';
 
 @Injectable()
 export class CoordinatorService {
@@ -106,6 +107,9 @@ export class CoordinatorService {
     .then(res => <any>res.json())
     
   }
-
+  public getAllUsers() {
+    return this.http.get(this.serverURL + 'getAllUsers').toPromise()
+      .then(res => <any>res.json())
+  }
 
 }
