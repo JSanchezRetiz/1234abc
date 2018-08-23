@@ -14,9 +14,10 @@ import { EditMedalsComponent } from '../coordinator/edit-medals/edit-medals.comp
 import { CoordinatorNotificationComponent } from './coordinator-notification/coordinator-notification.component';
 import { CreateNotificationComponent } from './create-notification/create-notification.component';
 import { EditNotificationComponent } from './edit-notification/edit-notification.component';
-import {UsersComponent} from '../coordinator/users/users.component';
-import {RegisterComponent} from '../login/register/register.component';
+import { UsersComponent } from '../coordinator/users/users.component';
+import { RegisterComponent } from '../login/register/register.component';
 import { DashboardUsersComponent } from '../coordinator/dashboard-users/dashboard-users.component';
+import { EditUsersComponent } from '../coordinator/edit-users/edit-users.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'usuarios', component:UsersComponent},
   { path: 'registro', component:RegisterComponent},
   { path: 'dashboard-usuarios', component: DashboardUsersComponent},
+  { path: 'editar-usuarios', component:EditUsersComponent},
 
 ];
 

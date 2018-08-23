@@ -9,7 +9,7 @@ import { activityDto } from '../../challenges/models/activityDto';
 import { medalDto } from '../models/medalDto';
 import { scoreDto } from '../models/scoreDto';
 import { notificationDto } from '../models/notificationDto';
-import {usersDto} from '../models/usersDto';
+import { usersDto } from '../models/usersDto';
 
 @Injectable()
 export class CoordinatorService {
@@ -110,6 +110,17 @@ export class CoordinatorService {
   public getAllUsers() {
     return this.http.get(this.serverURL + 'getAllUsers').toPromise()
       .then(res => <any>res.json())
+  }
+
+  
+  public updateUsers(users: usersDto) {
+    return this.http.post(this.serverURL + 'updateUsers', users).toPromise().then
+      (res => <any>res)
+  }
+
+  public deleteUsers(users: usersDto) {
+    return this.http.post(this.serverURL + 'deleteUsers', users).toPromise().then
+      (res => <any>res)
   }
 
 }

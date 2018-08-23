@@ -7,6 +7,8 @@ import { CoordinatorService } from '../services/coordinator.service';
 import { storage } from '../../../../node_modules/firebase';
 import { usersDto } from '../models/usersDto';
 import { userDto } from '../../login/models/userDto';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { EditUsersComponent } from '../edit-users/edit-users.component';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -14,12 +16,11 @@ import { userDto } from '../../login/models/userDto';
   providers: [TdLoadingService, CoordinatorService]
 })
 export class UsersComponent implements OnInit {
-  users: userDto[];
-  usersSend: usersDto;
-  quantity: number;
+users: userDto[];
+user: usersDto;
 
-  constructor(private coordinatorSVC: CoordinatorService, private _loadingService: TdLoadingService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, ) {
-    this.usersSend = new usersDto();
+  constructor(private _dialogRef: MatDialog, private coordinatorSVC: CoordinatorService,  private _loadingService: TdLoadingService,  private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, ) { 
+ 
   }
 
   getAllUsers() {
@@ -27,12 +28,59 @@ export class UsersComponent implements OnInit {
       this.users = res;
       console.log(res);
       console.log('cantidad', this.users.length)
-      console.log('cantidad', this.usersSend.idUser.length)
+      
     })
   }
 
   createUser() {
     this._router.navigate(["registro"]);
+  }
+
+  Confirmar(dato:usersDto): void {
+    this._dialogService.openConfirm({
+      message: 'Esta seguro de eliminar este usuario?',
+     disableClose: true, // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+       title: 'Atencion:', //OPTIONAL, hides if not provided
+      cancelButton: 'Cancelar', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Confirmar', //OPTIONAL, defaults to 'ACCEPT'
+      width: '500px', //OPTIONAL, defaults to 400px
+     }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+         this.eliminar(dato)
+      } else {
+        this.cerrar();
+      }
+    });
+   }
+
+   cerrar() {
+    this._dialogRef.closeAll();
+  }
+
+  eliminar(dato: usersDto) {
+    this._loadingService.register();
+    console.log("id", dato)
+    localStorage.setItem('id', dato.id);
+    this.coordinatorSVC.deleteUsers(dato).then(res => {
+      this.user = res;
+      console.log(res);
+      this.getAllUsers();
+      this._loadingService.resolve();
+    })
+  }
+
+  editar(user: usersDto) {
+    const dialogRef = this._dialogRef.open(EditUsersComponent, {
+      width: '1000px',
+      height: '600px',
+      data: { data: this.users,  }
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllUsers();
+
+    });
   }
 
   ngOnInit() {
