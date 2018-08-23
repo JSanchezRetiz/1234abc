@@ -95,6 +95,9 @@ export class CoordinatorNotificationComponent implements OnInit {
     this._dialogRef.closeAll();
   }
 
+  Volver() {
+    this._router.navigate(["dashboard-usuarios"]);
+  }
 
 
 

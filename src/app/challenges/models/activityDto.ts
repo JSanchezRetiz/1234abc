@@ -13,4 +13,5 @@ export class activityDto{
     rules:string;
     prize:string;
     medal:string;
+    dificulty: string;
 }

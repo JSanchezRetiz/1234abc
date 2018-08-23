@@ -84,7 +84,7 @@ export class CoordinatingActivityComponent implements OnInit {
     })
   }
   Volver() {
-    this._router.navigate(["perfil-coordinador"]);
+    this._router.navigate(["dashboard-usuarios"]);
   }
   Confirmar(dato: activityDto): void {
     this._dialogService.openConfirm({

@@ -9,6 +9,7 @@ import { ChallengesService } from '../../challenges/services/challenges.service'
 import { TdLoadingService } from '@covalent/core/loading';
 import { storeDto } from '../../challenges/models/storeDto';
 import { medalDto } from '../../coordinator/models/medalDto';
+import { scoreDto } from '../models/scoreDto';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class EditComponent implements OnInit {
   maxDate = new Date(2020, 0, 1);
   minDate2 = new Date(2000, 0, 1);
   maxDate2 = new Date(2020, 0, 1);
+  scores: scoreDto[];
 
 
   constructor(private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) {
@@ -46,10 +48,12 @@ export class EditComponent implements OnInit {
     this.activitySend = new activityDto();
     this.startTime = new Date();
     this.fecha = new Date();
+    this.scores = new Array<scoreDto>();
+
   }
 
   updateActivity() {
-    console.log("update",this.activity);
+    console.log("update", this.activity);
     this._loadingService.register();
     this.activity.id
     this.coordinatorSVC.updateActivity(this.activity).then(res => {
@@ -89,10 +93,18 @@ export class EditComponent implements OnInit {
   cerrar() {
     this.dialogRef.close();
   }
+  getTypeScore() {
+    this.coordinatorSVC.getTypeOfScore().then(res => {
+      this.scores = res[0];
+      console.log(res)
+    })
+
+
+  }
   ngOnInit() {
     this.getAllMedals();
     this.getAllItemsStore();
-
+    console.log("dto score", this.getTypeScore())
 
   }
 

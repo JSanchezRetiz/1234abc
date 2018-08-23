@@ -1,8 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { NgModule } from '@angular/core';
 import { UsersComponent } from './users.component';
 import { UsersFormComponent } from './form/form.component';
+
 
 const routes: Routes = [{
     path: 'users',
@@ -15,7 +16,8 @@ const routes: Routes = [{
     }, {
       path: ':id/edit',
       component: UsersFormComponent,
-    }],
+    },
+
 }];
 
 export const userRoutes: ModuleWithProviders = RouterModule.forChild(routes);

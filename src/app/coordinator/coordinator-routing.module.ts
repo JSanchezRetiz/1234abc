@@ -16,6 +16,8 @@ import { CreateNotificationComponent } from './create-notification/create-notifi
 import { EditNotificationComponent } from './edit-notification/edit-notification.component';
 import {UsersComponent} from '../coordinator/users/users.component';
 import {RegisterComponent} from '../login/register/register.component';
+import { DashboardUsersComponent } from '../coordinator/dashboard-users/dashboard-users.component';
+
 const routes: Routes = [
   {
     children: [{ path: '', component: MenuComponent }],
@@ -36,6 +38,7 @@ const routes: Routes = [
   { path: 'editar-notificacion', component:EditNotificationComponent},
   { path: 'usuarios', component:UsersComponent},
   { path: 'registro', component:RegisterComponent},
+  { path: 'dashboard-usuarios', component: DashboardUsersComponent},
 
 ];
 

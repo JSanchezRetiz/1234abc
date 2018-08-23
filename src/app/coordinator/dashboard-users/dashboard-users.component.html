@@ -1,0 +1,111 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a mat-list-item (click)="perfil()">
+        <mat-icon>exit_to_app</mat-icon>Actividades</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+  </td-navigation-drawer>
+  <td-layout-nav navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="center center" flex>
+      <span>Dashboard</span>
+      <span flex></span>
+    </div>
+    <!-- router outlet goes here -->
+    <div class="fondo">
+      <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+        <div flex="100">
+          <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Recompensas</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/recompensa.svg" width="40%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_recompensa()">Agregar recompensa</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Actividades</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/actividad.svg" width="40%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_actividad()">Agregar actividad</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Usuarios</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/usuario.svg" width="100%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_usuario()">Agregar usuario</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Medallas</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/medalla.svg" width="40%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_medalla()">Agregar medalla</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title style="color:orangered">Notificaciones</mat-card-title>
+              <div class="text-center">
+                <img src="./assets/icons/notificacion.svg" width="40%">
+              </div>
+              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+                <mat-card-actions layout="row">
+                  <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 100%;" flex mat-raised-button (click)="Agregar_notificacion()">Agregar notificacion</button>
+                  </div>
+                </mat-card-actions>
+              </div>
+            </mat-card>
+          </div>
+          <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title class="text-center" style="color:orangered">Grafica General</mat-card-title>
+              <div style="display: block">
+                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </mat-card>
+            <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
+              <mat-card-title class="text-center" style="color:orangered">Grafica por Actividad</mat-card-title>
+              <div style="display: block">
+                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </td-layout-nav>
+</td-layout>

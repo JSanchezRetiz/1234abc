@@ -15,4 +15,5 @@ status: boolean;
 rules:string;
 prize:string;
 medal:string;
+dificulty: string;
 }

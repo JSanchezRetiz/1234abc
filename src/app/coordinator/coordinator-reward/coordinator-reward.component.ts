@@ -91,6 +91,10 @@ export class CoordinatorRewardComponent implements OnInit {
     });
   }
 
+  Volver() {
+    this._router.navigate(["dashboard-usuarios"]);
+  }
+
   ngOnInit() {
     this.getAllItemsStore()
   }
