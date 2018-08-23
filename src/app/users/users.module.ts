@@ -28,16 +28,22 @@ import { UsersFormComponent } from './form/form.component';
 import { userRoutes } from './users.routes';
 
 import { USER_PROVIDER, USERS_API } from './services/user.service';
+
+import { ChartsModule } from 'ng2-charts';
+
+
 @NgModule({
   declarations: [
     UsersComponent,
     UsersFormComponent,
+
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     // angular modules
     CommonModule,
     FormsModule,
     RouterModule,
+    ChartsModule,
     // material modules
     MatSnackBarModule,
     MatIconModule,

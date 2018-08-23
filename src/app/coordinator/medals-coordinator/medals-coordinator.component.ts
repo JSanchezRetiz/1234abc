@@ -60,8 +60,8 @@ export class MedalsCoordinatorComponent implements OnInit {
      });
    }
 
-  Volver() {
-    this._router.navigate(["perfil-coordinador"]);
+   Volver() {
+    this._router.navigate(["dashboard-usuarios"]);
   }
 
   Confirmar(dato:medalDto): void {

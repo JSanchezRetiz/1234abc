@@ -29,7 +29,7 @@ import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { appRoutes } from './app.routes';
-
+import {UsersModule} from '../app/users/users.module';
 import { AppComponent } from './app.component';
 import { RequestInterceptor } from '../config/interceptors/request.interceptor';
 import { MOCK_API } from '../config/api.config';
@@ -38,6 +38,8 @@ import { USER_PROVIDER, USERS_API } from './users';
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDialog } from '@angular/material/dialog';
+
+import { ChartsModule } from 'ng2-charts';
 
 const httpInterceptorProviders: Type<any>[] = [
   RequestInterceptor,
@@ -53,6 +55,8 @@ export function getAPI(): string {
     MainComponent,
 
     DashboardComponent,
+
+    
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     // MODULES
@@ -60,6 +64,7 @@ export function getAPI(): string {
 
     // angular modules
     CommonModule,
+    UsersModule,
     ProfileRoutingModule,
     ProfileModule,
     LoginnModule,
@@ -71,6 +76,8 @@ export function getAPI(): string {
     LoginnRoutingModule,
     CoordinatorModule,
     CoordinatorRoutingModule,
+
+    ChartsModule,
     // material modules
     MatButtonModule,
     MatCardModule,

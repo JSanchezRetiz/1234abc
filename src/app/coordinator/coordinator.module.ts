@@ -35,6 +35,8 @@ import { EditMedalsComponent } from './edit-medals/edit-medals.component';
 import { CoordinatorNotificationComponent } from './coordinator-notification/coordinator-notification.component';
 import { CreateNotificationComponent } from './create-notification/create-notification.component';
 import { EditNotificationComponent } from './edit-notification/edit-notification.component';
+import { DashboardUsersComponent } from './dashboard-users/dashboard-users.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import { EditNotificationComponent } from './edit-notification/edit-notification
     MatCheckboxModule,
     CoordinatorRoutingModule,
     MenuModule,
+    ChartsModule,
     // material modules
     MatButtonModule,
     MatCardModule,
@@ -64,6 +67,6 @@ import { EditNotificationComponent } from './edit-notification/edit-notification
     CovalentFileModule,
     CovalentDialogsModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent],
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent],
 })
 export class CoordinatorModule { }

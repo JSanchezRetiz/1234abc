@@ -11,9 +11,7 @@ export class CoordinatorProfileComponent implements OnInit {
 
   constructor(private _router: Router) { }
 
-  Agregar_actividad() {
-    this._router.navigate(["actividad-coordinador"]);
-  }
+
 
   ngOnInit() {
   }

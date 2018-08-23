@@ -14,6 +14,7 @@ import { EditMedalsComponent } from '../coordinator/edit-medals/edit-medals.comp
 import { CoordinatorNotificationComponent } from './coordinator-notification/coordinator-notification.component';
 import { CreateNotificationComponent } from './create-notification/create-notification.component';
 import { EditNotificationComponent } from './edit-notification/edit-notification.component';
+import { DashboardUsersComponent } from '../coordinator/dashboard-users/dashboard-users.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'notificaciones-coordinador', component:CoordinatorNotificationComponent},
   { path: 'crear-notificacion', component:CreateNotificationComponent},
   { path: 'editar-notificacion', component:EditNotificationComponent},
+  { path: 'dashboard-usuarios', component: DashboardUsersComponent},
 
 ];
 
