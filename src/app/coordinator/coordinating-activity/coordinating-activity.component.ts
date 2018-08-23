@@ -27,11 +27,11 @@ export class CoordinatingActivityComponent implements OnInit {
   allActivity: activityDto[];
   uidDto: uidDto;
   userDto: userDto;
-  activity: activityDto
+  activity: activityDto;
   score: scoreDto;
   hard: string;
   medium: string;
-  easy: string
+  easy: string;
 
   constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
