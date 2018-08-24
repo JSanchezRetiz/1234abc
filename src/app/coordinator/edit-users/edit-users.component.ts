@@ -25,8 +25,8 @@ export interface Rol {
 })
 export class EditUsersComponent implements OnInit {
   user: any;
-  usersDto: usersDto;
   uidDto: uidDto;
+  users: usersDto[]=[];
 
   rols: Rol[] = [
     { value: 'Usuario', viewValue: 'Usuario' },
@@ -35,33 +35,13 @@ export class EditUsersComponent implements OnInit {
   ];
 
   constructor(public dialogRef: MatDialogRef<EditUsersComponent>, private _viewContainerRef: ViewContainerRef, private dialog: TdDialogService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private _loadingService: TdLoadingService, private loginSVC: LoginService, private _router: Router, private adminSVC: AdminServiceService) {
-
-    this.user = new userDto();
-    this.uidDto = new uidDto();
-    this.usersDto = data.data;
-    console.log("datassss", data)
-    console.log("datassss", this.usersDto.name)
-
-  }
-
-  volver() {
-    this._router.navigate(["login"]);
-  }
-
-  updateUsers() {
-    this._loadingService.register();
-    this.usersDto.id
-    this.coordinatorSVC.updateUsers(this.usersDto).then(res => {
-      this.usersDto = res;
-      console.log(this.usersDto);
-      this.salir();
-      this._loadingService.resolve();
-    })
+    this.user = data.data;
+    this.users= data.dato;
   }
 
   salir() {
     this.dialog.openAlert({
-      message: 'Se ha editado el usuario adecuadamente',
+      message: 'Se ha editado la actividad adecuadamente',
       disableClose: false, // defaults to false
       viewContainerRef: this._viewContainerRef, //OPTIONAL
       title: 'Atencion:', //OPTIONAL, hides if not provided
@@ -73,6 +53,22 @@ export class EditUsersComponent implements OnInit {
       }
     );
     // this.dialogRef.close('cerrar');
+  }
+  cerrar() {
+    this.dialogRef.close();
+  }
+
+  
+  updateUsers() {
+    this._loadingService.register();
+    this.user.itemId
+    console.log("dto", this.user)
+    this.coordinatorSVC.updateUsers(this.user).then(res => {
+      this.user = res;
+      this.cerrar();
+      console.log(this.user)
+      this._loadingService.resolve();
+    })
   }
 
   ngOnInit() {

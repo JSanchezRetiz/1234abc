@@ -9,5 +9,6 @@ export class usersDto {
     lastName:string;
     score:string;
     idUser:string;
+    email: string;
 
 }

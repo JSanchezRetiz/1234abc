@@ -68,15 +68,19 @@ user: usersDto;
     })
   }
 
-  editar(user: usersDto) {
+
+  editar(dato: usersDto) {
+    console.log("id", dato.id)
+    localStorage.setItem('id', dato.id);
     const dialogRef = this._dialogRef.open(EditUsersComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: this.users,  }
-
+      data: { data: dato, dato:this.users }
     });
     dialogRef.afterClosed().subscribe(result => {
+      this._loadingService.register();
       this.getAllUsers();
+      this._loadingService.resolve();
 
     });
   }

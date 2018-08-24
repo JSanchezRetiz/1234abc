@@ -1,165 +1,134 @@
 <div layout="column" style="background-color:#ff7539">
     <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
-      <mat-toolbar-row>
-        <span>Editar usuarios</span>
-        <span flex></span>
-        <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
-          <mat-icon>clear</mat-icon>
-        </a>
-      </mat-toolbar-row>
+        <mat-toolbar-row>
+            <span>Editar usuarios</span>
+            <span flex></span>
+            <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
+                <mat-icon>clear</mat-icon>
+            </a>
+        </mat-toolbar-row>
     </mat-toolbar>
+    <mat-card>
+        <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center" layout-fill>
+            <form #rewardForm="ngForm">
 
-
-
-
-
-    <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
-         
-           
-        <mat-card-content flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
-          <form #loginForm="ngForm">
-            <div flex>
-              <mat-card-content flex="100" style="color:#ff3d00;text-align:center;font-size:25px">REGISTRO</mat-card-content>
-              <!-- Campo nombre -->
-              <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <input matInput #userName #userControl="ngModel" placeholder="Nombre" type="text" maxlength="40" name="Nombre" [(ngModel)]="usersDto.name"
-                      required>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-hint align="start">
-                      <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
-                    </mat-hint>
-                    <mat-hint align="end">{{userName.value.length}} / 40</mat-hint>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-              <!-- campo apellido -->
-              <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <input matInput #userLastName #userLastNameControl="ngModel" placeholder="Apellido" type="text" maxlength="40" name="Apellido" [(ngModel)]="usersDto.lastname"
-                      required>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-hint align="start">
-                      <span [hidden]="!userLastNameControl.errors?.required || userLastNameControl.pristine" class="tc-red-600">Requerido</span>
-                    </mat-hint>
-                    <mat-hint align="end">{{userLastName.value.length}} / 40</mat-hint>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-              <!-- campo roll -->
-              <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-select  #userRole #roleControl="ngModel" placeholder="Rol *" name="role" [(ngModel)]="usersDto.role">
-                      <mat-option  *ngFor="let rol of rols" [value]="rol.value" >
-                        {{rol.viewValue}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-              <!-- campo cargo -->
-              <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <input matInput #userJob #userControl="ngModel" placeholder="Cargo" type="text" maxlength="40" name="Cargo" [(ngModel)]="usersDto.job"
-                      required>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-hint align="start">
-                      <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
-                    </mat-hint>
-                    <mat-hint align="end">{{userJob.value.length}} / 40</mat-hint>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-              <!-- campo ciudad-->
-              <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <input matInput #userCity #userControl="ngModel" placeholder="Ciudad" type="text" maxlength="40" name="ciudad" [(ngModel)]="usersDto.city"
-                      required>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-hint align="start">
-                      <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
-                    </mat-hint>
-                    <mat-hint align="end">{{userCity.value.length}} / 40</mat-hint>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-              <!-- campo experiencia -->
-              <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <input matInput #userExperience #userControl="ngModel" placeholder="Experiencia" type="number" maxlength="40" name="Experiencia"
-                      [(ngModel)]="usersDto.experience" required>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-hint align="start">
-                      <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
-                    </mat-hint>
-                    <mat-hint align="end">{{userExperience.value.length}} / 40</mat-hint>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-              <!-- campo correo -->
-              <mat-card flex="100" style=" background-color:#ffd0b0;" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-                <mat-card-content>
-                  <mat-form-field style="width: 100%;" flex>
-                    <input matInput #emailElement #emailForm="ngModel" placeholder="Correo Electronico" type="email" maxlength="40" name="email"
-                      [(ngModel)]="usersDto.email" required>
-                    <span matPrefix>
-                      <mat-icon>person</mat-icon>
-                    </span>
-                    <mat-hint align="start">
-                      <span [hidden]="!emailForm.errors?.required || emailForm.pristine" class="tc-red-600">Requerido</span>
-                    </mat-hint>
-                    <mat-hint align="end">{{emailElement.value.length}} / 40</mat-hint>
-                  </mat-form-field>
-                </mat-card-content>
-              </mat-card>
-            </div>
-            <mat-card-actions class="text-center" layout="row">
-              <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-                <button style="background-color:#ff3d00;color:#ffff; width:50px;" flex mat-raised-button [disabled]="!loginForm.form.valid"
-                  (click)="updateUsers()">Guardar</button>
-                <button style="background-color:#ff3d00;color:#ffff; width:50px;" flex mat-raised-button (click)="cerrar()">Cancelar</button>
-              </div>
+                <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <input matInput #Name #nameControl="ngModel" placeholder="Nombre" type="text" maxlength="40" name="name" [(ngModel)]="user.name"
+                                required>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-hint align="start">
+                                <span [hidden]="!nameControl.errors?.required || nameControl.pristine" class="tc-red-600">Requerido</span>
+                            </mat-hint>
+                            <mat-hint align="end">{{Name.value.length}} / 40</mat-hint>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <!-- campo apellido -->
+                <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <input matInput #userLastName #userControl="ngModel" placeholder="Apellido" type="text" maxlength="40" name="Apellido" [(ngModel)]="user.lastname"
+                                required>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-hint align="start">
+                                <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                            </mat-hint>
+                            <mat-hint align="end">{{userLastName.value.length}} / 40</mat-hint>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <!-- campo roll -->
+                <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-select  #userRole #roleControl="ngModel" placeholder="Rol *" name="role" [(ngModel)]="user.role">
+                                    <mat-option  *ngFor="let rol of rols" [value]="rol.value" >
+                                      {{rol.viewValue}}
+                                    </mat-option>
+                                  </mat-select>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <!-- campo cargo -->
+                <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <input matInput #userJob #userControl="ngModel" placeholder="Cargo" type="text" maxlength="40" name="Cargo" [(ngModel)]="user.job"
+                                required>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-hint align="start">
+                                <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                            </mat-hint>
+                            <mat-hint align="end">{{userJob.value.length}} / 40</mat-hint>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <!-- campo ciudad-->
+                <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <input matInput #userCity #userControl="ngModel" placeholder="Ciudad" type="text" maxlength="40" name="ciudad" [(ngModel)]="user.city"
+                                required>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-hint align="start">
+                                <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                            </mat-hint>
+                            <mat-hint align="end">{{userCity.value.length}} / 40</mat-hint>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <!-- campo experiencia -->
+                <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <input matInput #userExperience #userControl="ngModel" placeholder="Experiencia" type="number" maxlength="40" name="Experiencia"
+                                [(ngModel)]="user.experience" required>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-hint align="start">
+                                <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Requerido</span>
+                            </mat-hint>
+                            <mat-hint align="end">{{userExperience.value.length}} / 40</mat-hint>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <!-- campo correo -->
+                <mat-card flex="100" style=" background-color:#ffd0b0;" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" flex>
+                            <input matInput #emailElement #emailForm="ngModel" placeholder="Correo Electronico" type="email" maxlength="40" name="email"
+                                [(ngModel)]="user.email" required>
+                            <span matPrefix>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            <mat-hint align="start">
+                                <span [hidden]="!emailForm.errors?.required || emailForm.pristine" class="tc-red-600">Requerido</span>
+                            </mat-hint>
+                            <mat-hint align="end">{{emailElement.value.length}} / 40</mat-hint>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+            </form>
+            <mat-card-actions layout="row">
+                <div class="text-center">
+                    <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)=" updateUsers()">Guardar</button>
+                    <button style="background-color:#ff3d00;color:#ffff;width: 20%;margin:10px" flex mat-raised-button (click)="cerrar()">Cancelar</button>
+                </div>
             </mat-card-actions>
-          </form>
         </mat-card-content>
-     
     </mat-card>
-
-
-
-
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-  
-
-    
+</div>
