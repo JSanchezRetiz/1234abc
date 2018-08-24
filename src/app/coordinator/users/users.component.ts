@@ -13,7 +13,7 @@ import { EditUsersComponent } from '../edit-users/edit-users.component';
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
-  providers: [TdLoadingService,CoordinatorService]
+  providers: [TdLoadingService, CoordinatorService]
 })
 export class UsersComponent implements OnInit {
 users: userDto[];
@@ -23,14 +23,16 @@ user: usersDto;
  
   }
 
-  getAllUsers(){
-    this.coordinatorSVC.getAllUsers().then(res=>{
-      this.users=res;
+  getAllUsers() {
+    this.coordinatorSVC.getAllUsers().then(res => {
+      this.users = res;
       console.log(res);
+      console.log('cantidad', this.users.length)
+      
     })
   }
 
-  createUser(){
+  createUser() {
     this._router.navigate(["registro"]);
   }
 
@@ -87,6 +89,8 @@ user: usersDto;
 
   ngOnInit() {
     this.getAllUsers();
+  
+
   }
 
 }
