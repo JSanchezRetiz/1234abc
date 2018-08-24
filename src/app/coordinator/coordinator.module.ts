@@ -39,6 +39,7 @@ import { UsersComponent } from './users/users.component';
 import { DashboardUsersComponent } from './dashboard-users/dashboard-users.component';
 import { ChartsModule } from 'ng2-charts';
 import { EditUsersComponent } from './edit-users/edit-users.component';
+import { ListRegisterComponent } from './list-register/list-register.component';
 
 
 @NgModule({
@@ -69,6 +70,6 @@ import { EditUsersComponent } from './edit-users/edit-users.component';
     CovalentFileModule,
     CovalentDialogsModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent,UsersComponent, EditUsersComponent],
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent,UsersComponent, EditUsersComponent, ListRegisterComponent],
 })
 export class CoordinatorModule { }

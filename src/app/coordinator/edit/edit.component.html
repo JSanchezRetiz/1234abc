@@ -82,9 +82,14 @@
             <!-- Campo dificultad -->
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-form-field>
-                <mat-select [(value)]="activity.dificulty" placeholder="Seleccione dificultad">
+                <!-- <mat-select [(value)]="activity.dificulty" placeholder="Seleccione dificultad"> -->
                   <mat-option value="None"> None</mat-option>
-                  <mat-option *ngFor="let actividad of activityAll">{{actividad.dificulty}}</mat-option>
+                  <!-- <mat-option *ngFor="let actividad of activityAll">{{actividad.dificulty}}</mat-option> -->
+
+                  <mat-select  #userRole #roleControl="ngModel" placeholder="Rol *" name="role" [(ngModel)]="activity.dificulty">
+                      <mat-option  *ngFor="let actividad of activityAll" [value]="actividad.dificulty" >
+                        {{actividad.dificulty}}
+                      </mat-option>
                   <!-- <mat-option [value]="score.easy">{{score.easy}}</mat-option>
                   <mat-option [value]="score.medium">{{score.medium}}</mat-option>
                   <mat-option [value]="score.hard">{{score.hard}}</mat-option> -->

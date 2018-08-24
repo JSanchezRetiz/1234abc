@@ -40,6 +40,10 @@ export class CoordinatingActivityComponent implements OnInit {
     this.activity = new activityDto();
 
   }
+  Ver_lista(){
+    this._router.navigate(["lista-registrados"]);
+  }
+
   crear(dato: activityDto): void {
     const dialogRef = this._dialogRef.open(CreateActivityComponent, {
       width: '1000px',

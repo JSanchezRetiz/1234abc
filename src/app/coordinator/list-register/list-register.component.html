@@ -1,0 +1,92 @@
+<td-layout>
+    <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+        <mat-nav-list>
+          <a mat-list-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>Sign out</a>
+          <a *ngFor="let item of routes" mat-list-item>
+            <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+        </mat-nav-list>
+        <div td-navigation-drawer-menu>
+          <mat-nav-list td-navigation-drawer-menu>
+            <a mat-list-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>Sign out</a>
+          </mat-nav-list>
+        </div>
+      </td-navigation-drawer>
+      <td-layout-nav navigationRoute="/">
+        <button mat-icon-button td-menu-button tdLayoutToggle>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div td-toolbar-content layout="row" layout-align="center center" flex>
+          <span>Listado de usuarios</span>
+          <span flex></span>
+        </div>
+    
+      <div style="background-color:#ff7539" >
+        <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">Lista de registrados</mat-card-title>
+          <mat-card-title style="color:orangered; text-align: center; font-size:40px">Registrar horas</mat-card-title>
+          <mat-card  style="background:#ff9100">
+            <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+              <div flex class="text-center">
+                <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="90px">
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Felipe Zamudio </mat-card-content>
+              </div>
+              <div flex class="text-center">
+                <mat-card-content class="fuente">Consultor junior innovacion</mat-card-content>
+              </div>
+              <div flex class="text-center">
+                  <mat-card-content class="fuente">24/08/2018</mat-card-content>
+                </div>
+            </div>
+          </mat-card>
+
+          <mat-card  style="background:#ff9100">
+              <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+                <div flex class="text-center">
+                  <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="90px">
+                </div>
+                <div flex class="text-center">
+                  <mat-card-content class="fuente">Bryan Delgado </mat-card-content>
+                </div>
+                <div flex class="text-center">
+                  <mat-card-content class="fuente">Consultor junior innovacion</mat-card-content>
+                </div>
+                <div flex class="text-center">
+                    <mat-card-content class="fuente">24/08/2018</mat-card-content>
+                  </div>
+              </div>
+            </mat-card>
+
+            <mat-card  style="background:#ff9100">
+                <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+                  <div flex class="text-center">
+                    <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="90px">
+                  </div>
+                  <div flex class="text-center">
+                    <mat-card-content class="fuente">Johan Sanchez </mat-card-content>
+                  </div>
+                  <div flex class="text-center">
+                    <mat-card-content class="fuente">Consultor junior innovacion</mat-card-content>
+                  </div>
+                  <div flex class="text-center">
+                      <mat-card-content class="fuente">24/08/2018</mat-card-content>
+                    </div>
+                </div>
+              </mat-card>
+
+          <mat-card-actions layout="row">
+            <div class="text-center">
+              <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+        <br>
+        <br>
+        <br>
+      </div>
+    </td-layout-nav>
+  </td-layout>
+  
