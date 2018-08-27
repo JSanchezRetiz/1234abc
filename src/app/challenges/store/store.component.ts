@@ -25,15 +25,12 @@ export class StoreComponent implements OnInit {
   store: storeDto[];
 
   constructor(private loginSVC: LoginService, private _loadingService: TdLoadingService, private _router: Router, _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService) {
-
     this.store = new Array<storeDto>();
     this.userDto = new userDto();
     this.uidDto = new uidDto();
-
   }
 
   openConfirm(dato: storeDto): void {
-
     console.log("id", dato.itemId)
     localStorage.setItem('itemId', dato.itemId);
     const dialogRef = this._dialogRef.open(DetailArticleComponent, {
@@ -42,9 +39,7 @@ export class StoreComponent implements OnInit {
     });
     //console.log("dato", dato.itemId)
     dialogRef.afterClosed().subscribe(result => {
-
       console.log('The dialog was closed', result);
-
     });
   }
 
@@ -54,13 +49,12 @@ export class StoreComponent implements OnInit {
   }
 
   getAllItemsStore() {
-
     this.challengesSVC.getAllItemsStore().then(res => {
       this.store = res;
-
       console.log(this.store)
     })
   }
+
   ngOnInit() {
     this.cols = 1;
     this.rows = 1;
@@ -78,6 +72,4 @@ export class StoreComponent implements OnInit {
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
   }
-
-
 }

@@ -1,44 +1,29 @@
 <div layout="column" style="background-color:#ff7539" layout-fill>
-    <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
-      <mat-toolbar-row>
-        <span>Detalles de la recompensa</span>
-        <span flex></span>
-        <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()"  >
-          <mat-icon>clear</mat-icon>
-        </a>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  
-    <mat-card>
+  <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
+    <mat-toolbar-row>
+      <span>Detalles de la recompensa</span>
+      <span flex></span>
+      <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
+        <mat-icon>clear</mat-icon>
+      </a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card>
     <mat-card-content>
       <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">{{tienda.name}}</mat-card-title>
     </mat-card-content>
-  
-    
-      <mat-card-content class="text-center" >
-          <img src="../../../assets/icons/rewards/audifonos.svg" width="100px">
-      </mat-card-content>
-   
-  
+    <mat-card-content class="text-center">
+      <img src="../../../assets/icons/rewards/audifonos.svg" width="100px">
+    </mat-card-content>
     <mat-card-content>
       <mat-card-title class="justificar">{{tienda.description}}</mat-card-title>
     </mat-card-content>
-    <mat-card-title class="text-center"> <img src="../../../assets/icons/moneda.svg" width="20px"> {{tienda.scorePrice}}  </mat-card-title>
-  
+    <mat-card-title class="text-center">
+      <img src="../../../assets/icons/moneda.svg" width="20px"> {{tienda.scorePrice}} </mat-card-title>
     <mat-card-actions layout="row">
       <div class="text-center">
         <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="comprar()">Comprar</button>
       </div>
     </mat-card-actions>
-
   </mat-card>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
+</div>

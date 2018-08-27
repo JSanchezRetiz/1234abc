@@ -29,8 +29,8 @@
           <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
-                <textarea matInput #rewardDerscription #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                  [(ngModel)]="reward.description" required rows="6" cols="100"></textarea>
+                <textarea matInput #rewardDerscription #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120"
+                  name="Descripcion" [(ngModel)]="reward.description" required rows="1" cols="1"></textarea>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
@@ -72,7 +72,6 @@
                       <button mat-raised-button color="accent" [disabled]="!files" class="text-upper">Cargar</button>
                     </span>
                   </div>
-
             </mat-card-content>
           </mat-card> -->
           <!-- campo puntos -->

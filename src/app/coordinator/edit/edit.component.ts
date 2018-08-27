@@ -36,6 +36,8 @@ export class EditComponent implements OnInit {
   minDate2 = new Date(2000, 0, 1);
   maxDate2 = new Date(2020, 0, 1);
   scores: scoreDto[];
+  score: scoreDto;
+  
 
 
   constructor(private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private dialog: TdDialogService, public dialogRef: MatDialogRef<EditComponent>, private _router: Router, private _viewContainerRef: ViewContainerRef) {
@@ -43,12 +45,11 @@ export class EditComponent implements OnInit {
     this.activity = data.activity;
     this.store = new Array<storeDto>();
     this.medals = new Array<medalDto>();
-    console.log("actividad", this.activityAll)
-    console.log("actividad", this.activity)
     this.activitySend = new activityDto();
     this.startTime = new Date();
     this.fecha = new Date();
     this.scores = new Array<scoreDto>();
+    this.score = new scoreDto();
 
   }
 
@@ -95,8 +96,8 @@ export class EditComponent implements OnInit {
   }
   getTypeScore() {
     this.coordinatorSVC.getTypeOfScore().then(res => {
-      this.scores = res[0];
-      console.log(res)
+      this.score = res[0];
+      console.log("dificultad",res)
     })
 
 
