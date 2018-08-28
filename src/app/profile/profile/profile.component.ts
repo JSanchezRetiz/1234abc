@@ -91,6 +91,11 @@ export class ProfileComponent implements OnInit {
   Ver_mas() {
     this._router.navigate(["medallas"]);
   }
+
+  Ver_notificaciones() {
+    this._router.navigate(["notificaciones"]);
+  }
+
   ngOnInit() {
     this.getUserData();
     this.getAllMedals();

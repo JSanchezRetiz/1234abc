@@ -30,11 +30,10 @@
             <mat-card-content>
               <mat-form-field style="width: 100%;" flex>
                 <textarea matInput #descriptionControl="ngModel" placeholder="Descripcion" type="text" maxlength="120" name="Descripcion"
-                  [(ngModel)]="notificationSend.message" required rows="7" cols="120"></textarea>
+                  [(ngModel)]="notificationSend.message" required rows="1" cols="1"></textarea>
               </mat-form-field>
             </mat-card-content>
           </mat-card>
-
           <!-- Campo fecha -->
           <div layout="row" layout-xs="column">
             <mat-card layout="row" flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
@@ -59,17 +58,21 @@
             </mat-card>
           </div>
           <div layout="row" layout-xs="column">
-            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-              <section layout-align="center center" >
-                <mat-checkbox   #allUser="ngModel" name="notificationAllUser" [(ngModel)]="notificationAllUser">Todos los usuarios</mat-checkbox>
-              </section>
+            <mat-card flex="20" flex-xs="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <section layout-align="center center">
+                  <mat-checkbox #allUser="ngModel" name="notificationAllUser" [(ngModel)]="notificationAllUser">Todos los usuarios</mat-checkbox>
+                </section>
+              </mat-card-content>
             </mat-card>
-            <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
-              <mat-form-field style="width: 100%;">
-                <mat-select #activity name="activity" [(value)]="notificationSend.activity" placeholder="Seleccione actividad">
-                  <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
-                </mat-select>
-              </mat-form-field>
+            <mat-card flex="80" flex-xs="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+              <mat-card-content>
+                <mat-form-field style="width: 100%;">
+                  <mat-select #activity name="activity" [(value)]="notificationSend.activity" placeholder="Seleccione actividad">
+                    <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-card-content>
             </mat-card>
           </div>
         </div>

@@ -64,6 +64,10 @@ export class CreateNotificationComponent implements OnInit {
       );
   }
 
+  cerrar() {
+    this.dialogRef.close('cerrar');
+  }
+
   ngOnInit() {
     this.getAllActivity();
   }
