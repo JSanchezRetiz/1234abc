@@ -25,7 +25,7 @@ export class DetailArticleComponent implements OnInit {
   uidDto: uidDto;
   userDto: userDto;
 
-  constructor(private loginSVC: LoginService, private _loadingService: TdLoadingService,private dialog: TdDialogService, public dialogRef: MatDialogRef<DetailArticleComponent>, private challengesSVC: ChallengesService) {
+  constructor(private _viewContainerRef: ViewContainerRef, private loginSVC: LoginService, private _loadingService: TdLoadingService,private dialog: TdDialogService, public dialogRef: MatDialogRef<DetailArticleComponent>, private challengesSVC: ChallengesService) {
     this.purchase = new purchaseDto();
     this.tiendaSend = new storeDto();
     this.tienda = new storeDto();
@@ -48,15 +48,37 @@ export class DetailArticleComponent implements OnInit {
   comprar() {
     this.purchase.uid = localStorage.getItem('uid');
     this.purchase.itemId =this.tienda.itemId;
-    console.log(this.purchase.uid);
-    console.log(this.purchase.itemId);
-
     if(this.userDto.score >= this.tienda.scorePrice){
       this.challengesSVC.getStoreItem(this.purchase).then(res => {
       })
-      alert('compro');
+      this._loadingService.register();
+      this.dialog.openAlert({
+        message: 'Se ha comprado el articulo',
+        disableClose: false, // defaults to false
+        viewContainerRef: this._viewContainerRef, //OPTIONAL
+        title: 'Atencion:', //OPTIONAL, hides if not provided
+        closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
+        width: '400px', //OPTIONAL, defaults to 400px
+      }).afterClosed().subscribe(
+        result => {
+          this._loadingService.resolve();
+          this.dialogRef.close();
+        }
+        );
+      // alert('compro');
     }else {
-      alert('insuficiente');
+      this.dialog.openAlert({
+        message: 'Saldo insuficiente',
+        disableClose: false, // defaults to false
+        viewContainerRef: this._viewContainerRef, //OPTIONAL
+        title: 'Atencion:', //OPTIONAL, hides if not provided
+        closeButton: 'Cerrar', //OPTIONAL, defaults to 'CLOSE'
+        width: '400px', //OPTIONAL, defaults to 400px
+      }).afterClosed().subscribe(
+        result => {
+          this.dialogRef.close();
+        }
+        );
     }
   }
 
@@ -80,5 +102,4 @@ export class DetailArticleComponent implements OnInit {
     this.getItemById(this.tiendaSend);
     this.getUserData();
   }
-
 }

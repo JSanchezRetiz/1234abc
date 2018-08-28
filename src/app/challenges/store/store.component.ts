@@ -39,6 +39,7 @@ export class StoreComponent implements OnInit {
     });
     //console.log("dato", dato.itemId)
     dialogRef.afterClosed().subscribe(result => {
+      this.getUserData();
       console.log('The dialog was closed', result);
     });
   }
