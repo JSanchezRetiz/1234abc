@@ -24,11 +24,11 @@
       <span style=color:white>{{userDto.score}}</span>
     </div>
     <div style="background-color:#ffd0b0">
-      <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+      <mat-card (window:resize)="onResize($event)" fxlayout="row" fxflex="100" fxShow.gt-sm flex>
         <mat-card-title style="color:orangered; text-align: center; font-size:40px">RECOMPENSAS</mat-card-title>
         <mat-card-subtitle style="text-align: center">Recompensas disponibles</mat-card-subtitle>
-        <mat-grid-list cols="4" rowHeight="1:1">
-          <mat-grid-tile *ngFor="let tienda of store" [colspan]="cols" [rowspan]="rows">
+        <mat-grid-list cols="{{test}}"  rowHeight="1:1" >
+          <mat-grid-tile  *ngFor="let tienda of store" [colspan]="cols" [rowspan]="rows">
             <mat-card flex="100" style='background:#f8f8f8'>
               <div style="padding:5px 5px 5px 5px" class="text-center">
                 <img src="../../../assets/icons/rewards/audifonos.svg" width="100px">
