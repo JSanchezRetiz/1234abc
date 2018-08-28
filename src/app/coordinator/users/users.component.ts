@@ -20,7 +20,6 @@ users: userDto[];
 user: usersDto;
 
   constructor(private _dialogRef: MatDialog, private coordinatorSVC: CoordinatorService,  private _loadingService: TdLoadingService,  private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, ) { 
- 
   }
 
   getAllUsers() {
@@ -31,11 +30,9 @@ user: usersDto;
       
     })
   }
-
   createUser() {
     this._router.navigate(["registro"]);
   }
-
   Confirmar(dato:usersDto): void {
     this._dialogService.openConfirm({
       message: 'Esta seguro de eliminar este usuario?',
@@ -70,19 +67,15 @@ user: usersDto;
     })
   }
 
-
-  editar(dato: usersDto) {
-    console.log("id", dato.id)
-    localStorage.setItem('id', dato.id);
+  editar(user: usersDto) {
     const dialogRef = this._dialogRef.open(EditUsersComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: dato, dato:this.users }
+      data: { data: this.users,  }
+
     });
     dialogRef.afterClosed().subscribe(result => {
-      this._loadingService.register();
       this.getAllUsers();
-      this._loadingService.resolve();
 
     });
   }

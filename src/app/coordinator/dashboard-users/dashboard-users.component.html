@@ -89,6 +89,12 @@
             </mat-card>
           </div>
           <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+            <mat-card class="datos">
+              <mat-card-title  *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
+              <mat-card-title>Usuarios registrados </mat-card-title>
+            </mat-card>
+          </div>
+          <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
             <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
               <mat-card-title class="text-center" style="color:orangered">Grafica General</mat-card-title>
               <div style="display: block">
