@@ -21,7 +21,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "theme.scss"
+        "theme.scss",
+        "../node_modules/ng-pick-datetime/assets/style/picker.min.css"
       ],
       "scripts": [
         "../node_modules/hammerjs/hammer.min.js",

@@ -23,7 +23,7 @@ export class LoginService {
             localStorage.setItem('uid', userId);
             name = userData.user.displayName;
             //TOKEN debe usar: userData.user.qa;
-            token = userData.user.qa;
+            token = userData.user.displayName;
             name = name.replace(/"/g, "");
             localStorage.setItem('userName', name);
           }

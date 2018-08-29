@@ -1,17 +1,17 @@
-export class activityDto{
-    creationTime : string;
+export class activityDto {
+    creationTime: string;
     description: string;
-    endTime: string;
+    endTime: Date;
     idCoordinator: string;
     name: string;
     reward: string;
-    startTime: string;
+    startTime: Date;
     title: string;
     typeScore: string;
-    status: boolean;
+    status: string;
     id: string;
-    rules:string;
-    prize:string;
-    medal:string;
+    rules: string;
+    prize: string;
+    medal: string;
     dificulty: string;
 }

@@ -80,7 +80,7 @@
                     </td>
                   </mat-card-content>
                   <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
-                    {{actividades.description}}
+                    {{actividades.description | slice:0:20}}...
                   </td>
                   <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
                     {{actividades.status}}

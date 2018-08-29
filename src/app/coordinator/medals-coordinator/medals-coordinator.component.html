@@ -74,7 +74,7 @@
                       {{medal.name}}
                     </td>
                     <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
-                      {{medal.description}}
+                      {{medal.description | slice:0:20}}...
                     </td>
                     <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
                       {{medal.requirementScore}}

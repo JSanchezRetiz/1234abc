@@ -22,29 +22,29 @@
       <span flex></span>
     </div>
     <div style="background-color:#ffd0b0" layout-fill>
-      <mat-card  fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+      <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
         <mat-card-title style="color:orangered; text-align: center; font-size:40px">Notificaciones</mat-card-title>
         <mat-card *ngFor="let notification of notifications">
-            <td-expansion-panel style="background:#ff3d00" [expand]="false">
-              <ng-template td-expansion-panel-sublabel>
-                <p matLine style="color:white; font-size:20px">{{notification.title}}</p>
-              </ng-template>
-              <ng-template td-expansion-panel-sublabel>
-              </ng-template>
-              <td-expansion-summary>
-                <mat-list style="background:white">
-                  <mat-list-item>
-                    <p matLine>{{notification.message}}.</p>
-                  </mat-list-item>
-                </mat-list>
-              </td-expansion-summary>
-              <form class="md-padding" style="background:white">
-                <div layout="row">
-                  <p matLine>{{notification.message}}</p>
-                </div>
-              </form>
-            </td-expansion-panel>
-          </mat-card>
+          <td-expansion-panel style="background:#ff3d00" [expand]="false">
+            <ng-template td-expansion-panel-sublabel>
+              <p matLine style="color:white; font-size:20px">{{notification.title}}</p>
+            </ng-template>
+            <ng-template td-expansion-panel-sublabel>
+            </ng-template>
+            <td-expansion-summary>
+              <mat-list style="background:white">
+                <mat-list-item>
+                  <p matLine>{{notification.message | slice:0:30}}...</p>
+                </mat-list-item>
+              </mat-list>
+            </td-expansion-summary>
+            <form class="md-padding" style="background:white">
+              <div layout="row">
+                <p matLine>{{notification.message}}</p>
+              </div>
+            </form>
+          </td-expansion-panel>
+        </mat-card>
         <mat-card-actions layout="row">
           <div class="text-center">
             <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
