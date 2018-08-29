@@ -32,14 +32,19 @@ export class CoordinatingActivityComponent implements OnInit {
   hard: string;
   medium: string;
   easy: string;
+  day: any;
+  dayFormat: Date;
 
   constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
     this.uidDto = new uidDto();
     this.userDto = new userDto();
     this.activity = new activityDto();
-
+    this.day = Date.now();
+    this.dayFormat = new Date(this.day);
+    console.log("dia de hoy", this.dayFormat);
   }
+
   Ver_lista(){
     this._router.navigate(["lista-registrados"]);
   }
@@ -52,44 +57,43 @@ export class CoordinatingActivityComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       localStorage.removeItem('idActivity');
-
       this.getAllActivity();
-      // this.getAllItemsStore();
-
     });
   }
+
   getUserData() {
     this._loadingService.register();
     this.uidDto.id = localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
       this._loadingService.resolve();
-
     })
   }
+
   editar(activity: activityDto, ) {
     const dialogRef = this._dialogRef.open(EditComponent, {
       width: '1000px',
       height: '600px',
       data: { data: this.allActivity, activity: activity }
-
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getAllActivity();
-
     });
   }
+
   public getAllActivity() {
+    
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
       this._loadingService.resolve();
-
     })
   }
+
   Volver() {
     this._router.navigate(["dashboard-usuarios"]);
   }
+
   Confirmar(dato: activityDto): void {
     this._dialogService.openConfirm({
       message: 'Esta seguro de eliminar esta actividad?',
@@ -107,9 +111,11 @@ export class CoordinatingActivityComponent implements OnInit {
       }
     });
   }
+
   cerrar() {
     this._dialogRef.closeAll();
   }
+
   eliminar(dato: activityDto) {
     this._loadingService.register();
     console.log("id", dato)
@@ -128,7 +134,6 @@ export class CoordinatingActivityComponent implements OnInit {
     this.hard = "dificil";
     this.getUserData();
     this.getAllActivity();
-
   }
 
 }

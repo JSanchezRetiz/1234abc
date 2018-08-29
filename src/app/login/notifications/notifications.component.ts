@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { notificationDto } from '../../coordinator/models/notificationDto';
 import { CoordinatorService } from '../../coordinator/services/coordinator.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -10,7 +12,7 @@ import { CoordinatorService } from '../../coordinator/services/coordinator.servi
 export class NotificationsComponent implements OnInit {
   notifications: notificationDto[];
   notificationSend: notificationDto;
-  constructor(private coordinatorSVC: CoordinatorService, ) {
+  constructor(private _router: Router, private coordinatorSVC: CoordinatorService, ) {
     this.notifications = Array<notificationDto>();
     this.notificationSend = new notificationDto();
   }
@@ -28,8 +30,12 @@ export class NotificationsComponent implements OnInit {
       this.notifications = res;
       console.log("respuesta", this.notifications);
     })
-
   }
+
+  Volver() {
+    this._router.navigate(["perfil"]);
+  }
+
   ngOnInit() {
 
  this.getAllNotification();

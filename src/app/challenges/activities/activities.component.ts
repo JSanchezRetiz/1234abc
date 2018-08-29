@@ -21,11 +21,13 @@ import { TdLoadingService } from '@covalent/core/loading';
   providers: [LoginService, TdDialogService, ChallengesService],
 })
 export class ActivitiesComponent implements OnInit {
-  userDto: userDto;
+  userDto: userDto
+ 
   uidDto: uidDto;
   disableClose: boolean;
   allActivity: activityDto[];
   activity: activityDto;
+ 
 
   constructor(private _router: Router, private loginSVC: LoginService,
     _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef,
@@ -33,8 +35,12 @@ export class ActivitiesComponent implements OnInit {
     this.userDto = new userDto();
     this.uidDto = new uidDto();
     this.allActivity = new Array<activityDto>();
+    this.activity = new activityDto();
+    
+   
   }
-  
+
+
   openConfirm(dato: activityDto): void {
     console.log(dato);
     localStorage.setItem('idActivity', "" + dato.id)
@@ -66,7 +72,14 @@ export class ActivitiesComponent implements OnInit {
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
   }
+
+  Volver() {
+    this._router.navigate(["perfil"]);
+  }
+
+
   ngOnInit() {
+
     this.getUserData();
     this.getAllActivity()
   }
@@ -76,6 +89,10 @@ export class ActivitiesComponent implements OnInit {
       this.allActivity = res;
       this._loadingService.resolve();
       console.log(this.allActivity)
+
+ 
+      
+      // console.log("fecha inicial", this.activity.startTime)
 
     })
   }
