@@ -4,22 +4,28 @@ import { userDto } from '../../login/models/userDto';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CoordinatorService } from '../services/coordinator.service';
 import { TdLoadingService } from '@covalent/core/loading';
+import { ChallengesService } from '../../challenges/services/challenges.service';
+import { activityDto } from '../../challenges/models/activityDto';
 
 @Component({
   selector: 'app-dashboard-users',
   templateUrl: './dashboard-users.component.html',
   styleUrls: ['./dashboard-users.component.scss'],
-  providers: [TdLoadingService, CoordinatorService]
+  providers: [TdLoadingService, CoordinatorService,ChallengesService]
 })
 
 export class DashboardUsersComponent implements OnInit {
   users: userDto[];
+  allActivity: activityDto[];
+
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData: number[] = [300, 500, 100];
   public pieChartType: string = 'pie';
   i:number=0;
 
-  constructor(private _router: Router, private _dialogRef: MatDialog, private coordinatorSVC: CoordinatorService, private _loadingService: TdLoadingService, ) { }
+  constructor(private challengesSVC: ChallengesService,private _router: Router, private _dialogRef: MatDialog, private coordinatorSVC: CoordinatorService, private _loadingService: TdLoadingService, ) { 
+    this.allActivity = new Array<activityDto>();
+  }
 
   // events
   public chartClicked(e: any): void {
@@ -57,9 +63,17 @@ export class DashboardUsersComponent implements OnInit {
     })
 
   }
- 
+  public getAllActivity() {
+    this._loadingService.register();
+    this.challengesSVC.getAllActivy().then(res => {
+      this.allActivity = res;
+      this._loadingService.resolve();
+
+    })
+  }
   ngOnInit() {
     this.getAllUsers();
+    this.getAllActivity();
 
   }
 
