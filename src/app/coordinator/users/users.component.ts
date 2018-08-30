@@ -71,7 +71,7 @@ user: usersDto;
     const dialogRef = this._dialogRef.open(EditUsersComponent, {
       width: '1000px',
       height: '600px',
-      data: { data: this.users,  }
+      data: { data: this.users, dato:user  }
 
     });
     dialogRef.afterClosed().subscribe(result => {

@@ -11,8 +11,6 @@ import { LoginService } from '../../login/service/login.service';
 import { ParticipateComponent } from '../participate/participate.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-
-
 @Component({
   selector: 'app-my-activities',
   templateUrl: './my-activities.component.html',
@@ -67,10 +65,8 @@ export class MyActivitiesComponent implements OnInit {
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
   }
-
-  openConfirm(dato: activityDto): void {
+  openConfirm(): void {
     console.log("datos", this.myActivitySend);
-
     const dialogRef = this._dialogRef.open(ParticipateComponent, {
       width: '500px',
       height: '600px',

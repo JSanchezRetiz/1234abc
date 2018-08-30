@@ -8,7 +8,6 @@ import { ChallengesService } from '../services/challenges.service';
 import { scoreActivity } from '../models/scoreActivity';
 import { myActivitiesDto } from '../models/myActivitiesDto';
 
-
 @Component({
   selector: 'app-participate',
   templateUrl: './participate.component.html',
@@ -24,13 +23,12 @@ export class ParticipateComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,  private dialog: TdDialogService, public dialogRef: MatDialogRef<ParticipateComponent>, private challengesSVC: ChallengesService, private _router: Router, private _viewContainerRef: ViewContainerRef) {
     this.myactivitySend = new myActivitiesDto();
-    console.log("dto de mis actiidades",this.myactivitySend)
+    console.log("dto de mis actividades",this.myactivitySend)
     this.myActivity = data.data;
     console.log("data",data)
     console.log("titulo de la actividad",this.myActivity.title)
     this.score = new scoreActivity();
     this.activitySend = new activityDto();
-  
    }
 
    Participar(): void {
@@ -51,9 +49,7 @@ export class ParticipateComponent implements OnInit {
     this.dialogRef.close('cerrar');
   }
   registerScore() {
-
     this.challengesSVC.registerScore(this.score).then(res => {
-  
      
     })
   }
@@ -64,8 +60,6 @@ export class ParticipateComponent implements OnInit {
     var name = localStorage.getItem('userName');
     var score = 8;
     var experience = 10;
-
-  
     this.score.activityId = id;
     this.score.uid = uid;
     this.score.userName = name;

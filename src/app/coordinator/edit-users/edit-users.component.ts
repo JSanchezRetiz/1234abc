@@ -26,7 +26,8 @@ export interface Rol {
 export class EditUsersComponent implements OnInit {
   user: any;
   uidDto: uidDto;
-  users: usersDto[]=[];
+  users: usersDto[] = [];
+
 
   rols: Rol[] = [
     { value: 'Usuario', viewValue: 'Usuario' },
@@ -35,8 +36,9 @@ export class EditUsersComponent implements OnInit {
   ];
 
   constructor(public dialogRef: MatDialogRef<EditUsersComponent>, private _viewContainerRef: ViewContainerRef, private dialog: TdDialogService, @Inject(MAT_DIALOG_DATA) public data: any, private coordinatorSVC: CoordinatorService, private _loadingService: TdLoadingService, private loginSVC: LoginService, private _router: Router, private adminSVC: AdminServiceService) {
-    this.user = data.data;
-    this.users= data.dato;
+    this.users = data.data;
+    this.user = data.dato;
+   
   }
 
   salir() {
@@ -51,14 +53,14 @@ export class EditUsersComponent implements OnInit {
       result => {
         this.dialogRef.close();
       }
-    );
+      );
     // this.dialogRef.close('cerrar');
   }
   cerrar() {
     this.dialogRef.close();
   }
 
-  
+
   updateUsers() {
     this._loadingService.register();
     this.user.itemId
