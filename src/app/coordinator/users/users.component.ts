@@ -80,6 +80,10 @@ user: usersDto;
     });
   }
 
+  Volver() {
+    this._router.navigate(["dashboard-usuarios"]);
+  }
+
   ngOnInit() {
     this.getAllUsers();
   

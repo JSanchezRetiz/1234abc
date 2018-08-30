@@ -45,6 +45,7 @@ export class StoreComponent implements OnInit {
     });
   }
   onResize(event) {
+    this._loadingService.register();
     const element = event.target.innerWidth;
     if (element < 950) {
       this.test = 1;
@@ -53,6 +54,7 @@ export class StoreComponent implements OnInit {
     if (element>950){
       this.test= 4;
     }
+    this._loadingService.resolve()
     // this.cols = (event.target.innerWidth <= 300) ? 1 : 4;
     //  this.rows = (event.target.innerWidth <= 200) ? 1 : 4;
     // this.rows = (event.target.innerWidth > 300) ? 4 : 1;
