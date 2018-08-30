@@ -6,6 +6,7 @@ import { CoordinatorService } from '../services/coordinator.service';
 import { TdLoadingService } from '@covalent/core/loading';
 import { ChallengesService } from '../../challenges/services/challenges.service';
 import { activityDto } from '../../challenges/models/activityDto';
+import {myActivitiesDto} from '../../challenges/models/myActivitiesDto';
 
 @Component({
   selector: 'app-dashboard-users',
@@ -17,6 +18,8 @@ import { activityDto } from '../../challenges/models/activityDto';
 export class DashboardUsersComponent implements OnInit {
   users: userDto[];
   allActivity: activityDto[];
+  myActivities : myActivitiesDto[];
+  myActivitiesSend: myActivitiesDto;
 
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData: number[] = [300, 500, 100];
@@ -25,6 +28,8 @@ export class DashboardUsersComponent implements OnInit {
 
   constructor(private challengesSVC: ChallengesService,private _router: Router, private _dialogRef: MatDialog, private coordinatorSVC: CoordinatorService, private _loadingService: TdLoadingService, ) { 
     this.allActivity = new Array<activityDto>();
+    this.myActivities = new Array <myActivitiesDto>();
+    this.myActivitiesSend = new myActivitiesDto();
   }
 
   // events
@@ -67,13 +72,22 @@ export class DashboardUsersComponent implements OnInit {
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
+      console.log("actividades",res)
       this._loadingService.resolve();
 
+    })
+  }
+  public getActivityById(){
+
+    this.coordinatorSVC.getActivityById(this.myActivitiesSend).then(res=>{
+      this.myActivities=res;
+      console.log("resultado", res)
     })
   }
   ngOnInit() {
     this.getAllUsers();
     this.getAllActivity();
+    // this.getActivityById();
 
   }
 
