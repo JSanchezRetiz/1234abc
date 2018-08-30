@@ -10,6 +10,7 @@ import { medalDto } from '../models/medalDto';
 import { scoreDto } from '../models/scoreDto';
 import { notificationDto } from '../models/notificationDto';
 import { usersDto } from '../models/usersDto';
+import { myActivitiesDto } from '../../challenges/models/myActivitiesDto';
 
 @Injectable()
 export class CoordinatorService {
@@ -122,5 +123,8 @@ export class CoordinatorService {
     return this.http.post(this.serverURL + 'deleteUsers', users).toPromise().then
       (res => <any>res)
   }
-
+  public getActivityById(id: myActivitiesDto) {
+    return this.http.post(this.serverURL + 'getActivityById', id).toPromise()
+      .then(res => <any>res);
+  }
 }

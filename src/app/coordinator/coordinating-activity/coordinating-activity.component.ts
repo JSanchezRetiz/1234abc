@@ -56,7 +56,7 @@ export class CoordinatingActivityComponent implements OnInit {
       data: { data: dato, }
     });
     dialogRef.afterClosed().subscribe(result => {
-      localStorage.removeItem('idActivity');
+     
       this.getAllActivity();
     });
   }

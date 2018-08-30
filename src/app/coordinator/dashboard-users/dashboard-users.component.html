@@ -90,9 +90,25 @@
           </div>
           <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
             <mat-card class="datos">
-              <mat-card-title  *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
+              <mat-card-title *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
               <mat-card-title>Usuarios registrados </mat-card-title>
             </mat-card>
+            <div flex="40"></div>
+            <div layout="column">
+              <mat-card fxLayoutAlign="end center">
+                <mat-card-title *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
+                <mat-card-title>Usuarios registrados </mat-card-title>
+              </mat-card>
+              <mat-card>
+                <mat-card-content>
+                  <mat-form-field style="width: 100%;">
+                    <mat-select #activity name="activity"  placeholder="Seleccione actividad">
+                      <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-card-content>
+              </mat-card>
+            </div>
           </div>
           <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
             <mat-card flex="100" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
