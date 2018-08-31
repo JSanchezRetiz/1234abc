@@ -50,7 +50,7 @@ export class DashboardUsersComponent implements OnInit {
   }
 
   Agregar_usuario() {
-    this._router.navigate(["registro"]);
+    this._router.navigate(["usuarios"]);
   }
 
   Agregar_medalla() {
@@ -66,29 +66,27 @@ export class DashboardUsersComponent implements OnInit {
       console.log(res);
       console.log('cantidad', this.users.length)
     })
-
   }
+
   public getAllActivity() {
-    console.log("id de la actividad", acti)
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
       console.log("actividades", res)
       this._loadingService.resolve();
-
     })
   }
+
   public getActivityById() {
     this.coordinatorSVC.getActivityById(this.myActivitiesSend).then(res => {
       this.myActivities = res;
       console.log("resultado", res)
     })
   }
+
   ngOnInit() {
     this.getAllUsers();
     this.getAllActivity();
-    // this.getActivityById();
-
   }
 
 }

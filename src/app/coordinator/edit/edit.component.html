@@ -47,22 +47,26 @@
           <div layout="row" layout-xs="column">
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
-                <mat-form-field style="width: 100%;" class="calendar">
-                  <input matInput #startTime="ngModel" [min]="fecha" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha inicio" name="inicio"
-                    [(ngModel)]="activity.startTime">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
+                <div layout="row" flex="100">
+                  <mat-form-field style="width: 100%;">
+                    <input matInput placeholder="Fecha de inicio" #date1Control="ngModel" name="Fecha1" [(ngModel)]="activity.startTime" [owlDateTimeTrigger]="dt"
+                      [owlDateTime]="dt">
+                    <owl-date-time #dt></owl-date-time>
+                  </mat-form-field>
+                  <i class="material-icons">event</i>
+                </div>
               </mat-card-content>
             </mat-card>
             <mat-card flex="100" style=" background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
               <mat-card-content>
-                <mat-form-field style="width: 100%;" class="calendar">
-                  <input matInput #endTime="ngModel" [min]="fecha" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha final" name="fin"
-                    [(ngModel)]="activity.endTime">
-                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                  <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
+                <div layout="row" flex="100">
+                  <mat-form-field layout="row" style="width: 100%;">
+                    <input matInput placeholder="Fecha final" #date2Control="ngModel" name="Fecha2" [(ngModel)]="activity.endTime" [owlDateTimeTrigger]="dt2"
+                      [owlDateTime]="dt2">
+                    <owl-date-time #dt2></owl-date-time>
+                  </mat-form-field>
+                  <i class="material-icons">event</i>
+                </div>
               </mat-card-content>
             </mat-card>
           </div>
@@ -71,7 +75,7 @@
               <mat-card-content>
                 <mat-form-field style="width: 100%;">
                   <mat-select [(value)]="activity.prize" placeholder="Seleccione Recompensa">
-                    <mat-option value="None"> None</mat-option>
+                    <mat-option value="Ninguno"> Ninguno</mat-option>
                     <mat-option *ngFor="let reward of store " [value]="reward.name">{{reward.name}}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -81,7 +85,7 @@
               <mat-card-content>
                 <mat-form-field style="width: 100%;">
                   <mat-select [(value)]="activity.medal" placeholder="Seleccione Medalla">
-                    <mat-option value="None"> None</mat-option>
+                    <mat-option value="Ninguno"> Ninguno</mat-option>
                     <mat-option *ngFor="let medalla of medals" [value]="medalla.name">{{medalla.name}}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -94,6 +98,7 @@
               <mat-card-content>
                 <mat-form-field style="width: 100%;">
                   <mat-select #dificulty #dificultyControl="ngModel" placeholder="dificulty *" name="dificulty" [(ngModel)]="activity.dificulty">
+                    <mat-option value="Ninguno"> Ninguno</mat-option>
                     <mat-option [value]="activity.dificulty">
                       {{activity.dificulty}}
                     </mat-option>

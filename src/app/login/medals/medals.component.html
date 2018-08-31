@@ -21,10 +21,10 @@
       <span>Medalleria</span>
       <span flex></span>
     </div>
-    <mat-card (window:resize)="onResize($event)" fxlayout="column" fxflex="100" fxShow.gt-sm flex>
+    <mat-card fxlayout="column" fxflex="100" fxShow.gt-sm flex>
       <mat-card-title style="color:orangered; text-align: center; font-size:40px">Medallas</mat-card-title>
       <mat-card-subtitle style="text-align: center">Medallas disponibles</mat-card-subtitle>
-      <mat-grid-list cols="{{test}}" rowHeight="1:1">
+      <mat-grid-list [cols]="breakpoint" rowHeight="1:1.1" (window:resize)="onResize($event)">
         <mat-grid-tile *ngFor="let medal of medals" [colspan]="cols" [rowspan]="rows">
           <mat-card flex="100" style='background:#f8f8f8'>
             <div style="padding:2px 2px 2px 2px" class="text-center">
