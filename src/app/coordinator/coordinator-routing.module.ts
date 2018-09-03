@@ -20,6 +20,7 @@ import { DashboardUsersComponent } from '../coordinator/dashboard-users/dashboar
 import { EditUsersComponent } from '../coordinator/edit-users/edit-users.component';
 import { ListRegisterComponent } from '../coordinator/list-register/list-register.component';
 import { UserInformationComponent } from '../coordinator/user-information/user-information.component';
+import { PublicProfileComponent } from '../coordinator/public-profile/public-profile.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'editar-usuarios', component:EditUsersComponent},
   { path: 'lista-registrados', component:ListRegisterComponent},
   { path: 'informacion-usuarios', component:UserInformationComponent},
+  { path: 'perfil-publico', component:PublicProfileComponent},
 
 ];
 

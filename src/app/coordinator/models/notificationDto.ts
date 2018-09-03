@@ -1,8 +1,8 @@
 export class notificationDto {
    title: string;
-   startTime: string;
+   startTime: Date;
    message: string;
-   endTime: string;
+   endTime: Date;
    creationTime: string;
    id: string;
    allUser: string;

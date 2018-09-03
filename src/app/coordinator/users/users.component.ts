@@ -82,10 +82,11 @@ user: usersDto;
     });
   }
 
-  informationUsers(){
+  informationUsers(dato:usersDto){
     const dialogRef = this._dialogRef.open(UserInformationComponent, {
       width: '600px',
       height: '600px',
+      data: { data:dato  }
     
     });
     //console.log("dato", dato.itemId)
