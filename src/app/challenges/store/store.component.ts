@@ -24,6 +24,7 @@ export class StoreComponent implements OnInit {
   cols: number
   store: storeDto[];
   test: any = 4;
+  breakpoint: number;
 
   constructor(private loginSVC: LoginService, private _loadingService: TdLoadingService, private _router: Router, _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog, private challengesSVC: ChallengesService) {
     this.store = new Array<storeDto>();
@@ -38,25 +39,17 @@ export class StoreComponent implements OnInit {
       width: '500px',
       data: { data: dato }
     });
-    //console.log("dato", dato.itemId)
+
     dialogRef.afterClosed().subscribe(result => {
       this.getUserData();
       console.log('The dialog was closed', result);
     });
   }
   onResize(event) {
-    const element = event.target.innerWidth;
-    if (element < 950) {
-      this.test = 1;
-
-    }
-    if (element>950){
-      this.test= 4;
-    }
-    // this.cols = (event.target.innerWidth <= 300) ? 1 : 4;
-    //  this.rows = (event.target.innerWidth <= 200) ? 1 : 4;
-    // this.rows = (event.target.innerWidth > 300) ? 4 : 1;
-    // this.cols = (event.target.innerWidth > 300) ? 4 : 1;
+    this._loadingService.register();
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 4;
+    this._loadingService.resolve()
+ 
   }
 
   Volver() {
@@ -71,15 +64,14 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.cols = (window.innerWidth <= 300) ? 3 : 4;
-    // this.rows = (window.innerWidth <= 200) ? 3 : 4;
-    // this.rows = (window.innerWidth > 200) ? 4 : 1;
-    // this.cols = (window.innerWidth > 300) ? 4 : 1;
+
 
     this.cols = 1;
     this.rows = 1;
     this.getAllItemsStore();
     this.getUserData();
+
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 4;
   }
 
   getUserData() {

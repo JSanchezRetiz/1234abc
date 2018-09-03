@@ -41,6 +41,8 @@ import { ChartsModule } from 'ng2-charts';
 import { EditUsersComponent } from './edit-users/edit-users.component';
 import { ListRegisterComponent } from './list-register/list-register.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { UserInformationComponent } from './user-information/user-information.component';
+
 
 
 @NgModule({
@@ -73,6 +75,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     CovalentFileModule,
     CovalentDialogsModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent,UsersComponent, EditUsersComponent, ListRegisterComponent],
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent,UsersComponent, EditUsersComponent, ListRegisterComponent, UserInformationComponent],
 })
 export class CoordinatorModule { }

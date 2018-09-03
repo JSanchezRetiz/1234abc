@@ -69,6 +69,7 @@
               <mat-card-content>
                 <mat-form-field style="width: 100%;">
                   <mat-select #activity name="activity" [(value)]="notificationSend.activity" placeholder="Seleccione actividad">
+                      <mat-option value="None"> None</mat-option>
                     <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
                   </mat-select>
                 </mat-form-field>

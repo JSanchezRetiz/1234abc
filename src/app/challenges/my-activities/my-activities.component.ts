@@ -55,6 +55,10 @@ export class MyActivitiesComponent implements OnInit {
     })
   }
 
+  Volver() {
+    this._router.navigate(["actividades"]);
+  }
+
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.myActivitySend = JSON.parse(params["myActivitys"]);

@@ -9,6 +9,8 @@ import { usersDto } from '../models/usersDto';
 import { userDto } from '../../login/models/userDto';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { EditUsersComponent } from '../edit-users/edit-users.component';
+import { UserInformationComponent } from '../user-information/user-information.component';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -78,6 +80,22 @@ user: usersDto;
       this.getAllUsers();
 
     });
+  }
+
+  informationUsers(){
+    const dialogRef = this._dialogRef.open(UserInformationComponent, {
+      width: '600px',
+      height: '600px',
+    
+    });
+    //console.log("dato", dato.itemId)
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
+  }
+
+  Volver() {
+    this._router.navigate(["dashboard-usuarios"]);
   }
 
   ngOnInit() {
