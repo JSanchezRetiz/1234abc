@@ -77,12 +77,15 @@ export class MyActivitiesComponent implements OnInit {
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);
     })
   }
-  openConfirm(): void {
+  openConfirm(dato: myActivitiesDto): void {
+    console.log("dto",dato)
+    localStorage.setItem('idActivity',"" + dato.id);
     console.log("datos", this.myActivitySend);
+    
     const dialogRef = this._dialogRef.open(ParticipateComponent, {
       width: '500px',
       height: '600px',
-      data: { data: this.myActivitySend, }
+      data: { data:dato, }
     });
     dialogRef.afterClosed().subscribe(result => {
     });

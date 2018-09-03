@@ -103,13 +103,13 @@ let NavigationExtras: NavigationExtras = {
     var experience = 10;
 
     this.getActivity(id);
-    this.score.activityId = id;
+    this.score.idActivity = id;
     this.score.uid = uid;
     this.score.userName = name;
     this.score.score = score;
     this.score.experience = experience;
 
-    console.log("actividad: " + this.score.activityName)
+    console.log("nombre actividad: " + this.score.activityName)
     //console.log(this.score.activityName);
   }
   registerScore() {
