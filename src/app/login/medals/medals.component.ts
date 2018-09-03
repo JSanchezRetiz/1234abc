@@ -29,7 +29,6 @@ export class MedalsComponent implements OnInit {
  
   }
   getAllMedals() {
-
     this.coordinatorSVC.getAllMedals().then(res => {
       this.medals = res;
     })
@@ -42,7 +41,6 @@ export class MedalsComponent implements OnInit {
   ngOnInit() {
     this.cols = 1;
     this.rows= 1;
-
     this.getAllMedals()
 
     this.breakpoint = (window.innerWidth <= 400) ? 1 : 4;

@@ -20,6 +20,7 @@ export class DashboardUsersComponent implements OnInit {
   allActivity: activityDto[];
   myActivities: myActivitiesDto[];
   myActivitiesSend: myActivitiesDto;
+  activitySend: activityDto;
 
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData: number[] = [300, 500, 100];
@@ -30,6 +31,7 @@ export class DashboardUsersComponent implements OnInit {
     this.allActivity = new Array<activityDto>();
     this.myActivities = new Array<myActivitiesDto>();
     this.myActivitiesSend = new myActivitiesDto();
+    this.activitySend = new activityDto();
   }
 
   // events
@@ -74,6 +76,10 @@ export class DashboardUsersComponent implements OnInit {
       this.allActivity = res;
       console.log("actividades", res)
       this._loadingService.resolve();
+      console.log(this.allActivity);
+      for(const key of this.allActivity){
+        console.log(key.id);
+      }
     })
   }
 
@@ -87,6 +93,15 @@ export class DashboardUsersComponent implements OnInit {
   ngOnInit() {
     this.getAllUsers();
     this.getAllActivity();
+<<<<<<< HEAD
+    // this.getActivityById();
+    let num = this.allActivity;
+num.forEach(function (value) {
+  console.log("valores",value);
+}); 
+
+=======
+>>>>>>> 75666926722fdc74bc296710b5f78dd9ed9861eb
   }
 
 }

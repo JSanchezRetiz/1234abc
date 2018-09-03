@@ -15,13 +15,14 @@ import { CoordinatorService } from '../services/coordinator.service';
 import { storeDto } from '../../challenges/models/storeDto';
 import { medalDto } from '../models/medalDto';
 import { scoreDto } from '../models/scoreDto';
+import { myActivitiesDto } from '../../challenges/models/myActivitiesDto';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-coordinating-activity',
   templateUrl: './coordinating-activity.component.html',
   styleUrls: ['./coordinating-activity.component.scss'],
   providers: [TdLoadingService, ChallengesService, LoginService, CoordinatorService, TdDialogService],
-
 })
 export class CoordinatingActivityComponent implements OnInit {
   allActivity: activityDto[];
@@ -34,6 +35,8 @@ export class CoordinatingActivityComponent implements OnInit {
   easy: string;
   day: any;
   dayFormat: Date;
+  activityRegister: myActivitiesDto[];
+  activityRegisterSend:myActivitiesDto;
 
   constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
@@ -42,11 +45,16 @@ export class CoordinatingActivityComponent implements OnInit {
     this.activity = new activityDto();
     this.day = Date.now();
     this.dayFormat = new Date(this.day);
-    console.log("dia de hoy", this.dayFormat);
+    this.activityRegisterSend =new myActivitiesDto();
   }
 
-  Ver_lista(){
-    this._router.navigate(["lista-registrados"]);
+  Ver_lista() {
+    let NavigationExtras: NavigationExtras = {
+      queryParams: {
+        "idActivity": JSON.stringify(this.activityRegister),
+      }
+    };
+    this._router.navigate(["lista-registrados"], NavigationExtras);
   }
 
   crear(dato: activityDto): void {
@@ -56,7 +64,7 @@ export class CoordinatingActivityComponent implements OnInit {
       data: { data: dato, }
     });
     dialogRef.afterClosed().subscribe(result => {
-     
+
       this.getAllActivity();
     });
   }
@@ -82,7 +90,7 @@ export class CoordinatingActivityComponent implements OnInit {
   }
 
   public getAllActivity() {
-    
+
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
@@ -93,7 +101,16 @@ export class CoordinatingActivityComponent implements OnInit {
   Volver() {
     this._router.navigate(["dashboard-usuarios"]);
   }
-
+  getAllActivityRegister() {
+    this.coordinatorSVC.getAllActivityRegister().then(res => {
+      this.activityRegister = res;
+      console.log("todas las actividades registradas:", this.activityRegister)
+      for (const key of this.activityRegister) {
+        console.log(key.id);
+      }
+    })
+  }
+ 
   Confirmar(dato: activityDto): void {
     this._dialogService.openConfirm({
       message: 'Esta seguro de eliminar esta actividad?',
@@ -111,11 +128,9 @@ export class CoordinatingActivityComponent implements OnInit {
       }
     });
   }
-
   cerrar() {
     this._dialogRef.closeAll();
   }
-
   eliminar(dato: activityDto) {
     this._loadingService.register();
     console.log("id", dato)
@@ -127,13 +142,13 @@ export class CoordinatingActivityComponent implements OnInit {
       this._loadingService.resolve();
     })
   }
-
   ngOnInit() {
     this.easy = "facil";
     this.medium = "medio";
     this.hard = "dificil";
     this.getUserData();
     this.getAllActivity();
+    this.getAllActivityRegister();
   }
 
 }

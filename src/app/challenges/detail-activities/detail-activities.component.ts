@@ -56,20 +56,21 @@ export class DetailActivitiesComponent implements OnInit {
 
   saveActivity() {
     this.myActivity.uid = localStorage.getItem('uid');
-    // this.myActivity.id= this.activitySend.id;
-    // this.myActivity.title= this.activity.title;
-    // this.myActivity.description= this.activity.description;
-    // this.myActivity.reward= this.activity.reward;
-    // this.myActivity.prize= this.activity.prize;
-    // this.myActivity.medal= this.activity.medal;
-    // this.myActivity.rules= this.activity.rules;
-    // this.myActivity.creationTime= this.activity.creationTime;
-    // this.myActivity.endTime= this.activity.endTime;
-    // this.myActivity.idCoordinator= this.activity.idCoordinator;
-    // this.myActivity.name= this.activity.name;
-    // this.myActivity.status= this.activity.status;
-    // this.myActivity.typeScore= this.activity.typeScore;
-    // this.myActivity.startTime= this.activity.startTime;
+    this.myActivity.id= this.activitySend.id;
+    this.myActivity.idActivity = this.activitySend.id;
+    this.myActivity.title= this.activity.title;
+    this.myActivity.description= this.activity.description;
+    this.myActivity.reward= this.activity.reward;
+    this.myActivity.prize= this.activity.prize;
+    this.myActivity.medal= this.activity.medal;
+    this.myActivity.rules= this.activity.rules;
+    this.myActivity.creationTime= this.activity.creationTime;
+    this.myActivity.endTime= this.activity.endTime;
+    this.myActivity.idCoordinator= this.activity.idCoordinator;
+    this.myActivity.name= this.activity.name;
+    this.myActivity.status= this.activity.status;
+    this.myActivity.typeScore= this.activity.typeScore;
+    this.myActivity.startTime= this.activity.startTime;
 
     this.challengesSVC.saveActivity(this.myActivity).then(res => {
       this.myActivity = res;
