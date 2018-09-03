@@ -57,6 +57,7 @@ export class DetailActivitiesComponent implements OnInit {
   saveActivity() {
     this.myActivity.uid = localStorage.getItem('uid');
     this.myActivity.id= this.activitySend.id;
+    this.myActivity.idActivity = this.activitySend.id;
     this.myActivity.title= this.activity.title;
     this.myActivity.description= this.activity.description;
     this.myActivity.reward= this.activity.reward;

@@ -24,6 +24,7 @@ export class MyActivitiesComponent implements OnInit {
   myActivity: myActivitiesDto[];
   myActivitySend: myActivitiesDto;
   uid: userDto;
+  activityRegister: myActivitiesDto[];
   constructor(private _router: Router, private _dialogRef: MatDialog, private loginSVC: LoginService, private _loadingService: TdLoadingService, private route: ActivatedRoute, private challengesSVC: ChallengesService, private coordinatorSVC: CoordinatorService) {
     this.activity = new Array<activityDto>();
     this.myActivitySend = new myActivitiesDto();
@@ -39,7 +40,13 @@ export class MyActivitiesComponent implements OnInit {
     };
     this._router.navigate(["ranking"], NavigationExtras);
   }
-
+  getAllActivityRegister() {
+    this.coordinatorSVC.getAllActivityRegister().then(res => {
+      this.activityRegister = res;
+      console.log("todas las actividades registradas:", this.activityRegister)
+     
+    })
+  }
   getMyActivities() {
     console.log("datos traidos:", this.myActivitySend)
     this.challengesSVC.getMyActivities(this.myActivitySend).then(res => {
@@ -47,11 +54,12 @@ export class MyActivitiesComponent implements OnInit {
       console.log(res);
     })
   }
+
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.myActivitySend = JSON.parse(params["myActivitys"]);
     })
-    this.getMyActivities()
+    this.getMyActivities();
     this.getUserData();
   }
 

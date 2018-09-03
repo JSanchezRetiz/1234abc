@@ -127,4 +127,8 @@ export class CoordinatorService {
     return this.http.post(this.serverURL + 'getActivityById', id).toPromise()
       .then(res => <any>res);
   }
+  public getAllActivityRegister() {
+    return this.http.get(this.serverURL + 'getAllActivityRegister').toPromise()
+      .then(res => <any>res.json())
+  }
 }

@@ -20,6 +20,7 @@ export class DashboardUsersComponent implements OnInit {
   allActivity: activityDto[];
   myActivities: myActivitiesDto[];
   myActivitiesSend: myActivitiesDto;
+  activitySend: activityDto;
 
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData: number[] = [300, 500, 100];
@@ -30,6 +31,7 @@ export class DashboardUsersComponent implements OnInit {
     this.allActivity = new Array<activityDto>();
     this.myActivities = new Array<myActivitiesDto>();
     this.myActivitiesSend = new myActivitiesDto();
+    this.activitySend = new activityDto();
   }
 
   // events
@@ -69,13 +71,16 @@ export class DashboardUsersComponent implements OnInit {
 
   }
   public getAllActivity() {
-    console.log("id de la actividad", acti)
+   
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
       this.allActivity = res;
       console.log("actividades", res)
       this._loadingService.resolve();
-
+      console.log(this.allActivity);
+      for(const key of this.allActivity){
+        console.log(key.id);
+      }
     })
   }
   public getActivityById() {
@@ -88,6 +93,10 @@ export class DashboardUsersComponent implements OnInit {
     this.getAllUsers();
     this.getAllActivity();
     // this.getActivityById();
+    let num = this.allActivity;
+num.forEach(function (value) {
+  console.log("valores",value);
+}); 
 
   }
 
