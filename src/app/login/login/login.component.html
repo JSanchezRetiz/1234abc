@@ -20,8 +20,8 @@
                 <mat-card style="width: 100%; background-color:#ffd0b0" tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
                   <mat-card-content>
                     <mat-form-field style="width: 100%;" flex>
-                      <input matInput #userElement #userControl="ngModel" placeholder="Correo Electronico" type="text" maxlength="40" name="email" [(ngModel)]="email"
-                        required>
+                      <input matInput #userElement #userControl="ngModel" placeholder="Correo Electronico" type="text" maxlength="40" name="email"
+                        [(ngModel)]="email" required>
                       <span matPrefix>
                         <mat-icon>person</mat-icon>
                       </span>
@@ -45,20 +45,21 @@
                       <mat-hint align="start">
                         <span [hidden]="!passControl.errors?.required || passControl.pristine" class="tc-red-600">Required</span>
                       </mat-hint>
-                      <mat-hint style="font-size:15px;  " align="end">
-                        <a  style="text-decoration: none;color:rgb(80, 78, 78);" (click)="olvido()">¿Has olvidado la contraseña? </a>
+                      <mat-hint style="font-size:15px;" align="end">
+                        <a style="text-decoration: none;color:rgb(80, 78, 78);" (click)="olvido()">¿Has olvidado la contraseña? </a>
                       </mat-hint>
                     </mat-form-field>
                   </mat-card-content>
                 </mat-card>
               </div>
+              <mat-card-actions layout="row">
+                <div class="text-center">
+                  <button type="submit" style="background-color:#ff3d00;color:#ffff; width:200px;" flex mat-raised-button [disabled]="!loginForm.form.valid"
+                    (click)="ingresoSimple()">Ingresar</button>
+                </div>
+              </mat-card-actions>
             </form>
           </mat-card-content>
-          <mat-card-actions layout="row">
-            <div class="text-center">
-              <button style="background-color:#ff3d00;color:#ffff; width:200px;" flex mat-raised-button [disabled]="!loginForm.form.valid" (click)="ingresoSimple()">Ingresar</button>
-            </div>
-          </mat-card-actions>
         </div>
       </div>
     </div>

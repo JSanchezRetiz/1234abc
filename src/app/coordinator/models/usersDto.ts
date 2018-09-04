@@ -6,9 +6,10 @@ export class usersDto {
     city: string;
     creationDate:string;
     name:string;
-    lastName:string;
+    lastname:string;
     score:string;
     idUser:string;
     email: string;
+    status: boolean;
 
 }

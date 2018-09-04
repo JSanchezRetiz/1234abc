@@ -9,4 +9,6 @@ export class userDto {
     city: string;
     job: string;
     email: string;
+    id:string;
+    status:boolean
 }

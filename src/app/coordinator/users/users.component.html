@@ -55,8 +55,11 @@
                     <th style="background-color:orangered;color:white;font-size:20px;" td-data-table-column>
                       DETALLES
                     </th>
+                    
                   </tr>
+                
                 </thead>
+                <mat-divider></mat-divider>
                 <tbody>
                   <tr *ngFor="let user of users" td-data-table-row>
                     <td style="background-color:white; font-size:20px; font-family: Verdana, Geneva, Tahoma, sans-serif" class="text-center"
@@ -66,13 +69,23 @@
                     <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
                       {{user.job}}
                     </td>
-                    <td style="background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif" class="text-center" td-data-table-cell>
-                      <button mat-button class="w3-btn w3-dark-grey" (click)="informationUsers(user)">Mas info.</button>
+                    <!-- padding-left: 100px -->
+                    <td class="text-center" layout="row" layout-xs="column" style=" background-color:white; font-size:20px; font-family:Verdana, Geneva, Tahoma, sans-serif"  td-data-table-cell>
+                        <!-- <div > -->
+                      <button  style="margin:10px" mat-button class="w3-btn w3-dark-grey"(click)="informationUsers(user)">Mas info.</button>
                       <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="editar(user)">Editar</button>
                       <button style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="Confirmar(user)">Eliminar</button>
-                      <button style="margin:5px" mat-button class="w3-btn w3-dark-grey" (click)="inhabilitar()">Inhabilitar</button>
+                      <div *ngIf="disabled==true">
+                        <button  style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="updateStatusUser(user)">Habilitar</button>
+                      </div>
+                      <div *ngIf="disabled!=true">
+                        <button  style="margin:10px" mat-button class="w3-btn w3-dark-grey" (click)="updateStatusUser()">Deshabilitar</button>
+                      </div>
+                    <!-- </div> -->
                     </td>
+                    <mat-divider></mat-divider>
                   </tr>
+                 
                 </tbody>
               </table>
             </mat-card-content>
