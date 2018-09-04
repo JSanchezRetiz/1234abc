@@ -123,9 +123,9 @@ export class CoordinatorService {
     return this.http.post(this.serverURL + 'deleteUsers', users).toPromise().then
       (res => <any>res)
   }
-  public getActivityById(id: myActivitiesDto) {
-    return this.http.post(this.serverURL + 'getActivityById', id).toPromise()
-      .then(res => <any>res);
+  public getActivitiesById(idActivity: myActivitiesDto) {
+    return this.http.post(this.serverURL + 'getActivitiesById', idActivity).toPromise()
+      .then(res => <myActivitiesDto[]> res.json());
   }
   public getAllActivityRegister() {
     return this.http.get(this.serverURL + 'getAllActivityRegister').toPromise()

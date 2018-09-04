@@ -84,7 +84,7 @@ export class DashboardUsersComponent implements OnInit {
   }
 
   public getActivityById() {
-    this.coordinatorSVC.getActivityById(this.myActivitiesSend).then(res => {
+    this.coordinatorSVC.getActivitiesById(this.myActivitiesSend).then(res => {
       this.myActivities = res;
       console.log("resultado", res)
     })

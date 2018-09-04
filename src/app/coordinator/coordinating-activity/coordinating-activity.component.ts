@@ -17,6 +17,7 @@ import { medalDto } from '../models/medalDto';
 import { scoreDto } from '../models/scoreDto';
 import { myActivitiesDto } from '../../challenges/models/myActivitiesDto';
 import { NavigationExtras } from '@angular/router';
+import { ListRegisterComponent } from '../list-register/list-register.component';
 
 @Component({
   selector: 'app-coordinating-activity',
@@ -36,7 +37,7 @@ export class CoordinatingActivityComponent implements OnInit {
   day: any;
   dayFormat: Date;
   activityRegister: myActivitiesDto[];
-  activityRegisterSend:myActivitiesDto;
+  activityRegisterSend: myActivitiesDto;
 
   constructor(private coordinatorSVC: CoordinatorService, private loginSVC: LoginService, private _loadingService: TdLoadingService, private challengesSVC: ChallengesService, private _router: Router, private _dialogService: TdDialogService, private _viewContainerRef: ViewContainerRef, private _dialogRef: MatDialog) {
     this.allActivity = new Array<activityDto>();
@@ -45,18 +46,32 @@ export class CoordinatingActivityComponent implements OnInit {
     this.activity = new activityDto();
     this.day = Date.now();
     this.dayFormat = new Date(this.day);
-    this.activityRegisterSend =new myActivitiesDto();
+    this.activityRegisterSend = new myActivitiesDto();
   }
 
-  Ver_lista() {
-    let NavigationExtras: NavigationExtras = {
-      queryParams: {
-        "idActivity": JSON.stringify(this.activityRegister),
-      }
-    };
-    this._router.navigate(["lista-registrados"], NavigationExtras);
+  Ver_lista(dato: myActivitiesDto) {
+    localStorage.setItem('idActivity', "" + dato.id)
+    const dialogRef = this._dialogRef.open(ListRegisterComponent, {
+      width: '800px',
+      height: '600px',
+      data: { data: this.activityRegister, dato: dato }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getUserData();
+      console.log('The dialog was closed', result);
+    });
   }
-
+  getActivitysById() {
+    console.log("datos traidos:", this.activityRegisterSend)
+    this.activityRegisterSend.idActivity = localStorage.getItem('idActivity');
+    console.log("id de la actividad",this.activityRegisterSend.idActivity)
+    this.coordinatorSVC.getActivitiesById(this.activityRegisterSend).then(res => {
+      this.activityRegisterSend = res.idActivity;
+      console.log("body",res);
+  
+      //console.log("resultado", this.myActivitySend);
+    })
+  }
   crear(dato: activityDto): void {
     const dialogRef = this._dialogRef.open(CreateActivityComponent, {
       width: '1000px',
@@ -105,12 +120,12 @@ export class CoordinatingActivityComponent implements OnInit {
     this.coordinatorSVC.getAllActivityRegister().then(res => {
       this.activityRegister = res;
       console.log("todas las actividades registradas:", this.activityRegister)
-      for (const key of this.activityRegister) {
-        console.log(key.id);
-      }
+      // for (const key of this.activityRegister) {
+      //   console.log(key.id);
+      // }
     })
   }
- 
+
   Confirmar(dato: activityDto): void {
     this._dialogService.openConfirm({
       message: 'Esta seguro de eliminar esta actividad?',
@@ -143,12 +158,15 @@ export class CoordinatingActivityComponent implements OnInit {
     })
   }
   ngOnInit() {
+    console.log("id de la actividad", this.activityRegisterSend.idActivity)
     this.easy = "facil";
     this.medium = "medio";
     this.hard = "dificil";
     this.getUserData();
     this.getAllActivity();
     this.getAllActivityRegister();
+    this.getActivitysById();
+
   }
 
 }

@@ -11,7 +11,6 @@ import { storeDto } from '../../challenges/models/storeDto';
 import { medalDto } from '../../coordinator/models/medalDto';
 import { scoreDto } from '../models/scoreDto';
 
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',

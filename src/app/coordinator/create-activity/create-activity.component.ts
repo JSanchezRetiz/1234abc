@@ -63,7 +63,7 @@ export class CreateActivityComponent implements OnInit {
     else if (this.dayFormat > this.activity.endTime) {
      this.activity.status = "finalizado";
     }
-    this.activity.name = "felipe";
+   
     this.activity.idCoordinator = "idCoordinador";
     this.activity.typeScore = "typeScore";
     this.coordinatorSVC.createActivity(this.activity).then(res => {
