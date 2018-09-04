@@ -42,6 +42,7 @@ import { EditUsersComponent } from './edit-users/edit-users.component';
 import { ListRegisterComponent } from './list-register/list-register.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { UserInformationComponent } from './user-information/user-information.component';
+import { PublicProfileComponent } from './public-profile/public-profile.component';
 
 
 
@@ -75,6 +76,6 @@ import { UserInformationComponent } from './user-information/user-information.co
     CovalentFileModule,
     CovalentDialogsModule,
   ],
-  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent,UsersComponent, EditUsersComponent, ListRegisterComponent, UserInformationComponent],
+  declarations: [CoordinatingActivityComponent, EditComponent, CreateRewardComponent, EditRewardComponent,CoordinatorProfileComponent,CoordinatorProfileComponent, CoordinatorRewardComponent, CreateActivityComponent, MedalsCoordinatorComponent, CreateMedalsComponent, EditMedalsComponent, CoordinatorNotificationComponent, CreateNotificationComponent, EditNotificationComponent, DashboardUsersComponent,UsersComponent, EditUsersComponent, ListRegisterComponent, UserInformationComponent, PublicProfileComponent],
 })
 export class CoordinatorModule { }

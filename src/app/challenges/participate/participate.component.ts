@@ -15,7 +15,7 @@ import { myActivitiesDto } from '../models/myActivitiesDto';
   providers: [TdDialogService, ChallengesService],
 })
 export class ParticipateComponent implements OnInit {
-  myactivitySend: activityDto;
+  myactivitySend: myActivitiesDto;
   myActivity: myActivitiesDto;
   score: scoreActivity;
   activitySend: activityDto;
@@ -23,15 +23,13 @@ export class ParticipateComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,  private dialog: TdDialogService, public dialogRef: MatDialogRef<ParticipateComponent>, private challengesSVC: ChallengesService, private _router: Router, private _viewContainerRef: ViewContainerRef) {
     this.myactivitySend = new myActivitiesDto();
-    console.log("dto de mis actividades",this.myactivitySend)
     this.myActivity = data.data;
-    console.log("data",data)
-    console.log("titulo de la actividad",this.myActivity.title)
     this.score = new scoreActivity();
     this.activitySend = new activityDto();
    }
 
    Participar(): void {
+     console.log(this.score)
     this.registerScore();
     this.dialog.openAlert({
       message: 'Te has registrado exitosamente en esta actividad.',
@@ -45,26 +43,37 @@ export class ParticipateComponent implements OnInit {
         this.dialogRef.close();
       })
   };
+
   cerrar() {
     this.dialogRef.close('cerrar');
   }
+
   registerScore() {
+    
     this.challengesSVC.registerScore(this.score).then(res => {
-     
     })
   }
+
+ 
  
   ngOnInit() {
+
+
+ 
     var id = localStorage.getItem('idActivity');
+    console.log("el id ",id)
     var uid = localStorage.getItem('uid');
     var name = localStorage.getItem('userName');
     var score = 8;
     var experience = 10;
-    this.score.activityId = id;
+    console.log("el actividad", this.score.idActivity)
+    this.score.idActivity = id;
     this.score.uid = uid;
     this.score.userName = name;
     this.score.score = score;
     this.score.experience = experience;
+    
+    console.log("actividad: " + this.score.activityName)
   }
 
 }

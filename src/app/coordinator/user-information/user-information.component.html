@@ -8,19 +8,19 @@
         </a>
       </mat-toolbar-row>
     </mat-toolbar>
-    <mat-card>
+    <mat-card > 
         <mat-card-content>
-          <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">Felipe Zamudio</mat-card-title>
+          <mat-card-title class="text-center" style="padding: 10px 10px 10px 10px">{{user.name}} {{user.lastname}}</mat-card-title>
         </mat-card-content>
         <mat-card-content class="text-center">
           <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="100px">
         </mat-card-content>
         <mat-card-content>
-          <mat-card-title class="text-center">Consultor Junior Innovacion</mat-card-title>
+          <mat-card-title class="text-center">{{user.job}}</mat-card-title>
         </mat-card-content>
-        <mat-card-title class="text-center">Fecha de registro: Jun / 09 / 2018 </mat-card-title>
-        <mat-card-title class="text-center">Bogota </mat-card-title>
-        <mat-card-title class="text-center">Nivel de Experiencia: 500 </mat-card-title>
+        <mat-card-title class="text-center">{{user.creationDate}}</mat-card-title>
+        <mat-card-title class="text-center">{{user.city}} </mat-card-title>
+        <mat-card-title class="text-center">{{user.experience}} </mat-card-title>
  
 
         <mat-card-actions layout="row">

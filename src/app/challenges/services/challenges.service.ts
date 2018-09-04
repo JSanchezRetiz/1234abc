@@ -31,7 +31,7 @@ export class ChallengesService {
       .then(res => <any>res.json())
   }
   public registerScore(score:scoreActivity ){
-    console.log(score.activityName,score.activityId,score.experience,score.uid,score.userName)
+    console.log(score.activityName,score.idActivity,score.experience,score.uid,score.userName)
     return this.http.post(this.serverURL + 'registerScore', score).toPromise().
     then(res=> <any>res.json())
   }
