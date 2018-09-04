@@ -84,7 +84,7 @@ export class DashboardUsersComponent implements OnInit {
   }
 
   public getActivityById() {
-    this.coordinatorSVC.getActivityById(this.myActivitiesSend).then(res => {
+    this.coordinatorSVC.getActivitiesById(this.myActivitiesSend).then(res => {
       this.myActivities = res;
       console.log("resultado", res)
     })
@@ -93,15 +93,12 @@ export class DashboardUsersComponent implements OnInit {
   ngOnInit() {
     this.getAllUsers();
     this.getAllActivity();
-<<<<<<< HEAD
     // this.getActivityById();
     let num = this.allActivity;
 num.forEach(function (value) {
   console.log("valores",value);
 }); 
 
-=======
->>>>>>> 75666926722fdc74bc296710b5f78dd9ed9861eb
   }
 
 }

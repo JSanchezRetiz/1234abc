@@ -3,7 +3,6 @@ export class activityDto {
     description: string;
     endTime: Date;
     idCoordinator: string;
-    name: string;
     reward: string;
     startTime: Date;
     title: string;

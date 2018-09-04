@@ -67,7 +67,7 @@ export class DetailActivitiesComponent implements OnInit {
     this.myActivity.creationTime= this.activity.creationTime;
     this.myActivity.endTime= this.activity.endTime;
     this.myActivity.idCoordinator= this.activity.idCoordinator;
-    this.myActivity.name= this.activity.name;
+    this.myActivity.name= localStorage.getItem('userName');
     this.myActivity.status= this.activity.status;
     this.myActivity.typeScore= this.activity.typeScore;
     this.myActivity.startTime= this.activity.startTime;
