@@ -17,7 +17,7 @@ export class ChallengesService {
   serverURL = 'http://localhost:3000/prueba/';
   constructor(private http: Http, private afAuth: AngularFireAuth) {
   }
-  public getAllActivy() {
+  public getAllActivity() {
     return this.http.get(this.serverURL + 'getAllActivity').toPromise()
       .then(res => <any>res.json())
   }

@@ -21,6 +21,7 @@ import { EditUsersComponent } from '../coordinator/edit-users/edit-users.compone
 import { ListRegisterComponent } from '../coordinator/list-register/list-register.component';
 import { UserInformationComponent } from '../coordinator/user-information/user-information.component';
 import { PublicProfileComponent } from '../coordinator/public-profile/public-profile.component';
+import { ListParticipantComponent } from '../coordinator/list-participant/list-participant.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'lista-registrados', component:ListRegisterComponent},
   { path: 'informacion-usuarios', component:UserInformationComponent},
   { path: 'perfil-publico', component:PublicProfileComponent},
+  { path: 'lista-participantes', component:ListParticipantComponent},
 
 ];
 

@@ -25,6 +25,7 @@ import { ListRegisterComponent } from '../list-register/list-register.component'
   styleUrls: ['./coordinating-activity.component.scss'],
   providers: [TdLoadingService, ChallengesService, LoginService, CoordinatorService, TdDialogService],
 })
+
 export class CoordinatingActivityComponent implements OnInit {
   allActivity: activityDto[];
   uidDto: uidDto;
@@ -69,7 +70,6 @@ export class CoordinatingActivityComponent implements OnInit {
       data: { data: dato, }
     });
     dialogRef.afterClosed().subscribe(result => {
-
       this.getAllActivity();
     });
   }
@@ -95,9 +95,8 @@ export class CoordinatingActivityComponent implements OnInit {
   }
 
   public getAllActivity() {
-
     this._loadingService.register();
-    this.challengesSVC.getAllActivy().then(res => {
+    this.challengesSVC.getAllActivity().then(res => {
       this.allActivity = res;
       this._loadingService.resolve();
     })
@@ -106,6 +105,7 @@ export class CoordinatingActivityComponent implements OnInit {
   Volver() {
     this._router.navigate(["dashboard-usuarios"]);
   }
+
   getAllActivityRegister() {
     this.coordinatorSVC.getAllActivityRegister().then(res => {
       this.activityRegister = res;
@@ -133,9 +133,11 @@ export class CoordinatingActivityComponent implements OnInit {
       }
     });
   }
+
   cerrar() {
     this._dialogRef.closeAll();
   }
+
   eliminar(dato: activityDto) {
     this._loadingService.register();
     console.log("id", dato)
@@ -147,6 +149,7 @@ export class CoordinatingActivityComponent implements OnInit {
       this._loadingService.resolve();
     })
   }
+
   ngOnInit() {
     console.log("id de la actividad", this.activityRegisterSend.idActivity)
     this.easy = "facil";
@@ -158,5 +161,4 @@ export class CoordinatingActivityComponent implements OnInit {
 
 
   }
-
 }

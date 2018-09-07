@@ -27,7 +27,7 @@ export class CreateNotificationComponent implements OnInit {
   }
 
   public getAllActivity() {
-    this.challengesSVC.getAllActivy().then(res => {
+    this.challengesSVC.getAllActivity().then(res => {
       this.allActivity = res;
     })
   }

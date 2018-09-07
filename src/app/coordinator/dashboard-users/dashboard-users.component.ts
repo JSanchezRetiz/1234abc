@@ -83,7 +83,7 @@ export class DashboardUsersComponent implements OnInit {
   }
   public getAllActivity() {
     this._loadingService.register();
-    this.challengesSVC.getAllActivy().then(res => {
+    this.challengesSVC.getAllActivity().then(res => {
       this.allActivity = res;
       console.log("actividades", res)
       this._loadingService.resolve();

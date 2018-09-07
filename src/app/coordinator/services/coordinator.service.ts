@@ -131,4 +131,16 @@ export class CoordinatorService {
     return this.http.get(this.serverURL + 'getAllActivityRegister').toPromise()
       .then(res => <any>res.json())
   }
+
+  public updateStatusUser(users: usersDto) {
+    return this.http.post(this.serverURL + 'updateStatusUser', users).toPromise()
+      .then(res => <any>res.json())
+  }
+
+public getAllParticipatingUsers(){
+  return this.http.get(this.serverURL + 'getAllParticipatingUsers').toPromise()
+  .then(res => <any>res.json())
+}
+
+
 }
