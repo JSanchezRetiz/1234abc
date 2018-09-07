@@ -137,5 +137,10 @@ export class CoordinatorService {
       .then(res => <any>res.json())
   }
 
+public getAllParticipatingUsers(){
+  return this.http.get(this.serverURL + 'getAllParticipatingUsers').toPromise()
+  .then(res => <any>res.json())
+}
+
 
 }

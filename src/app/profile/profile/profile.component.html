@@ -116,8 +116,6 @@
                   </div>
                 </mat-card>
               </div>
-              <!-- <mat-card-subtitle>Recent activity from select members</mat-card-subtitle> -->
-              <!-- <mat-divider></mat-divider> -->
               <mat-card-title style="color:orangered">Logros profesionales</mat-card-title>
               <div layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
                 <mat-card style='background:#f8f8f8'>
@@ -161,26 +159,26 @@
             <mat-card flex="100" flex-gt-sm="30" tdMediaToggle="gt-sm" [mediaClasses]="['push-top']">
               <mat-card-title style="color:orangered; text-align: center">NOTIFICACIONES</mat-card-title>
               <mat-card *ngFor="let notification of notifications;let i=index">
-                  <div *ngIf="i<2">
-                <td-expansion-panel style="background:#ff3d00" [expand]="false">
-                  <ng-template td-expansion-panel-sublabel>
-                    <p matLine style="color:white; font-size:20px">{{notification.title}}</p>
-                  </ng-template>
-                  <ng-template td-expansion-panel-sublabel>
-                  </ng-template>
-                  <td-expansion-summary>
-                    <mat-list style="background:white">
-                      <mat-list-item>
-                        <p matLine>{{notification.message | slice:0:30}}...</p>
-                      </mat-list-item>
-                    </mat-list>
-                  </td-expansion-summary>
-                  <form class="md-padding" style="background:white">
-                    <div layout="row">
-                      <p matLine>{{notification.message}}</p>
-                    </div>
-                  </form>
-                </td-expansion-panel>
+                <div *ngIf="i<2">
+                  <td-expansion-panel style="background:#ff3d00" [expand]="false">
+                    <ng-template td-expansion-panel-sublabel>
+                      <p matLine style="color:white; font-size:20px">{{notification.title}}</p>
+                    </ng-template>
+                    <ng-template td-expansion-panel-sublabel>
+                    </ng-template>
+                    <td-expansion-summary>
+                      <mat-list style="background:white">
+                        <mat-list-item>
+                          <p matLine>{{notification.message | slice:0:30}}...</p>
+                        </mat-list-item>
+                      </mat-list>
+                    </td-expansion-summary>
+                    <form class="md-padding" style="background:white">
+                      <div layout="row">
+                        <p matLine>{{notification.message}}</p>
+                      </div>
+                    </form>
+                  </td-expansion-panel>
                 </div>
               </mat-card>
               <mat-card-actions layout="row">

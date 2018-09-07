@@ -4,9 +4,11 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AngularFireAuth } from "angularfire2/auth";
 import { uidDto } from '../models/uidDto';
 import { userDto } from '../models/userDto';
+
 @Injectable()
 export class LoginService {
   serverURL = 'http://localhost:3000/prueba/';
+
   constructor(private http: Http, private afAuth: AngularFireAuth) {
   }
   simpleLogin(email, password) {
@@ -26,8 +28,7 @@ export class LoginService {
             token = userData.user.qa;
             name = name.replace(/"/g, "");
             localStorage.setItem('userName', name);
-          }
-          else {
+          }else {
             console.log("Entrada cuando no ha actualizado datos")
             userId = userId.replace(/"/g, "");
             localStorage.setItem('uid', userId);
@@ -36,14 +37,14 @@ export class LoginService {
           localStorage.setItem('token', '' + token);
           resolve(userData);
         })
-        .catch((error) => { 
+        .catch((error) => {
           alert("Error de inicio de sesion:");
-
           console.log(error)
           reject(error)
         })
     });
   }
+
   forgetPassword(email) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.sendPasswordResetEmail(email)
@@ -55,6 +56,7 @@ export class LoginService {
         })
     })
   }
+
   logout() {
     this.afAuth.auth.signOut();
     localStorage.removeItem('currentUser');
@@ -62,6 +64,7 @@ export class LoginService {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
   }
+  
   getUserData(id: uidDto) {
     return this.http.post(this.serverURL + 'getUserData', id).toPromise()
       .then(res => <userDto>res.json());

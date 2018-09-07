@@ -107,6 +107,7 @@ export class ProfileComponent implements OnInit {
     this.uidDto.id = localStorage.getItem('uid');
     this.loginSVC.getUserData(this.uidDto).then(res => {
       this.userDto = res;
+      console.log(res)
       this._loadingService.resolve();
       this._loadingService.resolve();
       console.log(this.userDto.name, this.userDto.lastname, this.userDto.experience);

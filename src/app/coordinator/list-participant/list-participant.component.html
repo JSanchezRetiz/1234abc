@@ -1,0 +1,49 @@
+<div layout="column" style="background-color:#ff7539">
+    <mat-toolbar style="background-color:#ff3d00" color="primary" class="mat-whiteframe-z1">
+      <mat-toolbar-row>
+        <span>Lista de participantes</span>
+        <span flex></span>
+        <a mat-icon-button matTooltip="cerrar" matTooltipPosition="before" (click)="cerrar()">
+          <mat-icon>clear</mat-icon>
+        </a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+    <div style="background-color:#ff7539">
+      <mat-card  fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+        <mat-card-title style="color:orangered; text-align: center; font-size:40px">Participantes</mat-card-title>
+        <mat-card-title style="color:orangered; text-align: center; font-size:40px">{{participantSend.activityName}}</mat-card-title>
+        <mat-card  *ngFor="let participant of participants; let i = index" style="background:#ff9100">
+          <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
+            <div flex class="text-center">
+              <img src="../../../assets/icons/UserAvatar/UserAvatar10.svg" width="90px">
+            </div>
+            <div flex class="text-center">
+              <mat-card-content  class="fuente">{{participant.userName}} </mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="fuente">{{participant.activityName}}</mat-card-content>
+            </div>
+            <div flex class="text-center">
+              <mat-card-content class="fuente">{{participant.dateScore}}</mat-card-content>
+            </div>
+            <mat-card  style="background-color:orangered">
+                <mat-card-content>
+                  <section style="color:white" class="example-section">
+                    <mat-checkbox [disabled]="checkArray[i]" (change)="disableControl(i)" class="example-margin">Completado</mat-checkbox>
+                  </section>
+                </mat-card-content>
+              </mat-card>
+          </div>
+        </mat-card>
+        <mat-card-actions layout="row">
+          <div class="text-center">
+            <button style="background-color:#ff3d00;color:#ffff;width: 20%;" flex mat-raised-button (click)="Volver()">Volver</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>

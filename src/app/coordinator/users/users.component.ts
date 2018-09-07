@@ -17,6 +17,7 @@ import { UserInformationComponent } from '../user-information/user-information.c
   styleUrls: ['./users.component.scss'],
   providers: [TdLoadingService, CoordinatorService]
 })
+
 export class UsersComponent implements OnInit {
   users: usersDto[];
   userSend: usersDto;
@@ -32,12 +33,13 @@ export class UsersComponent implements OnInit {
       this.users = res;
       console.log(res);
       console.log('cantidad', this.users.length)
-
     })
   }
+
   createUser() {
     this._router.navigate(["registro"]);
   }
+
   Confirmar(dato: usersDto): void {
     this._dialogService.openConfirm({
       message: 'Esta seguro de eliminar este usuario?',
@@ -77,11 +79,9 @@ export class UsersComponent implements OnInit {
       width: '1000px',
       height: '600px',
       data: { data: this.users, dato: user }
-
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getAllUsers();
-
     });
   }
 
@@ -111,11 +111,8 @@ export class UsersComponent implements OnInit {
       width: '600px',
       height: '600px',
       data: { data: dato }
-
     });
-    //console.log("dato", dato.itemId)
     dialogRef.afterClosed().subscribe(result => {
-
     });
   }
 
@@ -125,8 +122,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.getAllUsers();
-
-
   }
 
 }
