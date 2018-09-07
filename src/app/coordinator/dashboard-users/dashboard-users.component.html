@@ -89,20 +89,34 @@
             </mat-card>
           </div>
           <div layout="row" layout-gt-sm="row" layout-xs="column" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
-            <mat-card class="datos">
+            <!-- <mat-card class="datos">
               <mat-card-title *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
               <mat-card-title>Usuarios registrados </mat-card-title>
+            </mat-card> -->
+
+            <mat-card class="datos">
+              <mat-toolbar style="background-color:#ef6c00 ; color:black; text-align:center;">
+                <span style="text-align:center;font-family: 'Exo 2', sans-serif;">Usuarios registrados</span>
+              </mat-toolbar>
+              <div style="padding: 10px 10px 10px 10px;">
+                <mat-card-title *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
+              </div>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <button mat-button style="color:black" class="text-upper">Registrados en la plataforma</button>
+              </mat-card-actions>
             </mat-card>
             <div flex="40"></div>
             <div layout="column">
               <mat-card fxLayoutAlign="end center">
-                <mat-card-title *ngIf="users" class="text-center">{{users.length}}</mat-card-title>
-                <mat-card-title>Usuarios registrados </mat-card-title>
+                <mat-card-title>Actividades registradas {{selectValue}} </mat-card-title>
+                <mat-card-title class="text-center">{{myActivities.length}}</mat-card-title>
               </mat-card>
               <mat-card>
                 <mat-card-content>
                   <mat-form-field style="width: 100%;">
-                    <mat-select #activity name="activity"  placeholder="Seleccione actividad">
+                    <mat-select #activity name="activity" placeholder="Seleccione actividad" [(ngModel)]="selectValue" (click)="capturarId()"
+                      (ngModelChange)="actualizarCosa()">
                       <mat-option *ngFor="let activity of allActivity" [value]="activity.title">{{activity.title}}</mat-option>
                     </mat-select>
                   </mat-form-field>

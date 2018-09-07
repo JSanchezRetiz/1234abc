@@ -61,17 +61,7 @@ export class CoordinatingActivityComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
-  getActivitysById() {
-    console.log("datos traidos:", this.activityRegisterSend)
-    this.activityRegisterSend.idActivity = localStorage.getItem('idActivity');
-    console.log("id de la actividad",this.activityRegisterSend.idActivity)
-    this.coordinatorSVC.getActivitiesById(this.activityRegisterSend).then(res => {
-      this.activityRegisterSend = res.idActivity;
-      console.log("body",res);
-  
-      //console.log("resultado", this.myActivitySend);
-    })
-  }
+
   crear(dato: activityDto): void {
     const dialogRef = this._dialogRef.open(CreateActivityComponent, {
       width: '1000px',
@@ -165,7 +155,7 @@ export class CoordinatingActivityComponent implements OnInit {
     this.getUserData();
     this.getAllActivity();
     this.getAllActivityRegister();
-    this.getActivitysById();
+
 
   }
 

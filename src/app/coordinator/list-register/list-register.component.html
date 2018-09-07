@@ -10,9 +10,9 @@
   </mat-toolbar>
 
   <div style="background-color:#ff7539">
-    <mat-card  fxlayout="row" fxflex="100" fxShow.gt-sm flex>
+    <mat-card fxlayout="row" fxflex="100" fxShow.gt-sm flex>
       <mat-card-title style="color:orangered; text-align: center; font-size:40px">Lista de registrados</mat-card-title>
-      <mat-card-title style="color:orangered; text-align: center; font-size:40px">Registrar horas</mat-card-title>
+      <mat-card-title style="color:orangered; text-align: center; font-size:40px">{{myActivitySend.title}}</mat-card-title>
       <mat-card *ngFor="let user of myActivity" style="background:#ff9100">
         <div flex layout-gt-sm="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']" layout-align="center center">
           <div flex class="text-center">
@@ -22,12 +22,13 @@
             <mat-card-content class="fuente">{{user.name}} </mat-card-content>
           </div>
           <div flex class="text-center">
-            <mat-card-content class="fuente">{{user.title}}</mat-card-content>
-          </div>
-          <div flex class="text-center">
             <mat-card-content class="fuente">{{user.creationTime}}</mat-card-content>
           </div>
         </div>
+      </mat-card>
+
+      <mat-card class="text-center">
+        <mat-card-title>Total de usuarios Registrados: {{myActivity.length}}</mat-card-title>
       </mat-card>
       <mat-card-actions layout="row">
         <div class="text-center">

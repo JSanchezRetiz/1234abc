@@ -21,6 +21,7 @@ export class DashboardUsersComponent implements OnInit {
   myActivities: myActivitiesDto[];
   myActivitiesSend: myActivitiesDto;
   activitySend: activityDto;
+  selectValue: boolean;
 
   public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
   public pieChartData: number[] = [300, 500, 100];
@@ -69,7 +70,17 @@ export class DashboardUsersComponent implements OnInit {
       console.log('cantidad', this.users.length)
     })
   }
-
+  getAllActivityRegister() {
+    this.coordinatorSVC.getAllActivityRegister().then(res => {
+      this.myActivities = res;
+      console.log("todas las actividades registradas:", this.myActivities)
+      if(this.selectValue== true){
+        this.coordinatorSVC.getActivitiesById(this.myActivitiesSend).then(res=>{
+          this.myActivities=res;
+        })
+      }
+    })
+  }
   public getAllActivity() {
     this._loadingService.register();
     this.challengesSVC.getAllActivy().then(res => {
@@ -77,33 +88,37 @@ export class DashboardUsersComponent implements OnInit {
       console.log("actividades", res)
       this._loadingService.resolve();
       console.log(this.allActivity);
-      for(const key of this.allActivity){
+      for (const key of this.allActivity) {
         console.log(key.id);
       }
     })
   }
 
-  public getActivityById() {
+  getActivitysById() {
+    console.log("datos traidos:", this.myActivitiesSend.idActivity)
+    this.myActivitiesSend.idActivity = localStorage.getItem('idActivity');
+    console.log("id de la actividad", this.myActivitiesSend.idActivity)
     this.coordinatorSVC.getActivitiesById(this.myActivitiesSend).then(res => {
       this.myActivities = res;
-      console.log("resultado", res)
+      console.log(res)
+
+      //console.log("resultado", this.myActivitySend);
     })
   }
+  capturarId() {
 
+  }
   ngOnInit() {
     this.getAllUsers();
     this.getAllActivity();
-    // this.getActivityById();
-    let num = this.allActivity;
-num.forEach(function (value) {
-  console.log("valores",value);
-}); 
-
+    this.getActivitysById();
+    this.getAllActivityRegister();
   }
 
+  actualizarCosa() {
+ 
+
+
+
+  }
 }
-
-
-
-
-
